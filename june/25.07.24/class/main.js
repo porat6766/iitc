@@ -1,2 +1,3 @@
-let firstname =10;
-console.log(firstname);
+const firstName = "porat"
+const lastName = "eliya"
+
