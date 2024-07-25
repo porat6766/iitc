@@ -1,3 +1,2 @@
-const firstName = "porat"
-const lastName = "eliya"
-
+const name = namer;
+console.log(name);
