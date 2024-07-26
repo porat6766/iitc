@@ -17,7 +17,7 @@
 //17.const
 //18.its depend in some case,this become everiting to string,and some case everiting to number,or its present eror
 //19.boolean
-//20.
+//20.you use in escape charcters, them givin u sthe option to use in for example quotes in the string without to break the code.
 //21.when you put len- you can in the nexts code line to change the virables,and in constant its fixed
 //22.chek with tupeof
 //23.everyting became to string-so 105
