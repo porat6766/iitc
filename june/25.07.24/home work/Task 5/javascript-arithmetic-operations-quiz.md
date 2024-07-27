@@ -1,4 +1,4 @@
-# JavaScript Arithmetic Operations Quiz
+ # JavaScript Arithmetic Operations Quiz
 
 ## Introduction
 Before starting the quiz, watch this video for an overview of JavaScript arithmetic operations:
