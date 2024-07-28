@@ -128,3 +128,109 @@ if (amount > 1000) {
 console.log(shipping);
 
 
+//11.
+let password = "secret123";
+let isLoggedIn;
+
+if (password === "secret123") {
+isLoggedIn = true;
+}else{
+    isLoggedIn = false;
+}
+
+console.log(isLoggedIn);
+
+//12.
+let month = 9;
+let season;
+
+if (month >= 1 && month <= 3){
+    season = "winter";
+}else if (month > 3 && month <= 6){
+season = "spring";
+}else if (month > 6 && month <= 9){
+    season = "summer";
+}else if (month > 9 && month <= 12){
+    season = "fall";
+}
+console.log(season);
+
+//13.
+let income = 500000;
+let creditScore = 701;
+let loanApproved;
+
+if (income > 50000 && creditScore > 700) {
+    loanApproved = true;  
+}
+console.log(loanApproved);
+
+//14.
+let age1 = 220;
+let discount;
+
+ if (age1 < 18 || age1 > 65){
+discount = 0.2;    
+ }else{
+discount = 0;
+ }
+ 
+ console.log(discount);
+
+ //15.
+ let number1 =123;
+ let inRange;
+ 
+ if (number1 > 1 && number1 < 10){ 
+    inRange = true;
+ }else{
+    inRange = false;
+ }
+
+ console.log(inRange);
+
+ //16.
+ let dayNamber1 = 4;
+ let dayName1;
+
+ switch (dayNamber1) {
+    case 1: dayName1 = "sunday";
+    break;
+    case 2: dayName1 = "monday";
+    break;
+    case 3: dayName1 = "tuseday"; 
+    break;
+    case 4: dayName1 = "wednesday";
+    break;
+    case 5: dayName1 = "thursday";
+    break;
+    case 6: dayName1 = "friday";
+    break;
+    case 7: dayName1 = "saterday";
+    break;
+    default: dayName1 = "invalid day";
+        break;
+ }
+console.log(dayName1);
+
+17.
+let grade1 = d;
+let description1;
+
+switch (grade1) {
+    case a: description1 = "very very good";
+    break;
+    case b: description1 = "very good";
+    break;
+    case c: description1 = "good";
+    break;
+    case d: description1 = "okay"
+    break;
+    case f: description1 = "not good";
+    break;
+    default: 
+    description1 = "not grade";
+        break;
+}
+
+console.log(description1);
