@@ -213,20 +213,25 @@ discount = 0;
  }
 console.log(dayName1);
 
-17.
-let grade1 = d;
+//17.
+let grade1 = "d";
 let description1;
 
 switch (grade1) {
-    case a: description1 = "very very good";
+    case "a": 
+    description1 = "very very good";
     break;
-    case b: description1 = "very good";
+    case "b":
+    description1 = "very good";
     break;
-    case c: description1 = "good";
+    case "c": 
+    description1 = "good";
     break;
-    case d: description1 = "okay"
+    case "d": 
+    description1 = "okay"
     break;
-    case f: description1 = "not good";
+    case "f": 
+    description1 = "not good";
     break;
     default: 
     description1 = "not grade";
@@ -234,3 +239,153 @@ switch (grade1) {
 }
 
 console.log(description1);
+
+//18.
+let number2 = 2;
+let Sighn;
+
+if (number > 0) {
+Sighn = "positive";    
+}else if(number = 0){
+Sighn = "zero";
+}else if(number < 0){
+Sighn = "negative";
+}else{
+    Sighn = "num not exist";
+}
+
+console.log("kind number", Sighn);
+
+//19.
+let yearCen = 2100;
+let isCenturyLeapYear;
+
+if (yearCen % 400 === 0 && yearCen % 100 === 0) {
+isCenturyLeapYear = true;
+}else{
+    isCenturyLeapYear = false;
+}
+
+console.log("its", isCenturyLeapYear, "that this is century year");
+
+//20.
+let month5 = 4;
+let daysinMonth;
+
+switch (month5) {
+    case 1:
+    case 3:
+    case 5:
+    case 7:
+    case 8:
+    case 10:
+    case 12:
+        daysinMonth = 31
+    break;
+    case 4:
+    case 6:
+    case 9:
+    case 11:
+        daysinMonth = 30
+    break;
+    case 2:
+        daysinMonth =28
+    break;
+
+    default: daysinMonth = "month dosnt exist";
+        break;
+}
+
+console.log(daysinMonth);
+
+//21.
+let number11 = -2;
+let kindnum;
+let evorodNumb;
+ if (number11 > 0) {
+    kindnum = "positive";
+ }else if(number11 < 0){ 
+    kindnum = "negetive";
+ }else{
+    kindnum = "zero";
+}
+ console.log(kindnum);
+
+ if (kindnum === "negetive" || kindnum === "positive" ) {
+   if (number11 % 2 === 0){
+    evorodNumb = "even";
+   }    
+ } else {
+    evorodNumb = "odd";
+ }
+ console.log("number:", number11);
+ console.log("kind:", kindnum);
+ console.log("even or odd:",evorodNumb);
+
+ //22
+ let score1 = 100;
+ let attenDance = 70;
+ let grade2;
+
+ if (score1 >= 80) {
+    grade2 = "a";
+ } else if(score1 >= 70){
+    grade2 = "b";
+ }else if(score >= 60){
+    grade2 = "c";
+ }else if(score1 >= 50){
+    grade2 = "d";
+ }else{
+    grade2 = "f";
+ }
+
+if (attenDance < 80) 
+    if (grade2 === "a") {
+    grade2 = "b";        
+    }else if(grade2 === "b"){
+        grade2 ="c";
+    }else if(grade2 = "c"){
+        grade2 = "d";
+    }else if(grade2 = "d"){
+        grade2 = "f";
+    } else {
+        "You have to come talk to the manager";
+}
+
+console.log("your final grade", grade2);
+
+//23.
+let year10 = 2023;
+let leapYear;
+
+if (year10 % 400 === 0) {  // i have option to do restriction with opeartor && || 
+    leapYear = true;
+} else if(year10 % 100 === 0){
+    leapYear = false;
+}else if(year10 % 4 === 0){
+    leapYear = true;
+}else{
+    leapYear = false;
+}
+if (leapYear) {
+    console.log(year10, "this is leap year");
+} else {
+    console.log(year10, "this is not leap year");
+}
+
+//24.
+let age40 = 71;
+let isEmployed;
+
+if (age40 >= 70) {
+    isEmployed = "retiree";
+} else if(age40 < 70 && age40 > 40){
+    isEmployed = "Unemployed Adult";
+}else if(age40 >= 30 && age40 <= 40){
+    isEmployed = "Employed Adult";
+}else if(age40 >= 18 && age40 < 30){
+    isEmployed = "student";
+}else{
+    isEmployed = "you live too much";
+}
+console.log("You are defined as a", isEmployed);

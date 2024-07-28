@@ -46,6 +46,15 @@ const index = foods.indexOf("watermelon");
 console.log(index);
 
 //8.
+let numbers = [5, 10, 15, 20, 25 ,30];
+let sum = 0;
+
+for(let i = 0; i < numbers.length; i++){
+sum += numbers[i];
+}
+
+console.log("the sum of the numbers", sum);
+
 
 
 
