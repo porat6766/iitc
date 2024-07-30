@@ -171,4 +171,96 @@ for (let i = 1; i <= 10; i++) {
     sum33 += i;
   }
 }
-console.log(sum33);
+
+//26.
+let l = 3;
+
+for (let i = 1; i <= l; i++) {
+  let line = "";
+
+  for (let k = 1; k <= l - i; k++) {
+    line += " ";
+  }
+  for (let f = 1; f <= i; f++) {
+    line += "*";
+  }
+  console.log(line);
+}
+
+// let l = 3;
+
+// for (let i = 1; i <= l; i++) {
+//   let line = "";
+
+//   // הוספת רווחים
+//   for (let k = 1; k <= l - i; k++) {
+//     line += " ";
+//   }
+
+//   // הוספת כוכבים
+//   for (let f = 1; f <= i; f++) {
+//     line += "*";
+//   }
+
+//   // הדפסת השורה
+//   console.log(line);
+// // }
+
+//27.
+let lin = 3;
+for (let i = 0; i < lin; i++) {
+  let spaceLine = "";
+  for (let s = 0; s < 3; s++) {
+    spaceLine += "*";
+  }
+  console.log(spaceLine);
+}
+
+// // Number of rows and columns in the grid
+// const size = 3;
+
+// // Outer loop for each row
+// for (let i = 0; i < size; i++) {
+//   let row = '';
+
+//   // Inner loop for each column
+//   for (let j = 0; j < size; j++) {
+//     row += '*'; // Add an asterisk to the current row
+//   }
+
+//   // Print the constructed row
+//   console.log(row);
+// }
+
+//28.
+let linSp = 3;
+
+for (let i = 0; i <= linSp; i++) {
+  discrLine = "";
+  for (let n = 1; n <= i; n++) {
+    discrLine += n;
+  }
+  console.log(discrLine);
+}
+
+//29.
+let linMul = 4;
+
+for (let i = 1; i <= linMul; i++) {
+  let lineMult = "";
+  for (let n = 1; n <= linMul; n++) {
+    lineMult += i * n + "\t";
+  }
+  console.log(lineMult);
+}
+
+//30.
+let lineun = 3;
+
+for (let i = 1; i <= lineun; i++) {
+  let discrLine1 = "";
+  for (let n = 1; n <= i; n++) {
+    discrLine1 += n;
+  }
+  console.log(discrLine1);
+}
