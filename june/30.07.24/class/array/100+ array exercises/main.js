@@ -1,127 +1,207 @@
-// # 100+ Array Exercises for JavaScript with Hints and W3Schools Links
+// // // # 100+ Array Exercises for JavaScript with Hints and W3Schools Links
 
-// ## Basic Syntax and Declaration
-// [W3Schools Array Declaration](https://www.w3schools.com/js/js_arrays.asp)
+// // // ## Basic Syntax and Declaration
+// // // [W3Schools Array Declaration](https://www.w3schools.com/js/js_arrays.asp)
 
-// 1. Declare an empty array called `fruits`.
-//    Hint: Use square brackets `[]` to create an empty array.
-let fruit = [];
+// // // 1. Declare an empty array called `fruits`.
+// // //    Hint: Use square brackets `[]` to create an empty array.
+// // let fruit = [];
 
-// 2. Create an array `numbers` with the values 1, 2, 3, 4, and 5.
-//    Hint: Separate values with commas inside square brackets.
+// // // 2. Create an array `numbers` with the values 1, 2, 3, 4, and 5.
+// // //    Hint: Separate values with commas inside square brackets.
 
-// 3. Initialize an array `colors` with three string values: "red", "green", "blue".
-//    Hint: Use quotes for string values in the array.
+// // // 3. Initialize an array `colors` with three string values: "red", "green", "blue".
+// // //    Hint: Use quotes for string values in the array.
 
-// 4. Create an array `mixed` with different data types: a number, a string, and a boolean.
-//    Hint: JavaScript arrays can hold multiple data types.
+// // // 4. Create an array `mixed` with different data types: a number, a string, and a boolean.
+// // //    Hint: JavaScript arrays can hold multiple data types.
 
-// 5. Declare an array `seasons` with the four seasons as string values.
-//    Hint: Think about the names of the four seasons.
+// // // 5. Declare an array `seasons` with the four seasons as string values.
+// // //    Hint: Think about the names of the four seasons.
 
-//5.
-let season = ["winter", "summer", "spring", "fall"];
+// // //5.
+// // let season = ["winter", "summer", "spring", "fall"];
 
-// ## Array Length
-// [W3Schools Array Length](https://www.w3schools.com/js/js_array_length.asp)
+// // // ## Array Length
+// // // [W3Schools Array Length](https://www.w3schools.com/js/js_array_length.asp)
 
-// 6. Write a statement to print the length of the `numbers` array.
-//    Hint: Use the `length` property of the array.
+// // // 6. Write a statement to print the length of the `numbers` array.
+// // //    Hint: Use the `length` property of the array.
 
-//6.
-let numbers = [1, 2, 3, 4, 5];
-let longLength = numbers.length;
-console.log(longLength);
-// 7. Create an array `emptyCheck` and write an if statement to check if it's empty.
-//    Hint: An empty array has a length of 0.
+// // //6.
+// // // let numbers = [1, 2, 3, 4, 5];
+// // // let longLength = numbers.length;
+// // // console.log(longLength);
+// // // 7. Create an array `emptyCheck` and write an if statement to check if it's empty.
+// // //    Hint: An empty array has a length of 0.
 
-// 8. Initialize an array `dynamic` with 5 elements and print its length.
-//    Hint: The length will be equal to the number of elements.
+// // // 8. Initialize an array `dynamic` with 5 elements and print its length.
+// // //    Hint: The length will be equal to the number of elements.
 
-// 9. Add an element to `dynamic` and print the new length.
-//    Hint: Adding an element increases the length by 1.
+// // // 9. Add an element to `dynamic` and print the new length.
+// // //    Hint: Adding an element increases the length by 1.
 
-// 10. Remove an element from `dynamic` and print the updated length.
-//     Hint: Removing an element decreases the length by 1.
+// // // 10. Remove an element from `dynamic` and print the updated length.
+// // //     Hint: Removing an element decreases the length by 1.
 
-//10.
-let dynamic = ["poe", "trt", "fre"];
-console.log(dynamic.length);
-let newdynamic = dynamic.pop();
-console.log(dynamic.length);
-// ## Accessing Elements
-// [W3Schools Accessing Array Elements](https://www.w3schools.com/js/js_array_access.asp)
+// // // ## Accessing Elements
+// // // [W3Schools Accessing Array Elements](https://www.w3schools.com/js/js_array_access.asp)
 
-// 11. Print the first element of the `colors` array.
-//     Hint: Array indices start at 0.
+// // //10.
+// // let dynamic = ["poe", "trt", "fre"];
+// // console.log(dynamic.length);
+// // let newdynamic = dynamic.pop();
+// // console.log(dynamic.length);
 
-// 12. Access and display the last element of the `seasons` array.
-//     Hint: Use `array.length - 1` to get the last index.
+// // // 11. Print the first element of the `colors` array.
+// // //     Hint: Array indices start at 0.
 
-// 13. Print the middle element of the `numbers` array.
-//     Hint: Calculate the middle index using `Math.floor()`.
+// // // let colors = ["yellow", "red", "brown"];
+// // // console.log(colors[0]);
 
-// 14. Try to access an index that doesn't exist in `fruits` and print the result.
-//     Hint: Accessing a non-existent index returns `undefined`.
+// // // 12. Access and display the last element of the `seasons` array.
+// // //     Hint: Use `array.length - 1` to get the last index.
 
-// 15. Use a template literal to print "The second color is [second color]" using the `colors` array.
-//     Hint: Use `${}` in template literals to embed expressions.
+// // let season = ["winter", "spring", "fall", "summer"];
+// // console.log(season[season.length - 1]);
 
-// ## Modifying Elements
-// [W3Schools Changing Array Elements](https://www.w3schools.com/js/js_array_methods.asp)
+// // 13. Print the middle element of the `numbers` array.
+// //     Hint: Calculate the middle index using `Math.floor()`.
 
-// 16. Change the first element of `fruits` to "apple".
-//     Hint: Assign a new value using the index.
+// // 14. Try to access an index that doesn't exist in `fruits` and print the result.
+// //     Hint: Accessing a non-existent index returns `undefined`.
 
-// 17. Update the last element of `numbers` to be 10.
-//     Hint: Use `array.length - 1` to get the last index.
+// // 15. Use a template literal to print "The second color is [second color]" using the `colors` array.
+// //     Hint: Use `${}` in template literals to embed expressions.
 
-// 18. Double the value of the third element in the `numbers` array.
-//     Hint: Multiply the current value by 2.
+// // let colors = ["red", "brown", "yellow", "green"];
+// // console.log(`The second color is: ${colors[1]}`);
 
-// 19. Change all elements in `colors` to uppercase.
-//     Hint: Use a loop and the `toUpperCase()` method.
+// // // ## Modifying Elements
+// // // [W3Schools Changing Array Elements](https://www.w3schools.com/js/js_array_methods.asp)
 
-// 20. Swap the first and last elements of the `seasons` array.
-//     Hint: Use a temporary variable to hold one value during the swap.
+// // // 16. Change the first element of `fruits` to "apple".
+// // //     Hint: Assign a new value using the index.
 
-// ## Array Methods: push() and pop()
-// [W3Schools Array push()](https://www.w3schools.com/jsref/jsref_push.asp)
-// [W3Schools Array pop()](https://www.w3schools.com/jsref/jsref_pop.asp)
+// // let fruit = ["pear", "banana", "peach", "watermelon"];
+// // fruit[0] = "apple";
+// // console.log(fruit);
 
-// 21. Add "orange" to the end of the `fruits` array using `push()`.
-//     Hint: `push()` adds elements to the end of an array.
+// // // 17. Update the last element of `numbers` to be 10.
+// // //     Hint: Use `array.length - 1` to get the last index.
 
-// 22. Remove the last element from `numbers` using `pop()` and print the removed element.
-//     Hint: `pop()` removes and returns the last element.
+// // // 18. Double the value of the third element in the `numbers` array.
+// // //     Hint: Multiply the current value by 2.
 
-// 23. Add three colors to `colors` in a single line using `push()`.
-//     Hint: `push()` can accept multiple arguments.
+// // // 19. Change all elements in `colors` to uppercase.
+// // //     Hint: Use a loop and the `toUpperCase()` method.
+// // let seasons = ["winter", "fall", "spring", "summer"];
+// // // console.log(seasons);
+// // seasons = seasons.map(function (season) {
+// //   return season.toUpperCase();
+// // });
+// // // console.log(seasons);
 
-// 24. Create a loop that `push()`es numbers 1 to 5 into an empty array.
-//     Hint: Use a for loop with `push()` inside.
+// // let seasons = ["winter", "fall", "spring", "summer"];
 
-// 25. Use `pop()` in a loop to empty an array and print each removed element.
-//     Hint: Continue the loop while the array's length is greater than 0.
+// // seasons.map(function (season) {
+// //   console.log(season.toUpperCase());
+// // });
+// // // // 20. Swap the first and last elements of the `seasons` array.
+// // // //     Hint: Use a temporary variable to hold one value during the swap.
 
-// ## Array Methods: unshift() and shift()
-// [W3Schools Array unshift()](https://www.w3schools.com/jsref/jsref_unshift.asp)
-// [W3Schools Array shift()](https://www.w3schools.com/jsref/jsref_shift.asp)
+// // // let season = ["winter", "fall", "spring", "summer"];
+// // // let swap = season[0];
+// // season[0] = season[season.length - 1];
+// // season[season.length - 1] = swap;
+// // // console.log(season);
 
-// 26. Add "mango" to the beginning of `fruits` using `unshift()`.
-//     Hint: `unshift()` adds elements to the beginning of an array.
+// // // let season = ["winter", "fall", "spring", "summer"];
+// // // let hold = season[0];
+// // // season[0] = season[season.length - 1];
+// // // season[season.length - 1] = hold;
+// // // // console.log(season);
 
-// 27. Remove the first element from `numbers` using `shift()` and print the removed element.
-//     Hint: `shift()` removes and returns the first element.
+// // // let season = ["winter", "fall", "spring", "summer"];
+// // // let hold = season[0];
+// // // season[0] = season[season.length - 1];
+// // // season[season.length - 1] = hold;
+// // // console.log(season);
+// // // // // ## Array Methods: push() and pop()
+// // // // // [W3Schools Array push()](https://www.w3schools.com/jsref/jsref_push.asp)
+// // // // // [W3Schools Array pop()](https://www.w3schools.com/jsref/jsref_pop.asp)
+
+// // // // 21. Add "orange" to the end of the `fruits` array using `push()`.
+// // // //     Hint: `push()` adds elements to the end of an array.
+
+// // // let seasons = ["winter", "fall", "spring", "summer"];
+// // // seasons.push("orange");
+// // // console.log(seasons);
+
+// // // 22. Remove the last element from `numbers` using `pop()` and print the removed element.
+// // //     Hint: `pop()` removes and returns the last element.
+
+// // let seasons = ["winter", "fall", "spring", "summer"];
+
+// // let rem = seasons.pop(seasons[seasons.length - 1]);
+
+// // console.log(rem);
+
+// // 23. Add three colors to `colors` in a single line using `push()`.
+// //     Hint: `push()` can accept multiple arguments.
+
+// // 24. Create a loop that `push()`es numbers 1 to 5 into an empty array.
+// //     Hint: Use a for loop with `push()` inside.
+
+// // 25. Use `pop()` in a loop to empty an array and print each removed element.
+// //     Hint: Continue the loop while the array's length is greater than 0.
+
+// // let seasons = ["winter", "fall", "spring", "summer"];
+// // while (seasons.length > 0) {
+// //   console.log(seasons.pop());
+// // }
+// // console.log(seasons);
+
+// let seasons = ["winter", "fall", "spring", "summer"];
+
+// while (seasons.length - 1 > 0) {
+//   seasons.pop();
+// }
+// console.log(seasons);
+// // // ## Array Methods: unshift() and shift()
+// // [W3Schools Array unshift()](https://www.w3schools.com/jsref/jsref_unshift.asp)
+// // [W3Schools Array shift()](https://www.w3schools.com/jsref/jsref_shift.asp)
+
+// // 26. Add "mango" to the beginning of `fruits` using `unshift()`.
+// //     Hint: `unshift()` adds elements to the beginning of an array.
+// let seasons = ["winter", "fall", "spring", "summer"];
+// seasons.unshift("mango");
+// console.log(seasons);
+// // 27. Remove the first element from `numbers` using `shift()` and print the removed element.
+// //     Hint: `shift()` removes and returns the first element.
 
 // 28. Add three numbers to the beginning of `numbers` in a single line using `unshift()`.
 //     Hint: Like `push()`, `unshift()` can accept multiple arguments.
 
-// 29. Create a loop that `unshift()`s numbers 5 to 1 into an empty array.
-//     Hint: Use a for loop that counts backwards.
+// // 29. Create a loop that `unshift()`s numbers 5 to 1 into an empty array.
+// //     Hint: Use a for loop that counts backwards.
+
+// let seasons = [];
+
+// for (let i = 5; i >= 1; i--) {
+//   seasons.unshift(i);
+// }
+// console.log(seasons);
 
 // 30. Use `shift()` in a loop to empty an array and print each removed element.
 //     Hint: Similar to the `pop()` loop, but use `shift()` instead.
+
+let seasons = ["winter", "fall", "spring", "summer"];
+do {
+  console.log(seasons);
+  seasons.shift();
+  console.log(seasons);
+} while (seasons.length > 0);
 
 // ## Array Methods: indexOf() and lastIndexOf()
 // [W3Schools Array indexOf()](https://www.w3schools.com/jsref/jsref_indexof_array.asp)
