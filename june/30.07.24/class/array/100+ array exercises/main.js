@@ -193,19 +193,48 @@
 // }
 // console.log(seasons);
 
-// 30. Use `shift()` in a loop to empty an array and print each removed element.
-//     Hint: Similar to the `pop()` loop, but use `shift()` instead.
+// // 30. Use `shift()` in a loop to empty an array and print each removed element.
+// //     Hint: Similar to the `pop()` loop, but use `shift()` instead.
 
-let seasons = ["winter", "fall", "spring", "summer"];
-do {
-  console.log(seasons);
-  seasons.shift();
-  console.log(seasons);
-} while (seasons.length > 0);
+// let seasons = ["winter", "fall", "spring", "summer"];
+// console.log(seasons);
 
-// ## Array Methods: indexOf() and lastIndexOf()
-// [W3Schools Array indexOf()](https://www.w3schools.com/jsref/jsref_indexof_array.asp)
-// [W3Schools Array lastIndexOf()](https://www.w3schools.com/jsref/jsref_lastindexof_array.asp)
+// while (seasons.length > 0) {
+//   let remo = seasons.shift();
+//   console.log(remo);
+// }
+
+// // console.log(`WHAT IS THE SEASON?`{seasons.prompt});
+
+// for (let i = 1; i <= 10; i++) {
+//   let line = "";
+//   for (let j = 1; j <= 10; j++) {
+//     line = i * j;
+//     console.log(line);
+//   }
+//   // console.log(line);
+// // }
+
+for (let i = 1; i <= 10; i++) {
+  let multi = "";
+
+  for (let j = 1; j <= 10; j++) {
+    multi += i * j;
+  }
+  console.log(multi);
+}
+
+// // for (let i = 1; i <= 10; i++) {
+// //   let linemulti = "";
+
+// //   for (let j = 1; j <= 10; j++) {
+// //     linemulti += i * j;
+// //   }
+// //   console.log(linemulti);
+// }
+// // ## Array Methods: indexOf() and lastIndexOf()
+// // [W3Schools Array indexOf()](https://www.w3schools.com/jsref/jsref_indexof_array.asp)
+// // [W3Schools Array lastIndexOf()](https://www.w3schools.com/jsref/jsref_lastindexof_array.asp)
 
 // 31. Find the index of "green" in the `colors` array.
 //     Hint: `indexOf()` returns the first occurrence of an element.
