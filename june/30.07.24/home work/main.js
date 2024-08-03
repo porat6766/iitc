@@ -368,21 +368,77 @@
 //   [3, 4],
 //   [5, 6],
 // ];
-// oneDionmantional(arr);
+// // oneDionmantional(arr);
 
-let arr = [
-  [1, 2],
-  [3, 4],
-  [5, 6],
-];
+// let arr = [
+//   [1, 2],
+//   [3, 4],
+//   [5, 6],
+// ];
 
-function newArray(array) {
-  let array2 = [];
-  for (let i = 0; i < array.length; i++) {
-    for (let j = 0; j < array[i].length; j++) {
-      array2.push(array[i][j]);
-    }
-  }
-  console.log(array2);
-}
-newArray(arr);
+// function newArray(array) {
+//   let array2 = [];
+//   for (let i = 0; i < array.length; i++) {
+//     for (let j = 0; j < array[i].length; j++) {
+//       array2.push(array[i][j]);
+//     }
+//   }
+//   console.log(array2);
+// // }
+// // // newArray(arr);
+
+// //10.
+
+// let array2d = [
+//   [1, 2, 3],
+//   [4, 5, 6],
+// ];
+
+// function changeArray2d(array) {
+//   let newArray2d = [];
+
+//   for (let i = 0; i < 2; i++) {
+//     for (let j = 0; j <= 2; j++) {
+//       newArray2d += `[${array[i][j]},  ${array[i + 1][j]}] `;
+//     }
+//     console.log(newArray2d);
+//   }
+// }
+// // changeArray2d(array2d);
+
+// // //11.
+
+// let strCheck = "sasson";
+
+// function isPalindrome(str) {
+//   let newStr = "";
+//   for (let i = str.length - 1; i >= 0; i--) {
+//     newStr += str[i];
+//   }
+//   if (newStr === str) {
+//     console.log(`this is palindrome`);
+//   } else {
+//     console.log(`sorry mabe next time`);
+//   }
+// }
+// isPalindrome(strCheck);
+
+//12.
+
+// let array1 = [5, 2, 3, 4, 5, 6];
+// let array2 = [7, 2, 3, 9, 5, 6];
+
+// let commonElements = "";
+// function checkMatche(arrayChecker, arrayTested) {
+//   for (let i = 0; i < arrayChecker.length; i++) {
+//     for (let j = 0; j < arrayTested.length; j++) {
+//       if (arrayChecker[i] === arrayTested[j]) {
+//         if (!commonElements.includes(arrayChecker[i])) {
+//           commonElements += arrayChecker[i] + " ";
+//         }
+//       }
+//     }
+//   }
+//   console.log(`this is the common numbers ${commonElements.trim()}`);
+// }
+// checkMatche(array1, array2);

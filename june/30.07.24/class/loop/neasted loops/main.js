@@ -72,18 +72,18 @@
 //     }
 //     console.log(line);
 //   }
+// // }
+// // indexes(3, 3);
+
+// //5.
+
+// function multiplication(g) {
+//   for (let i = 1; i <= g; i++) {
+//     let row = "";
+//     for (let j = 1; j <= g; j++) {
+//       row += i * j;
+//     }
+//     console.log(row);
+//   }
 // }
-// indexes(3, 3);
-
-//5.
-
-function multiplication(g) {
-  for (let i = 1; i <= g; i++) {
-    let row = "";
-    for (let j = 1; j <= g; j++) {
-      row += i * j;
-    }
-    console.log(row);
-  }
-}
-multiplication(3);
+// multiplication(3);
