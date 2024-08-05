@@ -162,6 +162,17 @@
 // 5 10 15 20 25
 // */
 
+function multiplication(x) {
+  for (let i = 1; i <= x; i++) {
+    let newLine = "";
+    for (let j = 1; j <= x; j++) {
+      newLine += i * j;
+    }
+  }
+  return newLine;
+}
+console.log(multiplication(5));
+
 // function makeMultTable() {
 //   for (let i = 1; i <= 10; i++) {
 //     let row = `Mult of ${i} --- `;

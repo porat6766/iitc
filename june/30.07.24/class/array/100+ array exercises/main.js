@@ -194,21 +194,21 @@
 // console.log(seasons);
 
 // // 30. Use `shift()` in a loop to empty an array and print each removed element.
-// //     Hint: Similar to the `pop()` loop, but use `shift()` instead.
+// // //     Hint: Similar to the `pop()` loop, but use `shift()` instead.
 
-let seasons = ["winter", "fall", "spring", "summer"];
-// console.log(seasons);
-// while (seasons.length > 0) {
-//   seasons.shift();
-// }
-// console.log(seasons);
+// let seasons = ["winter", "fall", "spring", "summer"];
+// // console.log(seasons);
+// // while (seasons.length > 0) {
+// //   seasons.shift();
+// // }
+// // console.log(seasons);
 
-console.log(`WHAT IS THE SEASON?`, seasons.prompt());
+// console.log(`WHAT IS THE SEASON?`, seasons.prompt());
 
-// for (let i = 1; i <= 10; i++) {
-//   let line = "";
-//   for (let j = 1; j <= 10; j++) {
-//     line = i * j;
+// // for (let i = 1; i <= 10; i++) {
+// //   let line = "";
+// //   for (let j = 1; j <= 10; j++) {
+// //     line = i * j;
 //     console.log(line);
 //   }
 //   // console.log(line);
@@ -238,14 +238,32 @@ console.log(`WHAT IS THE SEASON?`, seasons.prompt());
 // 31. Find the index of "green" in the `colors` array.
 //     Hint: `indexOf()` returns the first occurrence of an element.
 
+// console.log(colors);
+
+// let indexColorChoose = colors.indexOf("green");
+// console.log(indexColorChoose);
+
 // 32. Check if "winter" exists in `seasons` using `indexOf()`.
-//     Hint: `indexOf()` returns -1 if the element is not found.
+// //     Hint: `indexOf()` returns -1 if the element is not found.
+// let seasons = ["winter", "fall", "spring", "summer"];
+// let indexOfWinter = seasons.indexOf("winter");
+// console.log(indexOfWinter);
 
-// 33. Add "red" to the end of `colors` and find its last occurrence using `lastIndexOf()`.
-//     Hint: `lastIndexOf()` searches from the end of the array.
+// // 33. Add "red" to the end of `colors` and find its last occurrence using `lastIndexOf()`.
+// //     Hint: `lastIndexOf()` searches from the end of the array.
+// const colors = ["yellow", "brown", "blue", "green"];
+// colors.push("red");
+// let indexLastColors = colors.lastIndexOf("red");
+// // console.log(indexLastColors);
 
-// 34. Create an array with duplicate values and use `indexOf()` and `lastIndexOf()` to find the first and last occurrences.
-//     Hint: Compare the results of both methods.
+// // 34. Create an array with duplicate values and use `indexOf()` and `lastIndexOf()` to find the first and last occurrences.
+// //     Hint: Compare the results of both methods.
+const colors1 = ["pink", "red", "yellow", "brown", "blue", "red", "green"];
+let colorToFind = "red";
+const indexOfFirstOne = colors1.indexOf(colorToFind);
+const indexOfLastOne = colors1.lastIndexOf(colorToFind);
+console.log(`first coolor: ${colorToFind}, in index : ${indexOfFirstOne}`);
+console.log(indexOfLastOne);
 
 // 35. Use `indexOf()` to check if an array contains a specific value, and print a boolean result.
 //     Hint: Compare the result of `indexOf()` to -1.
