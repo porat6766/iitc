@@ -1,32 +1,28 @@
 // //
 // //
 // // //
-// // //
-// // //
-// // // "use strict";
+// // // //
+// // // //
+// // // // // "use strict";
 
-// // let person = {
-// //   name: "John",
-// //   age: 17,
-// //   address: {
-// //     city: "New York",
-// //     zip: "10001",
-// //   },
-// // };
-// // // TODO: Write a function to update the person's city
-// // // function updateCity(person, newCity) {
-// // // your code here}
+let person = {
+  name: "John",
+  age: 17,
+  address: {
+    city: "New York",
+    zip: "10001",
+  },
+};
+// // // // TODO: Write a function to update the person's city
+// // // // // function updateCity(person, newCity) {
+// // // // // your code here}
 
-// // function updateCity(person, newCity) {
-// //   if (person.address) {
-// //     person.address.city = newCity;
-// //   } else {
-// //     person.address = { city: newCity };
-// //   }
-// //   return person;
-// // }
+// function updateCity(person, newCity) {
+//   person.address.city = newCity;
+//   return person;
+// }
 
-// // // console.log(updateCity(person, "asdod"));
+// console.log(updateCity(person, "asdod"));
 
 // // // updateCity(person, "Los Angeles");
 // // // console.log("Updated Person:", person);
@@ -36,19 +32,26 @@
 // // /////////////////////////////////////////////////////
 
 // // // // TODO: Write a function to return an array of student names
-// // // function getStudentNames(students) {
-// // //   // your code here
-// // // }
+// // // // function getStudentNames(students) {
+// // // //   // your code here
+// // // // }
 
-// // function getStudentNames(students) {
-// //   let arrayNamees = [];
-// //   for (let i = 0; i < students.length; i++) {
-// //     keyName = students[i].name;
-// //     arrayNamees.push("Student Names :", i, keyName);
-// //   }
-// //   return arrayNamees;
-// // }
-// // console.log(getStudentNames(students));
+// let students = [
+//   { id: 1, name: "Alice", age: 20 },
+//   { id: 2, name: "Bob", age: 22 },
+//   { id: 3, name: "Charlie", age: 19 },
+// ];
+
+// function getStudentNames(students) {
+//   let arrayNamees = [];
+//   for (let i = 0; i < students.length; i++) {
+//     keyName = students[i].name;
+//     arrayNamees.push(i, keyName);
+//   }
+//   return arrayNamees;
+// }
+// getStudentNames(students);
+// console.log("student name: ", students);
 
 // // // let names = getStudentNames(students);
 // // // console.log("Student Names:", names);
@@ -93,13 +96,7 @@
 // // // addStudent(students, { id: 4, name: "Charlie", age: 19 });
 // // // console.log("Updated Students:", students);
 // // function toggleAvailability(product) {
-// // /////////////////////////////////////////////////////
-
-// let students = [
-//   { id: 1, name: "Alice", age: 20 },
-//   { id: 2, name: "Bob", age: 22 },
-//   { id: 3, name: "Charlie", age: 19 },
-// ];
+// // // /////////////////////////////////////////////////////
 
 // function addStudent(students, newStudent) {
 //   students.push(newStudent);
@@ -128,36 +125,40 @@
 
 // function updatePrice(product, newPrice) {
 //   product.price = newPrice;
-//   return product;
-// }
-// console.log(updatePrice(product, 1500));
+// //   return product;
+// // }
+// // console.log(updatePrice(product, 1500));
 
-// // updatePrice(product, 1500);
-// // console.log("Updated Product:", product);
+// // // updatePrice(product, 1500);
+// // // console.log("Updated Product:", product);
 
-// // TODO: Write a function to remove a category from the product
-// function removeCategory(product, category) {
-//   // your code here
-// }
+// // // TODO: Write a function to remove a category from the product
+// // function removeCategory(product, category) {
+// //   // your code here
+// // // }
 
-let product = {
-  name: "Laptop",
-  price: 1200,
-  isAvailable: true,
-  categories: ["electronics", "computers", "tech"],
-};
+// let product = {
+//   name: "Laptop",
+//   price: 1200,
+//   isAvailable: true,
+//   categories: ["electronics", "computers", "tech"],
+// };
 
-// function removeCategory(product, category) {
-//   if (category) {
-//     delete product[category];
+// function removeCategory(product, value) {
+//   let wayToTheKey = product.categories;
+//   for (let i = 0; i < wayToTheKey.length; i++) {
+//     if (wayToTheKey[i] === value) {
+//       product.categories.splice(i, 1);
+//       break;
+//     }
 //   }
 //   return product;
 // }
-// // console.log(removeCategory(product, "tech"));
+// console.log(removeCategory(product, "tech"));
 
-// function removeCategory(product, category) {
-//   if (Array.isArray(product.categories)) {
-//     for (let i = 0; i < product.categories.length; i++) {
+// // function removeCategory(product, category) {
+// //   if (Array.isArray(product.categories)) {
+// //     for (let i = 0; i < product.categories.length; i++) {
 //       if (product.categories[i] === category) {
 //         product.categories.splice([i]);
 //       }
@@ -169,8 +170,34 @@ let product = {
 
 // // removeCategory(product, "tech");
 // // console.log("Updated Product:", product)
+/////////////////////////////////////////////////////
 
-// /////////////////////////////////////////////////////
+// // // TODO: Write a function to find the most expensive product
+// // function findMostExpensiveProduct(products) {
+// //   // your code here
+// // }
+
+// function expensiveProduct(products) {
+//   let expensiveName = "";
+//   let maxPrice = -Infinity;
+//   for (let i = 0; i < products.length; i++) {
+//     let currentPrice = products[i].price;
+//     if (currentPrice > maxPrice) {
+//       maxPrice = currentPrice;
+//       expensiveName = products[i].name;
+//     }
+//   }
+//   return expensiveName;
+// }
+// console.log(expensiveProduct("most expensive product", products));
+
+// // let expensiveProduct = findMostExpensiveProduct(products);
+// // console.log("Most Expensive Product:", expensiveProduct);
+
+// // // TODO: Write a function to return an array of only available product sizes
+// // function getAvailableSizes(products) {
+// //   // your code here
+// // }
 
 // let products = [
 //   { name: "Laptop", price: 1000, sizes: ["M", "L"], isAvailable: true },
@@ -178,39 +205,50 @@ let product = {
 //   { name: "Keyboard", price: 52, sizes: ["L", "XL"], isAvailable: true },
 // ];
 
-// // TODO: Write a function to find the most expensive product
-// function findMostExpensiveProduct(products) {
-//   // your code here
-// }
-
-// // let expensiveProduct = findMostExpensiveProduct(products);
-// // console.log("Most Expensive Product:", expensiveProduct);
-
-// // TODO: Write a function to return an array of only available product sizes
 // function getAvailableSizes(products) {
-//   // your code here
+//   let availableSizes = [];
+//   for (let i = 0; i < products.length; i++) {
+//     let isAvailablePlace = products[i].isAvailable;
+//     let sizePlace = products[i].sizes;
+//     if (isAvailablePlace === true) {
+//       availableSizes.push(sizePlace);
+//     }
+//   }
+//   return availableSizes;
 // }
+// console.log(getAvailableSizes(products));
 
 // // let sizes = getAvailableSizes(products);
 // // console.log("Available Sizes:", sizes);
 
-// /////////////////////////////////////////////////////
+// // /////////////////////////////////////////////////////
 
 // let student = {
 //   name: "Alice",
 //   age: 20,
 // };
 
-// // TODO: Write a function to add a new property to the student object
+// // // TODO: Write a function to add a new property to the student object
+// // function addProperty(student, key, value) {
+// //   // your code here
+// // }
+
 // function addProperty(student, key, value) {
-//   // your code here
+//   student[key] = value;
+//   return student;
 // }
+// addProperty(student, "job status", "work");
+// console.log(student);
 
 // // addProperty(student, "grade", "A");
 // // console.log("Updated Student:", student);
 
-// /////////////////////////////////////////////////////
+// // /////////////////////////////////////////////////////
 
+// // // TODO: Write a function to update a student's grade in a subject
+// // function updateStudentGrade(school, studentId, subject, newGrade) {
+// //   // your code here
+// // }
 // let school = {
 //   name: "Greenwood High",
 //   address: {
@@ -222,37 +260,68 @@ let product = {
 //     { id: 2, name: "Bob", grades: { math: 92, english: 88 } },
 //   ],
 // };
+// // function updateStudentGrade(school, studentId, subject, newGrade) {
+// //   school.students[studentId - 1].grades[subject] = newGrade;
+// // }
+// // updateStudentGrade(school, 1, "math", 90);
+// // // console.log(school);
 
-// // TODO: Write a function to update a student's grade in a subject
-// function updateStudentGrade(school, studentId, subject, newGrade) {
-//   // your code here
-// }
+// // function updateStudentGrade(school, studentId, subject, newGrade) {
+// //   school.students[studentId - 1].grades[subject] = [newGrade];
+// // }
 
 // // updateStudentGrade(school, 1, "math", 90);
-// // console.log("Updated School:", school);
+// // console.log(school);
 
-// /////////////////////////////////////////////////////
+// // // updateStudentGrade(school, 1, "math", 90);
+// // // console.log("Updated School:", school);
 
-// let orders = [
-//   { id: 1, product: "Laptop", status: "delivered" },
-//   { id: 2, product: "Mouse", status: "pending" },
-//   { id: 3, product: "Keyboard", status: "delivered" },
-//   { id: 4, product: "Monitor", status: "pending" },
-//   { id: 5, product: "Laptop", status: "shipped" },
-// ];
+// // /////////////////////////////////////////////////////
 
-// // TODO: Write a function to return an array of only delivered orders
-// function getDeliveredOrders(orders) {
-//   // your code here
+// // // TODO: Write a function to return an array of only delivered orders
+// // function getDeliveredOrders(orders) {
+// //   // your code here
+// // }
+// // // let deliveredOrders = getDeliveredOrders(orders);
+// // // console.log("Delivered Orders:", deliveredOrders);
+
+// function getDeliveredOrders(orders, x) {
+//   let deliverdArray = [];
+//   for (let i = 0; i < orders.length; i++) {
+//     keyStatus = orders[i].status;
+//     if (keyStatus === x) {
+//       deliverdArray.push(orders[i]);
+//     }
+//   }
+//   return deliverdArray;
 // }
+// console.log(getDeliveredOrders(orders, "delivered"));
 
-// // let deliveredOrders = getDeliveredOrders(orders);
-// // console.log("Delivered Orders:", deliveredOrders);
-
+let orders = [
+  { id: 1, product: "Laptop", status: "delivered" },
+  { id: 2, product: "Mouse", status: "pending" },
+  { id: 3, product: "Keyboard", status: "delivered" },
+  { id: 4, product: "Monitor", status: "pending" },
+  { id: 5, product: "Laptop", status: "shipped" },
+];
 // // TODO: Write a function to count the occurrences of each product in the orders
 // function countProductOccurrences(orders) {
 //   // your code here
 // }
+
+function countProductOccurrences(orders) {
+  let occurrencesObjects = {};
+  for (let i = 0; i < orders.length; i++) {
+    kindOfProduct = orders[i].product;
+    if (!occurrencesObjects[kindOfProduct]) {
+      occurrencesObjects[kindOfProduct] = 1;
+    } else {
+      occurrencesObjects[kindOfProduct]++;
+    }
+  }
+  return occurrencesObjects;
+}
+console.log(countProductOccurrences(orders));
 
 // // let productCounts = countProductOccurrences(orders);
 // // console.log("Product Counts:", productCounts);

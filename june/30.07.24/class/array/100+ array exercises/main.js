@@ -196,15 +196,14 @@
 // // 30. Use `shift()` in a loop to empty an array and print each removed element.
 // //     Hint: Similar to the `pop()` loop, but use `shift()` instead.
 
-// let seasons = ["winter", "fall", "spring", "summer"];
+let seasons = ["winter", "fall", "spring", "summer"];
+// console.log(seasons);
+// while (seasons.length > 0) {
+//   seasons.shift();
+// }
 // console.log(seasons);
 
-// while (seasons.length > 0) {
-//   let remo = seasons.shift();
-//   console.log(remo);
-// }
-
-// // console.log(`WHAT IS THE SEASON?`{seasons.prompt});
+console.log(`WHAT IS THE SEASON?`, seasons.prompt());
 
 // for (let i = 1; i <= 10; i++) {
 //   let line = "";
@@ -215,14 +214,14 @@
 //   // console.log(line);
 // // }
 
-for (let i = 1; i <= 10; i++) {
-  let multi = "";
+// for (let i = 1; i <= 10; i++) {
+//   let multi = "";
 
-  for (let j = 1; j <= 10; j++) {
-    multi += i * j;
-  }
-  console.log(multi);
-}
+//   for (let j = 1; j <= 10; j++) {
+//     multi += i * j;
+//   }
+//   console.log(multi);
+// }
 
 // // for (let i = 1; i <= 10; i++) {
 // //   let linemulti = "";
