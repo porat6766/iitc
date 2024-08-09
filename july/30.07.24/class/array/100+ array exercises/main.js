@@ -254,16 +254,14 @@
 // const colors = ["yellow", "brown", "blue", "green"];
 // colors.push("red");
 // let indexLastColors = colors.lastIndexOf("red");
-// // console.log(indexLastColors);
+// // // console.log(indexLastColors);
 
-// // 34. Create an array with duplicate values and use `indexOf()` and `lastIndexOf()` to find the first and last occurrences.
-// //     Hint: Compare the results of both methods.
-const colors1 = ["pink", "red", "yellow", "brown", "blue", "red", "green"];
-let colorToFind = "red";
-const indexOfFirstOne = colors1.indexOf(colorToFind);
-const indexOfLastOne = colors1.lastIndexOf(colorToFind);
-console.log(`first coolor: ${colorToFind}, in index : ${indexOfFirstOne}`);
-console.log(indexOfLastOne);
+// // // 34. Create an array with duplicate values and use `indexOf()` and `lastIndexOf()` to find the first and last occurrences.
+// // //     Hint: Compare the results of both methods.
+// let array = ["haim", "salom", "haim", 6, "porat", "haim"];
+// let ind = array.indexOf("haim");
+// let last = array.lastIndexOf("haim");
+// console.log(ind, last);
 
 // 35. Use `indexOf()` to check if an array contains a specific value, and print a boolean result.
 //     Hint: Compare the result of `indexOf()` to -1.
@@ -321,24 +319,53 @@ console.log(indexOfLastOne);
 
 // 50. Use `splice()` to empty an array by removing all elements.
 //     Hint: Remove elements from index 0 to the array's length.
+// let array = ["haim", "salom", "haim", 6, "porat", "haim"];
 
+// while (array.length > 0) {
+//   array.splice(0, 1);
+//   console.log(array);
+// }
 // ## Array Methods: concat()
-// [W3Schools Array concat()](https://www.w3schools.com/jsref/jsref_concat_array.asp)
-
+// // [W3Schools Array concat()](https://www.w3schools.com/jsref/jsref_concat_array.asp)
+// let colors = ["haim", "salom", "haim", 6, "porat", "haim"];
+// let fruits = ["banana", "apple"];
 // 51. Concatenate `fruits` and `colors` into a new array.
-//     Hint: `concat()` returns a new array without modifying the original arrays.
+// //     Hint: `concat()` returns a new array without modifying the original arrays.
+// let haimmm = colors.concat(fruits);
+// console.log(haimmm);
 
 // 52. Join three different arrays using `concat()`.
-//     Hint: Chain multiple `concat()` calls or pass multiple arguments.
+// //     Hint: Chain multiple `concat()` calls or pass multiple arguments.
 
-// 53. Use `concat()` to add new elements to the end of an array without modifying the original.
-//     Hint: `concat()` can take both arrays and individual elements as arguments.
+// // 53. Use `concat()` to add new elements to the end of an array without modifying the original.
+// //     Hint: `concat()` can take both arrays and individual elements as arguments.
 
-// 54. Combine an array with itself to create a doubled array.
-//     Hint: Use an array as an argument to `concat()`.
+// // 54. Combine an array with itself to create a doubled array.
+// //     Hint: Use an array as an argument to `concat()`.
+// let colors = ["haim", "salom", "haim", 6, "porat", "haim"];
+// // 55. Concatenate an array with multiple individual elements.
+// //     Hint: Pass individual elements as separate arguments to `concat()`.
+// let neARR = colors.concat("soan haya");
+// console.log(neARR);
 
-// 55. Concatenate an array with multiple individual elements.
-//     Hint: Pass individual elements as separate arguments to `concat()`.
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 // ## Array Methods: join()
 // [W3Schools Array join()](https://www.w3schools.com/jsref/jsref_join.asp)
