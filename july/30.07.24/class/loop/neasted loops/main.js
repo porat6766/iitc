@@ -217,6 +217,25 @@
 
 // [Learn about the modulo operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Remainder)
 
+function checkboard(g, m) {
+  let board = "";
+  for (let i = 0; i < g; i++) {
+    let newLine = "";
+    for (let j = 0; j < m; j++) {
+      if ((i + j) % 2 === 0) {
+        newLine += 1;
+      } else if ((i + j) % 2 === 1) {
+        newLine += 0;
+      }
+    }
+    board += newLine + `\n`;
+  }
+  return board;
+}
+
+firstCheck = checkboard(20, 20);
+console.log(firstCheck);
+
 // ## Exercise 11
 // Print a 3x3 grid where each cell contains its row number.
 

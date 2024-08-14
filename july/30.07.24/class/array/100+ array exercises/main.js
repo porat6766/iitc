@@ -372,24 +372,52 @@
 
 // 56. Convert `fruits` into a comma-separated string using `join()`.
 //     Hint: Default separator for `join()` is a comma.
+// const fruits = ["pear", "apple", "melon", "watermelon"];
+// let newFruits = fruits.join();
+// console.log(newFruits);
 
-// 57. Join elements of `numbers` with a dash between them.
-//     Hint: Pass the desired separator as an argument to `join()`.
+// 57. Join elements of `numbers` with a sdash between them.
+// //     Hint: Pass the desired separator as an argument to `join()`.
+// const randomNumbers = [12, 34, 23, 4, 2, 2, 3];
+// let newrandomNumbers = randomNumbers.join("-");
+// console.log(newrandomNumbers);
 
 // 58. Create a function that takes an array and a separator, then returns the joined string.
 //     Hint: Use the separator parameter in the `join()` method.
+// // const fruits = ["pear", "apple", "melon", "watermelon"];
+// function separator(array, separator) {
+//   console.log(array.join(separator));
+// }
+// separator(fruits, "-");
 
 // 59. Join array elements with an empty string to create a single word.
 //     Hint: Pass an empty string as the separator.
+// let sepearet = fruits.join("");
+// console.log(sepearet);
 
-// 60. Use `join()` and `split()` to reverse the order of words in a sentence.
-//     Hint: Split the sentence into words, reverse the array, then join.
+// // 60. Use `join()` and `split()` to reverse the order of words in a sentence.
+// //     Hint: Split the sentence into words, reverse the array, then join.
+// let strt = "skjvgjdwgvcvjhsbccsjh";
+// function revrso(str) {
+//   let strsepered = str.split("");
+//   strsepered.reverse();
+//   let newstr = strsepered.join("");
+//   return newstr;
+// }
+// let printString = revrso(strt);
+// console.log(printString);
 
 // ## Array Methods: reverse()
 // [W3Schools Array reverse()](https://www.w3schools.com/jsref/jsref_reverse.asp)
 
 // 61. Reverse the order of elements in `seasons`.
 //     Hint: `reverse()` modifies the original array.
+const seasons = ["winter", "fall", "spring", "summer"];
+function reverar(array) {
+  return array.reverse();
+}
+let oppesitearray = reverar(seasons);
+console.log(oppesitearray);
 
 // 62. Create a function to check if a word is a palindrome using `split()`, `reverse()`, and `join()`.
 //     Hint: Compare the original word with its reversed version.

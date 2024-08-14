@@ -198,6 +198,14 @@ console.log("Average Price:", averagePrice);
 // // TODO: Write a function to group strings by the number of spaces in the string.
 // // // The function should return an object where keys are the number of spaces and values are arrays of strings.
 
+const strings = [
+  "baba",
+  "my success",
+  "no more lives",
+  "and of session",
+  "good discussion",
+];
+
 // function groupStringsBySpaces(strings) {
 //   let sumSpaceString = {};
 
@@ -220,6 +228,27 @@ console.log("Average Price:", averagePrice);
 // const groupedStrings_1 = groupStringsBySpaces(strings);
 // console.log("Grouped Strings By Spaces:", groupedStrings_1);
 
+function groupSpace(string) {
+  let objstr = {};
+  for (let i = 0; i < string.length; i++) {
+    let counter = 0;
+    for (let j = 0; j < string[i].length; j++) {
+      let charPlace = string[i][j];
+      if (charPlace === " ") {
+        counter++;
+      }
+    }
+    if (!objstr[counter]) {
+      objstr[counter] = [];
+    }
+
+    objstr[counter].push(string[i]);
+  }
+  return objstr;
+}
+
+const groupedStrings_1 = groupSpace(strings);
+console.log("Grouped Strings By Spaces:", groupedStrings_1);
 // // 🥵 Task 14: group strings by length 🥵
 // // TODO: Write a function to group strings by length.
 // // The function should return an object where keys are the length of the strings and values are arrays of strings.
@@ -325,27 +354,4 @@ console.log("Average Price:", averagePrice);
 // return stringsBigChar;
 // }
 
-const strings = [
-  "baba",
-  "my success",
-  "no more lives",
-  "and of session",
-  "good discussion",
-];
-// function capitalizeStrings(strings) {
-//   return strings.map((str) => str.charAt(0).toUpperCase() + str.slice(1));
-// }
-
-// const capitalizedStrings1 = capitalizeStrings(strings);
-// console.log("Capitalized Strings:", capitalizedStrings1);
-
-function capitalizeFirstLetterOfEachWord(strings) {
-  return strings.map((str) =>
-    str
-      .split(" ")
-      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-      .join("   ")
-  );
-}
-const newt = capitalizeFirstLetterOfEachWord(strings);
-console.log("Capitalized Strings:", newt);
+// // function capitalizeStringS
