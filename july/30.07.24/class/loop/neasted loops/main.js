@@ -196,6 +196,21 @@
 
 // [Learn about incrementing in loops](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration#for_statement)
 
+// function table(g, m) {
+//   let newLine = "";
+//   let count = 1;
+//   for (let i = 1; i <= g; i++) {
+//     for (let j = 1; j <= m; j++) {
+//       newLine += count++;
+//     }
+//     newLine += `\n`;
+//   }
+//   return newLine;
+// }
+
+// const tryOne = table(3, 9);
+// console.log(tryOne);
+
 // ## Exercise 8
 // Print a 3x3 grid of even numbers starting from 2.
 
@@ -203,12 +218,39 @@
 
 // [Learn about arithmetic in loops](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#arithmetic_operators)
 
+// function tableEven(m, n) {
+//   let newLine = "";
+//   let count = 2;
+//   for (let i = 1; i <= m; i++) {
+//     for (let j = 1; j <= n; j++) {
+//       newLine += count;
+//       count += 2;
+//     }
+//     newLine += `\n`;
+//   }
+//   return newLine;
+// }
+// const enenTable = tableEven(3, 3);
+// console.log(enenTable);
+
 // ## Exercise 9
 // Print a right-angled triangle of numbers with 3 rows.
 
 // Hint: Use the inner loop variable as the number to print.
 
 // [Learn about nested loops for patterns](https://www.programiz.com/javascript/examples/pyramid-pattern)
+// function triangle(m) {
+//   let newLine = "";
+//   for (let i = 1; i <= m; i++) {
+//     for (let j = 1; j <= i; j++) {
+//       newLine += j;
+//     }
+//     newLine += `\n`;
+//   }
+//   return newLine;
+// }
+// const trian = triangle(3);
+// console.log(trian);
 
 // ## Exercise 10
 // Print a 3x3 checkerboard pattern of 0s and 1s.
@@ -217,38 +259,65 @@
 
 // [Learn about the modulo operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Remainder)
 
-function checkboard(g, m) {
-  let board = "";
-  for (let i = 0; i < g; i++) {
-    let newLine = "";
-    for (let j = 0; j < m; j++) {
-      if ((i + j) % 2 === 0) {
-        newLine += 1;
-      } else if ((i + j) % 2 === 1) {
-        newLine += 0;
-      }
-    }
-    board += newLine + `\n`;
-  }
-  return board;
-}
+// function checkboard(g, m) {
+//   let board = "";
+//   for (let i = 0; i < g; i++) {
+//     let newLine = "";
+//     for (let j = 0; j < m; j++) {
+//       if ((i + j) % 2 === 0) {
+//         newLine += 1;
+//       } else if ((i + j) % 2 === 1) {
+//         newLine += 0;
+//       }
+//     }
+//     board += newLine + `\n`;
+//   }
+//   return board;
+// }
 
-firstCheck = checkboard(20, 20);
-console.log(firstCheck);
+// firstCheck = checkboard(20, 20);
+// console.log(firstCheck);
 
 // ## Exercise 11
 // Print a 3x3 grid where each cell contains its row number.
 
 // Hint: Use the outer loop variable as the number to print.
 
-// [Learn about accessing loop variables](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration#for_statement)
+// // [Learn about accessing loop variables](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration#for_statement)
 
-// ## Exercise 12
+// function cellPlace(n, m) {
+//   let newLine = "";
+//   for (let i = 1; i <= n; i++) {
+//     for (let j = 1; j <= m; j++) {
+//       newLine += i;
+//     }
+//     newLine += `\n`;
+//   }
+//   return newLine;
+// // }
+// const caii = cellPlace(3, 3);
+// console.log(caii);
+
+// // ## Exercise 12
 // Print a 3x3 grid where each cell contains its column number.
 
 // Hint: Use the inner loop variable as the number to print.
 
 // [Learn about nested loop variables](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration#nested_loops)
+
+// function column(n, m) {
+//   let newLine = "";
+//   for (let i = 1; i <= n; i++) {
+//     for (let j = 1; j <= m; j++) {
+//       newLine += j + " ";
+//     }
+//     newLine += `\n`;
+//   }
+//   return newLine;
+// }
+
+// const caii = column(3, 3);
+// console.log(caii);
 
 // ## Exercise 13
 // Print a 4x4 grid of alternating X and O.
@@ -257,6 +326,41 @@ console.log(firstCheck);
 
 // [Learn about conditional operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#conditional_ternary_operator)
 
+// function gridAlternativ(n, m) {
+//   let newLine = "";
+//   for (let i = 0; i < n; i++) {
+//     for (let j = 0; j < m; j++) {
+//       if ((i + j) % 2 === 0) {
+//         newLine += "x";
+//       } else if ((i + j) % 2 === 1) {
+//         newLine += "o";
+//       }
+//     }
+//     newLine += `\n`;
+//   }
+//   return newLine;
+// }
+
+// const caii = gridAlternativ(4, 4);
+// console.log(caii);
+
+// function gridAlternativ(n, m) {
+//   let newLine = "";
+//   for (let i = 0; i < n; i++) {
+//     for (let j = 0; j < m; j++) {
+//       if (j % 2 === 0) {
+//         newLine += "x";
+//       } else if (j % 2 === 1) {
+//         newLine += "o";
+//       }
+//     }
+//     newLine += `\n`;
+//   }
+//   return newLine;
+// }
+
+// const caii = gridAlternativ(4, 4);
+// console.log(caii);
 // ## Exercise 14
 // Print a right-angled triangle of odd numbers with 4 rows.
 
