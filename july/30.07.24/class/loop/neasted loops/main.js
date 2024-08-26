@@ -361,12 +361,28 @@
 
 // const caii = gridAlternativ(4, 4);
 // console.log(caii);
+
 // ## Exercise 14
 // Print a right-angled triangle of odd numbers with 4 rows.
 
 // Hint: Use a counter that starts at 1 and increments by 2.
 
 // [Learn about incrementing in loops](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration#for_statement)
+
+// function triangle(m) {
+//   let counter = 1;
+//   let line = "";
+//   for (let i = 0; i <= m; i++) {
+//     for (let j = 0; j <= i; j++) {
+//       line += counter;
+//       counter += 2;
+//     }
+//     line += `\n`;
+//   }
+//   return line;
+// }
+// const trianglKind = triangle(4);
+// console.log(trianglKind);
 
 // ## Exercise 15
 // Print a 3x3 grid where each cell contains the absolute difference between its row and column indices.
@@ -375,12 +391,43 @@
 
 // [Learn about Math.abs()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/abs)
 
+// function absGrid(x, y) {
+//   let grid = "";
+//   for (let i = 0; i < x; i++) {
+//     for (let j = 0; j < y; j++) {
+//       grid += Math.abs(i - j) + " ";
+//     }
+//     grid += `\n`;
+//   }
+//   return grid;
+// }
+
+// const grid = absGrid(3, 3);
+// console.log(grid);
+
 // ## Exercise 16
 // Print a hollow right-angled triangle of asterisks with 4 rows.
 
 // Hint: Print asterisks only when it's the first or last column, or the last row.
 
 // [Learn about logical operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#logical_operators)
+
+// function triangle(x) {
+//   let tri = "";
+//   for (let i = 0; i < x; i++) {
+//     for (let j = 0; j <= i; j++) {
+//       if (j === 0 || j === i || i === x - 1) {
+//         tri += "*";
+//       } else {
+//         tri += " ";
+//       }
+//     }
+//     tri += `\n`;
+//   }
+//   return tri;
+// }
+// const hollow = triangle(10);
+// console.log(hollow);
 
 // ## Exercise 17
 // Print a 4x4 grid where each cell contains the smaller of its row or column index.
@@ -389,12 +436,38 @@
 
 // [Learn about Math.min()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/min)
 
+// function gridPlace(x, y) {
+//   let grid = "";
+//   for (let i = 0; i < x; i++) {
+//     for (let j = 0; j < y; j++) {
+//       grid += Math.min(i, j) + " ";
+//     }
+//     grid = grid.trim() + `\n`;
+//   }
+//   return grid;
+// }
+// const trt = gridPlace(4, 4);
+// console.log(trt);
+
 // ## Exercise 18
 // Print a 4x4 grid where each cell contains the larger of its row or column index.
 
 // Hint: Use Math.max() to compare row and column indices.
 
 // [Learn about Math.max()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/max)
+
+// function gridPlace(x, y) {
+//   let grid = "";
+//   for (let i = 0; i < x; i++) {
+//     for (let j = 0; j < y; j++) {
+//       grid += Math.max(i, j) + " ";
+//     }
+//     grid = grid.trim() + `\n`;
+//   }
+//   return grid;
+// }
+// const trt = gridPlace(4, 4);
+// console.log(trt);
 
 // ## Exercise 19
 // Print a right-angled triangle of consecutive letters (A-Z) with 4 rows.
@@ -403,12 +476,64 @@
 
 // [Learn about String.fromCharCode()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/fromCharCode)
 
+// function triangle(x) {
+//   let trian = "";
+//   let corretCharCode = 65;
+//   for (let i = 0; i <= x; i++) {
+//     for (let j = 0; j < i; j++) {
+//       trian += String.fromCharCode(corretCharCode) + " ";
+//       corretCharCode++;
+//       if (corretCharCode > 90) {
+//         corretCharCode = 65;
+//       }
+//     }
+//     trian += `\n`;
+//   }
+//   return trian;
+// }
+// const trt = triangle(4);
+// console.log(trt);
+
 // ## Exercise 20
 // Print a 3x3 grid where each cell contains the sum of all numbers from 1 to the product of its indices.
 
 // Hint: Use a nested loop to calculate the sum for each cell.
 
 // [Learn about nested loops](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration#nested_loops)
+
+// function grid(x, n) {
+//   let grid = "";
+//   for (let i = 0; i < x; i++) {
+//     for (let j = 0; j < n; j++) {
+//       let ceilMultiplie = i * j;
+//       grid += (ceilMultiplie * (ceilMultiplie + 1)) / 2 + " ";
+//     }
+//     grid += `\n`;
+//   }
+//   return grid;
+// }
+// const firstRunGrid = grid(3, 3);
+// console.log(firstRunGrid);
+
+//anotherWAY:
+
+// function grid(x, n) {
+//   let grid = "";
+//   for (let i = 0; i < x; i++) {
+//     for (let j = 0; j < n; j++) {
+//       let counter = 0;
+//       let ceilMultiplie = i * j;
+//       for (let k = 1; k <= ceilMultiplie; k++) {
+//         counter += k;
+//       }
+//       grid += counter + " ";
+//     }
+//     grid += `\n`;
+//   }
+//   return grid;
+// }
+// const firstRunGrid = grid(3, 3);
+// console.log(firstRunGrid);
 
 // ## Exercise 21
 // Print a 4x4 grid of ascending numbers in a spiral pattern.
