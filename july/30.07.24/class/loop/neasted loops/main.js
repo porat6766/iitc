@@ -535,12 +535,43 @@
 // const firstRunGrid = grid(3, 3);
 // console.log(firstRunGrid);
 
-// ## Exercise 21
-// Print a 4x4 grid of ascending numbers in a spiral pattern.
+// // ## Exercise 21
+// // Print a 4x4 grid of ascending numbers in a spiral pattern.
 
-// Hint: Use a 2D array and fill it in a spiral pattern.
+// // Hint: Use a 2D array and fill it in a spiral pattern.
 
-// [Learn about 2D arrays](https://www.freecodecamp.org/news/javascript-2d-arrays/)
+// // [Learn about 2D arrays](https://www.freecodecamp.org/news/javascript-2d-arrays/)
+
+function gridN(x, y) {
+  let grid = Array.from({ length: x }, () => Array(y).fill(0));
+
+  let print = 1;
+  let top = 0;
+  let bottom = x - 1;
+  let left = 0;
+  let right = y - 1;
+
+  while (top <= bottom && left <= right) {
+    for (let i = left; i <= right; i++) {
+      grid[top][i] = print++;
+    }
+    top++;
+    for (let i = top; i <= bottom; i++) {
+      grid[i][right] = print++;
+    }
+    right--;
+    for (let i = right; i >= left; i--) {
+      grid[bottom][i] = print++;
+    }
+    bottom--;
+    for (let i = bottom; i >= top; i--) {
+      grid[i][left] = print++;
+    }
+    left++;
+  }
+  grid.forEach((row) => console.log(row.join(" ")));
+}
+gridN(4, 4);
 
 // ## Exercise 22
 // Print a diamond pattern of asterisks with maximum width 5.
@@ -601,6 +632,25 @@
 // ## Exercise 30
 // Print a 4x4 grid where each cell contains the sum of its row index, column index, and the number 1.
 
-// Hint: Add the row index, column index, and 1 for each cell.
+// Hint: Add the  row index, column index, and 1 for each cell.
 
 // [Learn about arithmetic operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#arithmetic_operators)
+
+//// map create new array// and we have for-of to acihve data ffrom the array
+
+// let array = [1, 2, 3, 4];
+// // for (element of array) {
+// //   console.log(element);
+// // }
+// for (element of array) {
+//   console.log(element * element);
+// }
+
+// let array2 = array.map((num) => num * 2);
+// console.log(array2);
+
+// let array3 = array.map(function (rtr, tpt) {
+//   if (tpt === 1 || tpt === 3) {
+//     console.log(rtr * rtr);
+//   }
+// });
