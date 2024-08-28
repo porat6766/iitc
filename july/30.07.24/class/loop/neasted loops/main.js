@@ -529,49 +529,122 @@
 //       grid += counter + " ";
 //     }
 //     grid += `\n`;
+// //   }
+// //   return grid;
+// // }
+// // const firstRunGrid = grid(3, 3);
+// // console.log(firstRunGrid);
+
+// // // ## Exercise 21
+// // // Print a 4x4 grid of ascending numbers in a spiral pattern.
+
+// // // Hint: Use a 2D array and fill it in a spiral pattern.
+
+// // // [Learn about 2D arrays](https://www.freecodecamp.org/news/javascript-2d-arrays/)
+
+// // function gridN(x, y) {
+// //   let grid = Array.from({ length: x }), () => Array(y).fill(0));
+// //   let print = 1;
+// //   let top = 0;
+// //   let bottom = x - 1;
+// //   let left = 0;
+// //   let right = y - 1;
+// //   while (top <= bottom && left <= right) {
+// //     for (let i = left; i <= right; i++) {
+// //       grid[top][i] = print++;
+// //     }
+// //     top++;
+// //     for (let i = top; i <= bottom; i++) {
+// //       grid[i][right] = print++;
+// //     }
+// //     right--;
+// //     for (let i = right; i >= left; i--) {
+// //       grid[bottom][i] = print++;
+// //     }
+// //     bottom--;
+// //     for (let i = bottom; i >= top; i--) {
+// //       grid[i][left] = print++;
+// //     }
+// //     left++;
+// //   }
+// //   grid.forEach((row) => console.log(row.join(" ")));
+// // }
+// // gridN(4, 4);
+// //
+// //
+// //
+// //myyy
+// // function por(x, y) {
+// //   let grid = Array.from({ length: x }, () => Array(y).fill(0));
+
+// //   let number = 1;
+// //   let top = 0;
+// //   let bottom = x - 1;
+// //   let left = 0;
+// //   let right = y - 1;
+// //   while (top <= bottom && left <= right) {
+// //     for (let i = left; i <= right; i++) {
+// //       grid[top][i] = number;
+// //       number++;
+// //     }
+// //     top++;
+// //     for (let i = top; i <= bottom; i++) {
+// //       grid[i][right] = number;
+// //       number++;
+// //     }
+// //     right--;
+// //     for (let i = right; i >= left; i--) {
+// //       grid[bottom][i] = number;
+// //       number++;
+// //     }
+// //     bottom--;
+// //     for (let i = bottom; i >= top; i--) {
+// //       grid[i][left] = number;
+// //       number++;
+// //     }
+// //     left++;
+// //   }
+// //   grid.forEach((row) => console.log(row.join(" ")));
+// // }
+// // por(4, 4);
+
+// //
+// //
+// //
+// //
+// //
+// //
+
+// function spiralData(x, y) {
+//   let grid = Array.from({ length: x }, () => Array(y).fill(0));
+
+//   let counter = 1;
+//   let top = 0;
+//   let bottom = x - 1;
+//   let left = 0;
+//   let right = y - 1;
+
+//   while (left <= right && top <= bottom) {
+//     for (let i = left; i <= right; i++) {
+//       grid[top][i] = counter++;
+//     }
+//     top++;
+//     for (let i = top; i <= bottom; i++) {
+//       grid[i][right] = counter++;
+//     }
+//     right--;
+//     for (let i = right; i >= left; i--) {
+//       grid[bottom][i] = counter++;
+//     }
+//     bottom--;
+//     for (let i = bottom; i >= top; i--) {
+//       grid[i][left] = counter++;
+//     }
+//     left++;
 //   }
-//   return grid;
+//   grid.forEach((row) => console.log(row.join(" ")));
 // }
-// const firstRunGrid = grid(3, 3);
-// console.log(firstRunGrid);
-
-// // ## Exercise 21
-// // Print a 4x4 grid of ascending numbers in a spiral pattern.
-
-// // Hint: Use a 2D array and fill it in a spiral pattern.
-
-// // [Learn about 2D arrays](https://www.freecodecamp.org/news/javascript-2d-arrays/)
-
-function gridN(x, y) {
-  let grid = Array.from({ length: x }, () => Array(y).fill(0));
-
-  let print = 1;
-  let top = 0;
-  let bottom = x - 1;
-  let left = 0;
-  let right = y - 1;
-
-  while (top <= bottom && left <= right) {
-    for (let i = left; i <= right; i++) {
-      grid[top][i] = print++;
-    }
-    top++;
-    for (let i = top; i <= bottom; i++) {
-      grid[i][right] = print++;
-    }
-    right--;
-    for (let i = right; i >= left; i--) {
-      grid[bottom][i] = print++;
-    }
-    bottom--;
-    for (let i = bottom; i >= top; i--) {
-      grid[i][left] = print++;
-    }
-    left++;
-  }
-  grid.forEach((row) => console.log(row.join(" ")));
-}
-gridN(4, 4);
+// spiralData(4, 4);
 
 // ## Exercise 22
 // Print a diamond pattern of asterisks with maximum width 5.
@@ -580,12 +653,42 @@ gridN(4, 4);
 
 // [Learn about complex patterns](https://www.programiz.com/javascript/examples/pyramid-pattern)
 
+// function diamond(x) {
+//   let asterisks = "";
+//   for (let i = 1; i <= x; i += 2) {
+//     let space = " ".repeat((x - i) / 2);
+//     let line = "*".repeat(i);
+//     asterisks += space + line + `\n`;
+//   }
+//   for (let i = x - 2; i >= 1; i -= 2) {
+//     let space = " ".repeat((x - i) / 2);
+//     let line = "*".repeat(i);
+//     asterisks += space + line + `\n`;
+//   }
+//   return asterisks;
+// }
+// const diamonds = diamond(5);
+// console.log(diamonds);
+
 // ## Exercise 23
 // Print a 4x4 grid where each cell contains the result of its row index raised to the power of its column index.
 
 // Hint: Use the ** operator for exponentiation.
 
 // [Learn about the exponentiation operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Exponentiation)
+
+// function gridIndex(x, y) {
+//   let grid = "";
+//   for (let i = 0; i < x; i++) {
+//     for (let j = 0; j < y; j++) {
+//       grid += i ** j + " ";
+//     }
+//     grid += `\n`;
+//   }
+//   return grid;
+// }
+// const execute1 = gridIndex(4, 4);
+// console.log(execute1);
 
 // ## Exercise 24
 // Print a right-angled triangle of descending numbers with 4 rows, starting from 10.
@@ -594,6 +697,21 @@ gridN(4, 4);
 
 // [Learn about decrementing in loops](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration#for_statement)
 
+// function triangle(x, n) {
+//   let trin = "";
+//   let counter = n;
+//   for (let i = 0; i < x; i++) {
+//     for (let j = 0; j <= i; j++) {
+//       trin += counter + " ";
+//       counter--;
+//     }
+//     trin += `\n`;
+//   }
+//   return trin;
+// }
+// const po = triangle(4, 10);
+// console.log(po);
+
 // ## Exercise 25
 // Print a 4x4 grid where each cell contains the result of (row index * 2) + column index.
 
@@ -601,12 +719,44 @@ gridN(4, 4);
 
 // [Learn about arithmetic operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#arithmetic_operators)
 
+// function grid(x, y) {
+//   let grid = "";
+
+//   for (let i = 0; i < x; i++) {
+//     for (let j = 0; j < y; j++) {
+//       grid += i * 2 + j + " ";
+//     }
+//     grid += `\n`;
+//   }
+//   return grid;
+// }
+// const pop = grid(4, 4);
+// console.log(pop);
+
 // ## Exercise 26
 // Print a hollow square of hash symbols (#) with side length 5.
 
 // Hint: Print hash symbols only when it's the first or last row, or the first or last column.
 
 // [Learn about logical operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#logical_operators)
+// || i === x || j === 0 || j === x
+// // function square(x) {
+//   let squ = "";
+
+//   for (let i = 1; i <= x; i++) {
+//     for (let j = 1; j <= x; j++) {
+//       if (i === 1 || i === x || j === 1 || j === x) {
+//         squ += "#";
+//       } else if (i < x && i > 1 && j > 1 && j < x) {
+//         squ += " ";
+//       }
+//     }
+//     squ += `\n`;
+//   }
+//   return squ;
+// }
+// const execute = square(5);
+// console.log(execute);
 
 // ## Exercise 27
 // Print a 4x4 grid where each cell contains the smaller of: the product of its indices or 5.
@@ -614,6 +764,20 @@ gridN(4, 4);
 // Hint: Use Math.min() to compare the product with 5.
 
 // [Learn about Math.min()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/min)
+// function grid(x, y) {
+//   let grid1 = "";
+
+//   for (let i = 0; i < x; i++) {
+//     for (let j = 0; j < y; j++) {
+//       let indices = i * j;
+//       grid1 += Math.min(5, indices) + " ";
+//     }
+//     grid1 += `\n`;
+//   }
+//   return grid1;
+// }
+// const execute = grid(4, 4);
+// console.log(execute);
 
 // ## Exercise 28
 // Print a right-angled triangle of asterisks with 5 rows, but skip the third row.
@@ -622,12 +786,50 @@ gridN(4, 4);
 
 // [Learn about if statements](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else)
 
+// function triangle(x, e) {
+//   let gri = "";
+
+//   for (let i = 1; i <= x; i++) {
+//     for (let j = 1; j <= i; j++) {
+//       if (i === e) {
+//         gri += " ";
+//       } else {
+//         gri += "*";
+//       }
+//     }
+//     gri += `\n`;
+//   }
+//   return gri;
+// }
+
+// const triang = triangle(5, 3);
+// console.log(triang);
+
 // ## Exercise 29
 // Print a 5x5 grid where cells on the main diagonal (where row index equals column index) contain 1, and all other cells contain 0.
 
 // Hint: Use an if statement to check if row index equals column index.
 
 // [Learn about equality operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Equality)
+
+// function grid(x, y) {
+//   let grid1 = "";
+
+//   for (let i = 0; i < x; i++) {
+//     for (let j = 0; j < y; j++) {
+//       if (i === j) {
+//         grid1 += "1" + " ";
+//       } else {
+//         grid1 += "0" + " ";
+//       }
+//     }
+//     grid1 += `\n`;
+//   }
+//   return grid1;
+// }
+
+// const sjd = grid(5, 5);
+// console.log(sjd);
 
 // ## Exercise 30
 // Print a 4x4 grid where each cell contains the sum of its row index, column index, and the number 1.
@@ -636,18 +838,33 @@ gridN(4, 4);
 
 // [Learn about arithmetic operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#arithmetic_operators)
 
+// function grid(x, y) {
+//   let grid1 = "";
+
+//   for (let i = 0; i < x; i++) {
+//     for (let j = 0; j < y; j++) {
+//       grid1 += i + j + 1 + "  ";
+//     }
+//     grid1 += `\n`.repeat(2);
+//   }
+//   return grid1;
+// }
+
+// const lop = grid(4, 4);
+// console.log(lop);
+
 //// map create new array// and we have for-of to acihve data ffrom the array
 
-// let array = [1, 2, 3, 4];
-// // for (element of array) {
-// //   console.log(element);
-// // }
+let array = [1, 2, 3, 4];
 // for (element of array) {
-//   console.log(element * element);
+//   console.log(element);
+// }
+// for (element of array) {
+//   console.log(element);
 // }
 
 // let array2 = array.map((num) => num * 2);
-// console.log(array2);
+// // console.log(array2);
 
 // let array3 = array.map(function (rtr, tpt) {
 //   if (tpt === 1 || tpt === 3) {
