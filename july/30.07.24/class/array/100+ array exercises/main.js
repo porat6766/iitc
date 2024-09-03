@@ -410,26 +410,64 @@
 // ## Array Methods: reverse()
 // [W3Schools Array reverse()](https://www.w3schools.com/jsref/jsref_reverse.asp)
 
-// 61. Reverse the order of elements in `seasons`.
-//     Hint: `reverse()` modifies the original array.
-const seasons = ["winter", "fall", "spring", "summer"];
-function reverar(array) {
-  return array.reverse();
-}
-let oppesitearray = reverar(seasons);
-console.log(oppesitearray);
+// // 61. Reverse the order of elements in `seasons`.
+// //     Hint: `reverse()` modifies the original array.
+// // const seasons = ["winter", "fall", "spring", "summer"];
+// // function reverar(array) {
+// //   return array.reverse();
+// // }
+// // let oppesitearray = reverar(seasons);
+// // console.log(oppesitearray);
 
-// 62. Create a function to check if a word is a palindrome using `split()`, `reverse()`, and `join()`.
-//     Hint: Compare the original word with its reversed version.
+// // // 62. Create a function to check if a word is a palindrome using
+// // `split()`, `reverse()`, and `join()`.
+// //     Hint: Compare the original word with its reversed version.
+
+// const wordPalin = "dannad";
+// function checkPalindrome(str) {
+//   const newstr = str.split("").reverse().join("");
+//   if (newstr === str) {
+//     return `${str} is a palindrome word`;
+//   } else {
+//     return `${str} is a not palindrome word`;
+//   }
+// }
+// const excute = checkPalindrome(wordPalin);
+// console.log(excute);
 
 // 63. Reverse `numbers` and then map each element to its square.
 //     Hint: Chain `reverse()` and `map()` methods.
 
-// 64. Use `reverse()` to reverse the order of characters in a string (Hint: use `split()` first).
-//     Hint: Convert the string to an array, reverse it, then join back to a string.
+// function reversNum(numbs) {
+//   const newArr = numbs.reverse().map((num) => Math.pow(num, 2));
+//   return newArr;
+// }
+// const numbers = [1, 2, 3, 4, 5, 6];
+// console.log(reversNum(numbers));
+
+// // 64. Use `reverse()` to reverse the order of characters in a string (Hint: use `split()` first).
+// //     Hint: Convert the string to an array, reverse it, then join back to a string.
+
+// function reversString(str) {
+//   const strt = str.split("").reverse().join("");
+//   return strt;
+// }
+
+// const excute = reversString("tarantula");
+// console.log(excute);
 
 // 65. Implement a function that reverses an array without using the `reverse()` method.
 //     Hint: Use a loop to swap elements from the start and end of the array.
+
+// function reverseWithoutReve(array) {
+//   let newArray = [];
+//   for (let i = array.length - 1; i >= 0; i--) {
+//     newArray.push(array[i]);
+//   }
+//   return newArray;
+// }
+// const arrayt = ["kzjhc", "kjdsc", "hdvb", "skfjhgg"];
+// console.log(reverseWithoutReve(arrayt));
 
 // ## Array Methods: sort()
 // [W3Schools Array sort()](https://www.w3schools.com/jsref/jsref_sort.asp)
@@ -437,17 +475,58 @@ console.log(oppesitearray);
 // 66. Sort the `fruits` array in alphabetical order.
 //     Hint: Default `sort()` works alphabetically for strings.
 
+// const fruits = ["apple", "pear", "banana", "watermelon", "melon"];
+// function alphabetical(array) {
+//   return array.sort();
+// }
+// console.log(alphabetical(fruits));
+
 // 67. Sort `numbers` in ascending order.
 //     Hint: Use a compare function for numerical sort.
+// let arrayt = [123, 5345, 123, 897, 983];
+// function order(array) {
+//   return array.sort();
+// }
+// console.log(order(arrayt));
 
 // 68. Sort `numbers` in descending order.
 //     Hint: Modify the compare function to sort in reverse order.
+// function orderrevers(array) {
+//   return array.reverse();
+// }
+// console.log(orderrevers(arrayt));
 
 // 69. Create an array of words and sort them by length.
 //     Hint: Use a compare function that compares string lengths.
+// function oredrByLength(array) {
+//   const arrayt = [...array];
+//   return arrayt.sort((a, b) => a.length - b.length);
+// }
+// const fruits = ["apple", "pear", "banana", "watermelon", "melon"];
+
+// console.log(oredrByLength(fruits));
 
 // 70. Implement a custom sort to order an array of numbers based on their remainder when divided by 3.
 //     Hint: Use the modulo operator (%) in the compare function.
+let arrayt = [1, 2, 3, 4, 5, 6, 7];
+
+function sortNum(array) {
+  array.sort((a, b) => {
+    let one = a % 3;
+    let two = b % 3;
+
+    if (one < two) {
+      return -1;
+    } else if (two < one) {
+      return 1;
+    } else if (two === one) {
+      return 0;
+    }
+  });
+  return array;
+}
+const excute = sortNum(arrayt);
+console.log(excute);
 
 // SKIP IT:
 // ## Array Iteration: forEach()

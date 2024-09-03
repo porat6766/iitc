@@ -1,61 +1,92 @@
-// // # Additional JavaScript Loops Exercises
+// // // # Additional JavaScript Loops Exercises
 
-// // 1. Write a for loop that prints the numbers from 1 to 20.
-// //    Hint: Use a for loop with a counter that starts at 1 and ends at 20.
+// // // 1. Write a for loop that prints the numbers from 1 to 20.
+// // //    Hint: Use a for loop with a counter that starts at 1 and ends at 20.
+// // //    [Learn more about for loops](https://www.w3schools.com/js/js_loop_for.asp)
+
+// // //1.
+// // for (let i = 1; i <= 20; i++) {
+// //   console.log(i);
+// // }
+
+// // // 2. Create a while loop that prints odd numbers from 1 to 15.
+// // //    Hint: Use a counter that increments by 2 in each iteration.
+// // //    [Learn more about while loops](https://www.w3schools.com/js/js_loop_while.asp)
+
+// // //2.
+// // let number = 1;
+// // while (number <= 15) {
+// //   console.log(number);
+// //   number += 2;
+// // }
+
+// // // 3. Use a do...while loop to ask the user for a number between 1 and 10 until they enter a valid number.
+// // //    Hint: Use prompt() to get user input and parseInt() to convert it to a number.
+// // //    [Learn more about do...while loops](https://www.w3schools.com/jsref/jsref_dowhile.asp)
+
+// // //3.
+
+function promptNum(x, y) {
+  let answerClient;
+  do {
+    answerClient = parseInt(
+      prompt(`enter a number between ${x} to ${y} plese:`)
+    );
+  } while (isNaN(answerClient) || answerClient > y || answerClient < x);
+}
+1;
+const excute = promptNum(1, 10);
+console.log(excute);
+// function promptNum(x, y) {
+//   let answerClient;
+//   do {
+//     answerClient = prompt(`enter a number between ${x} to ${y} plese:`);
+//     parseInt(answerClient, 10);
+//   } while (isNaN(answerClient) || answerClient > y || answerClient < x);
+//   return answerClient;
+// }
+
+// const excute = promptNum(1, 10);
+// console.log(excute);
+
+// function promptNum(x, y) {
+//   let answerClient;
+//   do {
+//     answerClient = parseInt(
+//       prompt(`enter a number between ${x} to ${y} plese:`)
+//     );
+//   } while (isNaN(answerClient) || answerClient > y || answerClient < x);
+//   return answerClient;
+// }
+
+// const excute = promptNum(1, 10);
+// console.log(excute);
+// //   number2 = Number(prompt(`choose numb:`));
+// // } while (number2 > 10 || number2 <= 0);
+
+// // 4. Write a for loop that calculates the sum of all numbers from 1 to 100.
+// //    Hint: Initialize a sum variable to 0 and add each number in the loop.
 // //    [Learn more about for loops](https://www.w3schools.com/js/js_loop_for.asp)
 
-// //1.
-// for (let i = 1; i <= 20; i++) {
-//   console.log(i);
+// // //4.
+// let sum = 0;
+// for (let i = 1; i <= 100; i++) {
+//   sum += i;
 // }
+// console.log(sum);
 
-// // 2. Create a while loop that prints odd numbers from 1 to 15.
-// //    Hint: Use a counter that increments by 2 in each iteration.
+// // 5. Create a while loop that prints a countdown from 10 to "Blast off!".
+// //    Hint: Start with a counter at 10 and decrement it in each iteration.
 // //    [Learn more about while loops](https://www.w3schools.com/js/js_loop_while.asp)
 
-// //2.
-// let number = 1;
-// while (number <= 15) {
-//   console.log(number);
-//   number += 2;
+// //5.
+// let i = 10;
+// while (i > 0) {
+//   console.log(i);
+
+//   i--;
 // }
-
-// // 3. Use a do...while loop to ask the user for a number between 1 and 10 until they enter a valid number.
-// //    Hint: Use prompt() to get user input and parseInt() to convert it to a number.
-// //    [Learn more about do...while loops](https://www.w3schools.com/jsref/jsref_dowhile.asp)
-
-// //3.
-// let number2 = 0;
-
-// do {
-//   console.log(number2);
-
-//   number2 = Number(prompt(`choose numb:`));
-// } while (number2 > 10 || number2 <= 0);
-
-// 4. Write a for loop that calculates the sum of all numbers from 1 to 100.
-//    Hint: Initialize a sum variable to 0 and add each number in the loop.
-//    [Learn more about for loops](https://www.w3schools.com/js/js_loop_for.asp)
-
-//4.
-let sum = 0;
-for (let i = 1; i <= 100; i++) {
-  sum += i;
-}
-console.log(sum);
-
-// 5. Create a while loop that prints a countdown from 10 to "Blast off!".
-//    Hint: Start with a counter at 10 and decrement it in each iteration.
-//    [Learn more about while loops](https://www.w3schools.com/js/js_loop_while.asp)
-
-//5.
-let i = 10;
-while (i > 0) {
-  console.log(i);
-
-  i--;
-}
-console.log("Blast off!");
+// console.log("Blast off!");
 
 // 6. Use a for loop to print the first 10 numbers in the Fibonacci sequence.
 //    Hint: Start with two variables for the first two numbers, then calculate the next.
@@ -140,8 +171,37 @@ console.log("Blast off!");
 //     Hint: Use the loop counter in the denominator and alternate between adding and subtracting.
 //     [Learn more about for loops](https://www.w3schools.com/js/js_loop_for.asp)
 
+// function calculate(nums) {
+//   let str = 1;
+//   for (let i = 2; i <= nums; i++) {
+//     if (i % 2 === 0) {
+//       str -= 1 / i;
+//     } else if (i % 2 === 1) {
+//       str += 1 / i;
+//     }
+//   }
+//   return str;
+// }
+// const trt = calculate(4);
+// console.log(trt);
+
 // 25. HARD: Write a while loop that simulates the Collatz conjecture: start with a number n, if it's even, divide it by 2, if it's odd, multiply it by 3 and add 1. Repeat until you reach 1.
 //     Hint: Use an if-else statement inside the loop to handle even and odd cases.
 //     [Learn more about while loops](https://www.w3schools.com/js/js_loop_while.asp)
+
+// function numberProces(num) {
+//   let arrayNum = [num];
+//   while (num !== 1) {
+//     if (num % 2 === 0) {
+//       num = num / 2;
+//     } else if (num % 2 === 1) {
+//       num = num * 3 + 1;
+//     }
+//     arrayNum.push(num);
+//   }
+//   return arrayNum;
+// }
+// const numCheckS = numberProces(6);
+// console.log(numCheckS);
 
 // Remember to use only concepts that have been covered so far, focusing on loops and basic arithmetic operations!
