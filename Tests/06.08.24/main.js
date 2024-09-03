@@ -46,14 +46,14 @@
 
 // // 😅 Task 3: Check Product Availability 😅
 // // TODO: Write a function to check if the product is available (return true if available, false otherwise)
-function isProductAvailable(product) {
-  if (product.isAvailable === true) {
-    product = true;
-  } else {
-    product = false;
-  }
-  return product;
-}
+// function isProductAvailable(product) {
+//   if (product.isAvailable === true) {
+//     product = true;
+//   } else {
+//     product = false;
+//   }
+//   return product;
+// }
 
 // const isAvailable = isProductAvailable(product_1);
 // console.log("Is Product Available:", isAvailable);
@@ -104,11 +104,11 @@ function isProductAvailable(product) {
 // const ages = getStudentAges(students);
 // console.log("Student Ages:", ages);
 
-const myProducts = [
-  { name: "Laptop", price: 1000, categories: ["electronics", "computers"] },
-  { name: "Shirt", price: 500, categories: ["clothing"] },
-  { name: "Phone", price: 4200, categories: ["electronics", "gadgets"] },
-];
+// const myProducts = [
+//   { name: "Laptop", price: 1000, categories: ["electronics", "computers"] },
+//   { name: "Shirt", price: 500, categories: ["clothing"] },
+//   { name: "Phone", price: 4200, categories: ["electronics", "gadgets"] },
+// ];
 // // 🤨 Task 7: Get Products by Category 🤨
 // // TODO: Write a function to get products by category
 // let productsCategory = [];
@@ -126,18 +126,18 @@ const myProducts = [
 
 // // // 🤨 Task 8: Get Average product prices 🤨
 // // // TODO: Write a function to get the average price of all products
-function getAveragePrice(products) {
-  let averagePrice = 0;
-  let numbersPrices = 0;
-  for (let i = 0; i < products.length; i++) {
-    numbersPrices += products[i].price;
-    averagePrice = numbersPrices / products.length;
-  }
-  return averagePrice;
-}
+// function getAveragePrice(products) {
+//   let averagePrice = 0;
+//   let numbersPrices = 0;
+//   for (let i = 0; i < products.length; i++) {
+//     numbersPrices += products[i].price;
+//     averagePrice = numbersPrices / products.length;
+//   }
+//   return averagePrice;
+// }
 
-const averagePrice = getAveragePrice(myProducts);
-console.log("Average Price:", averagePrice);
+// const averagePrice = getAveragePrice(myProducts);
+// console.log("Average Price:", averagePrice);
 
 // // // 🤨 Task 9: Add Grade to Student 🤨
 // // // TODO: Write a function to add a grade to a student (You can mutate the original object)
@@ -166,7 +166,9 @@ console.log("Average Price:", averagePrice);
 // // console.log("Occurrences of 'b':", c_count);
 
 // // // // 😥 Task 11: Update Product Price by Name 😥
-// // // // TODO: Write a function to update the price of a product by name (You can mutate the original object)
+// // // // TODO: Write a function to update the price of a
+// product by name (You can mutate the original object)
+
 // function updatePriceByName(products, productName, newPrice) {
 //   for (let i = 0; i < products.length; i++) {
 //     if (products[i].name === productName) {
@@ -198,13 +200,13 @@ console.log("Average Price:", averagePrice);
 // // TODO: Write a function to group strings by the number of spaces in the string.
 // // // The function should return an object where keys are the number of spaces and values are arrays of strings.
 
-const strings = [
-  "baba",
-  "my success",
-  "no more lives",
-  "and of session",
-  "good discussion",
-];
+// const strings = [
+//   "baba",
+//   "my success",
+//   "no more lives",
+//   "and of session",
+//   "good discussion",
+// ];
 
 // function groupStringsBySpaces(strings) {
 //   let sumSpaceString = {};
@@ -228,27 +230,27 @@ const strings = [
 // const groupedStrings_1 = groupStringsBySpaces(strings);
 // console.log("Grouped Strings By Spaces:", groupedStrings_1);
 
-function groupSpace(string) {
-  let objstr = {};
-  for (let i = 0; i < string.length; i++) {
-    let counter = 0;
-    for (let j = 0; j < string[i].length; j++) {
-      let charPlace = string[i][j];
-      if (charPlace === " ") {
-        counter++;
-      }
-    }
-    if (!objstr[counter]) {
-      objstr[counter] = [];
-    }
+// function groupSpace(string) {
+//   let objstr = {};
+//   for (let i = 0; i < string.length; i++) {
+//     let counter = 0;
+//     for (let j = 0; j < string[i].length; j++) {
+//       let charPlace = string[i][j];
+//       if (charPlace === " ") {
+//         counter++;
+//       }
+//     }
+//     if (!objstr[counter]) {
+//       objstr[counter] = [];
+//     }
 
-    objstr[counter].push(string[i]);
-  }
-  return objstr;
-}
+//     objstr[counter].push(string[i]);
+//   }
+//   return objstr;
+// }
 
-const groupedStrings_1 = groupSpace(strings);
-console.log("Grouped Strings By Spaces:", groupedStrings_1);
+// const groupedStrings_1 = groupSpace(strings);
+// console.log("Grouped Strings By Spaces:", groupedStrings_1);
 // // 🥵 Task 14: group strings by length 🥵
 // // TODO: Write a function to group strings by length.
 // // The function should return an object where keys are the length of the strings and values are arrays of strings.

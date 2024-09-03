@@ -853,12 +853,6 @@
 // const lop = grid(4, 4);
 // console.log(lop);
 
-//// map create new array// and we have for-of to acihve data ffrom the array
-
-let array = [1, 2, 3, 4];
-// for (element of array) {
-//   console.log(element);
-// }
 // for (element of array) {
 //   console.log(element);
 // }
