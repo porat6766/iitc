@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+.firstBox {
+    background-color: yellow;
+    height: 130px;
+    border: 2px solid blue;
+
+}
+.firstBox p{
+    margin-left: 15px;
+    color: red;
+}
+.greyBox{
+    background-color: grey;
+    margin-inline: auto;
+    border-radius: 5px;
+    padding: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    color: white;
+}
+
+.highlight{
+    color: black; 
+    font-weight: bold;
+}
+
+.secondBox {
+    margin-top: 35px;
+    background-color: yellow;
+    height: 120px;
+    border: 2px solid blue;
+    overflow: hidden;
+    display: flex;
+
+}
+
+.circle1, .circle2, .circle3{
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 10px;
+
+}
+.circle2{
+    background-color: blue;
+}
+.circle3{
+    background-color: rgb(18, 106, 18);
+}
+
+.thirdBox {
+    margin-top: 35px;
+    background-color: yellow;
+    height: 300px;
+    border: 2px solid blue;
+    overflow: hidden;
+    display: flex;
+
+}
+
+.box{
+    margin-top: 17px;
+    background-color: red;
+    height: 230px;
+    width: 600px;
+    margin-inline: auto;
+
+   
+}
+
+.firstNeastedBox {
+    padding-top: 7px;
+    background-color: black;
+    height: 30px;
+    width: 45px;
+    color: white;
+    justify-content: center; 
+    align-items: center;
+    text-align: center;
+}
+.secondNeastedBox {
+    padding-top: 7px;
+    background-color: black;
+    height: 30px;
+    width: 45px;
+    margin-left: auto;
+    color: white;
+    justify-content: center; 
+    align-items: center;
+    text-align: center;    
+}
+
+.ellipse {
+    padding-top: 7px;
+    text-align: center;
+    background-color: black;
+    height: 35px;
+    width: 45px;
+    margin-left: auto;
+    color: white;
+    margin-right: auto;
+     border-radius: 50%;
+     width: 70px;
+     box-shadow: 5px 10px 15px rgba(232, 214, 214, 0.921);
+     justify-content: center; 
+     align-items: center
+}
+
+
+        .button {
+            
+            display: flex;
+            gap: 2px;
+            margin: 20px;
+        }
+        .explore-button {
+            margin-top: 210px;
+            background-color: hsl(276, 86%, 57%);
+            color: white;
+            padding: 20px 45px; 
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button .join-button {
+            margin-top: 210px;
+            background-color: hsl(276, 86%, 57%);
+            color: white;
+            padding: 12px 40px; 
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="firstBox">
+        <P>
+            <P>1 st lorem ipsum dolor sit amet consectuter</P>
+            <P>2 st lorem ipsum dolor <span class="highlight">black</span> sit amet consectuter</P>
+        </P>
+        <div class="greyBox"> 3rd lorem ipsum dolor sit amet consectuter</div>
+    </div>
+
+
+    <div class="secondBox">
+
+        <div class="circle1"></div>
+        <div class="circle2"></div>
+        <div class="circle3"></div>
+    </div>
+
+    <div class="thirdBox">
+
+        <div class="box">
+            <div class="firstNeastedBox">left</div>
+            <div class="secondNeastedBox">right</div>
+            <div class="ellipse">middle</div>
+        </div>
+    </div>
+
+    <div class="button">
+        <button class="explore-button">EXPLORE</button>
+        <button class="join-button">JOIN</button>
+    </div>
+  
+
+
+
+
+
+
+
+</body>
+</html>
+
+
+<!-- 
+<P class=" firstLine">1 st lorem ipsum dolor sit amet consectuter</P>
+           -->
