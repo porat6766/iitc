@@ -1,0 +1,230 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    /* padding: 0; */
+
+}
+
+@font-face {
+    font-family: "out-fit";
+    src: url(/september/12.09.24/recipe-page-main/assets/Outfit-VariableFont_wght.ttf);
+}
+
+@font-face {
+    font-family: "young-serif";
+    src: url(/september/12.09.24/recipe-page-main/assets/YoungSerif-Regular.ttf);
+}
+
+
+:root {
+
+    --White: hsl(0, 0%, 100%);
+
+    --Stone-100: hsl(30, 54%, 90%);
+    --Stone-150: hsl(30, 18%, 87%);
+    --Stone-600: hsl(30, 10%, 34%);
+    --Stone-900: hsl(24, 5%, 18%);
+
+    --Brown-800: hsl(14, 45%, 36%);
+
+    --Rose-800: hsl(332, 51%, 32%);
+    --Rose-50: hsl(330, 100%, 98%);
+
+
+}
+
+
+.big-daddy {
+    overflow-x: hidden;
+    max-width: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.text-daddy {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+h1 {
+    font-family: "young-serif";
+    margin-bottom: 10px;
+}
+
+.description-omlete {
+    font-family: "out-fit";
+    line-height: 23px;
+}
+
+
+.Preparation-time {
+    background-color: var(--Rose-50);
+    padding-block: 10px;
+    border-radius: 10px;
+    font-family: "out-fit";
+    padding: 18px 19px;
+    line-height: 23px;
+}
+
+h4 {
+    color: var(--Rose-800);
+}
+
+.ul-Preparation span {
+    font-weight: 600;
+    padding-left: 0px;
+}
+
+.ul-Preparation {
+    padding: 0px 0px 0px 15px;
+    font-size: 18px;
+}
+
+.Preparation-time li {
+    margin: 8px;
+}
+
+
+h3 {
+    color: var(--Brown-800);
+    font-size: 25px;
+    margin-bottom: 18px;
+    margin-top: 10px;
+
+}
+
+.ou-ol-text {
+    padding: 15px;
+    margin-bottom: 5px;
+
+}
+
+.Ingredients-ul {
+    padding: 0px 0px 0px 22px;
+    line-height: 30px;
+
+}
+
+.Ingredients-ul li {
+    padding-left: 14px;
+}
+
+
+.Instructions-ol {
+    padding: 0px 0px 0px 35px;
+    line-height: 23px;
+    margin-bottom: 20px;
+    font-weight: 280;
+}
+
+.Instructions-ol li {
+    padding-left: 16px;
+}
+
+.ou-ol-text-1 {
+    font-family: "out-fit";
+
+}
+
+.ou-ol-text-1 span {
+    font-weight: 600;
+
+}
+
+.Instructions-ol li::marker {
+    color: var(--Brown-800);
+    font-weight: 600;
+}
+
+.ou-ol-text-1 li {
+    margin-bottom: 12px;
+}
+
+.ou-ol-text-2 {
+    margin-top: 20px;
+    padding: 20px;
+}
+
+.text-nutrition {
+    line-height: 22px;
+    margin-bottom: 12px;
+
+}
+
+.types-food {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.types-food span {
+    display: inline-block;
+    width: 45%;
+    font-size: 14px;
+    padding-left: 17px;
+}
+
+
+.types-food .bold {
+    color: var(--Brown-800);
+    font-weight: 600;
+    font-size: 15px;
+    font-family: "out-fit";
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+
+
+@media (min-width: 750px) {
+
+    .big-daddy {
+        border-radius: 1%;
+        padding: 20px 35px;
+        background-color: white;
+        margin-bottom: 20px;
+    }
+
+    img {
+        border-radius: 6%;
+
+    }
+
+
+    body {
+        padding-inline: 25%;
+        padding-block: 7%;
+        background-color: var(--Stone-100);
+
+    }
+
+    .text-daddy {
+        width: 100%;
+        padding: 20px;
+    }
+
+    /* h1,
+    .description-omlete,
+    .Preparation-time,
+    .ou-ol-text,
+    .text-nutrition {
+        width: 100%;
+        box-sizing: border-box;
+    } */
+
+
+}

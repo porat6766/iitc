@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+      }
+      .headero {
+        position: sticky;
+        background-color: brown;
+        height: 100px;
+        color: black;
+        font-size: 40px;
+        padding-top: 25px;
+        font-weight: bold;
+        width: 100%;
+        text-align: center;
+        margin-top: 0px;
+        z-index: 100;
+      }
+
+      .container {
+        position: relative;
+        height: calc(100vh - 160px);
+        display: flex;
+      }
+
+      .sidebar {
+        background-color: rgb(7, 24, 4);
+        color: darkgreen;
+        width: 20%;
+        height: 100%;
+        position: fixed;
+        left: 0;
+        top: 100px;
+        font-size: 20px;
+      }
+
+      .main-content {
+        background-color: rgb(90, 176, 91);
+        height: 100%;
+        width: 80%;
+        position: relative;
+        margin-left: auto;
+        color: darkred;
+        font-size: 40px;
+        padding: 20px;
+        padding-bottom: 60px;
+        overflow-y: auto;
+      }
+
+      .footer {
+        background-color: brown;
+        height: 60px;
+        bottom: 0;
+        position: fixed;
+        right: 0;
+        left: 0;
+      }
+      .but {
+        z-index: 20;
+        position: fixed;
+        background-color: rgb(123, 115, 178);
+        bottom: 70px;
+        right: 30px;
+        font-size: 25px;
+        cursor: pointer;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+      }
+
+      .popover {
+        border: 3px solid rgb(119, 89, 32);
+        background-color: wheat;
+        display: none;
+        position: absolute;
+        bottom: 140px;
+        right: 18px;
+        height: 200px;
+        width: 90px;
+        text-align: center;
+        overflow: auto;
+        padding: 6px;
+        z-index: 30;
+        border-radius: 50%;
+        padding-top: 75px;
+      }
+
+      .but:hover + .popover {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="headero">WELCOME TO MY FIRST HTTP</header>
+
+    <div class="container">
+      <div class="main-content">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto non
+        cumque placeat itaque natus ipsum! Quaerat itaque nihil a minus, eum et
+        ipsum repellendus dolorum distinctio, aliquid accusantium delectus
+        deleniti. Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+        Temporibus magnam aspernatur deleniti ab id omnis culpa? Molestias
+        molestiae eveniet omnis veritatis obcaecati laboriosam, officiis ullam
+        neque quam, sit autem possimus?Lorem ipsum dolor sit amet consectetur
+        adipisicing elit. Aperiam expedita dolor doloribus itaque, officiis
+        necessitatibus rerum libero, nulla harum hic reprehenderit dolorem.
+        Ipsum, consectetur quisquam! Rerum modi magnam accusamus quasi. Lorem
+        ipsum dolor sit amet consectetur adipisicing elit. Modi nemo laborum
+        assumenda asperiores obcaecati! Dignissimos corporis cupiditate
+        suscipit! Ipsum distinctio animi ullam accusamus. Consectetur facilis
+        vel culpa. Velit, ratione exc Lorem ipsum dolor, sit amet consectetur
+        adipisicing elit. Architecto non cumque placeat itaque natus ipsum!
+        Quaerat itaque nihil a minus, eum et ipsum repellendus dolorum
+        distinctio, aliquid accusantium delectus deleniti. Lorem ipsum, dolor
+        sit amet consectetur adipisicing elit. Temporibus magnam aspernatur
+        deleniti ab id omnis culpa? Molestiasepturi.
+      </div>
+
+      <div class="sidebar">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis
+        aspernatur dicta neque quos aliquam, repudiandae minus ducimus sed magni
+        numquam dignissimos id vel culpa labore placeat, iusto dolorum fugit
+        quae.
+      </div>
+    </div>
+    <button class="but">👍</button>
+    <div class="popover">this is popover</div>
+    <div class="footer"></div>
+  </body>
+</html>
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+      }
+      .headero {
+        position: sticky;
+        background-color: brown;
+        height: 100px;
+        color: black;
+        font-size: 40px;
+        padding-top: 25px;
+        font-weight: bold;
+        width: 100%;
+        text-align: center;
+        top: 0;
+        z-index: 100;
+      }
+
+      .container {
+        position: relative;
+      }
+
+      .sidebar {
+        background-color: rgb(7, 24, 4);
+        color: darkgreen;
+        width: 20%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        font-size: 20px;
+        bottom: 0;
+      }
+
+      .main-content {
+        background-color: rgb(90, 176, 91);
+        height: 100%;
+        width: 80%;
+        position: relative;
+        margin-left: auto;
+        color: darkred;
+        font-size: 40px;
+        padding: 20px;
+        padding-bottom: 60px;
+      }
+
+      .footer {
+        background-color: brown;
+        height: 60px;
+        bottom: 0;
+        position: fixed;
+        right: 0;
+        left: 0;
+      }
+      .but {
+        z-index: 20;
+        position: fixed;
+        background-color: rgb(123, 115, 178);
+        bottom: 70px;
+        right: 30px;
+        font-size: 25px;
+        cursor: pointer;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+      }
+
+      .popover {
+        border: 3px solid rgb(119, 89, 32);
+        background-color: wheat;
+        display: none;
+        position: absolute;
+        bottom: 140px;
+        right: 18px;
+        height: 200px;
+        width: 90px;
+        text-align: center;
+        overflow: auto;
+        padding: 6px;
+        z-index: 30;
+        border-radius: 50%;
+        padding-top: 75px;
+      }
+
+      .but:hover + .popover {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="headero">WELCOME TO MY FIRST HTTP</header>
+
+    <div class="container">
+      <div class="main-content">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto non
+        cumque placeat itaque natus ipsum! Quaerat itaque nihil a minus, eum et
+        ipsum repellendus dolorum distinctio, aliquid accusantium delectus
+        deleniti. Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+        Temporibus magnam aspernatur deleniti ab id omnis culpa? Molestias
+        molestiae eveniet omnis veritatis obcaecati laboriosam, officiis ullam
+        neque quam, sit autem possimus?Lorem ipsum dolor sit amet consectetur
+        adipisicing elit. Aperiam expedita dolor doloribus itaque, officiis
+        necessitatibus rerum libero, nulla harum hic reprehenderit dolorem.
+        Ipsum, consectetur quisquam! Rerum modi magnam accusamus quasi. Lorem
+        ipsum dolor sit amet consectetur adipisicing elit. Modi nemo laborum
+        assumenda asperiores obcaecati! Dignissimos corporis cupiditate
+        suscipit! Ipsum distinctio animi ullam accusamus. Consectetur facilis
+        vel culpa. Velit, ratione exc Lorem ipsum dolor, sit amet consectetur
+        adipisicing elit. Architecto non cumque placeat itaque natus ipsum!
+        Quaerat itaque nihil a minus, eum et ipsum repellendus dolorum
+        distinctio, aliquid accusantium delectus deleniti. Lorem ipsum, dolor
+        sit amet consectetur adipisicing elit. Temporibus magnam aspernatur
+        deleniti ab id omnis culpa? Molestiasepturi.
+      </div>
+
+      <div class="sidebar">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis
+        aspernatur dicta neque quos aliquam, repudiandae minus ducimus sed magni
+        numquam dignissimos id vel culpa labore placeat, iusto dolorum fugit
+        quae.
+      </div>
+    </div>
+    <button class="but">👍</button>
+    <div class="popover">this is popover</div>
+    <div class="footer"></div>
+  </body>
+</html> -->
+
+flex-wrap: wrap; flex-direction: column-reverse; flex-wrap: wrap-reverse;
+justify-content: center; flex-direction: column-reverse; align-items: flex-end;
+flex-wrap: wrap-reverse; align-content: space-between; justify-content: center;
