@@ -1,0 +1,21 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap'); */
+
+@font-face {
+    font-family: "font-general";
+    src: url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap');
+}
+
+@font-face {
+    font-family: "one";
+    src: url(/september/15.09.24/assets/fonts/static/HankenGrotesk-Bold.ttf);
+}
+
+@font-face {
+    font-family: "two";
+    src: url(/september/15.09.24/assets/fonts/static/HankenGrotesk-ExtraBold.ttf);
+}
+
+@font-face {
+    font-family: "three";
+    src: url(/september/15.09.24/assets/fonts/static/HankenGrotesk-Medium.ttf);
+}

@@ -80,6 +80,7 @@ h4 {
     color: var(--Rose-800);
 }
 
+
 .ul-Preparation span {
     font-weight: 600;
     padding-left: 0px;
@@ -88,6 +89,11 @@ h4 {
 .ul-Preparation {
     padding: 0px 0px 0px 15px;
     font-size: 18px;
+}
+
+li::marker {
+    display: flex;
+
 }
 
 .Preparation-time li {
@@ -112,6 +118,7 @@ h3 {
 .Ingredients-ul {
     padding: 0px 0px 0px 22px;
     line-height: 30px;
+
 
 }
 
@@ -171,7 +178,7 @@ h3 {
     display: inline-block;
     width: 45%;
     font-size: 14px;
-    padding-left: 17px;
+    padding-left: 25px;
 }
 
 

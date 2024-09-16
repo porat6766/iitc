@@ -1,0 +1,24 @@
+:root {
+    --color-red-150: hsl(0, 100%, 67%);
+    --color-orange-150: hsl(39, 100%, 56%);
+    --color-green-400: hsl(166, 100%, 37%);
+    --color-cobalt-blue: hsl(234, 85%, 45%);
+
+    --color-green-100: hsl(166, 100%, 95%);
+    --color-orange-50: hsl(39, 100%, 92%);
+    --color-red-50: hsl(0, 100%, 92%);
+
+
+
+    --color-background-blue-150: hsl(252, 100%, 67%);
+    --color-background-royal-blue: hsl(241, 67%, 23%);
+
+    --color-circle-violet-blue: hsla(256, 72%, 46%, 1);
+    --color-circle-persian-blue: hsla(241, 72%, 46%, 0);
+    --color-background-royal-blue-50: hsl(241, 67%, 23%);
+
+    --color-neutral-white: hsl(0, 0%, 100%);
+    --color-pale-blue: hsl(221, 100%, 96%);
+    --color-light-lavender: hsl(241, 100%, 89%);
+    --color-dark-gray-blue: hsl(224, 30%, 27%);
+}
