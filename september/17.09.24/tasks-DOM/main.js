@@ -131,8 +131,8 @@ const divBoxDefult = document.getElementById("box");
 
 changeColoro.addEventListener("click", funChaColor);
 
-// divBoxDefult.style.maxHeight = "300px";
-// divBoxDefult.style.maxWidth = "300px";
+divBoxDefult.style.maxHeight = "300px";
+divBoxDefult.style.maxWidth = "300px";
 divBoxDefult.style.height = "100px";
 divBoxDefult.style.width = "100px";
 divBoxDefult.style.background = "blue";
@@ -156,3 +156,5 @@ function funChaColor() {
   }
   boolean = !boolean;
 }
+
+//5.
