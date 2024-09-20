@@ -3,92 +3,75 @@
 let listToDoArray = [
   {
     id: makeId(),
-    firstName: "ron",
-    lastName: "choen",
     toDO: "clean table",
     statusComplet: false,
   },
   {
     id: makeId(),
-    firstName: "dan",
-    lastName: "haim",
     toDO: "clean window",
     statusComplet: false,
   },
   {
     id: makeId(),
-    firstName: "david",
-    lastName: "avraham",
     toDO: "do laundry",
     statusComplet: false,
   },
 ];
-// console.log(listToDoArray);
 
 //
 //
 
-//"NVvW0"
-//"mFK8S"
-//"DmzBr"
+//
+//
+//
 
 const btnAdd = document.getElementById("addToDoList");
-btnAdd.addEventListener("click", function (ev) {
-  ev.preventDefault();
-  function addItem() {
-    const elToDoList = document.getElementById("toDoList");
-    const newToDo = document.createElement("li");
-    const inputAddList = document.getElementById("addInput1");
-    newToDo.textContent = inputAddList.value;
-    const templetObject = {
-      id: makeId(),
-      firstName: "dan",
-      lastName: "haim",
-      toDO: newToDo.textContent,
-      statusComplet: false,
-    };
-    newToDo.setAttribute("id", "ID" + templetObject.id);
-    listToDoArray.push(templetObject);
-    console.log(listToDoArray);
-    //
-    //
+const inputAddList = document.getElementById("addInput1");
+btnAdd.addEventListener("click", addItem);
+function addItem() {
+  const templetObject = {
+    id: makeId(),
+    toDO: inputAddList.value,
+    statusComplet: false,
+  };
+  listToDoArray.push(templetObject);
+  renderToDoList();
+  inputAddList.value = "";
 
-    const btnRemove = document.createElement("button");
-    btnRemove.textContent = "delete is here baby";
-    btnRemove.setAttribute("class", "btn-remove");
-    btnRemove.addEventListener("click", function () {
-      remoClick(templetObject.id);
-    });
-    //
-    //
+  console.log(listToDoArray);
+}
 
-    const wrapDiv = document.createElement("div");
-    wrapDiv.setAttribute("id", "wrap");
-    wrapDiv.appendChild(newToDo);
-    wrapDiv.appendChild(btnRemove);
-    elToDoList.appendChild(wrapDiv);
-    inputAddList.value = "";
-  }
-  addItem();
-});
 //
 //
 //
 //
 //
-//
-//
+// //
+// //
 
-function renderToDoList() {
+function renderToDoList(list = listToDoArray) {
   const elToDoList = document.getElementById("toDoList");
   elToDoList.innerHTML = "";
-  for (let i = 0; i < listToDoArray.length; i++) {
-    const oneFromList = listToDoArray[i];
+
+  // for(const li of elToDoList) {
+  //}
+  for (let i = 0; i < list.length; i++) {
+    const oneFromList = list[i];
     const eloneFromList = document.createElement("li");
     eloneFromList.setAttribute("id", "ID" + oneFromList.id);
     eloneFromList.textContent = oneFromList.toDO;
 
     //
+    //
+    eloneFromList.addEventListener("click", function (ev) {
+      eloneFromList.classList.toggle("complete");
+      changStatus(ev, oneFromList);
+      console.log(oneFromList);
+    });
+
+    //
+    //
+
     //
     //
     const btnRemove = document.createElement("button");
@@ -105,13 +88,73 @@ function renderToDoList() {
     elToDoList.appendChild(wrapDiv);
   }
 }
+
+//
+//
+//
+
 function remoClick(id) {
-  const getData = document.getElementById("ID" + id);
-  getData?.parentElement.remove();
+  listToDoArray = listToDoArray.filter((oneFromList) => oneFromList.id !== id);
+
+  renderToDoList();
 }
-// btnRemove.addEventListener("click", removeNow);
-// function removeNow() {}
 renderToDoList();
+
+function changStatus(ev, item) {
+  if (item.statusComplet === false) {
+    item.statusComplet = true;
+    alert("You deserve a blessing");
+  } else {
+    item.statusComplet = false;
+  }
+}
+
+//
+///
+const divNewButton = document.querySelector(".newButtons");
+////
+const buttonAll = document.createElement("button");
+buttonAll.setAttribute("class", "all");
+buttonAll.textContent = "All";
+buttonAll.addEventListener("click", function (ev) {
+  ev.preventDefault();
+  filterList("all");
+});
+//
+//
+const buttonCompleted = document.createElement("button");
+buttonCompleted.setAttribute("class", "completed");
+buttonCompleted.textContent = "completed";
+buttonCompleted.addEventListener("click", function (ev) {
+  ev.preventDefault();
+  filterList("completed");
+});
+//
+//
+const uncomplete = document.createElement("button");
+uncomplete.setAttribute("class", "incomplete");
+uncomplete.textContent = "incomplete";
+uncomplete.addEventListener("click", function (ev) {
+  ev.preventDefault();
+  filterList("incomplete");
+});
+divNewButton.appendChild(buttonAll);
+divNewButton.appendChild(buttonCompleted);
+divNewButton.appendChild(uncomplete);
+
+//
+function filterList(filter) {
+  let filterTheList;
+  if (filter === "all") {
+    filterTheList = listToDoArray;
+  } else if (filter === "completed") {
+    filterTheList = listToDoArray.filter((item) => item.statusComplet);
+  } else if (filter === "incomplete") {
+    filterTheList = listToDoArray.filter((item) => !item.statusComplet);
+  }
+  renderToDoList(filterTheList);
+}
+
 //
 //
 //

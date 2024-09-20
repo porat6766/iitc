@@ -1,6 +1,6 @@
 body {
     color: cadetblue;
-    background: yellowgreen;
+    background: rgb(62, 12, 12);
 }
 
 #toDoList {
@@ -10,7 +10,7 @@ body {
 }
 
 #toDoList li {
-    color: brown;
+    color: rgb(215, 145, 24);
     font-size: 25px;
     margin-bottom: 30px;
     margin-top: 20px;
@@ -28,4 +28,17 @@ body {
     margin-left: 10px;
     margin-top: 30px;
     font-weight: bold;
+}
+
+#wrap .complete {
+    opacity: 0.3;
+    color: rgb(204, 156, 249);
+}
+
+.newButtons {
+    text-align: center;
+}
+
+.newButtons button {
+    margin: 20px;
 }
