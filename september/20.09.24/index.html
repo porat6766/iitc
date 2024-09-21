@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>product-web</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="gridProduct">
+      <form>
+        <ul id="productsElement"></ul>
+        <input class="nameProduct" type="text" placeholder="name" />
+        <input
+          class="price"
+          type="number"
+          min="0"
+          max="1200"
+          placeholder="price"
+        />
+        <input
+          class="amount"
+          type="number"
+          min="0"
+          max="300"
+          placeholder="amount"
+        />
+        <button type="button" onclick="addProduct(event)" class="add">
+          Add
+        </button>
+      </form>
+    </div>
+    <ul class="UlfixedProducts"></ul>
+
+    <script src="main.js"></script>
+  </body>
+</html>

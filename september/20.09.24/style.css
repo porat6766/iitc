@@ -1,0 +1,64 @@
+body,
+html {
+    margin: 0px;
+    padding: 0px;
+
+    background-color: rgb(12, 69, 54);
+}
+
+.gridProduct {
+    border-radius: 10px;
+    background-color: rgb(46, 145, 118);
+    margin: auto;
+    padding: 30px;
+    margin-top: 40px;
+    height: 60%;
+    width: 80vw;
+    box-sizing: border-box;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+}
+
+
+.gridProduct input {
+    margin-top: 10px;
+    margin-right: 18px;
+}
+
+
+.add {
+    color: rgb(205, 216, 216);
+    font-size: 20px;
+    background-color: rgb(12, 69, 54);
+}
+
+/*.elOneOfTheList {}*/
+
+.removeButton {
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.totalProduct {
+    font-weight: 700;
+    font-size: 22px;
+
+}
+
+.UlfixedProducts {
+    background-color: black;
+    padding: 30px;
+    margin-top: 100px;
+    height: 60%;
+    width: 80vw;
+    margin-inline: auto;
+    background-color: rgb(46, 145, 118);
+    border-radius: 10px;
+}
+
+.elOneFixedProducts {
+    margin-top: 13px;
+    display: flex;
+    justify-content: space-between;
+}
