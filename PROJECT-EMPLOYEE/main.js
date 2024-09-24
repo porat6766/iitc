@@ -3,75 +3,75 @@ const GelForm = document.querySelector(".form-add");
 ///demo data
 let gEmployee = getDatLocalStorage();
 
-const demo = [
-  {
-    id: "A1b2C",
-    firstName: "Alice",
-    lastName: "Smith",
-    age: 28,
-    startDate: "2020-06-15",
-    department: "Marketing",
-    salary: 50000,
-  },
-  {
-    id: "Xy8K7",
-    firstName: "John",
-    lastName: "Doe",
-    age: 35,
-    startDate: "2018-01-25",
-    department: "Sales",
-    salary: 60000,
-  },
-  {
-    id: "P5sD9",
-    firstName: "Emma",
-    lastName: "Johnson",
-    age: 42,
-    startDate: "2015-03-12",
-    department: "IT",
-    salary: 70000,
-  },
-  {
-    id: "Q7rM1",
-    firstName: "Michael",
-    lastName: "Brown",
-    age: 30,
-    startDate: "2019-07-01",
-    department: "Finance",
-    salary: 55000,
-  },
-  {
-    id: "T9vL6",
-    firstName: "Sophia",
-    lastName: "Williams",
-    age: 26,
-    startDate: "2021-05-20",
-    department: "HR",
-    salary: 45000,
-  },
-  {
-    id: "K3pJ8",
-    firstName: "David",
-    lastName: "Taylor",
-    age: 39,
-    startDate: "2017-09-14",
-    department: "Operations",
-    salary: 64000,
-  },
-  {
-    id: "V6xQ2",
-    firstName: "Laura",
-    lastName: "White",
-    age: 32,
-    startDate: "2016-11-03",
-    department: "Logistics",
-    salary: 50000,
-  },
-];
-// _tBodyEmployee.textContent = "";
+// const demo = [
+//   {
+//     id: "A1b2C",
+//     firstName: "Alice",
+//     lastName: "Smith",
+//     age: 28,
+//     startDate: "2020-06-15",
+//     department: "Marketing",
+//     salary: 50000,
+//   },
+//   {
+//     id: "Xy8K7",
+//     firstName: "John",
+//     lastName: "Doe",
+//     age: 35,
+//     startDate: "2018-01-25",
+//     department: "Sales",
+//     salary: 60000,
+//   },
+//   {
+//     id: "P5sD9",
+//     firstName: "Emma",
+//     lastName: "Johnson",
+//     age: 42,
+//     startDate: "2015-03-12",
+//     department: "IT",
+//     salary: 70000,
+//   },
+//   {
+//     id: "Q7rM1",
+//     firstName: "Michael",
+//     lastName: "Brown",
+//     age: 30,
+//     startDate: "2019-07-01",
+//     department: "Finance",
+//     salary: 55000,
+//   },
+//   {
+//     id: "T9vL6",
+//     firstName: "Sophia",
+//     lastName: "Williams",
+//     age: 26,
+//     startDate: "2021-05-20",
+//     department: "HR",
+//     salary: 45000,
+//   },
+//   {
+//     id: "K3pJ8",
+//     firstName: "David",
+//     lastName: "Taylor",
+//     age: 39,
+//     startDate: "2017-09-14",
+//     department: "Operations",
+//     salary: 64000,
+//   },
+//   {
+//     id: "V6xQ2",
+//     firstName: "Laura",
+//     lastName: "White",
+//     age: 32,
+//     startDate: "2016-11-03",
+//     department: "Logistics",
+//     salary: 50000,
+//   },
+// ];
 
 function renderDataEmployees() {
   const _tBodyEmployee = document.querySelector(".tbody-data-employees");
+  _tBodyEmployee.textContent = "";
   for (let i = 0; i < gEmployee.length; i++) {
     const oneEmployee = gEmployee[i];
     const elTrEmployee = document.createElement("tr");
