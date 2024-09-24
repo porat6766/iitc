@@ -48,7 +48,7 @@ function addProduct(event) {
 ///
 ///
 
-function renderToDoList(products) {
+function renderToDoList() {
   const listsUl = document.getElementById("productsElement");
   listsUl.innerHTML = "";
   let totalProducts = 0;

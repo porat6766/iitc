@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>products-web</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="AllElemnts">
+      <table id="product">
+          <tr>
+            <th></th>
+            <th>NAME</th>
+            <th>PRICE</th>
+            <th>AMOUNT</th>
+            <th>TOTAL</th>
+          </tr>
+        </thead>
+        <tbody id="body-table"></tbody>
+        <tfoot>
+          <tr>
+            <td id="big-total"></td>
+          </tr>
+        </tfoot>
+      </table>
+
+      <form id="product-form">
+        <input type="text" id="name-product" placeholder="name" />
+        <input
+          type="number"
+          id="price-product"
+          placeholder="price"
+          min="0"
+          max="1000"
+        />
+        <input
+          type="number"
+          id="amount-product"
+          placeholder="amount"
+          min="0"
+          max="50"
+        />
+        <button id="elBtnAdd">Add</button>
+      </form>
+
+      <ul id="fixedProduct"></ul>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>

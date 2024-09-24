@@ -1,0 +1,21 @@
+input {
+    margin: 10px;
+
+}
+
+.render-table {
+    border-collapse: collapse;
+    margin-inline: auto;
+}
+
+
+.render-table,
+th,
+td {
+    border: 2px solid black;
+    padding: 12px;
+}
+
+button {
+    margin: 5px;
+}

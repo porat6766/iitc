@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MANAGE-PAGE-BOSS</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <form class="form-add">
+      <input
+        class="first-name"
+        maxlength="15"
+        type="text"
+        placeholder="First-name"
+      />
+      <input
+        class="last-name"
+        maxlength="15"
+        type="text"
+        placeholder="last-namse"
+      />
+      <input class="age" type="number" placeholder="age" min="18" max="67" />
+      <input
+        class="Department"
+        maxlength="10"
+        type="text"
+        placeholder="Department"
+      />
+      <input class="salary" type="number" placeholder="Salary " />
+      <button class="clickAdd">Add</button>
+    </form>
+    <div class="filtered"></div>
+    <h1 class="title-grid">Employee</h1>
+    <table class="render-table">
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Age</th>
+          <th>Start Date</th>
+          <th>Department</th>
+          <th>Salary</th>
+          <th>Delete/Edit</th>
+        </tr>
+      </thead>
+      <tbody class="tbody-data-employees"></tbody>
+    </table>
+    <script src="main.js"></script>
+  </body>
+</html>

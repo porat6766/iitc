@@ -1,0 +1,72 @@
+html,
+body {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+.AllElemnts {
+    background-color: bisque;
+    padding: 60px;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+
+th,
+td {
+    padding-right: 20px;
+}
+
+th {
+    font-size: 20px;
+    font-weight: 800;
+
+}
+
+#big-total {
+    display: flex;
+    font-weight: 900;
+    font-size: 25px;
+
+}
+
+#product {
+    padding: 15px;
+    height: auto;
+    width: 70%;
+    min-height: 130px;
+    background-color: brown;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    color: rgb(223, 201, 115);
+}
+
+#fixedProduct {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 25px;
+    padding: 60px;
+    padding-left: 40px;
+    height: 39%;
+    width: 50%;
+    background-color: brown;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    color: rgb(223, 201, 115);
+}
+
+
+#fixedProduct li {
+    display: flex;
+    justify-content: space-between;
+}
+
+.buttons-Add {
+
+    margin-bottom: 13px;
+}
