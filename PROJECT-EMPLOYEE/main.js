@@ -335,17 +335,3 @@ function getCurrentDateInYYYYMMDD() {
 }
 
 renderDataEmployees();
-
-// const elBtnSort = document.querySelector(".sortBtn");
-// elBtnSort.addEventListener("click", toggleFilter);
-// function toggleFilter() {
-//   const divfiltered = document.querySelector(".filtered");
-//   divfiltered.innerHTML = `
-//   <input placeholder="Put name"/>
-//   <input placeholder="last name"/>
-//   <input placeholder="age"/>
-//   <input placeholder=" from date"/>
-//   <input placeholder="department"/>
-//   <input placeholder="salary"/>
-//   `;
-// }
