@@ -226,7 +226,8 @@ listenLisss.forEach((li) => {
 function filterByFirstName() {
   const elSearchinput = document.querySelector(".inputFirstName");
   filterData = gEmployee.filter(
-    (employee) => employee.firstName === elSearchinput.value
+    (employee) =>
+      employee.firstName.toUpperCase() === elSearchinput.value.toUpperCase()
   );
 
   renderDataEmployees(filterData);
@@ -238,7 +239,8 @@ function filterByLastName() {
     alert("Please type a value");
   } else {
     filterData = gEmployee.filter(
-      (employee) => employee.lastName === elSearchinput.value
+      (employee) =>
+        employee.lastName.toUpperCase() === elSearchinput.value.toUpperCase()
     );
   }
 
@@ -253,8 +255,8 @@ function filterByAge() {
   } else {
     filterData = gEmployee.filter(
       (employee) =>
-        employee.age > elSearchinputFrom.value &&
-        employee.age < elSearchinputTo.value
+        Number(employee.age) > Number(elSearchinputFrom.value) &&
+        Number(employee.age) < Number(elSearchinputTo.value)
     );
   }
 
@@ -269,8 +271,8 @@ function filterDate() {
   } else {
     filterData = gEmployee.filter(
       (employee) =>
-        employee.startDate >= elSearchinputFrom.value &&
-        employee.startDate <= elSearchinputTo.value
+        new Date(employee.startDate) >= new Date(elSearchinputFrom.value) &&
+        new Date(employee.startDate) <= new Date(elSearchinputTo.value)
     );
   }
 
