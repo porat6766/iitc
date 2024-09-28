@@ -1,6 +1,6 @@
 import { dataFunctionModel } from "./model.js";
 import { utillsvarieble } from "./utills.js";
-import { viewDataAndFunction } from "./view.js";
+import { viewDataAndFunction } from "./filters.js";
 ////
 console.log(utillsvarieble.makeId());
 let filterDataF = viewDataAndFunction.filterData;
@@ -100,37 +100,6 @@ function renderDataEmployees(fakeEmployees) {
     });
   }
 }
-
-// function renderDataEmployees(filterDatam = dataFunctionModel.gEmployees) {
-//   const _tBodyEmployee = document.querySelector(".tbody-data-employees");
-//   _tBodyEmployee.textContent = "";
-//   for (let i = 0; i < filterDatam.length; i++) {
-//     const oneEmployee = filterDatam[i];
-//     const elTrEmployee = document.createElement("tr");
-//     elTrEmployee.innerHTML = `
-//     <td>${oneEmployee.firstName}</td>
-//     <td>${oneEmployee.lastName}</td>
-//     <td>${oneEmployee.age}</td>
-//     <td>${oneEmployee.startDate}</td>
-//     <td>${oneEmployee.department}</td>
-//     <td>${oneEmployee.salary.toLocaleString()}</td>
-//     <td><button class="deleteBtn">Delete</button><button class="edit">Edit</button></td>
-//     `;
-
-//     const deleteBtn = elTrEmployee.querySelector(".deleteBtn");
-//     deleteBtn.addEventListener("click", function () {
-//       dataFunctionModel.removeEmployee(oneEmployee.id);
-//       renderDataEmployees();
-//     });
-
-//     const editBtn = elTrEmployee.querySelector(".edit");
-//     editBtn.addEventListener("click", function () {
-//       viewDataAndFunction.getToInputForEdit(oneEmployee.id);
-//     });
-
-//     _tBodyEmployee.appendChild(elTrEmployee);
-//   }
-// }
 
 GelForm.addEventListener("submit", function (ev) {
   ev.preventDefault();
@@ -322,8 +291,7 @@ listenLisss.forEach((li) => {
     const allButtons = document.querySelectorAll(".AllList");
     allButtons.forEach((button) => {
       button.addEventListener("click", function () {
-        renderDataEmployees();
-
+        location.reload(true);
         ElfilterWhriting.innerHTML = "";
       });
     });
@@ -356,7 +324,7 @@ export const inputsAddAndEditAndFunctionMain = {
   elSearchinputToSalary,
   inputs,
 };
-
+//The project before the division to MVC
 // const employees_STORAGE_KEY = "dataEmployeeStorage";
 // const GelForm = document.querySelector(".form-add");
 // ///demo data

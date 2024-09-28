@@ -81,16 +81,11 @@ input {
     font-weight: 800;
     font-size: 70px;
 
-    /* מסגרת סביב האותיות */
     text-shadow:
         2px 2px 0px white,
-        /* צל ימינה למטה */
         -2px 2px 0px white,
-        /* צל שמאלה למטה */
         2px -2px 0px white,
-        /* צל ימינה למעלה */
         -2px -2px 0px white;
-    /* צל שמאלה למעלה */
 }
 
 
@@ -141,7 +136,8 @@ button {
 }
 
 .sortBtn:hover {
-    opacity: 0.5;
+    height: 35px;
+    width: 130px;
 }
 
 .hidden {
@@ -169,6 +165,7 @@ button {
     cursor: pointer;
     min-width: 70px;
     border-radius: 5px;
+
 }
 
 .deleteBtn:hover {
