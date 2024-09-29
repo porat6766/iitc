@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MANAGE-PAGE-BOSS</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container-all">
+      <form class="form-add">
+        <h1>Add employee</h1>
+        <input
+          class="first-name"
+          maxlength="15"
+          type="text"
+          placeholder="First-name"
+        />
+        <input
+          class="last-name"
+          maxlength="15"
+          type="text"
+          placeholder="last-name"
+        />
+        <input class="age" type="number" placeholder="age" min="18" max="67" />
+        <select name="Department" class="Department">
+          <option value="" selected disabled>Select a department</option>
+          <option value="IT">IT</option>
+          <option value="Human Resources">Human Resources</option>
+          <option value="Finance">Finance</option>
+          <option value="Marketing">Marketing</option>
+          <option value="Sales">Sales</option>
+          <option value="Customer Service">Customer Service</option>
+          <option value="Legal">Legal</option>
+          <option value="Operations">Operations</option>
+          <option value="Research and Development">
+            Research and Development
+          </option>
+          <option value="Procurement">Procurement</option>
+        </select>
+        <input class="salary" type="number" placeholder="Salary " />
+        <button class="clickAdd">Add</button>
+      </form>
+      <div class="container-table-filter">
+        <h1 class="title-grid">Employees</h1>
+        <div class="filtered">
+          <button class="sortBtn">Sort by 🔍</button>
+          <ul id="sortUl" class="hidden">
+            <li class="LiFirstName">First Name</li>
+            <li class="LiLastName">Last Name</li>
+            <li class="LiAge">Age</li>
+            <li class="LiStartDate">Date</li>
+            <li class="LiDepartment">Department</li>
+            <li class="LiSalary">Salary</li>
+          </ul>
+          <div class="filterWhriting"></div>
+        </div>
+        <div class="table-container">
+          <table class="render-table"></table>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="main.js"></script>
+  </body>
+</html>

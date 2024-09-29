@@ -1,0 +1,28 @@
+html,
+body {
+    background-color: chocolate;
+}
+
+.sun-of-body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.table-container {
+    padding: 0;
+    margin: 0;
+
+}
+
+.grid {
+    border-collapse: collapse;
+
+}
+
+th,
+tr,
+td {
+
+    border: 3px solid black;
+}

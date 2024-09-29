@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Employees</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="sun-of-body">
+      <div class="Card-Add">
+        <form id="form">
+          <h1>Add-employee</h1>
+          <input class="FirstName" type="text" placeholder="FirstName" />
+          <input class="LastName" type="text" placeholder="LastName" />
+          <input class="Age" type="number" placeholder="Age" />
+          <input class="startDate" type="date" placeholder="startDate" />
+          <input class="Salary" type="number" placeholder="Salary" />
+          <select class="Department">
+            <option value="waiter">waiter</option>
+            <option value="wash">wash</option>
+            <option value="table-clean">table clean</option>
+            <option value="shef">shef</option>
+            <option value="kitchen">kitchen</option>
+            <option value="front">front</option>
+          </select>
+          <button type="button" class="AddEdit">Add</button>
+        </form>
+      </div>
+      <div class="container-filter">
+        <button>filter by</button>
+      </div>
+      <div class="table-container">
+        <table class="grid">
+          <thead>
+            <tr>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Age</th>
+              <th>Start date</th>
+              <th>Department</th>
+              <th>Salary</th>
+              <th>Delete/Edit</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
