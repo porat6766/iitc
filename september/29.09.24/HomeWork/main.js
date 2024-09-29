@@ -53,7 +53,7 @@
 // console.log(newArray);
 
 //9.
-// const strs = ["שלום", "עולם"];
+// const strs = ["hello", "world"];
 // const newArray = strs.map((str) => {
 //   return str.toUpperCase();
 // });
@@ -163,3 +163,172 @@
 // console.log(obj);
 
 //21.
+// const numbers = [1, 2, 3, 4, 5];
+// newNum = numbers.some((number) => {
+//   return number > 3;
+// });
+// console.log(newNum);
+
+//22.
+// const numbers = [2, 4, 6, 8, 10];
+// const funNumbers = numbers.every((num) => num % 2 === 0);
+// console.log(funNumbers);
+
+//23.
+// const strts = ["תפוח", "בננה", "דובדבן"];
+// const chekLengthFun = strts.some((str) => {
+//   return str.length > 6;
+// });
+// console.log(chekLengthFun);
+//24./////////////////////////////////////////////////////////////
+// const animalsInEnglish = ["Cat", "Dog", "tlephant"];
+// const consonants = "bcdfghjklmnpqrstvwxyz";
+// const checkFun = animalsInEnglish.every((str) => {
+//   return consonants.includes(str[0].toLowerCase());
+// });
+// console.log(checkFun);
+// const check = animalsInEnglish.every((str) => {
+//   return consonants.includes(str.forEach.toLowerCase());
+// });
+// console.log(check);
+// const checkTwo = animalsInEnglish.every((str) => {
+//   return str.split("").every((char) => {
+//     return consonants.includes(char.toLowerCase());
+//   });
+// });
+// console.log(checkTwo);
+
+//25.
+// const boolean = [false, false, true, false];
+// const check = boolean.some((bool) => {
+//   return bool !== false;
+// });
+// console.log(check);
+
+//26.
+// const numbers = [1, 2, 3, 4, 5];
+// const check = numbers.find((num) => {
+//   return num > 3;
+// });
+// console.log(check);
+
+//27.///////////////////////////////
+// const numbers = [1, 3, 5, 2, 4, 6];
+// const check = numbers.filter((num) => num % 2 === 0);
+// console.log(check);
+
+// const checkTwo = numbers
+//   .map((num, index) => {
+//     return num % 2 === 0 ? index : -1;
+//   })
+//   .filter((num) => {
+//     return num !== -1;
+//   });
+// console.log(checkTwo);
+
+// for (let i = 0; i < check.length; i++) {
+//   console.log(`${check[i]} index: ${checkTwo[i]}`);
+// }
+
+//28.
+// const fruits = ["תפוח", "בננה", "דובדבן"];
+// const check = fruits.find((str) => {
+//   return str.length > 5;
+// });
+// console.log(check);
+
+//29.
+// const fruits = ["תפוח", "בננה", "דובדבן", "תמר"];
+// const check = fruits.findIndex((str) => str === "דובדבן");
+// console.log(check);
+
+// //30.
+// const numbers = [1, 2, 3, -4, 5, -6];
+
+// const check = numbers.find((num) => num < 0);
+// console.log(check);
+
+//31.
+// const numbers = [3, 1, 4, 1, 5, 9, 2, 6, 5];
+// const order = numbers.sort((a, b) => a - b);
+// console.log(order);
+
+//32.
+// const strts = ["בננה", "תפוחון", "דובדבן", "תפוח", "תמר"];
+// const orderStr = strts.sort();
+// console.log(orderStr);
+
+//33.
+// const numbers = [3, 1, 4, 1, 5, 9, 2, 6, 5];
+// const orderReverse = numbers.sort((a, b) => b - a);
+// console.log(orderReverse);
+
+//34.
+// const fruits = ["בננה", "דובדבן", "תפוח", "תמר"];
+// const sorto = fruits.sort((a, b) => a.length - b.length);
+// console.log(sorto);
+
+//35.
+// const students = [
+//   { name: "יוחנן", age: 25 },
+//   { name: "יעל", age: 30 },
+//   { name: "בועז", age: 20 },
+// ];
+// const sorto = students.sort((a, b) => a.age - b.age);
+// console.log(sorto);
+
+//36.
+// const arrayNeasted = [1, [2, 3], [4, [5, 6]]];
+// const oredrArray = arrayNeasted.flat(2);
+// console.log(oredrArray);
+
+//37.
+// const array = [1, [2, [3, [4]]]];
+// const order = array.flat(2);
+// console.log(order);
+
+//38.
+// const numbers = [1, 2, , 4, 5];
+// const cleanNumbers = numbers.flat();
+// console.log(cleanNumbers);
+
+//39.
+// const letters = ["א", ["ב", "ג"], "ד"];
+// const order = letters.flat().sort();
+// console.log(order);
+
+//40.
+// const numbers = [1, [2, [3, [4, [5]]]]];
+// const cleanNumbers = numbers.flat(Infinity);
+// console.log(cleanNumbers);
+
+//41.
+// const letters = ["א", "ב", "ג", "ד"];
+// const counterLettert = letters.forEach((char, index) =>
+//   console.log(char + "index:" + index)
+// );
+
+//42.
+// const numbers = [10, 20, 30, 40];
+// const order = numbers.map(
+//   (number, index) => "value: " + number + " index: " + index
+// );
+// const numbers = [10, 20, 30, 40];
+// const order = numbers.map(
+//   (number, index) => `value: ${number} index: ${index}`
+// );
+// console.log(order);
+
+// //43////////////////////////
+// const fruits = ["תפוח", "בננה", "אבטיח", "תמר"];
+// const justWithA = fruits.filter((str) => {
+//   return str.includes("א");
+// });
+// console.log(justWithA);
+
+//44.
+const chrs = ["א", "ב", "א", "ג", "ב", "א"];
+const createObj = chrs.reduce((calc, char) => {
+  return calc[char] ? calc[char]++ : (calc[char] = 1), calc;
+}, {});
+console.log(createObj);

@@ -2,7 +2,6 @@ import { dataFunctionModel } from "./model.js";
 import { utillsvarieble } from "./utills.js";
 import { viewDataAndFunction } from "./filters.js";
 ////
-console.log(utillsvarieble.makeId());
 let filterDataF = viewDataAndFunction.filterData;
 const GelForm = document.querySelector(".form-add");
 ///
@@ -119,15 +118,20 @@ function HandleAddOrUpdateogEmployee() {
     return;
   }
   if (isIdEdit) {
-    dataFunctionModel.UpdateEmplyee(
-      isIdEdit,
-      _inputFirstName.value,
-      _inputLastName.value,
-      _inputAge.value,
-      _inputDepartment.value,
-      _inputsalary.value
-    );
-
+    function addTogEmployee(firstName, LastName, age, department, salary) {
+      let gEmployees = utillsvarieble.getDatLocalStorage(employees_STORAGE_KEY);
+      const newEmployee = {
+        id: utillsvarieble.makeId(),
+        firstName,
+        LastName,
+        age,
+        startDate: utillsvarieble.getCurrentDateInYYYYMMDD(),
+        department,
+        salary,
+      };
+      gEmployees.push(newEmployee);
+      utillsvarieble.saveInlocalStorage(employees_STORAGE_KEY, gEmployees);
+    }
     isIdEdit = false;
     btnAdd.textContent = "Add";
   } else {
