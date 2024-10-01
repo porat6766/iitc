@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Employee</title>
+  </head>
+  <body>
+    <div class="All">
+      <h1>Add employee</h1>
+      <div class="form-container">
+        <form id="form">
+          <input id="first-name" type="text" placeholder="first name" />
+          <input id="last-name" type="text" placeholder="last name" />
+          <input id="age" type="number" placeholder="Age`" />
+          <select id="department" name="department">
+            <option value="" disabled selected>Select your department</option>
+            <option value="hr">Human Resources</option>
+            <option value="it">Information Technology</option>
+            <option value="finance">Finance</option>
+            <option value="marketing">Marketing</option>
+            <option value="sales">Sales</option>
+          </select>
+
+          <input id="salary" type="number" placeholder="Salary`" />
+          <button type="button" id="add">Add</button>
+        </form>
+        <button>Filter by</button>
+        <div id="table-container">
+          <h1>List employees</h1>
+          <table id="table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Department</th>
+                <th>Salary</th>
+                <th>Start date</th>
+              </tr>
+            </thead>
+            <tbody id="body-table"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="controller.js"></script>
+  </body>
+</html>
