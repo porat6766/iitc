@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Employee</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="All">
@@ -25,9 +26,19 @@
           <input id="salary" type="number" placeholder="Salary`" />
           <button type="button" id="add">Add</button>
         </form>
-        <button>Filter by</button>
         <div id="table-container">
           <h1>List employees</h1>
+          <div>
+            <button id="filter">Filter by</button>
+            <ul id="ulFilter" class="hidden">
+              <li>First-name</li>
+              <li>Last-name</li>
+              <li>Age</li>
+              <li>Department</li>
+              <li>Salary</li>
+              <li>Date</li>
+            </ul>
+          </div>
           <table id="table">
             <thead>
               <tr>

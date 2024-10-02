@@ -1,0 +1,31 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(20, 116, 116);
+}
+
+
+#ulFilter {
+    list-style-type: none;
+    position: absolute;
+    background-color: brown;
+    border-radius: 4px;
+    margin-left: 40px;
+    margin-top: 8px;
+    padding: 6px;
+}
+
+.hidden {
+    display: none;
+}
+
+#ulFilter li {
+    cursor: pointer;
+}
+
+
+#ulFilter li:hover {
+    background-color: aqua;
+    font-weight: 800;
+}
