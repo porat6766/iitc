@@ -8,27 +8,29 @@
   </head>
   <body>
     <div class="all">
-      <div class="container-of-login">
+      <div id="container-of-login">
         <h1>BANK OF AMERICA</h1>
-        <form class="form">
-          <h3>Just Put your code:</h3>
-          <input
-            type="text"
-            class="LoginInput"
-            placeholder="put your code please"
-            maxlength="6"
-          />
-          <button class="Login">Login</button>
-        </form>
-        <h4 class="status-pin"></h4>
+        <div id="form-to-hidden">
+          <form class="form">
+            <h3>Just Put your code:</h3>
+            <input
+              type="text"
+              class="LoginInput"
+              placeholder="put your code please"
+              maxlength="6"
+            />
+            <button class="Login">Login</button>
+          </form>
+          <h4 class="status-pin"></h4>
+        </div>
       </div>
       <div class="container-transections">
-        <button class="hidden" id="transections">choose transections</button>
+        <button class="hidden" id="transections">choose transaction</button>
         <ul id="list-transection" class="hidden">
           <button id="withdrawsbtn">withdraws</button>
           <button id="depositebtn">deposite</button>
           <button id="balancebtn">balance</button>
-          <button id="last-transctionbtn">last transction</button>
+          <button id="last-transctionbtn">last transaction</button>
         </ul>
         <div class="container-options-dives">
           <div id="withdraws" class="hidden">

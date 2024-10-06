@@ -30,7 +30,8 @@ let bankClients = [
     bankAccountValue: 2000,
   },
 ];
-
+//
+const elcontainerOfLogin = document.querySelector("#form-to-hidden");
 // bring elements for authorization
 const inputCode = document.querySelector(".LoginInput");
 const inputBtn = document.querySelector(".Login");
@@ -69,11 +70,12 @@ function checkAuthorization() {
       const currentClient = bankClients[i];
 
       if (inputCode.value === currentClient.password) {
-        elstatusPin.textContent = "your in,transection:";
+        elstatusPin.textContent = "your in,transaction:";
         currentClientGeneral = currentClient;
         btnTransection.classList.remove("hidden");
         alert("We got you👌");
         autorize = true;
+        elcontainerOfLogin.classList.add("hidden");
         break;
       }
     }
