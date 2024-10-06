@@ -1,5 +1,11 @@
 //
 // sort
+const students = [
+  { name: "Clara", average: 80 },
+  { name: "jenna", average: 92 },
+  { name: "Ben", average: 85 },
+  { name: "Daniel", average: 85 },
+];
 students.sort((a, b) => {
   if (b.average === a.average) {
     return a.name.localeCompare(b.name);
@@ -21,3 +27,18 @@ const sum = flatNumbers.reduce(function (total, number) {
   return total + number;
 }, 0);
 console.log(sum);
+
+const peoples = [
+  { שם: "אליס", גיל: 25 },
+  { שם: "בוב", גיל: 30 },
+  { שם: "צרלי", גיל: 25 },
+];
+const peoplesReducing = peoples.reduce((newObj, currentPerson) => {
+  if (newObj[currentPerson.גיל]) {
+    newObj[currentPerson.גיל].push(currentPerson.שם);
+  } else {
+    newObj[currentPerson.גיל] = [currentPerson.שם];
+  }
+  return newObj;
+}, {});
+console.log(peoplesReducing);

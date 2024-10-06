@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bank authorization</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="all">
+      <div class="container-of-login">
+        <h1>BANK OF AMERICA</h1>
+        <form class="form">
+          <h3>Just Put your code:</h3>
+          <input
+            type="text"
+            class="LoginInput"
+            placeholder="put your code please"
+            maxlength="6"
+          />
+          <button class="Login">Login</button>
+        </form>
+        <h4 class="status-pin"></h4>
+      </div>
+      <div class="container-transections">
+        <button class="hidden" id="transections">choose transections</button>
+        <ul id="list-transection" class="hidden">
+          <button id="withdrawsbtn">withdraws</button>
+          <button id="depositebtn">deposite</button>
+          <button id="balancebtn">balance</button>
+          <button id="last-transctionbtn">last transction</button>
+        </ul>
+        <div class="container-options-dives">
+          <div id="withdraws" class="hidden">
+            <input
+              id="inputPull"
+              type="number"
+              max="300000"
+              min="50"
+              placeholder="how much?"
+            />
+            <button id="pull">Pull</button>
+            <h3 class="displayPull"></h3>
+          </div>
+          <div id="deposite" class="hidden">
+            <input
+              id="inputDeposite"
+              type="number"
+              max="300000"
+              min="50"
+              placeholder="put number"
+            />
+            <button id="insert">insert</button>
+            <h3 class="displayinsert"></h3>
+          </div>
+          <div id="balance" class="hidden">
+            <h2 id="showBalance"></h2>
+          </div>
+          <div id="last-transction" class="hidden">
+            <h3 id="showLatTransction"></h3>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>

@@ -587,19 +587,19 @@
 // console.log(newArrNum);
 
 //82.//////////////////////////////////////////
-// const stusents = [
-//   { שם: "אליס", גיל: 25 },
-//   { שם: "בוב", גיל: 30 },
-//   { שם: "צרלי", גיל: 25 },
-// ];
+const stusents = [
+  { שם: "אליס", גיל: 25 },
+  { שם: "בוב", גיל: 30 },
+  { שם: "צרלי", גיל: 25 },
+];
 
-// const shdbf = stusents.reduce((calc, obCurrent) => {
-//   !calc[obCurrent.גיל]
-//     ? (calc[obCurrent.גיל] = [obCurrent])
-//     : calc[obCurrent.גיל].push(obCurrent);
-//   return calc;
-// }, {});
-// console.log(shdbf);
+const shdbf = stusents.reduce((calc, obCurrent) => {
+  !calc[obCurrent.גיל]
+    ? (calc[obCurrent.גיל] = [obCurrent])
+    : calc[obCurrent.גיל].push(obCurrent);
+  return calc;
+}, {});
+console.log(shdbf);
 
 //83.
 // function debounce(fn, delay) {
