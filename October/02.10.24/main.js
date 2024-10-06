@@ -1,12 +1,23 @@
-const words = ["apple", "banana"];
-
-const letterCount = {};
-for (let i = 0; i < words.length; i++) {
-  let word = words[i];
-  for (let j = 0; j < word.length; j++) {
-    let letter = word[j];
-    letterCount[letter] = (letterCount[letter] || 0) + 1;
+//
+// sort
+students.sort((a, b) => {
+  if (b.average === a.average) {
+    return a.name.localeCompare(b.name);
+  } else {
+    return b.average - a.average;
   }
-}
+});
 
-console.log(letterCount);
+console.log(students);
+////////
+
+//flat
+const numbers = [1, [2, [3, [4, [5]]]]];
+//
+const flatNumbers = numbers.flat(Infinity);
+console.log(flatNumbers);
+
+const sum = flatNumbers.reduce(function (total, number) {
+  return total + number;
+}, 0);
+console.log(sum);
