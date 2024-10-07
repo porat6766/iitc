@@ -30,6 +30,9 @@ let bankClients = [
     bankAccountValue: 2000,
   },
 ];
+//greeting
+const elgreet = document.querySelector(".greet");
+const elexit = document.querySelector(".exit");
 //
 const elcontainerOfLogin = document.querySelector("#form-to-hidden");
 // bring elements for authorization
@@ -76,6 +79,9 @@ function checkAuthorization() {
         alert("We got you👌");
         autorize = true;
         elcontainerOfLogin.classList.add("hidden");
+        elgreet.classList.add("hidden");
+        elexit.classList.remove("hidden");
+
         break;
       }
     }
@@ -127,6 +133,8 @@ ellasttransctionBtn.addEventListener("click", function () {
 function refreshPage() {
   location.reload();
 }
+// button refresh
+elexit.addEventListener("click", refreshPage);
 
 //event for pull money
 const elbtnPull = document.querySelector("#pull");

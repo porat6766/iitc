@@ -50,6 +50,19 @@ input {
 
 h1 {
     text-shadow: 2px 2px rgb(198, 166, 124);
-    ;
+    font-weight: 600;
+    font-size: 50px;
+}
+
+h2 {
+    color: white;
+    font-size: 28px;
+
+}
+
+#container-of-login {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
 
 }
