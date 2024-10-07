@@ -1,3 +1,14 @@
+body,
+html,
+.all {
+    padding: 0;
+    margin: 0;
+    background-color: var(--Very-Dark-Blue);
+    color: var(--White);
+    height: 100%;
+}
+
+
 :root {
     /* Primary */
     --Orange: hsl(25, 97%, 53%);
@@ -6,9 +17,108 @@
     --White: hsl(0, 0%, 100%);
     --Light-Grey: hsl(217, 12%, 63%);
     --Dark-Blue: hsl(213, 19%, 18%);
+    --Dark-Blue-darker: hsl(212, 21%, 16%);
     --Very-Dark-Blue: hsl(216, 12%, 8%);
+    --Very-Dark-Blue-lighter: hsl(218, 8%, 20%);
+}
+
+.hidden {
+    display: none;
 }
 
 .all {
-    background-color: var(--Very-Dark-Blue);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.page {
+    border-radius: 10px;
+    background-color: var(--Dark-Blue-darker);
+    max-width: 300px;
+    max-height: 300px;
+    padding: 25px;
+}
+
+.circle {
+    border-radius: 50%;
+    background-color: var(--Very-Dark-Blue-lighter);
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#container-numbers {
+    display: flex;
+    justify-content: space-between;
+    padding-inline: 20px;
+}
+
+
+.submit {
+    background-color: var(--Orange);
+    border-radius: 10px;
+    height: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+    font-weight: 500;
+    font-size: 19px;
+
+}
+
+.number:hover {
+    background-color: var(--Orange);
+    color: black;
+    cursor: pointer;
+}
+
+.submit:hover {
+    background-color: var(--White);
+    cursor: pointer;
+    color: black;
+}
+
+.choosen-number {
+    background-color: var(--White);
+    color: black;
+}
+
+.two {
+    text-align: center;
+
+}
+
+.orange-h3 {
+    background-color: var(--Very-Dark-Blue-lighter);
+    color: var(--Orange);
+    border-radius: 10px;
+    width: fit-content;
+    margin-inline: auto;
+    padding-inline: 12px;
+}
+
+p {
+    opacity: 0.5;
+    font-size: 15px;
+}
+
+.Rate-again {
+    background-color: aquamarine;
+    border-radius: 4px;
+    color: var(--Orange);
+    font-size: 15px;
+}
+
+@media(max-width:450px) {
+    .all {
+        padding: 20px;
+    }
+
 }
