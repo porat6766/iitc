@@ -25,6 +25,7 @@ html,
     background: url(./assets/images/background-pattern-desktop.svg) no-repeat;
     background-color: rgb(233, 220, 251);
     box-sizing: border-box;
+    width: 100%;
 }
 
 .title-head {
@@ -48,11 +49,10 @@ h1 {
     padding: 14px;
     margin-inline: 70px;
     font-family: normal;
-    max-width: 45%;
+    max-width: 40%;
     height: auto;
     box-sizing: border-box;
-
-    max-height: 100%;
+    max-height: 800%;
 
 }
 
