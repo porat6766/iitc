@@ -39,6 +39,7 @@ h1 {
     display: none;
 }
 
+/* 
 .all {
     background-color: var(--White);
     border-radius: 12px;
@@ -52,6 +53,20 @@ h1 {
 
 
 
+} */
+
+.all {
+    background-color: var(--White);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    padding: 14px;
+    margin-inline: 70px;
+    font-family: normal;
+    max-width: 45%;
+    max-height: 80vh;
+    overflow: auto;
+    box-sizing: border-box;
 }
 
 h3 {
@@ -100,12 +115,14 @@ body hr {
         background-color: rgb(233, 220, 251);
         box-sizing: border-box;
 
+
     }
 
     .all {
         height: 80%;
         min-width: 180px;
         box-sizing: border-box;
+        max-height: 1000px;
 
     }
 }
