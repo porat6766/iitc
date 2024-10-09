@@ -16,15 +16,14 @@ const elRateAgain = document.querySelector(".Rate-again");
 //add event listhner to all elNumber
 elRates.forEach((el) => {
   el.addEventListener("click", function () {
-    choosenAndGivenClass(el);
+    choosenAndGivenOrRemoveClass(el);
   });
 });
 
 /////ginen/taken class chosen number
-function choosenAndGivenClass(el) {
+function choosenAndGivenOrRemoveClass(el) {
   if (el.classList.contains("choosen-number")) {
     el.classList.remove("choosen-number");
-    numberRate = el.textContent;
     numberRate = null;
   } else {
     takeClass();
@@ -33,7 +32,7 @@ function choosenAndGivenClass(el) {
   }
 }
 
-//clean class from all to reset class
+// clean class from all to reset class
 function takeClass() {
   elRates.forEach((el) => {
     el.classList.remove("choosen-number");
