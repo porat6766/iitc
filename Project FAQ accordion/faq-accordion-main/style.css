@@ -5,6 +5,10 @@
     --Dark-purple: hsl(292, 42%, 14%);
 }
 
+* {
+    box-sizing: border-box;
+}
+
 @font-face {
     font-family: "normal";
     src: url(./assets/fonts/WorkSans-VariableFont_wght.ttf);
@@ -16,6 +20,7 @@ html,
     padding: 0;
     margin: 0;
     height: 100vh;
+
 }
 
 .container-all {
@@ -24,8 +29,7 @@ html,
     align-items: center;
     background: url(./assets/images/background-pattern-desktop.svg) no-repeat;
     background-color: rgb(233, 220, 251);
-    box-sizing: border-box;
-    width: 100%;
+    background-size: 100%;
 }
 
 .title-head {
@@ -49,11 +53,8 @@ h1 {
     padding: 14px;
     margin-inline: 70px;
     font-family: normal;
-    max-width: 40%;
-    height: auto;
+    max-width: 50%;
     box-sizing: border-box;
-    max-height: 800%;
-
 }
 
 
@@ -102,6 +103,7 @@ body hr {
         background: url(./assets/images/background-pattern-mobile.svg) no-repeat;
         background-color: rgb(233, 220, 251);
         box-sizing: border-box;
+        background-size: 100%;
 
 
     }
