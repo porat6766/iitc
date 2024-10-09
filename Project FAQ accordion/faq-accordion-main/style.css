@@ -99,7 +99,7 @@ body hr {
         display: flex;
         justify-content: center;
         align-items: center;
-        /* background: url(./assets/images/background-pattern-mobile.svg) no-repeat; */
+        background: url(./assets/images/background-pattern-mobile.svg) no-repeat;
         background-color: rgb(233, 220, 251);
         box-sizing: border-box;
 
