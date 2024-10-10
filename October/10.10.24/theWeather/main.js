@@ -6,7 +6,6 @@
 //   .catch((err) => console.error("err", err));
 // import { data } from "./secret.js";
 import { data } from "./secret.js";
-let array;
 fetch(
   `https://api.openweathermap.org/data/2.5/weather?lat=32.0853&lon=34.7818&appid=${data.YOUR_API_KEY}`
 )
