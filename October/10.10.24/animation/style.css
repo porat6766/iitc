@@ -13,3 +13,19 @@ html {
 h1 {
     font-size: 80px;
 }
+
+img {
+    width: 90%;
+    margin-bottom: 15px;
+
+
+}
+
+.elGrid {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+    width: 100%;
+}

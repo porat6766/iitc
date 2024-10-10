@@ -25,8 +25,8 @@
 
 //get by post 30 photo
 const type = "sfw";
-const category = "smile";
-
+const category = "bonk";
+const elGrid = document.querySelector(".elGrid");
 fetch(`https://api.waifu.pics/many/${type}/${category}`, {
   method: "POST",
   headers: {
@@ -41,7 +41,7 @@ fetch(`https://api.waifu.pics/many/${type}/${category}`, {
     data.files.slice(0, 10).forEach((url) => {
       const img = document.createElement("img");
       img.src = url;
-      document.body.appendChild(img);
+      elGrid.appendChild(img);
     });
   })
   .catch((error) => console.error("Error:", error));

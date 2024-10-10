@@ -276,21 +276,80 @@
 //   });
 
 // 25. Write a Promise that resolves with the square of a given number.
-let number = 100;
-const q25 = new Promise((resolve, reject) => {
-  resolve(Math.sqrt(number));
-});
+// let number = 100;
+// const q25 = new Promise((resolve, reject) => {
+//   resolve(Math.sqrt(number));
+// });
 
-q25.then((res) => {
-  console.log(res);
-});
+// q25.then((res) => {
+//   console.log(res);
+// });
 
 // 26. Create a Promise that resolves with the value of a given number multiplied by 2 after 2 seconds.
+// const randomNumber = Math.round(Math.random() * 10);
+// console.log(randomNumber);
 
+// const q25P = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     resolve(randomNumber * 2);
+//   }, 2000);
+// });
+// q25P.then((res) => {
+//   console.log(res);
+// });
 // 27. Write a function that returns a Promise which resolves with a greeting message for a given name.
+
+// const fnP = (name) => {
+//   return new Promise((resolve, reject) => {
+//     resolve("Hello" + " " + name);
+//   });
+// };
+
+// fnP("David").then((res) => {
+//   console.log(res);
+// });
 
 // 28. Write a Promise that resolves with "File downloaded" after simulating a file download with setTimeout.
 
-// 29. Write a Promise that rejects with "Network error" if a given boolean is false and resolves with "Network success" if true.
+// const q28P = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     resolve("File downloaded");
+//   }, 0);
+// });
+
+// q28P.then((res) => {
+//   console.log(res);
+// });
+
+// // 29. Write a Promise that rejects with "Network error" if a given boolean is false and resolves with "Network success" if true.
+// let boolean = false;
+
+// const q29 = new Promise((resolve, reject) => {
+//   if (boolean === true) {
+//     resolve("Network success");
+//   } else {
+//     reject("Network success");
+//   }
+// });
+
+// q29
+//   .then((res) => {
+//     console.log(res);
+//   })
+//   .catch((er) => {
+//     console.error(er);
+//   });
 
 // 30. Write a function that returns a Promise which resolves with "API call successful" after simulating an API call with setTimeout.
+
+// const pFn = () => {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       resolve("API call successful");
+//     });
+//   });
+// };
+
+// pFn().then((res) => {
+//   console.log(res);
+// });
