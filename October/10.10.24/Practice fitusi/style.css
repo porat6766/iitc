@@ -1,0 +1,23 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background-color: antiquewhite;
+}
+
+div {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.button {
+    background-color: aquamarine;
+}
+
+.img-duck {
+    height: 200px;
+    width: 200px;
+}

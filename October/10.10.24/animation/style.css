@@ -1,0 +1,15 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    background-color: antiquewhite;
+
+}
+
+h1 {
+    font-size: 80px;
+}
