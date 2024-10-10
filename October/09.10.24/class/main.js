@@ -151,32 +151,139 @@
 
 // 16. Use Promise.all() to wait for two Promises to resolve and then log their results.
 
-const resoP1 = new Promise((resolve) => {
-  resolve("one");
-});
-const resoP2 = new Promise((resolve) => {
-  resolve("two");
-});
+// const resoP1 = new Promise((resolve) => {
+//   resolve("one");
+// });
+// const resoP2 = new Promise((resolve) => {
+//   resolve("two");
+// });
 
-Promise.all([resoP1, resoP2]).then((res) => console.log(res[0] + " " + res[1]));
+// Promise.all([resoP1, resoP2]).then((res) => console.log(res[0] + " " + res[1]));
 
 // 17. Create a Promise that resolves with a user's name and another that resolves with the user's age. Use Promise.all() to wait for both and then log a message "Name: [name], Age: [age]".
 
+// const pro1 = new Promise((resolve, reject) => {
+//   resolve("DAVID");
+// });
+
+// const pro2 = new Promise((resolve, reject) => {
+//   resolve(51);
+// });
+
+// Promise.all([pro1, pro2]).then((res) => {
+//   console.log(`Name: ${res[0]}, Age: ${res[1]}`);
+// });
+
 // 18. Write a function that returns a Promise which resolves with a random number after 1 second.
+// let number = Math.round(Math.random() * 100);
+
+// const q18 = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     resolve(number);
+//   }, 3000);
+// });
+
+// q18.then((res) => console.log(res));
 
 // 19. Create a Promise that rejects with a specific error message and handle it using .catch() and log the error.
+// let message = "you probably have problem server";
+// const q19 = new Promise((resolve, reject) => {
+//   reject(message);
+// });
+// q19.catch((res) => console.error(res));
+
+// message = "kjhgfhg";
+// console.log(message);
 
 // 20. Write a Promise that resolves with "Success!" and logs "Operation was successful!" using .then().
+// const q20 = new Promise((resolve, reject) => {
+//   resolve("Success!");
+// });
+
+// q20.then((res) => {
+//   if (res) {
+//     console.log("Operation was successful!");
+//   }
+// });
 
 // 21. Write a Promise that resolves with "Done!" and always logs "Finished!" using .finally().
+// const q21 = new Promise((resoolve, reject) => {
+//   resoolve("Done");
+// });
+
+// q21
+//   .then((res) => {
+//     console.log(res);
+//   })
+//   .catch((er) => {
+//     console.error("ERROR", er);
+//   })
+//   .finally(() => console.log("Finished"));
 
 // 22. Write a function that returns a Promise which resolves with "Data received" after simulating a 2-second network request using setTimeout.
+// const proFnc = () => {
+//   return new Promise((resolve, reject) => {
+//     resolve("Data received");
+//   });
+// };
+
+// setTimeout(() => {
+//   proFnc().then((res) => {
+//     console.log(res);
+//   });
+// }, 3000);
 
 // 23. Write a function that uses Promise.all() to wait for three Promises that resolve with different values and logs all the values once all Promises are resolved.
+// const Pone = new Promise((resolve, reject) => {
+//   resolve("one");
+// });
+// const Ptwo = new Promise((resolve, reject) => {
+//   resolve("two");
+// });
+// const PThree = new Promise((resolve, reject) => {
+//   resolve("three");
+// });
+// console.log(Pone);
+// console.log(Ptwo);
+// console.log(PThree);
+
+// const printAll = () => {
+//   Promise.all([Pone, Ptwo, PThree]).then((res) => {
+//     res.forEach((r) => {
+//       console.log(r);
+//     });
+//   });
+// };
+// printAll();
 
 // 24. Write a function that returns a Promise which rejects if a given string is empty and resolves if it is not empty.
+// const fun = (message) => {
+//   return new Promise((resolve, reject) => {
+//     if (message) {
+//       resolve(message);
+//     } else {
+//       reject(message);
+//     }
+//   });
+// };
+
+// fun("baba")
+//   .then((res) => {
+//     console.log("you good", res);
+//   })
+//   .catch((er) => {
+//     console.error("you empty");
+//   });
 
 // 25. Write a Promise that resolves with the square of a given number.
+let number = 100;
+const q25 = new Promise((resolve, reject) => {
+  resolve(Math.sqrt(number));
+});
+
+q25.then((res) => {
+  console.log(res);
+});
 
 // 26. Create a Promise that resolves with the value of a given number multiplied by 2 after 2 seconds.
 
