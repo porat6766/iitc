@@ -6,7 +6,6 @@ const listBtnElement = document.querySelector("#get-list");
 const ulElement = document.getElementById("name-list");
 
 function formSubmit(formObejct) {
-  // console.log(formObejct.number);
   const url = `https://random-d.uk/api/v2/${formObejct.number}.jpg`;
   console.log(url);
 
@@ -14,7 +13,7 @@ function formSubmit(formObejct) {
 
   const imageElement = document.createElement("img");
   if (formObejct.number === "") {
-    alert("something go wrong");
+    alert("something went wrong");
   } else {
     imageElement.src = url;
     containerElement.innerHTML = "";
@@ -52,9 +51,9 @@ const getDuckList = () => {
   fetch(proxyUrl + encodeURIComponent(targetUrl))
     .then((response) => response.json())
     .then((data) => {
-      // console.log('Images:', data.images);
-      // console.log('GIFs:', data.gifs);
       renderNames(data.gifs);
+      // console.log(data);
+      // console.log(data.gifs);
     })
     .catch((error) => {
       console.error("Error fetching duck list:", error);
@@ -64,11 +63,9 @@ const getDuckList = () => {
 formElement.addEventListener("submit", (e) => {
   e.preventDefault();
   const formData = new FormData(formElement);
-  // console.log(formData);
-
+  console.log(formData);
   const formObject = Object.fromEntries(formData);
-  // console.log(formObject);
-
+  console.log(formObject);
   formSubmit(formObject);
 });
 

@@ -8,11 +8,13 @@ for (let i = 0; i < elPlus.length; i++) {
     toggleToParaAndPlusAndMinus(i);
   });
 }
+
 function toggleToParaAndPlusAndMinus(i) {
   elMinus[i].classList.toggle("hidden");
   elPlus[i].classList.toggle("hidden");
   elPar[i].classList.toggle("hidden");
 }
+
 for (let i = 0; i < elMinus.length; i++) {
   let elpl = elMinus[i];
   elpl.addEventListener("click", () => {
