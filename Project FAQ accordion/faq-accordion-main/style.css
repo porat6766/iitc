@@ -97,6 +97,7 @@ body hr {
     opacity: 0.5;
     color: var(--Dark-purple);
     width: 100%;
+    font-size: 13px;
 }
 
 .img-star {
