@@ -1,5 +1,3 @@
-console.log("main.js");
-
 const formElement = document.querySelector("form");
 const containerElement = document.querySelector(".container");
 const listBtnElement = document.querySelector("#get-list");
