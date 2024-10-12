@@ -1,0 +1,16 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    background-color: antiquewhite;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+h1 {
+    margin-inline: auto;
+    width: fit-content;
+}

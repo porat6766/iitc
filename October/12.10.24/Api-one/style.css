@@ -1,0 +1,26 @@
+body,
+html {
+    padding: 0;
+    margin: 0;
+    background-color: aquamarine;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+h1 {
+    width: fit-content;
+    margin-right: auto;
+    margin-left: auto;
+    color: brown;
+    font-size: 45px;
+}
+
+h2 {
+    width: fit-content;
+    margin-right: auto;
+    margin-left: auto;
+    text-decoration: underline;
+
+}
