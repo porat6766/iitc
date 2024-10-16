@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MOVIE SITE</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="all">
+      <nav id="navbar">
+        <div class="a-container">
+          <a href="./index.html">Home</a>
+          <a href="./About.html">About</a>
+        </div>
+        <input id="input-search" type="text" placeholder="Search a movie..." />
+        <button id="btn-search-name">Search</button>
+        <button id="btn-search-id">By id</button>
+        <div class="container-search-byId hide">
+          <input id="input-id" type="text" />
+          <button id="btn-id">Search</button>
+        </div>
+      </nav>
+      <h1>Popular Movies</h1>
+      <select id="select-popular">
+        <option value="all">All Time Popular Movies</option>
+        <option value="today">Today's Trending Movies</option>
+        <option value="week">This Week's Popular Movies</option>
+      </select>
+      <div><p class="Describes-type-popular"></p></div>
+
+      <ul class="movie-list"></ul>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="module" src="controller.js"></script>
+  </body>
+</html>
