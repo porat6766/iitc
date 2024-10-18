@@ -47,7 +47,6 @@ body {
 }
 
 
-
 .movie-description {
     font-family: Arial, Helvetica, sans-serif;
     padding: 20px;
@@ -62,15 +61,36 @@ body {
     text-align: start;
     color: white;
     display: flex;
-    align-items: end;
+    flex-direction: column;
     cursor: pointer;
     font-size: 12px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #888 #333;
 }
 
+.movie-description::-webkit-scrollbar {
+    width: 8px;
+}
+
+.movie-description::-webkit-scrollbar-track {
+    background: #333;
+    border-radius: 5px;
+}
+
+.movie-description::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 5px;
+}
+
+.movie-description::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
 
 .movie-item:hover .movie-description {
     opacity: 0.8;
 }
+
 
 .movie-title {
     top: 30px;
@@ -204,6 +224,98 @@ a {
     gap: 5px;
 }
 
-.hide {
+.hidden {
     display: none;
+}
+
+
+
+/*page deatails movie*/
+.daetails-movie-page {}
+
+.poster-details {
+    display: flex;
+    height: 60%;
+}
+
+span {
+    font-size: 25px;
+    font-weight: 600;
+    color: #e65100;
+}
+
+
+/*poster*/
+.container-poster {
+    padding: 10px;
+    width: fit-content;
+}
+
+.poster-movie {
+    border-radius: 3px;
+    width: 100%;
+    height: 100%;
+}
+
+.poster-movie:hover {
+    transform: scale(1.05);
+}
+
+/*details*/
+.details {
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 50%;
+    height: 100%;
+}
+
+
+
+/**/
+.container-img-cast {
+    height: 40%;
+    width: 95%;
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+    margin-inline: auto;
+    margin-bottom: 25px;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 18x;
+    font-weight: 550;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+
+.img-cast {
+    width: 120px;
+    height: 180px;
+}
+
+.title-img {
+    text-align: center;
+    height: 60px;
+    width: 100%;
+    padding: 4px;
+    font-weight: 700;
+    overflow: hidden;
+    background-color: #f4c89c;
+    color: #e65100;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.Container-Img-Title {
+    display: flex;
+    flex-direction: column;
+}
+
+.character {
+    color: #503b12d3;
+
 }

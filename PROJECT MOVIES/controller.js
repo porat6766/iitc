@@ -41,12 +41,31 @@ elselectTypePopular.addEventListener("change", (ev) => {
   }
   model.getPopularMovies().then((res) => {
     views.renderMovie(res);
+    getAllLiMovies();
   });
 });
 
-model.getPopularMovies().then((res) => {
-  views.renderMovie(res);
-});
+model
+  .getPopularMovies()
+  .then((res) => {
+    views.renderMovie(res);
+  })
+  .then(() => {
+    getAllLiMovies();
+  });
+
+//bring all li per one movie
+const getAllLiMovies = () => {
+  const elAllMovies = document.querySelectorAll(".movie-item");
+  elAllMovies.forEach((movieLi) => {
+    movieLi.addEventListener("click", () => {
+      model.getMovieData(movieLi.id).then((res) => {
+        views.renserDetails(res);
+        console.log(res);
+      });
+    });
+  });
+};
 
 //input add listhner by "change"
 elinputSearch.addEventListener("input", () => {
@@ -71,7 +90,7 @@ elBtnSearch.addEventListener("click", () => {
 
 //
 elbtnSearchIdOpenId.addEventListener("click", () => {
-  elcontainerSearchBiId.classList.toggle("hide");
+  elcontainerSearchBiId.classList.toggle("hidden");
 });
 
 elBtnId.addEventListener("click", () => {
@@ -85,11 +104,11 @@ elBtnId.addEventListener("click", () => {
         views.renderMovie([res]);
       })
       .catch(() => {
-        views.renderMovie([]);
+        elmovieList.textContent = "";
         elDescribesTypePopular.textContent = "Movie not found!";
       });
     elinputId.value = "";
-    elcontainerSearchById.classList.add("hide");
+    elcontainerSearchById.classList.add("hidden");
   }
 });
 
