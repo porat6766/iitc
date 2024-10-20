@@ -121,6 +121,9 @@ elBtnId.addEventListener("click", () => {
       .then((res) => {
         views.renderMovie([res]);
       })
+      .then(() => {
+        getAllLiMovies();
+      })
       .catch(() => {
         elmovieList.textContent = "";
         elDescribesTypePopular.textContent = "Movie not found!";
