@@ -148,4 +148,10 @@ const addToFav = () => {
   });
 };
 
+const eltoggleSwitch = document.getElementById("toggle-dark-mode");
+
+eltoggleSwitch.addEventListener("change", () => {
+  document.body.classList.toggle("dark-mode");
+});
+
 export const controller = { elmovieList };
