@@ -1,7 +1,7 @@
 import { controller } from "./controller.js";
 import { model } from "./Model.js";
 
-function renderMovie(data) {
+const renderMovie = (data) => {
   const elul = controller.elmovieList;
   elul.innerHTML = "";
 
@@ -36,7 +36,7 @@ function renderMovie(data) {
 
     elul.appendChild(li);
   });
-}
+};
 
 //function search movie by chart and bring array movies filtered
 function searchMovieByName(input, allMovies, elDiscribeNotFound) {
@@ -80,7 +80,7 @@ const renserDetails = (movieDetails) => {
   </div>
   <div class="details">
   <h2 class="title-movie-page2">${movieDetails.title}</h2>
-  <h5 class="year"><span>Release date:</span> ${dateMovieUpdate}</h5>
+  <h5 class="year"><span>Release date:</span> ${dateMovieUpdate || ""}</h5>
   <div class="genres-container">
 <h5 class="genres-page2">
   <span>genres:</span> ${
@@ -96,7 +96,7 @@ const renserDetails = (movieDetails) => {
   } 🌟</div>
   <p class="tagline"><span>Tagline:</span> ${movieDetails.tagline}</p>
   <p class="overview"><span>Overview:</span> ${movieDetails.overview}</p>
-  <p class="director"><span>Director:</span>${founddirect.name}</p>
+  <p class="director"><span>Director:</span>${founddirect.name || ""}</p>
   </div>
   `;
 

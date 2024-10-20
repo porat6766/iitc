@@ -159,9 +159,6 @@ const filterAndSaveToLocalStorage = (id, item) => {
 };
 
 const removeFromFav = (id, item) => {
-  // if (item.parentElement) {
-  //   item.parentElement.remove();
-  // }
   model.favoriteMovie = model.favoriteMovie.filter((movie) => {
     return movie.id !== Number(id);
   });

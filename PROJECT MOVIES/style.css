@@ -44,21 +44,23 @@ body {
 
 }
 
-
 .movie-poster {
-    height: 90%;
+    aspect-ratio: 2/3;
+    /* או 3/4, תלוי ביחס שאתה רוצה */
     width: 90%;
     border-radius: 7px;
+    position: relative;
+    /* חשוב להוסיף */
 }
-
 
 .movie-description {
     font-family: Arial, Helvetica, sans-serif;
     padding: 20px;
-    height: 88%;
-    width: 90%;
     position: absolute;
     top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     border-radius: 5px;
     margin: 0;
     opacity: 0;
@@ -267,7 +269,9 @@ h1::after {
 }
 
 
-
+.Describes-type-popular:empty {
+    display: none;
+}
 
 #input-search {
     margin-left: auto;
@@ -523,4 +527,34 @@ span {
 
 #logo-navbar {
     width: 50px;
+}
+
+
+@media(max-width:542px) {
+    #navbar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    #input-search {
+        margin-left: 0;
+    }
+
+    .a-container {
+        width: fit-content;
+    }
+
+    .container-search-byId {
+        position: static;
+    }
+}
+
+@media(max-width:760px) {
+    .poster-details {
+        flex-direction: column;
+        /* max-height: px; */
+    }
+
 }
