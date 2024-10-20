@@ -147,7 +147,7 @@ h1::after {
 #navbar {
     display: flex;
     padding: 10px;
-    background-color: black;
+    background-color: rgb(127, 51, 51);
 }
 
 .a-container {
@@ -195,13 +195,41 @@ h1::after {
 }
 
 
+#input-id {
+    padding: 10px 15px;
+    border: 2px solid #e65100;
+    border-radius: 8px;
+    background-color: #1c1c1c;
+    color: #f1f1f1;
+    font-size: 16px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
 
+#input-id:focus {
+    border-color: #ff6d00;
+    box-shadow: 0 0 12px rgba(255, 109, 0, 0.6);
+    outline: none;
+}
 
+#btn-id {
+    padding: 10px 20px;
+    border-radius: 8px;
+    background-color: #e65100;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
 
+#btn-id:hover {
+    background-color: #ff6d00;
+    transform: scale(1.05);
+}
 
-
-
-
+#btn-id:active {
+    background-color: #d84315;
+    transform: scale(0.98);
+}
 
 
 
@@ -281,6 +309,12 @@ h1::after {
     padding: 8px;
 }
 
+#input-search:focus {
+    border-color: #e65100;
+    box-shadow: 0 20px 20px rgba(230, 81, 0, 0.6);
+    outline: none;
+}
+
 #btn-search-id {
     border-radius: 5px;
     margin-left: 5px;
@@ -302,7 +336,7 @@ h1::after {
 .container-search-byId {
     border-radius: 6px;
     right: 25px;
-    top: 50px;
+    top: 55px;
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -312,11 +346,13 @@ h1::after {
     background-color: #e65100;
     color: #333;
     gap: 5px;
+    z-index: 1;
 }
 
 .hidden {
     display: none;
 }
+
 
 
 
@@ -437,6 +473,10 @@ span {
     border-radius: 10px;
 }
 
+.Container-Img-Title:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
 
 .img-cast {
     width: 120px;
@@ -468,6 +508,7 @@ span {
     flex-direction: column;
     height: 100%;
     width: 100%;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .character {
@@ -628,8 +669,8 @@ input:checked+.slider:before {
     transform: translateX(26px);
 }
 
-.dark-mode {
+/* .dark-mode {
 
     background-image: url('./logo/Screenshot\ 2024-10-20\ 191453.png');
     opacity: 0.8;
-}
+} */

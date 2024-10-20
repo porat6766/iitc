@@ -149,9 +149,27 @@ const addToFav = () => {
 };
 
 const eltoggleSwitch = document.getElementById("toggle-dark-mode");
+const eltogglkljeSwitch = document.getElementById("navbar");
+
+const checkMode = utills.getFromStorage("Dark-Mode-Status") === "true";
+if (checkMode) {
+  document.body.style.backgroundImage =
+    "url('./logo/Screenshot 2024-10-20 191830.png')";
+  eltoggleSwitch.checked = true;
+}
 
 eltoggleSwitch.addEventListener("change", () => {
-  document.body.classList.toggle("dark-mode");
+  if (eltoggleSwitch.checked) {
+    document.body.style.backgroundImage =
+      "url('./logo/Screenshot 2024-10-20 191830.png')";
+    eltogglkljeSwitch.style.backgroundColor = "black";
+    utills.saveToStorage("Dark-Mode-Status", true);
+  } else {
+    document.body.style.backgroundImage =
+      "url('./logo/Screenshot 2024-10-20 125132.png')";
+    eltogglkljeSwitch.style.backgroundColor = " rgb(127, 51, 51)";
+    utills.saveToStorage("Dark-Mode-Status", false);
+  }
 });
 
 export const controller = { elmovieList };
