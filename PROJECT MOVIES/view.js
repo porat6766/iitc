@@ -52,10 +52,8 @@ function searchMovieByName(input, allMovies, elDiscribeNotFound) {
     return filteredMovies;
   });
 }
-
 const renserDetails = (movieDetails) => {
   console.log(movieDetails);
-
   const elhomePage = document.querySelector(".home-page");
   elhomePage.innerHTML = "";
 

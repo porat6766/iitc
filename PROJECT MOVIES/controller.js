@@ -28,10 +28,13 @@ const elselectTypePopular = document.querySelector("#select-popular");
 const elfavoriteMovies = document.querySelector(".favorite-movies");
 
 elfavoriteMovies.addEventListener("click", () => {
+  console.log(model.favoriteMovie);
+
   views.renderMovie(model.favoriteMovie);
   getAllLiMovies();
   addToFav();
   elDescribesTypePopular.textContent = "MY MOVIES";
+  console.log("hgf");
 });
 
 //change url and rending again
