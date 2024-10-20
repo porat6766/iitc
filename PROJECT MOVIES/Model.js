@@ -1,4 +1,8 @@
 import { secret } from "./secret.js";
+import { utills } from "./utills.js";
+
+//favorite movie save in storage
+let favoriteMovie = utills.getFromStorage(secret.key_storage);
 
 //types popular
 const TrendingWeek = `https://api.themoviedb.org/3/trending/movie/week?api_key=${secret.key_Movie}`;
@@ -70,4 +74,5 @@ export const model = {
   TrendingDay,
   TrendingWeek,
   apiUrlFor20PopularMovies,
+  favoriteMovie,
 };

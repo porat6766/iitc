@@ -23,9 +23,16 @@ function renderMovie(data) {
     description.textContent = movie.overview;
     description.classList.add("movie-description");
 
+    const elFavorite = document.createElement("div");
+    elFavorite.classList.add("favorite");
+    elFavorite.setAttribute("id", movie.id);
+    const isFavorite = model.favoriteMovie.some((fav) => fav.id === movie.id);
+    elFavorite.textContent = isFavorite ? "❤️" : "🤍";
+
     li.appendChild(img);
     li.appendChild(title);
     li.appendChild(description);
+    li.appendChild(elFavorite);
 
     elul.appendChild(li);
   });
