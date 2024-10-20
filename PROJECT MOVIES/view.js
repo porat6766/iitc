@@ -2,6 +2,10 @@ import { controller } from "./controller.js";
 import { model } from "./Model.js";
 
 const renderMovie = (data) => {
+  ////////
+  const elDaetailsMoviePage = document.querySelector(".daetails-movie-page");
+  clearTextContent(elDaetailsMoviePage);
+  ////////
   const elul = controller.elmovieList;
   elul.innerHTML = "";
 
@@ -52,12 +56,23 @@ function searchMovieByName(input, allMovies, elDiscribeNotFound) {
     return filteredMovies;
   });
 }
+
+//////////
+const clearTextContent = (element) => {
+  Array.from(element.children).forEach((child) => {
+    clearTextContent(child); // Recursively clear child elements
+    child.textContent = ""; // Clean the text content of the current child
+  });
+};
+////////////
 const renserDetails = (movieDetails) => {
   console.log(movieDetails);
-  const elhomePage = document.querySelector(".home-page");
-  elhomePage.innerHTML = "";
 
-  // const elDaetailsMoviePage = document.querySelector(".daetails-movie-page");
+  ////////////////
+  const elhomePage = document.querySelector(".home-page");
+  // elhomePage.innerHTML = "";
+  clearTextContent(elhomePage);
+  ///////////
   const elcontainerPosterDetails = document.querySelector(".poster-details");
   const elContainerImgSCast = document.querySelector(".container-img-cast");
 

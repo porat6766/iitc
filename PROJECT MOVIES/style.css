@@ -531,6 +531,25 @@ span {
     width: 50px;
 }
 
+/* Hide the movie list if it's empty */
+.movie-list:empty {
+    display: none;
+}
+
+/* Hide the description paragraph if it's empty */
+.Describes-type-popular:empty {
+    display: none;
+}
+
+/* Hide the select dropdown if it has no options */
+#select-popular:empty {
+    display: none;
+}
+
+/* Hide the h1 if it has no text */
+h1:empty {
+    display: none;
+}
 
 @media(max-width:542px) {
     #navbar {

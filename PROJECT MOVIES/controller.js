@@ -34,7 +34,6 @@ elfavoriteMovies.addEventListener("click", () => {
   getAllLiMovies();
   addToFav();
   elDescribesTypePopular.textContent = "MY MOVIES";
-  console.log("hgf");
 });
 
 //change url and rending again
