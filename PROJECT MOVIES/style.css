@@ -70,7 +70,7 @@ body {
     display: flex;
     flex-direction: column;
     cursor: pointer;
-    font-size: 12px;
+    font-size: 20px;
     overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: #888 #333;

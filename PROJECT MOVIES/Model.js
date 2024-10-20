@@ -66,6 +66,30 @@ function getMovieData(movieId) {
     });
 }
 
+const filterAndSaveToLocalStorage = (id, item) => {
+  model.getPopularMovies().then((res) => {
+    const checkIfExists = model.favoriteMovie.some((movie) => {
+      return movie.id === Number(id);
+    });
+    if (checkIfExists) {
+      item.textContent = "🤍";
+      removeFromFav(id, item);
+      return;
+    } else {
+      const filteredMovies = res.filter((movie) => movie.id === Number(id));
+      model.favoriteMovie.push(...filteredMovies);
+      item.textContent = "❤️";
+      utills.saveToStorage(secret.key_storage, model.favoriteMovie);
+    }
+  });
+};
+
+const removeFromFav = (id, item) => {
+  model.favoriteMovie = model.favoriteMovie.filter((movie) => {
+    return movie.id !== Number(id);
+  });
+  utills.saveToStorage(secret.key_storage, model.favoriteMovie);
+};
 getPopularMovies();
 export const model = {
   getPopularMovies,
@@ -76,4 +100,5 @@ export const model = {
   TrendingWeek,
   apiUrlFor20PopularMovies,
   favoriteMovie,
+  filterAndSaveToLocalStorage,
 };

@@ -68,9 +68,11 @@ const renserDetails = (movieDetails) => {
   const dateMovieUpdate = dateRealeseMovie.getFullYear();
 
   //found director
-  const founddirect = movieDetails.credits.crew.find((worker) => {
-    return worker.job === "Director";
-  });
+  const founddirect =
+    movieDetails.credits.crew.find((worker) => {
+      return worker.job === "Director";
+    }) || "";
+  console.log(founddirect);
 
   elcontainerPosterDetails.innerHTML = `
   <div class="container-poster">
@@ -80,7 +82,9 @@ const renserDetails = (movieDetails) => {
   </div>
   <div class="details">
   <h2 class="title-movie-page2">${movieDetails.title}</h2>
-  <h5 class="year"><span>Release date:</span> ${dateMovieUpdate || ""}</h5>
+  <h5 class="year"><span>Release date:</span> ${
+    dateMovieUpdate || "Information is missing. Apologies."
+  }</h5>
   <div class="genres-container">
 <h5 class="genres-page2">
   <span>genres:</span> ${
@@ -94,9 +98,15 @@ const renserDetails = (movieDetails) => {
   <div class="score"><span>Users Rating:</span> ${
     movieDetails.vote_average
   } 🌟</div>
-  <p class="tagline"><span>Tagline:</span> ${movieDetails.tagline}</p>
-  <p class="overview"><span>Overview:</span> ${movieDetails.overview}</p>
-  <p class="director"><span>Director:</span>${founddirect.name || ""}</p>
+  <p class="tagline"><span>Tagline:</span> ${
+    movieDetails.tagline || "Information is missing. Apologies."
+  }</p>
+  <p class="overview"><span>Overview:</span> ${
+    movieDetails.overview || "Information is missing. Apologies."
+  }</p>
+  <p class="director"><span>Director:</span>${
+    founddirect.name || "Information is missing. Apologies."
+  }</p>
   </div>
   `;
 

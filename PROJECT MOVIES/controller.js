@@ -95,6 +95,8 @@ elinputSearch.addEventListener("input", () => {
     )
     .then((res) => {
       views.renderMovie(res);
+      getAllLiMovies();
+      addToFav();
     });
 });
 
@@ -123,6 +125,7 @@ elBtnId.addEventListener("click", () => {
       })
       .then(() => {
         getAllLiMovies();
+        addToFav();
       })
       .catch(() => {
         elmovieList.textContent = "";
@@ -138,34 +141,9 @@ const addToFav = () => {
   elFavorites.forEach((item) => {
     item.addEventListener("click", (event) => {
       event.stopPropagation();
-      filterAndSaveToLocalStorage(item.id, item);
+      model.filterAndSaveToLocalStorage(item.id, item);
     });
   });
-};
-
-const filterAndSaveToLocalStorage = (id, item) => {
-  model.getPopularMovies().then((res) => {
-    const checkIfExists = model.favoriteMovie.some((movie) => {
-      return movie.id === Number(id);
-    });
-    if (checkIfExists) {
-      item.textContent = "🤍";
-      removeFromFav(id, item);
-      return;
-    } else {
-      const filteredMovies = res.filter((movie) => movie.id === Number(id));
-      model.favoriteMovie.push(...filteredMovies);
-      item.textContent = "❤️";
-      utills.saveToStorage(secret.key_storage, model.favoriteMovie);
-    }
-  });
-};
-
-const removeFromFav = (id, item) => {
-  model.favoriteMovie = model.favoriteMovie.filter((movie) => {
-    return movie.id !== Number(id);
-  });
-  utills.saveToStorage(secret.key_storage, model.favoriteMovie);
 };
 
 export const controller = { elmovieList };
