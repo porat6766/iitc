@@ -1,7 +1,7 @@
-import { model } from "./Model.js";
-import { utills } from "./utills.js";
-import { views } from "./view.js";
-
+import { model } from "./JS.files/Model.js";
+import { utills } from "./JS.files/utills.js";
+import { views } from "./JS.files/view.js";
+let ifSearchPopularOrFavorite = false;
 //bring dark-mode
 const eltoggleSwitch = document.getElementById("toggle-dark-mode");
 const eltogglkljeSwitch = document.getElementById("navbar");
@@ -63,6 +63,7 @@ elselectTypePopular.addEventListener("change", (ev) => {
     .then(() => {
       addToFav();
     });
+  ifSearchPopularOrFavorite = false;
 });
 
 // //bring all li per one movie for make render data on movie and render
@@ -80,12 +81,14 @@ const getAllLiMovies = () => {
 
 //add event to search by name INPUT
 elinputSearch.addEventListener("input", () => {
+  let datamovie;
+  if (ifSearchPopularOrFavorite) {
+    datamovie = model.favoriteMovie;
+  } else {
+    datamovie = model.getPopularMovies;
+  }
   views
-    .searchMovieByName(
-      elinputSearch.value,
-      model.getPopularMovies,
-      elDescribesTypePopular
-    )
+    .searchMovieByName(elinputSearch.value, datamovie, elDescribesTypePopular)
     .then((res) => {
       views.renderMovie(res);
       getAllLiMovies();

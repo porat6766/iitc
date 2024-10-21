@@ -6,7 +6,7 @@ body {
     margin: 0;
     padding: 0;
     /* background-color: hsl(0, 0%, 13%); */
-    background-image: url('./logo/Screenshot\ 2024-10-20\ 125132.png');
+    background-image: url('../logo/Screenshot\ 2024-10-20\ 125132.png');
 
 }
 
@@ -668,9 +668,3 @@ input:checked+.slider {
 input:checked+.slider:before {
     transform: translateX(26px);
 }
-
-/* .dark-mode {
-
-    background-image: url('./logo/Screenshot\ 2024-10-20\ 191453.png');
-    opacity: 0.8;
-} */
