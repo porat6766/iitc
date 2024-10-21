@@ -1,12 +1,17 @@
-import { controller } from "./controller.js";
 import { model } from "./Model.js";
 
+//bring ul movies just for render
+const elmovieList = document.querySelector(".movie-list");
+
+//render to all type of popular movie include fav(also if one movie)
+//always get array empty/movies objects
 const renderMovie = (data) => {
   ////////
   const elDaetailsMoviePage = document.querySelector(".daetails-movie-page");
   clearTextContent(elDaetailsMoviePage);
   ////////
-  const elul = controller.elmovieList;
+
+  const elul = elmovieList;
   elul.innerHTML = "";
 
   data.forEach((movie) => {
@@ -57,20 +62,21 @@ function searchMovieByName(input, allMovies, elDiscribeNotFound) {
   });
 }
 
-//////////
+//////////// clean elements child and grandchild   for render fav move and not
+//reset them (השיטה של הפעלת פונקציב בתוף פונקציה נקראת-רקורסיה)
 const clearTextContent = (element) => {
   Array.from(element.children).forEach((child) => {
-    clearTextContent(child); // Recursively clear child elements
-    child.textContent = ""; // Clean the text content of the current child
+    clearTextContent(child);
+    child.textContent = "";
   });
 };
-////////////
-const renserDetails = (movieDetails) => {
-  console.log(movieDetails);
 
+//render details movie by click on li(card movie)
+const renserDetails = (movieDetails) => {
   ////////////////
   const elhomePage = document.querySelector(".home-page");
-  // elhomePage.innerHTML = "";
+  //check what better reset all or do like i do
+  //clean the textcontent -- elhomePage.innerHTML = "";
   clearTextContent(elhomePage);
   ///////////
   const elcontainerPosterDetails = document.querySelector(".poster-details");
@@ -153,4 +159,10 @@ const renserDetails = (movieDetails) => {
   });
 };
 
-export const views = { renderMovie, searchMovieByName, renserDetails };
+//export data mainly for controller
+export const views = {
+  renderMovie,
+  searchMovieByName,
+  renserDetails,
+  elmovieList,
+};

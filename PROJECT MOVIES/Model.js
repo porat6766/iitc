@@ -9,14 +9,15 @@ const TrendingWeek = `https://api.themoviedb.org/3/trending/movie/week?api_key=$
 const TrendingDay = `https://api.themoviedb.org/3/trending/movie/day?api_key=${secret.key_Movie}`;
 const apiUrlFor20PopularMovies = `https://api.themoviedb.org/3/movie/popular?api_key=${secret.key_Movie}&page=1`;
 
-//current url
+//current url(to choose type popular(in the first run het get popular in all time))
 let currentUrl = apiUrlFor20PopularMovies;
 
+//function that do new placement to current url(leistener DOM)
 const updateUrl = (newUrl) => {
   currentUrl = newUrl;
   getPopularMovies();
 };
-//api request for popular movie
+//API request for popular movie
 const getPopularMovies = async () => {
   try {
     const response = await axios.get(currentUrl);
@@ -36,6 +37,7 @@ const getPopularMovies = async () => {
   }
 };
 
+//API get movie bi ID
 function getMovieById(inputId) {
   return axios
     .get(
@@ -50,7 +52,7 @@ function getMovieById(inputId) {
     });
 }
 
-//get data movie
+//get data movie(details)
 function getMovieData(movieId) {
   return axios
     .get(
@@ -66,6 +68,7 @@ function getMovieData(movieId) {
     });
 }
 
+//handel with FAVORITE MOVIE
 const filterAndSaveToLocalStorage = (id, item) => {
   model.getPopularMovies().then((res) => {
     const checkIfExists = model.favoriteMovie.some((movie) => {
@@ -84,13 +87,16 @@ const filterAndSaveToLocalStorage = (id, item) => {
   });
 };
 
+//in case fav li clicked remove function
 const removeFromFav = (id, item) => {
   model.favoriteMovie = model.favoriteMovie.filter((movie) => {
     return movie.id !== Number(id);
   });
   utills.saveToStorage(secret.key_storage, model.favoriteMovie);
 };
+
 getPopularMovies();
+//export mainly for controller and views
 export const model = {
   getPopularMovies,
   updateUrl,

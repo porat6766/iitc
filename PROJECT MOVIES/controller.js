@@ -1,7 +1,10 @@
 import { model } from "./Model.js";
-import { secret } from "./secret.js";
 import { utills } from "./utills.js";
 import { views } from "./view.js";
+
+//bring dark-mode
+const eltoggleSwitch = document.getElementById("toggle-dark-mode");
+const eltogglkljeSwitch = document.getElementById("navbar");
 
 //filter by id elements
 const elcontainerSearchBiId = document.querySelector(".container-search-byId");
@@ -14,9 +17,6 @@ const elcontainerSearchById = document.querySelector(".container-search-byId");
 const elBtnSearch = document.querySelector("#btn-search-name");
 const elinputSearch = document.querySelector("#input-search");
 
-//bring ul movies
-const elmovieList = document.querySelector(".movie-list");
-
 //bring el Describes-type-popular
 const elDescribesTypePopular = document.querySelector(
   ".Describes-type-popular"
@@ -25,6 +25,7 @@ const elDescribesTypePopular = document.querySelector(
 //bring popular option
 const elselectTypePopular = document.querySelector("#select-popular");
 
+// my movie el and event listener
 const elfavoriteMovies = document.querySelector(".favorite-movies");
 
 elfavoriteMovies.addEventListener("click", () => {
@@ -36,7 +37,8 @@ elfavoriteMovies.addEventListener("click", () => {
   elDescribesTypePopular.textContent = "MY MOVIES";
 });
 
-//change url and rending again
+//change url and rending again and changung describe type popular and reset to input
+// and display functions to do event listener after exist
 elselectTypePopular.addEventListener("change", (ev) => {
   elDescribesTypePopular.textContent = "";
   if (ev.target.value === "today") {
@@ -63,19 +65,7 @@ elselectTypePopular.addEventListener("change", (ev) => {
     });
 });
 
-model
-  .getPopularMovies()
-  .then((res) => {
-    views.renderMovie(res);
-  })
-  .then(() => {
-    getAllLiMovies();
-  })
-  .then(() => {
-    addToFav();
-  });
-
-// //bring all li per one movie
+// //bring all li per one movie for make render data on movie and render
 const getAllLiMovies = () => {
   const elAllMovies = document.querySelectorAll(".movie-item");
   elAllMovies.forEach((movieLi) => {
@@ -88,6 +78,7 @@ const getAllLiMovies = () => {
   });
 };
 
+//add event to search by name INPUT
 elinputSearch.addEventListener("input", () => {
   views
     .searchMovieByName(
@@ -102,7 +93,7 @@ elinputSearch.addEventListener("input", () => {
     });
 });
 
-//btn Search add listener
+//add event to search by name BUTTON
 elBtnSearch.addEventListener("click", () => {
   if (elinputSearch.value === "") {
     alert("❌ Please enter a movie name!");
@@ -110,11 +101,13 @@ elBtnSearch.addEventListener("click", () => {
   elinputSearch.value = "";
 });
 
-//
+// event to open box (search by id)
 elbtnSearchIdOpenId.addEventListener("click", () => {
   elcontainerSearchBiId.classList.toggle("hidden");
 });
 
+//add event listener to search by ID BUTTON and add function
+//to bring option to more option on element(like get data movie and add FAV)
 elBtnId.addEventListener("click", () => {
   elDescribesTypePopular.textContent = "";
   if (elinputId.value === "") {
@@ -130,14 +123,18 @@ elBtnId.addEventListener("click", () => {
         addToFav();
       })
       .catch(() => {
-        elmovieList.textContent = "";
+        views.elmovieList.textContent = "";
         elDescribesTypePopular.textContent = "Movie not found!";
       });
     elinputId.value = "";
     elcontainerSearchById.classList.add("hidden");
+    elinputSearch.value = "";
   }
 });
 
+//function to bring all fave option li and make them
+// to have listener to add to fav, and stop event dad to
+//move to deatail page
 const addToFav = () => {
   const elFavorites = document.querySelectorAll(".favorite");
   elFavorites.forEach((item) => {
@@ -148,14 +145,15 @@ const addToFav = () => {
   });
 };
 
-const eltoggleSwitch = document.getElementById("toggle-dark-mode");
-const eltogglkljeSwitch = document.getElementById("navbar");
+//dark-mode listener anf function
+const checkMode = utills.getFromStorage("Dark-Mode-Status") === true;
+console.log(checkMode);
 
-const checkMode = utills.getFromStorage("Dark-Mode-Status") === "true";
 if (checkMode) {
   document.body.style.backgroundImage =
     "url('./logo/Screenshot 2024-10-20 191830.png')";
   eltoggleSwitch.checked = true;
+  eltogglkljeSwitch.style.backgroundColor = "black";
 }
 
 eltoggleSwitch.addEventListener("change", () => {
@@ -172,4 +170,15 @@ eltoggleSwitch.addEventListener("change", () => {
   }
 });
 
-export const controller = { elmovieList };
+//render home page
+model
+  .getPopularMovies()
+  .then((res) => {
+    views.renderMovie(res);
+  })
+  .then(() => {
+    getAllLiMovies();
+  })
+  .then(() => {
+    addToFav();
+  });
