@@ -558,6 +558,7 @@ span {
 
 
 .favorite {
+    margin-top: auto;
     margin-inline: auto;
     width: 30px;
     height: 30px;

@@ -98,39 +98,48 @@ const renserDetails = (movieDetails) => {
 
   elcontainerPosterDetails.innerHTML = `
   <div class="container-poster">
-  <img class="poster-movie" src= https://image.tmdb.org/t/p/w500${
-    movieDetails.poster_path
-  } alt="${movieDetails.title} poster">
+    <img class="poster-movie" src= https://image.tmdb.org/t/p/w500${
+      movieDetails.poster_path
+    } alt="${movieDetails.title} poster">
   </div>
   <div class="details">
-  <h2 class="title-movie-page2">${movieDetails.title}</h2>
-  <h5 class="year"><span>Release date:</span> ${
-    dateMovieUpdate || "Information is missing. Apologies."
-  }</h5>
-  <div class="genres-container">
-<h5 class="genres-page2">
-  <span>genres:</span> ${
-    movieDetails.genres.length > 0
-      ? movieDetails.genres.map((genre) => genre.name).join(", ")
-      : "No genres available"
-  }
-</h5>
+    <h2 class="title-movie-page2">${movieDetails.title}</h2>
+    <h5 class="year"><span>Release date:</span> ${
+      dateMovieUpdate || "Information is missing. Apologies."
+    }</h5>
+    <div class="genres-container">
+      <h5 class="genres-page2">
+        <span>Genres:</span> ${
+          movieDetails.genres.length > 0
+            ? movieDetails.genres.map((genre) => genre.name).join(", ")
+            : "No genres available"
+        }
+      </h5>
+    </div>
+    <h5 class="Runtime"><span>Runtime:</span> ${
+      movieDetails.runtime
+    } minutes</h5>
+    <div class="score"><span>Users Rating:</span> ${
+      movieDetails.vote_average
+    } 🌟</div>
+    <p class="tagline"><span>Tagline:</span> ${
+      movieDetails.tagline || "Information is missing. Apologies."
+    }</p>
+    <p class="overview"><span>Overview:</span> ${
+      movieDetails.overview || "Information is missing. Apologies."
+    }</p>
+    <p class="director"><span>Director:</span>${
+      founddirect.name || "Information is missing. Apologies."
+    }</p>
+    <div class="favorite" id="${movieDetails.id}">
+      ${
+        model.favoriteMovie.some((fav) => fav.id === movieDetails.id)
+          ? "❤️"
+          : "🤍"
+      }
+    </div>
   </div>
-  <h5 class="Runtime"><span>Runtime:</span> ${movieDetails.runtime} minutes</h5>
-  <div class="score"><span>Users Rating:</span> ${
-    movieDetails.vote_average
-  } 🌟</div>
-  <p class="tagline"><span>Tagline:</span> ${
-    movieDetails.tagline || "Information is missing. Apologies."
-  }</p>
-  <p class="overview"><span>Overview:</span> ${
-    movieDetails.overview || "Information is missing. Apologies."
-  }</p>
-  <p class="director"><span>Director:</span>${
-    founddirect.name || "Information is missing. Apologies."
-  }</p>
-  </div>
-  `;
+`;
 
   //array method to get all cast(players)
   movieDetails.credits.cast.forEach((player) => {

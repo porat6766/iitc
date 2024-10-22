@@ -75,6 +75,7 @@ const getAllLiMovies = () => {
       model.getMovieData(movieLi.id).then((res) => {
         views.renserDetails(res);
         console.log(res);
+        addToFav();
       });
     });
   });
