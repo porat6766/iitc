@@ -77,7 +77,10 @@ const renserDetails = (movieDetails) => {
   const elhomePage = document.querySelector(".home-page");
   //check what better reset all or do like i do
   //clean the textcontent -- elhomePage.innerHTML = "";
+  console.log(elhomePage);
+
   clearTextContent(elhomePage);
+  console.log(elhomePage);
   ///////////
   const elcontainerPosterDetails = document.querySelector(".poster-details");
   const elContainerImgSCast = document.querySelector(".container-img-cast");

@@ -29,12 +29,13 @@ const elselectTypePopular = document.querySelector("#select-popular");
 const elfavoriteMovies = document.querySelector(".favorite-movies");
 
 elfavoriteMovies.addEventListener("click", () => {
+  ifSearchPopularOrFavorite = true;
   console.log(model.favoriteMovie);
-
   views.renderMovie(model.favoriteMovie);
   getAllLiMovies();
   addToFav();
   elDescribesTypePopular.textContent = "MY MOVIES";
+  console.log(elDescribesTypePopular);
 });
 
 //change url and rending again and changung describe type popular and reset to input
@@ -83,7 +84,7 @@ const getAllLiMovies = () => {
 elinputSearch.addEventListener("input", () => {
   let datamovie;
   if (ifSearchPopularOrFavorite) {
-    datamovie = model.favoriteMovie;
+    datamovie = () => Promise.resolve(model.favoriteMovie);
   } else {
     datamovie = model.getPopularMovies;
   }
