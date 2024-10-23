@@ -40,23 +40,28 @@ const getWeather = (position) => {
     .catch((error) => console.error("Error:", error));
 };
 
+// document.body.style.backgroundImage =
+//   "url('./logo/Screenshot 2024-10-20 125132.png')";
 const checkTemp = (temp) => {
-  const tempInCelsius = temp - 273.15;
+  const tempInCelsius = 20.15;
   if (tempInCelsius < 20) {
     statusWeather = "🧊";
     desc = "The weather is cool.";
-    elAll.style.backgroundColor = "rgb(20, 116, 116)";
-    elAll.style.color = "white";
+    elAll.style.backgroundImage =
+      "url('./Img-backreound/Screenshot 2024-10-23 132650.png')";
+    elAll.style.color = "blue";
   } else if (tempInCelsius >= 20 && tempInCelsius <= 28) {
     statusWeather = "🌤️";
     desc = "The weather is pleasant.";
-    elAll.style.backgroundColor = "rgb(255, 215, 0)";
+    elAll.style.backgroundImage =
+      "url('./Img-backreound/Screenshot 2024-10-23 132736.png')";
     elAll.style.color = "black";
   } else if (tempInCelsius > 28) {
     statusWeather = "🔥";
+    elAll.style.backgroundImage =
+      "url('./Img-backreound/Screenshot 2024-10-23 132823.png')";
     desc = "The weather is warm.";
-    elAll.style.backgroundColor = "rgb(255, 69, 0)";
-    elAll.style.color = "white";
+    elAll.style.color = "red";
   }
   return tempInCelsius;
 };
