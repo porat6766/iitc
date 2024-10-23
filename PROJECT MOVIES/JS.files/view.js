@@ -77,10 +77,8 @@ const renserDetails = (movieDetails) => {
   const elhomePage = document.querySelector(".home-page");
   //check what better reset all or do like i do
   //clean the textcontent -- elhomePage.innerHTML = "";
-  console.log(elhomePage);
 
   clearTextContent(elhomePage);
-  console.log(elhomePage);
   ///////////
   const elcontainerPosterDetails = document.querySelector(".poster-details");
   const elContainerImgSCast = document.querySelector(".container-img-cast");
@@ -119,9 +117,10 @@ const renserDetails = (movieDetails) => {
     <h5 class="Runtime"><span>Runtime:</span> ${
       movieDetails.runtime
     } minutes</h5>
-    <div class="score"><span>Users Rating:</span> ${
-      movieDetails.vote_average
-    } 🌟</div>
+  <div class="score"><span>Users Rating:</span> ${movieDetails.vote_average.toFixed(
+    1
+  )} 🌟</div>
+
     <p class="tagline"><span>Tagline:</span> ${
       movieDetails.tagline || "Information is missing. Apologies."
     }</p>
