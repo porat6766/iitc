@@ -19,18 +19,24 @@ const renderMovie = (data) => {
     li.classList.add("movie-item");
     li.setAttribute("id", movie.id);
 
+    const imgWrapper = document.createElement("div");
+    imgWrapper.classList.add("img-wrapper");
+
     const img = document.createElement("img");
     img.src = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
     img.alt = movie.title;
     img.classList.add("movie-poster");
 
-    const title = document.createElement("h3");
-    title.textContent = movie.title;
-    title.classList.add("movie-title");
-
     const description = document.createElement("p");
     description.textContent = movie.overview;
     description.classList.add("movie-description");
+
+    imgWrapper.appendChild(img);
+    imgWrapper.appendChild(description);
+
+    const title = document.createElement("h3");
+    title.textContent = movie.title;
+    title.classList.add("movie-title");
 
     const elFavorite = document.createElement("div");
     elFavorite.classList.add("favorite");
@@ -38,9 +44,8 @@ const renderMovie = (data) => {
     const isFavorite = model.favoriteMovie.some((fav) => fav.id === movie.id);
     elFavorite.textContent = isFavorite ? "❤️" : "🤍";
 
-    li.appendChild(img);
+    li.appendChild(imgWrapper);
     li.appendChild(title);
-    li.appendChild(description);
     li.appendChild(elFavorite);
 
     elul.appendChild(li);
