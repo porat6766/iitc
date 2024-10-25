@@ -564,12 +564,12 @@ span {
     cursor: pointer;
     transition: transform 0.3s ease;
     transform: scale(1.2);
-    font-size: 28px;
+    font-size: 25px;
     margin-bottom: 8px;
 }
 
 .favorite:hover {
-    transform: scale(2);
+    transform: scale(1.8);
 
 }
 
