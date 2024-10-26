@@ -22,8 +22,6 @@ const getPopularMovies = async () => {
   try {
     const response = await axios.get(currentUrl);
     const movies = response.data.results;
-    console.log("Popular Movies:", movies);
-    console.log(movies);
 
     return movies;
   } catch (error) {

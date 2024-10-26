@@ -30,12 +30,10 @@ const elfavoriteMovies = document.querySelector(".favorite-movies");
 
 elfavoriteMovies.addEventListener("click", () => {
   ifSearchPopularOrFavorite = true;
-  console.log(model.favoriteMovie);
   views.renderMovie(model.favoriteMovie);
   getAllLiMovies();
   addToFav();
   elDescribesTypePopular.textContent = "MY MOVIES";
-  console.log(elDescribesTypePopular);
 });
 
 //change url and rending again and changung describe type popular and reset to input
@@ -114,6 +112,8 @@ elbtnSearchIdOpenId.addEventListener("click", () => {
 //add event listener to search by ID BUTTON and add function
 //to bring option to more option on element(like get data movie and add FAV)
 elBtnId.addEventListener("click", () => {
+  const elhomeTitle = document.querySelector(".home-title");
+  elhomeTitle.textContent = "";
   elDescribesTypePopular.textContent = "";
   if (elinputId.value === "") {
     alert("❌ Please enter a movie id!");
@@ -152,7 +152,6 @@ const addToFav = () => {
 
 //dark-mode listener anf function
 const checkMode = utills.getFromStorage("Dark-Mode-Status") === true;
-console.log(checkMode);
 
 if (checkMode) {
   document.body.style.backgroundImage =

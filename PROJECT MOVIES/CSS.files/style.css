@@ -623,6 +623,7 @@ h1:empty {
     #select-popular {
         width: fit-content;
         margin-inline: auto;
+        margin-top: 10px;
 
     }
 
