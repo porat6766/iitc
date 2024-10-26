@@ -11,7 +11,6 @@ body {
 body {
     margin: 0;
     padding: 0;
-    /* background-color: hsl(0, 0%, 13%); */
     background-image: url('../logo/Screenshot\ 2024-10-20\ 125132.png');
 
 }
@@ -23,7 +22,6 @@ body {
 
 .all {
     top: 0;
-    /* background-color: #222; */
     font-family: Arial, sans-serif;
     color: #fff;
     margin-bottom: 0;
@@ -99,7 +97,7 @@ body {
     transition: opacity 0.3s;
     margin: 0;
     overflow-y: auto;
-
+    cursor: pointer;
 }
 
 .img-wrapper:hover .movie-description {
@@ -365,7 +363,6 @@ h1::after {
 
 
 
-/*page deatails movie*/
 .daetails-movie-page {
     display: flex;
     flex-direction: column;
