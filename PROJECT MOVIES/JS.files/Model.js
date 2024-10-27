@@ -57,7 +57,6 @@ function getMovieData(movieId) {
       `https://api.themoviedb.org/3/movie/${movieId}?api_key=${secret.key_Movie}&append_to_response=credits`
     )
     .then((response) => {
-      console.log("Movie details:", response.data);
       return response.data;
     })
     .catch((error) => {
