@@ -43,7 +43,9 @@ const getWeather = (position) => {
 // document.body.style.backgroundImage =
 //   "url('./logo/Screenshot 2024-10-20 125132.png')";
 const checkTemp = (temp) => {
-  const tempInCelsius = 20.15;
+  console.log(temp);
+
+  const tempInCelsius = temp - 273.15;
   if (tempInCelsius < 20) {
     statusWeather = "🧊";
     desc = "The weather is cool.";
