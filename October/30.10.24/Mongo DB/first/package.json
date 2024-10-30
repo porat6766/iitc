@@ -1,17 +1,18 @@
 {
-  "name": "big-api-project",
+  "dependencies": {
+    "mongodb": "^6.10.0"
+  },
+  "name": "mongo-db",
   "version": "1.0.0",
   "main": "app.js",
+  "devDependencies": {},
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "start": "nodemon checkMongoDB.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "express": "^4.21.1"
-  },
   "description": ""
 }

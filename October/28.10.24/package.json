@@ -1,5 +1,5 @@
 {
-  "name": "big-api-project",
+  "name": "28.10.24",
   "version": "1.0.0",
   "main": "app.js",
   "type": "module",
@@ -10,8 +10,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "description": "",
   "dependencies": {
-    "express": "^4.21.1"
-  },
-  "description": ""
+    "express": "^4.21.1",
+    "morgan": "^1.10.0"
+  }
 }

@@ -1,17 +1,17 @@
 {
-  "name": "big-api-project",
+  "name": "second",
   "version": "1.0.0",
   "main": "app.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "start": "nodemon app.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "description": "",
   "dependencies": {
     "express": "^4.21.1"
-  },
-  "description": ""
+  }
 }
