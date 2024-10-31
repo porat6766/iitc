@@ -6,10 +6,10 @@ import usersRoute from "./routes/usersRouts.js";
 import logRequest from "./middleware/logger.js";
 import handleEror from "./middleware/handleEror.js";
 import mongoose from "mongoose";
-import { secret } from "./secret.js";
-import jokeModel from "./moduls/jokesModel.js";
+import dotenv from "dotenv";
 
-const uri = `mongodb+srv://porat850:${secret.mongodb_key}@cluster0.osyms.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
+dotenv.config();
+const uri = process.env.DB_ULI;
 
 mongoose
   .connect(uri)
@@ -21,7 +21,7 @@ mongoose
   });
 
 const app = express();
-const PORT = 3000;
+const PORT = 3001;
 
 app.use(express.json());
 app.use(morgan("short"));

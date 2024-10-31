@@ -1,11 +1,11 @@
 import mongoose from "mongoose";
 
 const postSchema = new mongoose.Schema({
-  title: {
+  setup: {
     type: String,
     required: true,
   },
-  content: {
+  punchLine: {
     type: String,
     required: true,
   },

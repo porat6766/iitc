@@ -1,6 +1,0 @@
-
-  Activity received at: 10/31/2024, 1:14:35 AM
-  Path parameters received: {} 
-  Query parameters received: {} 
-  Body parameters received: {} 
-  Status Code: 200 
