@@ -7,7 +7,11 @@ const pageHome = (req, res) => {
 const getAllJokes = async (req, res) => {
   try {
     const allJoke = await joke.find();
-    res.status(200).send(allJoke);
+    if (allJoke.length === 0) {
+      res.status(404).send("Joke a found");
+    } else {
+      res.status(200).send(allJoke);
+    }
   } catch (error) {
     console.error("Error fetching all joke:", error);
     res.status(500).send("Internal Server Error");
