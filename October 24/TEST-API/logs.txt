@@ -2500,3 +2500,135 @@
   Query parameters received: {} 
   Body parameters received: {} 
   Status Code: 200 
+
+  Activity received at: 11/3/2024, 12:36:00 AM
+  Path parameters received: {} 
+  Query parameters received: {} 
+  Body parameters received: {"setup":"sdsghfhj msnd","punchLine":"jshdfbjshdfbwhdgweigdb"} 
+  Status Code: 200 
+
+  Activity received at: 11/3/2024, 12:36:01 AM
+  Path parameters received: {} 
+  Query parameters received: {} 
+  Body parameters received: {} 
+  Status Code: 200 
+
+  Activity received at: 11/3/2024, 12:36:01 AM
+  Path parameters received: {} 
+  Query parameters received: {} 
+  Body parameters received: {} 
+  Status Code: 200 
+
+  Activity received at: 11/3/2024, 12:36:01 AM
+  Path parameters received: {} 
+  Query parameters received: {} 
+  Body parameters received: {} 
+  Status Code: 200 
+
+  Activity received at: 11/3/2024, 12:36:01 AM
+  Path parameters received: {} 
+  Query parameters received: {} 
+  Body parameters received: {"setup":"ksjdfdgjh8","punchLine":"Parallel lines have 2020 so much in common. It’s a shame they’ll never meet."} 
+  Status Code: 200 
+
+  Activity received at: 11/3/2024, 12:36:02 AM
+  Path parameters received: {} 
+  Query parameters received: {} 
+  Body parameters received: {"setup":"skjdcjhsb","punchLine":"so much in common. It’s a shame they’ll never meet."} 
+  Status Code: 200 
+
+  Activity received at: 11/3/2024, 12:36:02 AM
+  Path parameters received: {} 
+  Query parameters received: {} 
+  Body parameters received: {} 
+  Status Code: 200 
+
+  Activity received at: 11/3/2024, 12:36:02 AM
+  Path parameters received: {} 
+  Query parameters received: {} 
+  Body parameters received: {"username":"johnmn_oצdse","email":"john.dojbe@eתsdple.com","password":"securePassword123","age":55} 
+  Status Code: 200 
+
+  Activity received at: 11/3/2024, 12:36:02 AM
+  Path parameters received: {} 
+  Query parameters received: {} 
+  Body parameters received: {} 
+  Status Code: 200 
+
+  Activity received at: 11/3/2024, 12:36:03 AM
+  Path parameters received: {} 
+  Query parameters received: {} 
+  Body parameters received: {} 
+  Status Code: 200 
+
+  Activity received at: 11/3/2024, 12:36:03 AM
+  Path parameters received: {} 
+  Query parameters received: {} 
+  Body parameters received: {} 
+  Status Code: 200 
+
+  Activity received at: 11/3/2024, 12:36:03 AM
+  Path parameters received: {} 
+  Query parameters received: {} 
+  Body parameters received: {"username":"knjhgfd"} 
+  Status Code: 200 
+
+  Activity received at: 11/3/2024, 12:36:04 AM
+  Path parameters received: {} 
+  Query parameters received: {} 
+  Body parameters received: {"username":"johnmn_oצdse","email":"john.dojbe@eתsdple.com","password":"securePassword123","age":88} 
+  Status Code: 200 
+
+  Activity received at: 11/3/2024, 12:36:04 AM
+  Path parameters received: {} 
+  Query parameters received: {} 
+  Body parameters received: {} 
+  Status Code: 200 
+
+  Activity received at: 11/3/2024, 12:36:04 AM
+  Path parameters received: {} 
+  Query parameters received: {} 
+  Body parameters received: {"name":"nkbghvyh XYZ","description":"A high-end smartphone with a 6.5-inch display, 128GB storage, and 12GB RAM.","price":899.99,"category":"Electronics","inStock":"true"} 
+  Status Code: 200 
+
+  Activity received at: 11/3/2024, 12:36:04 AM
+  Path parameters received: {} 
+  Query parameters received: {} 
+  Body parameters received: {} 
+  Status Code: 200 
+
+  Activity received at: 11/3/2024, 12:36:05 AM
+  Path parameters received: {} 
+  Query parameters received: {} 
+  Body parameters received: {} 
+  Status Code: 200 
+
+  Activity received at: 11/3/2024, 12:36:05 AM
+  Path parameters received: {} 
+  Query parameters received: {} 
+  Body parameters received: {} 
+  Status Code: 200 
+
+  Activity received at: 11/3/2024, 12:36:05 AM
+  Path parameters received: {} 
+  Query parameters received: {} 
+  Body parameters received: {"price":3231} 
+  Status Code: 200 
+
+  Activity received at: 11/3/2024, 12:36:05 AM
+  Path parameters received: {} 
+  Query parameters received: {} 
+  Body parameters received: {"name":"lap","price":3231,"category":"lljkhghf","description":"l;ljkhghf","inStock":false} 
+  Status Code: 200 
+
+  Activity received at: 11/3/2024, 12:36:06 AM
+  Path parameters received: {} 
+  Query parameters received: {} 
+  Body parameters received: {} 
+  Status Code: 200 
+
+  Activity received at: 11/3/2024, 12:36:06 AM
+  Path parameters received: {} 
+  Query parameters received: {} 
+  Body parameters received: {} 
+  Status Code: 200 

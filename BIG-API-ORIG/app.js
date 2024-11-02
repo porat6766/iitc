@@ -10,6 +10,7 @@ import dotenv from "dotenv";
 
 dotenv.config();
 const uri = process.env.DB_ULI;
+console.log(uri);
 
 mongoose
   .connect(uri)

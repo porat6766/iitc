@@ -10,13 +10,13 @@ router.get("/all", controllerJoke.getAllJokes);
 
 router.get("/random", controllerJoke.getRandonJoke);
 
-router.post("/create", validatorJoke, controllerJoke.createJoke);
+router.post("/create", controllerJoke.createJoke);
 
 router.get("/:id", controllerJoke.getJokeByID);
 
 router.patch("/update/part/:id", controllerJoke.updateAPartJoke);
 
-router.put("/update/:id", validatorJoke, controllerJoke.updateAllJoke);
+router.put("/update/:id", controllerJoke.updateAllJoke);
 
 router.delete("/delete/:id", controllerJoke.daeleteJokeByID);
 
