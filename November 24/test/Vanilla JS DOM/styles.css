@@ -15,9 +15,10 @@ button {
 }
 
 .highlight {
-    color: yello;
+    color: yellow;
 }
 
 .item:hover {
     color: blue;
 }
+
