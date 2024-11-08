@@ -17,7 +17,29 @@ app.get("/", (req, res) => {
   res.send("WELCOME TO OUR API");
 });
 
-app.post("/create", async (req, res) => {
+const recordsRecieve = (req, res, next) => {
+  const log = `
+    act time: ${new Date().toLocaleString()}
+    path params received: ${JSON.stringify(req.params || {})}
+    query params received: ${JSON.stringify(req.query || {})}
+    request body: ${JSON.stringify(req.body || {})}
+    Status Code: ${res.statusCode} \n
+  `;
+  console.log(log);
+  res;
+  next();
+};
+
+const validValues = (req, res, next) => {
+  if (!req.body || !req.body.age || !req.body.email || !req.body.name) {
+    return res.status(400).send({
+      message: "Missing required fields: age, email, or name.",
+    });
+  }
+  next();
+};
+
+app.post("/create", validValues, async (req, res) => {
   try {
     const newUser = new User({
       age: req.body.age,
@@ -73,7 +95,7 @@ app.post("/update/:id", async (req, res) => {
   }
 });
 
-app.get("/getuser/:id", async (req, res) => {
+app.get("/getuser/:id", recordsRecieve, async (req, res) => {
   try {
     const { id } = req.params;
     const foundUser = await User.findById(id);
@@ -98,12 +120,6 @@ app.delete("/delete/:id", async (req, res) => {
     error;
   }
 });
-
-const records = (req, res, next) => {
-    const log = `
-    req
-    `
-};
 
 app.listen(PORT, () => {
   console.log("HELLO WORLD");
