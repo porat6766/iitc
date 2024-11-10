@@ -1,0 +1,68 @@
+html,
+body {
+    padding: 0;
+    margin: 0;
+    background-color: antiquewhite;
+}
+
+h3 {
+    margin: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+.all {
+    margin: 25px;
+    background-color: rgb(175, 134, 80);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+}
+
+.container-transections {
+    margin: 25px;
+    background-color: rgb(175, 134, 80);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+}
+
+
+button {
+    background-color: rgb(106, 79, 44);
+    color: aliceblue;
+}
+
+#transections {
+    margin: 10px;
+}
+
+input {
+    margin-bottom: 10px;
+    border-radius: 2px;
+}
+
+h1 {
+    text-shadow: 2px 2px rgb(198, 166, 124);
+    font-weight: 600;
+    font-size: 50px;
+}
+
+h2 {
+    color: white;
+    font-size: 28px;
+
+}
+
+#container-of-login {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+}
