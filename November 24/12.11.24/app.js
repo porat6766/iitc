@@ -2,8 +2,13 @@ const express = require("express");
 require("dotenv").config();
 const mongoose = require("mongoose");
 
-const userModel = require("./models/userModel.js");
+//book modules
+const BookModel = require("./models/bookModel.js");
 const booksRoute = require("./routs/routeBooks.js");
+
+//user modules
+const userModel = require("./models/UserModel.js");
+const userRoute = require("./routs/routeUser.js");
 
 const app = express();
 app.use(express.json());
@@ -23,6 +28,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/books", booksRoute);
+app.use("/api/users", userRoute);
 
 app.listen(process.env.PORT, () => {
   console.log("server is runing");

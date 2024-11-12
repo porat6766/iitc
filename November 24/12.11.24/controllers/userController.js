@@ -1,45 +1,43 @@
-const User = require("../models/userModel.js");
+const User = require("../models/UserModel.js");
 
-const createBook = async (req, res) => {
-  const { bookName, price, year } = req.body;
-  console.log({ bookName, price, year });
-  try {
-    const newBook = new User({
-      bookName,
-      price,
-      year,
+const createUser = (req, res) => {
+  const newUser = new User({
+    name: req.body.name,
+    email: req.body.email,
+    password: req.body.password,
+    age: req.body.age,
+  });
+  console.log(newUser);
+
+  newUser
+    .save()
+    .then(() => {
+      res.status(200).send({ message: "user create", user: newUser });
+    })
+    .catch((error) => {
+      console.error("Error saving joke:", error);
+      res.status(500).send("Internal Server Error");
     });
-    const saveUser = await newBook.save();
-    console.log(saveUser);
-    res.status(201).send({
-      message: "User create sucssefuly",
-      data: saveUser,
-    });
-  } catch (error) {
-    console.error(error);
-    if (error?.errorResponse?.code === 11000) {
-      res.send("please put unique bookName");
-    } else {
-      res.status(500).send(error);
-    }
-  }
 };
 
-const getUserID = async (req, res) => {
-  try {
-    const { id } = req.params;
-    const userToFound = await User.findById(id);
-    if (!userToFound) {
-      res.status(404).send("user not a found");
-    } else {
-      res.status(200).send({
-        message: "user is found",
-        data: userToFound,
-      });
-    }
-  } catch (error) {
-    res.status(500);
+const deleteUser = (req, res) => {
+  const { id } = req.params;
+
+  if (!id) {
+    return res.status(400).send("Invalid ID");
   }
+
+  User.findByIdAndDelete(id)
+    .then((result) => {
+      if (!result) {
+        return res.status(404).send({ message: "User does not exist" });
+      }
+      res.status(200).send({ message: "Deleted successfully", data: result });
+    })
+    .catch((err) => {
+      console.error("Error deleting user:", err);
+      res.status(500).send("Internal Server Error");
+    });
 };
 
-module.exports = { createBook, getUserID };
+module.exports = { createUser, deleteUser };
