@@ -1,6 +1,7 @@
 const express = require("express");
 require("dotenv").config();
 const mongoose = require("mongoose");
+const cors = require("cors");
 
 //book modules
 const BookModel = require("./models/bookModel.js");
@@ -16,6 +17,7 @@ const reviewModel = require("./models/reviewModel.js");
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 mongoose
   .connect(process.env.mongo_DB)

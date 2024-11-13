@@ -84,16 +84,14 @@ const updatePart = async (req, res) => {
   if (year) {
     updateBook.year = year;
   }
-  console.log(updateBook);
 
   try {
-    await Book.findByIdAndUpdate(id, updateBook, {
+    const newBook = await Book.findByIdAndUpdate(id, updateBook, {
       new: true,
     });
 
-    console.log(newBook);
     res.status(200).send({
-      message: "User update sucssefuly",
+      message: "User update sucssefuly",  
       data: newBook,
     });
   } catch (error) {
