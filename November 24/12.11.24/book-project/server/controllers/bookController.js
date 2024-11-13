@@ -1,13 +1,13 @@
 const Book = require("../models/bookModel.js");
 
 const createBook = async (req, res) => {
-  const { bookName, price, year } = req.body;
-  console.log({ bookName, price, year });
+  const { bookName, price, year, createdBy } = req.body;
   try {
     const newBook = new Book({
       bookName,
       price,
       year,
+      createdBy,
     });
     const saveUser = await newBook.save();
     console.log(saveUser);

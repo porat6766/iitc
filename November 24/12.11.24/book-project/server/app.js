@@ -10,6 +10,10 @@ const booksRoute = require("./routs/routeBooks.js");
 const userModel = require("./models/UserModel.js");
 const userRoute = require("./routs/routeUser.js");
 
+//review modules
+const reviewRoute = require("./routs/routeReview.js");
+const reviewModel = require("./models/reviewModel.js");
+
 const app = express();
 app.use(express.json());
 
@@ -29,6 +33,7 @@ app.get("/", (req, res) => {
 
 app.use("/api/books", booksRoute);
 app.use("/api/users", userRoute);
+app.use("/api/reviews", reviewRoute);
 
 app.listen(process.env.PORT, () => {
   console.log("server is runing");

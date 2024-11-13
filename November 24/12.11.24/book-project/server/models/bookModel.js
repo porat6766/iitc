@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const userSchema = mongoose.Schema(
+const bookSchema = mongoose.Schema(
   {
     bookName: {
       type: String,
@@ -15,6 +15,17 @@ const userSchema = mongoose.Schema(
       type: String,
       required: true,
     },
+    createdBy: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+    },
+    reviews: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+      },
+    ],
   },
   {
     timestamps: true,
@@ -24,8 +35,8 @@ const userSchema = mongoose.Schema(
   }
 );
 
-userSchema.virtual("full-data").get(function () {
+bookSchema.virtual("full-data").get(function () {
   return `book name: ${this.bookName} price: ${this.price} year: ${this.year}`;
 });
 
-module.exports = mongoose.model("User", userSchema);
+module.exports = mongoose.model("Book", bookSchema);
