@@ -1,0 +1,33 @@
+:root {
+    --White: hsl(0, 0%, 100%);
+
+    --Stone-100: hsl(30, 54%, 90%);
+    --Stone-150: hsl(30, 18%, 87%);
+    --Stone-600: hsl(30, 10%, 34%);
+    --Stone-900: hsl(24, 5%, 18%);
+
+
+    --Rose-1000: hsl(332, 51%, 32%);
+    --Rose-800: hsl(342, 41%, 92%);
+    --Rose-50: hsl(330, 100%, 98%);
+}
+
+.nutritional-values {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+.bold-data {
+    font-weight: 600;
+    color: var(--Rose-1000);
+    margin-right: 30%;
+}
+
+.start-nutrition {
+    margin-left: 15px;
+}
+
+.p-nutrition {
+    margin-bottom: 20px;
+}

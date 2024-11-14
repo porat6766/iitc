@@ -1,0 +1,17 @@
+:root {
+    --White: hsl(0, 0%, 100%);
+}
+
+.all {
+    padding: 35px;
+    background-color: var(--White);
+    border-radius: 13px;
+    color: rgb(93, 84, 84);
+}
+
+@media(max-width:550px) {
+    .all {
+        padding: 0;
+        min-width: 260px;
+    }
+}

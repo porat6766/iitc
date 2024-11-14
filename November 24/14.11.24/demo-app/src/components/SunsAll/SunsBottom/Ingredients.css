@@ -1,0 +1,11 @@
+.Ingredients-ul {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.Ingredients-ul li {
+    padding-left: 10px;
+    list-style-position: outside;
+}

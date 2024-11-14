@@ -1,0 +1,58 @@
+:root {
+    --White: hsl(0, 0%, 100%);
+
+    --Stone-100: hsl(30, 54%, 90%);
+    --Stone-150: hsl(30, 18%, 87%);
+    --Stone-600: hsl(30, 10%, 34%);
+    --Stone-900: hsl(24, 5%, 18%);
+
+
+    --Rose-1000: hsl(332, 51%, 32%);
+    --Rose-800: hsl(342, 41%, 92%);
+    --Rose-50: hsl(330, 100%, 98%);
+}
+
+.Preparation {
+    padding: 20px 20px;
+    background-color: var(--Rose-800);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 30px;
+}
+
+.Preparation-ul {
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.label-Preparation {
+    font-weight: 700;
+}
+
+.describe-reciepe {
+    font-size: 14px;
+    font-weight: 200;
+    margin-bottom: 22px;
+}
+
+.reciepe-title {
+    padding-block: 10px;
+}
+
+.start-bold {
+    font-weight: 600;
+}
+
+hr {
+    opacity: 0.5;
+}
+
+@media(max-width:550px) {
+    .head-write {
+        padding: 30px;
+    }
+}

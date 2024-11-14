@@ -1,0 +1,17 @@
+.Instructions-ol {
+    padding: 20px;
+}
+
+.Instructions-bold {
+    font-weight: 700;
+}
+
+
+.whrap-instruction {
+    margin-left: 5px;
+    margin-bottom: 10px;
+}
+
+.instruction h2 {
+    margin: 0;
+}
