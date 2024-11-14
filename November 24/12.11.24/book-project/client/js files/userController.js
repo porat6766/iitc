@@ -7,7 +7,27 @@ const createUser = async (name, email, password, age) => {
     },
     body: JSON.stringify(user),
   });
-  console.log(resSaveUser);
+  if (resSaveUser.status === 201) {
+    return true;
+  } else {
+    return false;
+  }
 };
 
-export { createUser };
+const loginUser = async (email, password) => {
+  const user = { email, password };
+  const getLog = await fetch("http://localhost:3000/api/users/login", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(user),
+  });
+  if (getLog.status === 200) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+export { createUser, loginUser };

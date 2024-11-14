@@ -1,4 +1,16 @@
-const user = require("../models/UserModel.js");
+const User = require("../models/UserModel.js");
+const bcrypt = require("bcrypt");
+
+const hashPassword = async (userPassword) => {
+  const saltRounds = 10;
+  const combinedPassword = userPassword + process.env.hash;
+  return await bcrypt.hash(combinedPassword, saltRounds);
+};
+
+const comparePassword = async (userPassword, dbHash) => {
+  const combinedPassword = userPassword + process.env.hash;
+  return await bcrypt.compare(combinedPassword, dbHash);
+};
 
 const homePage = (req, res) => {
   res.send("page-users");
@@ -6,7 +18,7 @@ const homePage = (req, res) => {
 
 const getAllUser = async (req, res) => {
   try {
-    const allUser = await user.find();
+    const allUser = await User.find();
     res.status(200).send(allUser);
   } catch (error) {
     console.error("Error fetching all users:", error);
@@ -16,7 +28,7 @@ const getAllUser = async (req, res) => {
 
 const getRandonUser = async (req, res) => {
   try {
-    const randomUser = await user.aggregate([{ $sample: { size: 1 } }]);
+    const randomUser = await User.aggregate([{ $sample: { size: 1 } }]);
     res.status(200).send(randomUser[0]);
   } catch (error) {
     console.error("Error fetching random user:", error);
@@ -25,10 +37,11 @@ const getRandonUser = async (req, res) => {
 };
 
 const createUser = async (req, res) => {
-  const newUser = new user({
+  const password = await hashPassword(req.body.password);
+  const newUser = new User({
     username: req.body.username,
     email: req.body.email,
-    password: req.body.password,
+    password: password,
     age: req.body.age,
   });
 
@@ -47,7 +60,7 @@ const createUser = async (req, res) => {
 const getUserByID = async (req, res) => {
   const { id } = req.params;
   try {
-    const foundUser = await user.findById(id);
+    const foundUser = await User.findById(id);
 
     if (!foundUser) {
       return res.status(404).send({
@@ -85,7 +98,7 @@ const updateAPartUser = async (req, res) => {
   }
 
   try {
-    const updatedUser = await user.findByIdAndUpdate(id, fieldsToUpdate, {
+    const updatedUser = await User.findByIdAndUpdate(id, fieldsToUpdate, {
       new: true,
     });
 
@@ -105,7 +118,7 @@ const updateAPartUser = async (req, res) => {
 const updateAllUser = async (req, res) => {
   const { id } = req.params;
   try {
-    const updatedUser = await user.findByIdAndUpdate(id, req.body, {
+    const updatedUser = await User.findByIdAndUpdate(id, req.body, {
       new: true,
     });
     console.log(updatedUser);
@@ -126,7 +139,7 @@ const updateAllUser = async (req, res) => {
 const deleteUserByID = async (req, res) => {
   const { id } = req.params;
   try {
-    const deletedUser = await user.findByIdAndDelete(id);
+    const deletedUser = await User.findByIdAndDelete(id);
 
     if (deletedUser) {
       res.status(200).send("User deleted successfully");
@@ -140,7 +153,32 @@ const deleteUserByID = async (req, res) => {
   }
 };
 
+const loginUser = async (req, res) => {
+  const { email, password } = req.body;
+  try {
+    const resToFound = await User.findOne({ email });
+    console.log(resToFound);
+    if (!resToFound) {
+      console.log("email not exist");
+      return res.status(403).send("the email not a exist");
+    }
+    const compare = await comparePassword(password, resToFound.password);
+    if (!compare) {
+      console.log("password not exist");
+      return res.status(403).send("the password not a exist");
+    }
+    console.log("WE HAVE LOGIN👌");
+    return res.status(200).send("GOOD LOG");
+  } catch (error) {
+    res.status(500).send({
+      message: "general problem",
+      data: error,
+    });
+  }
+};
+
 module.exports = {
+  loginUser,
   getRandonUser,
   homePage,
   createUser,

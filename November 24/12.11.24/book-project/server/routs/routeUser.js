@@ -8,6 +8,7 @@ const {
   updateAllUser,
   deleteUserByID,
   getAllUser,
+  loginUser,
 } = require("../controllers/UserController.js");
 
 const router = express.Router();
@@ -19,6 +20,8 @@ router.get("/all", getAllUser);
 router.get("/random", getRandonUser);
 
 router.post("/create", createUser);
+
+router.post("/login", loginUser);
 
 router.get("/:id", getUserByID);
 
