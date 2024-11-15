@@ -1,4 +1,5 @@
 const Book = require("../models/bookModel.js");
+const jwt = require("jsonwebtoken");
 
 const createBook = async (req, res) => {
   const { bookName, price, year, createdBy } = req.body;
@@ -32,11 +33,49 @@ const getBookID = async (req, res) => {
     console.log(userToFound);
 
     if (!userToFound) {
-      res.status(404).send("user not a found");
+      res.status(404).send("book not a found");
     } else {
       res.status(200).send({
-        message: "user is found",
+        message: "boom is found",
         data: userToFound,
+      });
+    }
+  } catch (error) {
+    res.status(500);
+  }
+};
+const getBooksByUserID = async (req, res) => {
+  try {
+    const { token } = req.params;
+    const decodedData = await jwt.verify(token, process.env.JWT_KEY);
+    console.log(decodedData.id);
+
+    const booksByUser = await Book.find({ createdBy: decodedData.id });
+    console.log(booksByUser);
+
+    if (!booksByUser) {
+      res.status(404).send("books not a found");
+    } else {
+      res.status(200).send({
+        message: "books by user is found",
+        data: booksByUser,
+      });
+    }
+  } catch (error) {
+    res.status(500);
+  }
+};
+
+const getAllBooks = async (req, res) => {
+  try {
+    const books = await Book.find();
+
+    if (!books) {
+      res.status(404).send("books not a found");
+    } else {
+      res.status(200).send({
+        message: "books is found",
+        data: books,
       });
     }
   } catch (error) {
@@ -91,7 +130,7 @@ const updatePart = async (req, res) => {
     });
 
     res.status(200).send({
-      message: "User update sucssefuly",  
+      message: "User update sucssefuly",
       data: newBook,
     });
   } catch (error) {
@@ -116,4 +155,12 @@ const deleteBook = async (req, res) => {
   }
 };
 
-module.exports = { createBook, getBookID, updateAll, updatePart, deleteBook };
+module.exports = {
+  createBook,
+  getBookID,
+  updateAll,
+  updatePart,
+  deleteBook,
+  getAllBooks,
+  getBooksByUserID,
+};

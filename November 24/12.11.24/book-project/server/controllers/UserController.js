@@ -1,5 +1,6 @@
 const User = require("../models/UserModel.js");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 
 const hashPassword = async (userPassword) => {
   const saltRounds = 10;
@@ -168,12 +169,30 @@ const loginUser = async (req, res) => {
       return res.status(403).send("the password not a exist");
     }
     console.log("WE HAVE LOGIN👌");
-    return res.status(200).send("GOOD LOG");
+    console.log(resToFound);
+
+    const token = await createToken(resToFound.id);
+    if (token) {
+      return res.status(200).send({ message: "GOOD LOG", data: token });
+    } else {
+      return res.status(403).send("from some reasons we cant give you token");
+    }
   } catch (error) {
     res.status(500).send({
       message: "general problem",
       data: error,
     });
+  }
+};
+
+const createToken = (id) => {
+  try {
+    const token = jwt.sign({ id }, process.env.JWT_KEY, { expiresIn: "1h" });
+    console.log(token);
+    return token;
+  } catch (error) {
+    console.error("Error creating and setting token:", error);
+    throw new Error("Error creating and setting token");
   }
 };
 

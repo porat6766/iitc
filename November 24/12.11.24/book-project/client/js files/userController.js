@@ -24,10 +24,17 @@ const loginUser = async (email, password) => {
     body: JSON.stringify(user),
   });
   if (getLog.status === 200) {
+    const res = await getLog.json();
+    console.log(res.data);
+    saveInCookie(res.data);
     return true;
   } else {
     return false;
   }
+};
+
+const saveInCookie = (token) => {
+  document.cookie = `token=${token}; path=/;`;
 };
 
 export { createUser, loginUser };

@@ -1,4 +1,9 @@
 import { createUser, loginUser } from "./js files/userController.js";
+import book from "./js files/books.js";
+
+const elBookUlAll = document.querySelector(".book-ul-all");
+
+const elBookUlMy = document.querySelector(".book-ul-my");
 
 const nameInput = document.getElementById("name");
 const emailInput = document.getElementById("email");
@@ -21,7 +26,7 @@ if (elformSignUp) {
     console.log(create);
 
     if (create) {
-      window.location.href = "./html files/log-in.html";
+      window.location.href = "./html_files/log-in.html";
     } else {
       alert("please try later");
     }
@@ -36,7 +41,31 @@ if (elformSignIn) {
     const log = await loginUser(emailInput.value, passwordInput.value);
     if (!log) {
       return alert("Please verify your details again");
+    } else {
+      window.location.href = "/html_files/books.html";
     }
-    window.location.href = "./html files/books.html";
+  });
+}
+
+if (elBookUlAll) {
+  book.getAllBooks().then((res) => {
+    book.renderBooks(res, elBookUlAll);
+  });
+}
+
+const getCookie = (name) => {
+  const cookies = document.cookie.split("; ");
+  for (const cookie of cookies) {
+    const [key, value] = cookie.split("=");
+    if (key === name) return value;
+  }
+  return null;
+};
+
+if (elBookUlMy) {
+  const token = getCookie("token");
+  book.getMyBooks(token).then((res) => {
+    console.log(res);
+    book.renderBooks(res, elBookUlMy);
   });
 }

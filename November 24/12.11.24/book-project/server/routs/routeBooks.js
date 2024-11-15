@@ -8,9 +8,15 @@ const {
   updateAll,
   updatePart,
   deleteBook,
+  getAllBooks,
+  getBooksByUserID,
 } = require("../controllers/bookController.js");
 
 router.post("/create", checkFields, createBook);
+
+router.get("/getAll", getAllBooks);
+
+router.get("/getMyBook/:token", getBooksByUserID);
 
 router.get("/:id", getBookID);
 
