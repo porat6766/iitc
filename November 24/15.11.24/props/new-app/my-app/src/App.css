@@ -1,0 +1,23 @@
+.container-form {
+    display: flex;
+    gap: 10px;
+    font-size: 25px;
+    background-color: aqua;
+    height: 300px;
+}
+
+span {
+    cursor: pointer;
+    background-color: burlywood;
+    padding: 15px;
+    border: 2px solid rgb(94, 59, 13);
+}
+
+.userChoise {
+    width: fit-content;
+    background-color: rgb(239, 145, 22);
+    padding: 15px;
+    border: 5px solid;
+    margin-bottom: 20px;
+    font-size: 30px;
+}

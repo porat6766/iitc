@@ -1,0 +1,25 @@
+:root {
+    --White: hsl(0, 0%, 100%);
+    --Light-Grey: hsl(217, 12%, 63%);
+    --Dark-Blue: hsl(213, 19%, 18%);
+    --Dark-Blue-200: hsl(213, 18%, 24%);
+    --Very-Dark-Blue: hsl(216, 12%, 8%);
+    --Orange: hsl(25, 97%, 53%);
+}
+
+@font-face {
+    font-family: "Young-serif";
+    src: url("./fonts/Young_Serif/YoungSerif-Regular.ttf");
+    font-family: "out-fit";
+    src: url("./fonts/Outfit/Outfit-VariableFont_wght.ttf");
+}
+
+.app {
+    font-family: "out-fit";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--Very-Dark-Blue);
+    min-width: 310px;
+}

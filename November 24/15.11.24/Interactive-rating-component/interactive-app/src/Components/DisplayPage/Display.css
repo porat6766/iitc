@@ -1,0 +1,46 @@
+.displayPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--Dark-Blue);
+    padding: 28px;
+    color: white;
+    border-radius: 13px;
+    height: 280px;
+    width: 250px;
+}
+
+.img-container {
+    height: 90px;
+    width: 120px;
+}
+
+.img {
+    height: 100%;
+    width: 100%;
+}
+
+.how-much-selected {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: var(--Dark-Blue-200);
+    padding: 10px 25px;
+    border-radius: 50px;
+    color: var(--Orange);
+    margin-top: 25px;
+}
+
+
+.describe-thanks {
+    margin-top: 0;
+    text-align: center;
+    height: 30px;
+    color: rgb(169, 187, 203);
+    font-size: 12.3px;
+}
+
+.thank {
+    margin-block: 8px;
+}
