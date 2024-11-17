@@ -31,11 +31,9 @@ const FormPage=(props)=>{
     </p>
     <form className="form">
     <div className="wrap-numbers">
-        <span className={elChoos==1?"number-bold":""} onClick={chooseN}>1</span>
-        <span className={elChoos==2?"number-bold":""} onClick={chooseN}>2</span>
-        <span className={elChoos==3?"number-bold":""} onClick={chooseN}>3</span>
-        <span className={elChoos==4?"number-bold":""} onClick={chooseN}>4</span>
-        <span className={elChoos==5?"number-bold":""} onClick={chooseN}>5</span>
+        {[1,2,3,4,5].map((num)=>{
+       return  <span className={elChoos == num ?"number-bold":""} onClick={chooseN}>{num}</span>
+})}
     </div>
     <button onClick={changeBollean} className="submit">Submit</button>
     </form>
