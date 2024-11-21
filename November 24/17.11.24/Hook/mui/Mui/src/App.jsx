@@ -1,35 +1,60 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
+import { Avatar } from "@mui/material";
+
+//mui import
 
 function App() {
-  const [count, setCount] = useState(0)
+  const users = [
+    {
+      id: 1,
+      name: "John Doe",
+      imageUrl: "",
+    },
+    {
+      id: 2,
+      name: "Jane Smith",
+      imageUrl: "https://randomuser.me/api/portraits/women/2.jpg",
+    },
+    {
+      id: 3,
+      name: "Michael Brown",
+      imageUrl: "https://randomuser.me/api/portraits/men/3.jpg",
+    },
+    {
+      id: 4,
+      name: "Emily Davis",
+      imageUrl: "https://randomuser.me/api/portraits/women/4.jpg",
+    },
+    {
+      id: 5,
+      name: "Chris Johnson",
+      imageUrl: "https://randomuser.me/api/portraits/men/5.jpg",
+    },
+  ];
+
+  const getInitial = (fullName) => {
+    const array = fullName.split(" ");
+    const newWord = array.map((word) => {
+      return word[0];
+    });
+    console.log(newWord);
+    return newWord.join("");
+  };
+  <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />;
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      {users.map((user) => {
+        return (
+          <div key={user.id}>
+            <Avatar src={user.imageUrl}>{getInitial(user.name)}</Avatar>
+            <p>{user.name}</p>
+          </div>
+        );
+      })}
     </>
-  )
+  );
 }
 
-export default App
+export default App;

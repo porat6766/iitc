@@ -1,15 +1,33 @@
 import Header from "./Components/Header/Header";
 import Main from "./Components/Main/Main";
-import { useState } from "react";
+import InfoPokimon from "./Components/InfoPocimon/InfoPocimon";
+import { useState, useEffect } from "react";
 
 function App() {
-  const [pokoInfo, setPokoInfo] = useState();
-  console.log(pokoInfo);
+  const [pokoInfo, setPokoInfo] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
+
+  // if (pokoInfo && isOpen===false) {
+  //   setIsOpen(true);
+  // }
+  useEffect(() => {
+    pokoInfo && setIsOpen(true);
+  });
 
   return (
     <div className="app">
-      <Header />
-      <Main setPokoInfo={setPokoInfo} />
+      {pokoInfo && (
+        <InfoPokimon
+          isOpen={isOpen}
+          setIsOpen={setIsOpen}
+          setPokoInfo={setPokoInfo}
+          pokoInfo={pokoInfo}
+        />
+      )}
+      <div className="home-page">
+        <Header />
+        <Main setPokoInfo={setPokoInfo} />
+      </div>
     </div>
   );
 }
