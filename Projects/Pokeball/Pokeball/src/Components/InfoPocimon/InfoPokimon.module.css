@@ -1,0 +1,29 @@
+/* InfoPokimon.module.css */
+/* 
+.info-container {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: aqua;
+    color: blueviolet;
+}
+
+.transition-content {
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    opacity: 1;
+}
+
+.transition-content.hide {
+    opacity: 0;
+    transform: translateX(-100%);
+} */
+
+/* .photo {
+
+    background: red;
+    border-radius: 20px;
+    position: absolute;
+    width: 60%;
+} */

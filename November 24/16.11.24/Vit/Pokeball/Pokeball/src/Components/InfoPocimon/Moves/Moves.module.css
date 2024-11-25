@@ -1,0 +1,4 @@
+.ulMoves {
+    display: grid;
+    grid-template-columns: repeat(auto-fill);
+}
