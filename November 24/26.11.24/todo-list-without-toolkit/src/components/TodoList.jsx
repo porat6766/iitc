@@ -1,13 +1,14 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import {
   addTodo,
   toggleTodo,
   deleteTodo,
-} from "../store/actions/TodosActions.js";
-import { useDispatch, useSelector } from "react-redux";
+} from "../store/slices/toDosSlices.js";
 
 function TodoList() {
-  const todos = useSelector((state) => state.todos);
+  const todos = useSelector((state) => state);
+  console.log(todos.toDos.todos);
 
   const [newTodo, setNewTodo] = useState("");
   const dispatch = useDispatch();
@@ -28,7 +29,7 @@ function TodoList() {
       />
       <button onClick={handleAddTodo}>Add</button>
       <ul style={{ listStyle: "none", padding: 0 }}>
-        {todos.map((todo) => (
+        {todos.toDos.todos.map((todo) => (
           <li key={todo.id} style={{ margin: "10px 0" }}>
             <span
               onClick={() => dispatch(toggleTodo(todo.id))}

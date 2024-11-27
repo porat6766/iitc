@@ -1,5 +1,5 @@
 {
-  "name": "todo-list-without-toolkit",
+  "name": "redux-toolkit-counter",
   "private": true,
   "version": "0.0.0",
   "type": "module",
