@@ -107,7 +107,11 @@ const InfoPokimon = ({ pokoInfo, isOpen, setPokoInfo }) => {
 
   return (
     <div className={styles.infoContainer}>
-      <Dialog open={isOpen} PaperProps={{ className: styles.dialogPaper }}>
+      <Dialog
+        style={{ minWidth: "525px" }}
+        open={isOpen}
+        PaperProps={{ className: styles.dialogPaper }}
+      >
         <Button
           onClick={() => {
             setPokoInfo(null);
