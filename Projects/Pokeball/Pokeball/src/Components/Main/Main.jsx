@@ -4,18 +4,21 @@ import { useState, useEffect } from "react";
 import styles from "./Main.module.css";
 
 const Main = ({ setPokoInfo }) => {
-  const [fetchdData, setFetcData] = useState(null);
-  const [pokedexStorage, setPokedexStorage] = useState(null);
+  const [fetchdData, setFetchdData] = useState([]);
+  const [pokedexStorage, setPokedexStorage] = useState([]);
+  const [displayedPokemons, setDisplayedPokemons] = useState([]);
+  const [offset, setOffset] = useState(0);
+  const limit = 20;
 
   const getFullData = async () => {
     try {
       const {
         data: { results },
-      } = await axios.get("https://pokeapi.co/api/v2/pokemon/");
-      setFetcData(results);
-    } catch (error) {
-      console.log(error);
-    }
+      } = await axios.get(
+        `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`
+      );
+      setFetchdData((prev) => [...prev, ...results]);
+    } catch (error) {}
   };
 
   const getFromStorage = () => {
@@ -23,30 +26,51 @@ const Main = ({ setPokoInfo }) => {
     setPokedexStorage(pokedex);
   };
 
+  const loadMore = () => {
+    setOffset((prevOffset) => prevOffset + limit);
+  };
+
   useEffect(() => {
-    getFullData();
     getFromStorage();
   }, []);
+
+  useEffect(() => {
+    getFullData();
+  }, [offset]);
+
+  useEffect(() => {
+    if (fetchdData.length && pokedexStorage.length) {
+      const uniquePokemons = [
+        ...pokedexStorage,
+        ...fetchdData.filter(
+          (pokemon) =>
+            !pokedexStorage.some(
+              (storedPokemon) => storedPokemon.name === pokemon.name
+            )
+        ),
+      ];
+      setDisplayedPokemons(uniquePokemons);
+    } else {
+      setDisplayedPokemons([...pokedexStorage, ...fetchdData]);
+    }
+  }, [fetchdData, pokedexStorage]);
 
   return (
     <div className="main">
       <ul className={styles.ul}>
-        {fetchdData &&
-          pokedexStorage &&
-          [...fetchdData, ...pokedexStorage].map((pokemon) => {
-            {
-              return (
-                <OneCard
-                  setPokoInfo={setPokoInfo}
-                  key={pokemon.name}
-                  url={pokemon.url}
-                  name={pokemon.name}
-                  pokemon={pokemon}
-                />
-              );
-            }
-          })}
+        {displayedPokemons.map((pokemon, index) => (
+          <OneCard
+            setPokoInfo={setPokoInfo}
+            key={pokemon.name + index}
+            url={pokemon.url}
+            name={pokemon.name}
+            pokemon={pokemon}
+          />
+        ))}
       </ul>
+      <button onClick={loadMore} className={styles.loadMoreBtn}>
+        Show More
+      </button>
     </div>
   );
 };

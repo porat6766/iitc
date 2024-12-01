@@ -19,9 +19,9 @@ const Add = () => {
     species: "",
     hight: 0,
     weight: 0,
-    abilities: "",
-    gender: "",
-    egg_groups: "",
+    abilities: [],
+    gender: 0,
+    egg_groups: [],
     egg_cycle: 0,
     moves: [],
     hp: 50,
@@ -44,6 +44,28 @@ const Add = () => {
       pokedex.push(newPoke);
       localStorage.setItem("pokedex", JSON.stringify(pokedex));
       alert("Pokémon saved!");
+      setNewPoke({
+        name: "",
+        img: "",
+        types: [],
+        species: "",
+        hight: 0,
+        weight: 0,
+        abilities: [],
+        gender: 0,
+        egg_groups: [],
+        egg_cycle: 0,
+        moves: [],
+        hp: 50,
+        attack: 50,
+        defense: 50,
+        special_attack: 50,
+        special_defense: 50,
+        speed: 50,
+        evolves_from: "",
+        base_happiness: 0,
+        capture_rate: 0,
+      });
     }
   };
 
@@ -72,24 +94,37 @@ const Add = () => {
           textShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
           fontWeight: "bold",
           fontSize: "2.5rem",
-          marginBottom: "20px",
+          margin: "20px",
           fontFamily: "Arial, sans-serif",
         }}
       >
         Add a Pokémon!
       </h1>
       <form action="" className="form-container">
-        <h2>Basic fields</h2>
+        <h2
+          style={{
+            marginBlock: "30px",
+            width: "fit-content",
+            margin: "0 auto",
+            background: "#1976d2",
+            padding: "10px",
+            borderRadius: "8px",
+          }}
+        >
+          Basic fields
+        </h2>
         <TextField
-          sx={{ marginBottom: "20px" }}
+          sx={{ margin: "10px" }}
           label="Name"
           name="name"
           value={newPoke.name}
           onChange={handleInputChange}
+          className={styles.inputField}
         />
-        <FormControl fullWidth sx={{ mb: 2 }}>
+        <FormControl fullWidth sx={{ mb: 2 }} className={styles.inputField}>
           <InputLabel id="types-label">Types</InputLabel>
           <Select
+            sx={{ margin: "10px" }}
             labelId="types-label"
             name="types"
             multiple
@@ -109,55 +144,93 @@ const Add = () => {
           </Select>
         </FormControl>
         <TextField
+          sx={{ margin: "10px" }}
           label="Img-url"
           name="img"
           value={newPoke.img}
           onChange={handleInputChange}
+          className={styles.inputField}
         />
-        <h2>All data</h2>
+        <h2
+          style={{
+            marginBlock: "30px",
+            width: "fit-content",
+            margin: "0 auto",
+            background: "#1976d2",
+            padding: "10px",
+            borderRadius: "8px",
+          }}
+        >
+          All data
+        </h2>
         <TextField
+          sx={{ margin: "10px" }}
           label="Species"
           name="species"
           value={newPoke.species}
           onChange={handleInputChange}
+          className={styles.inputField}
         />
         <TextField
+          sx={{ margin: "10px" }}
           label="Height"
           name="hight"
           value={newPoke.hight}
           onChange={handleInputChange}
+          className={styles.inputField}
         />
         <TextField
+          sx={{ margin: "20px" }}
           label="Weight"
           name="weight"
           value={newPoke.weight}
           onChange={handleInputChange}
+          className={styles.inputField}
         />
         <TextField
+          sx={{ margin: "20px" }}
           label="Abilities"
           name="abilities"
           value={newPoke.abilities}
           onChange={handleInputChange}
+          className={styles.inputField}
         />
         <TextField
+          sx={{ margin: "20px" }}
           label="Gender"
           name="gender"
           value={newPoke.gender}
           onChange={handleInputChange}
+          className={styles.inputField}
         />
         <TextField
+          sx={{ margin: "20px" }}
           label="Egg Groups"
           name="egg_groups"
           value={newPoke.egg_groups}
           onChange={handleInputChange}
+          className={styles.inputField}
         />
         <TextField
+          sx={{ margin: "20px" }}
           label="Egg Cycle"
           name="egg_cycle"
           value={newPoke.egg_cycle}
           onChange={handleInputChange}
+          className={styles.inputField}
         />
-        <h2>Base stat</h2>
+        <h2
+          style={{
+            marginBlock: "30px",
+            width: "fit-content",
+            margin: "0 auto",
+            background: "#1976d2",
+            padding: "10px",
+            borderRadius: "8px",
+          }}
+        >
+          Base stat
+        </h2>
         <label htmlFor="hp">hp</label>
         <Slider
           name="hp"
@@ -200,27 +273,55 @@ const Add = () => {
           onChange={handleInputChange}
           valueLabelDisplay="on"
         />
-        <h2>Evolution Chain</h2>
+        <h2
+          style={{
+            marginBlock: "30px",
+            width: "fit-content",
+            margin: "0 auto",
+            background: "#1976d2",
+            padding: "10px",
+            borderRadius: "8px",
+          }}
+        >
+          Evolution Chain
+        </h2>
         <TextField
+          sx={{ margin: "20px" }}
           label="Evolves From:"
           name="evolves_from"
           value={newPoke.evolves_from}
           onChange={handleInputChange}
+          className={styles.inputField}
         />
         <TextField
+          sx={{ margin: "20px" }}
           label="Base Happiness:"
           name="base_happiness"
           value={newPoke.base_happiness}
           onChange={handleInputChange}
+          className={styles.inputField}
         />
         <TextField
+          sx={{ margin: "20px" }}
           label="Capture Rate:"
           name="capture_rate"
           value={newPoke.capture_rate}
           onChange={handleInputChange}
+          className={styles.inputField}
         />
-        <h2>Moves</h2>
-        <FormControl fullWidth sx={{ mb: 2 }}>
+        <h2
+          style={{
+            marginBlock: "30px",
+            width: "fit-content",
+            margin: "0 auto",
+            background: "#1976d2",
+            padding: "10px",
+            borderRadius: "8px",
+          }}
+        >
+          Moves
+        </h2>
+        <FormControl fullWidth sx={{ mb: 2 }} className={styles.inputField}>
           <InputLabel id="moves-label">Moves</InputLabel>
           <Select
             labelId="moves-label"
@@ -260,7 +361,16 @@ const Add = () => {
             ))}
           </Select>
         </FormControl>
-        <Button onClick={savePoke} className="add-pokemon">
+        <Button
+          sx={{
+            width: "fit-content",
+            display: "block",
+            margin: "0 auto",
+            marginBlock: "40px",
+          }}
+          onClick={savePoke}
+          className={styles.addButton}
+        >
           Add poke
         </Button>
       </form>

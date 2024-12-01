@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import LinearProgressWithLabel from "./Slide";
+import styles from "./BaseStat.module.css";
 
 const BaseStat = ({ poke }) => {
   const [total, setTotal] = useState(0);
@@ -14,7 +15,7 @@ const BaseStat = ({ poke }) => {
   }, [poke?.stats]);
 
   return (
-    <div className="base-state">
+    <div className={styles.baseStat}>
       <h1>Base stat</h1>
       {poke?.stats?.map((stat, index) => (
         <div key={stat.name}>

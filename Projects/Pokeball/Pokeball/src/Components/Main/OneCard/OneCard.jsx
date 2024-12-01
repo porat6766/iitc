@@ -4,7 +4,6 @@ import styles from "./OneCard.module.css";
 
 const OneCard = (props) => {
   const [pokoData, setpokoData] = useState(null);
-  // console.log(pokoData);
 
   const fethData = async () => {
     try {
@@ -22,11 +21,7 @@ const OneCard = (props) => {
   useEffect(() => {
     fethData();
   }, []);
-  if (pokoData) {
-    console.log(
-      pokoData?.data?.sprites?.other?.showdown?.front_default || pokoData.img
-    );
-  }
+
   const typeColors = {
     normal: "#A8A878",
     fire: "#F08030",
@@ -47,7 +42,7 @@ const OneCard = (props) => {
           backgroundColor:
             typeColors[
               pokoData?.data?.types?.[0]?.type?.name || pokoData?.types?.[0]
-            ] || "#fff",
+            ] || "#f5f5f5",
         }}
         className={styles.li}
       >
@@ -61,11 +56,12 @@ const OneCard = (props) => {
           alt=""
         />
         <div className="whrapTypes">
-          {pokoData?.data?.types.map((type, index) => {
+          {(pokoData?.data?.types || pokoData.types)?.map((type, index) => {
+            const typeName = type.type?.name || type;
             return (
-              <li className={styles.liType} key={`state ${index}`}>
-                {type.type.name}
-              </li>
+              <span className={styles.liType} key={`state ${index}`}>
+                {typeName}
+              </span>
             );
           })}
         </div>

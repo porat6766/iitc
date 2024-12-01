@@ -1,106 +1,10 @@
-// import axios from "axios";
-// import { useEffect, useState } from "react";
-// import InfoPokimon from "../InfoPocimon";
-
-// const About = ({ poke }) => {
-//   const [speciesData, setSpeciesData] = useState(null);
-
-//   const fetchDetail = async () => {
-//     try {
-//       const speciesVar = await axios.get(poke?.species?.url);
-//       setSpeciesData(speciesVar.data);
-//     } catch (error) {
-//       console.error(error);
-//     }
-//   };
-
-//   useEffect(() => {
-//     fetchDetail();
-//   }, []);
-
-//   const checkGender = (rate) => {
-//     if (rate === -1) return "Genderless";
-//     return rate === 0
-//       ? " 100% Male"
-//       : rate === 1
-//       ? " 87.5% Male, 12.5% Female"
-//       : rate === 2
-//       ? " 75% Male, 25% Female"
-//       : rate === 3
-//       ? " 66.7% Male, 33.3% Female"
-//       : rate === 4
-//       ? " 50% Male, 50% Female"
-//       : rate === 5
-//       ? " 33.3% Male, 66.7% Female"
-//       : rate === 6
-//       ? " 25% Male, 75% Female"
-//       : rate === 7
-//       ? " 12.5% Male, 87.5% Female"
-//       : rate === 8
-//       ? " 100% Female"
-//       : "Unknown rate";
-//   };
-
-//   return (
-//     <div className="about">
-//       <h1>About</h1>
-//       <ul className="one-detail-ul">
-//         <li>
-//           Species{" "}
-//           <span>
-//             {speciesData?.evolves_from_species?.name ||
-//               poke.evolves_from ||
-//               "None"}
-//           </span>
-//         </li>
-//         <li>{/* Height: <span>{poke.height + " dc"}</span> */}</li>
-//         <li>
-//           Weight: <span>{poke.weight + " dm"}</span>
-//         </li>
-//         <li>
-//           Abilities:
-//           <span>
-//             {poke.abilities
-//               .map((ability) => " " + ability.ability.name)
-//               .join(", ")}
-//           </span>
-//         </li>
-//       </ul>
-//       <label htmlFor="two-detail">Breeding</label>
-//       <ul className="two-detail-ul" name="two-detail">
-//         <li>
-//           Gender:
-//           <span>
-//             {speciesData?.gender_rate !== undefined || poke.gender
-//               ? checkGender(speciesData.gender_rate || poke.gender)
-//               : "Unknown"}
-//           </span>
-//         </li>
-//         <li>
-//           Egg Groups:
-//           <span>
-//             {speciesData?.egg_groups ||
-//               poke.egg_groups.map((group) => " " + group.name).join(", ") ||
-//               "Unknown"}
-//           </span>
-//         </li>
-//         <li>
-//           Egg Cycle:{" "}
-//           <span>
-//             {speciesData?.hatch_counter || poke.egg_cycle || "Unknown"}
-//           </span>
-//         </li>
-//       </ul>
-//     </div>
-//   );
-// };
-
-// export default About;
-
 import axios from "axios";
 import { useEffect, useState } from "react";
+import styles from "./About.module.css";
 
 const About = ({ poke }) => {
+  console.log(poke);
+
   const [speciesData, setSpeciesData] = useState(null);
 
   const fetchDetail = async () => {
@@ -115,6 +19,8 @@ const About = ({ poke }) => {
   useEffect(() => {
     if (poke?.species?.url) {
       fetchDetail();
+    } else {
+      setSpeciesData(poke);
     }
   }, [poke]);
 
@@ -134,60 +40,61 @@ const About = ({ poke }) => {
     return genderRates[rate] || "Unknown rate";
   };
 
-  if (!speciesData) {
-    return <div>Loading species data...</div>;
-  }
-
   return (
-    <div className="about">
+    <div className={styles.about}>
       <h1>About</h1>
-      <ul className="one-detail-ul">
+      <ul className={styles.oneDetailUl}>
         <li>
-          Species:{" "}
+          <span>Species:</span>
           <span>
             {speciesData?.evolves_from_species?.name ||
-              poke?.evolves_from ||
+              speciesData?.evolves_from ||
               "None"}
           </span>
         </li>
         <li>
-          Weight: <span>{poke?.weight ? poke.weight + " dm" : "Unknown"}</span>
+          <span>Weight:</span>
+          <span>
+            {speciesData?.weight ? speciesData.weight + " dm" : "Unknown"}
+          </span>
         </li>
         <li>
-          Abilities:
+          <span>Abilities:</span>
           <span>
-            {poke?.abilities
-              ? poke.abilities
-                  .map((ability) => " " + ability.ability.name)
+            {speciesData?.abilities?.length
+              ? speciesData.abilities
+                  .map((ability) => ability?.ability?.name || "Unknown")
                   .join(", ")
               : "Unknown"}
           </span>
         </li>
       </ul>
       <label htmlFor="two-detail">Breeding</label>
-      <ul className="two-detail-ul" name="two-detail">
+      <ul className={styles.twoDetailUl} name="two-detail">
         <li>
-          Gender:
+          <span>Gender:</span>
           <span>
-            {speciesData?.gender_rate !== undefined || poke?.gender
-              ? checkGender(speciesData?.gender_rate || poke.gender)
+            {speciesData?.gender_rate !== undefined || speciesData?.gender
+              ? checkGender(speciesData?.gender_rate || speciesData.gender)
               : "Unknown"}
           </span>
         </li>
         <li>
-          Egg Groups:
+          <span>Egg Groups:</span>
           <span>
-            {speciesData?.egg_groups
+            {Array.isArray(speciesData?.egg_groups)
               ? speciesData.egg_groups
-                  .map((group) => " " + group.name)
+                  .map((group) => group?.name || "Unknown")
                   .join(", ")
+              : typeof speciesData?.egg_groups === "string"
+              ? speciesData.egg_groups
               : "Unknown"}
           </span>
         </li>
         <li>
-          Egg Cycle:{" "}
+          <span>Egg Cycle:</span>
           <span>
-            {speciesData?.hatch_counter || poke?.egg_cycle || "Unknown"}
+            {speciesData?.hatch_counter || speciesData?.egg_cycle || "Unknown"}
           </span>
         </li>
       </ul>

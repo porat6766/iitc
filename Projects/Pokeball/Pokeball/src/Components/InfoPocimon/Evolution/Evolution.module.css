@@ -1,9 +1,4 @@
-.ulMoves {
-    display: grid;
-    grid-template-columns: repeat(auto-fill);
-}
-
-.moves {
+.evolution {
     background: linear-gradient(135deg, #ff9a9e, #fad0c4);
     padding: 25px;
     margin-top: 25px;

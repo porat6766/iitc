@@ -1,18 +1,16 @@
 import styles from "./Moves.module.css";
 
 const Moves = ({ poke }) => {
-  poke && console.log(poke.moves);
-
   return (
-    <div className="moves">
+    <div className={styles.moves}>
       <h1>Moves</h1>
-      <ul className={styles.ulMoves}>
+      <ol className={styles.ulMoves}>
         {poke.moves.slice(0, 20).map((move, index) => (
-          <div key={move.move.name} className="move-card">
+          <li key={move.move.name} className="move-card">
             <p>{move.move.name}</p>
-          </div>
+          </li>
         ))}
-      </ul>
+      </ol>
     </div>
   );
 };
