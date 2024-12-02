@@ -62,9 +62,9 @@ const OneCard = (props) => {
           />
           <img
             style={{
-              width: "45%",
+              width: "35%",
               position: "absolute",
-              top: "20%",
+              top: "25%",
               left: "50%",
               transform: "translate(-50%, -50%)",
               zIndex: 2,
