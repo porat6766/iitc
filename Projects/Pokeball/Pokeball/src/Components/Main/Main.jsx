@@ -10,6 +10,10 @@ const Main = ({ setPokoInfo }) => {
   const [offset, setOffset] = useState(0);
   const limit = 20;
 
+  const shufflePoke = (pokemons) => {
+    return [...pokemons].sort(() => Math.random() - 0.5);
+  };
+
   const getFullData = async () => {
     try {
       const {
@@ -39,8 +43,8 @@ const Main = ({ setPokoInfo }) => {
   }, [offset]);
 
   useEffect(() => {
-    if (fetchdData.length && pokedexStorage.length) {
-      const uniquePokemons = [
+    if (fetchdData.length || pokedexStorage.length) {
+      const combinedPokemons = [
         ...pokedexStorage,
         ...fetchdData.filter(
           (pokemon) =>
@@ -49,9 +53,8 @@ const Main = ({ setPokoInfo }) => {
             )
         ),
       ];
-      setDisplayedPokemons(uniquePokemons);
-    } else {
-      setDisplayedPokemons([...pokedexStorage, ...fetchdData]);
+      const shuffledPokemons = shufflePoke([...combinedPokemons]);
+      setDisplayedPokemons(shuffledPokemons);
     }
   }, [fetchdData, pokedexStorage]);
 
