@@ -47,14 +47,36 @@ const OneCard = (props) => {
         className={styles.li}
       >
         <h1>{pokoData?.data?.name || pokoData.name}</h1>
-        <img
-          style={{ width: "80px" }}
-          src={
-            pokoData?.data?.sprites?.other?.showdown?.front_default ||
-            pokoData.img
-          }
-          alt=""
-        />
+        <div style={{ position: "relative", width: "250px", height: "160px" }}>
+          <img
+            style={{
+              width: "100%",
+              position: "absolute",
+              top: 0,
+              left: 0,
+              zIndex: 1,
+              opacity: 0.7,
+            }}
+            src="https://bepng.com/upload/pokemon/20092-1-pokeball-transparent-image.png"
+            alt="Pokeball background"
+          />
+          <img
+            style={{
+              width: "45%",
+              position: "absolute",
+              top: "20%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              zIndex: 2,
+            }}
+            src={
+              pokoData?.data?.sprites?.other?.showdown?.front_default ||
+              pokoData.img
+            }
+            alt="Pokemon"
+          />
+        </div>
+
         <div className="whrapTypes">
           {(pokoData?.data?.types || pokoData.types)?.map((type, index) => {
             const typeName = type.type?.name || type;

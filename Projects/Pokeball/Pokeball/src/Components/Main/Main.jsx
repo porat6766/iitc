@@ -68,7 +68,20 @@ const Main = ({ setPokoInfo }) => {
           />
         ))}
       </ul>
-      <button onClick={loadMore} className={styles.loadMoreBtn}>
+      <button
+        style={{
+          display: "block",
+          width: "fit-content",
+          marginInline: "auto",
+          padding: "10px 20px",
+          fontSize: "16px",
+          cursor: "pointer",
+          marginBlock: "25px",
+        }}
+        onClick={loadMore}
+        className={styles.loadMoreBtn}
+        aria-label="Load more items"
+      >
         Show More
       </button>
     </div>
