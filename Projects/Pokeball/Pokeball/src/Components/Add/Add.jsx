@@ -96,10 +96,15 @@ const Add = () => {
           fontSize: "2.5rem",
           margin: "20px",
           fontFamily: "Arial, sans-serif",
+          backgroundImage:
+            'url("https://media.tenor.com/_PPfpCaVO5oAAAAM/eeveelutions-pokemon.gif")',
+          backgroundPosition: "center",
+          borderRadius: "5px",
         }}
       >
         Add a Pokémon!
       </h1>
+
       <form action="" className="form-container">
         <h2
           style={{
