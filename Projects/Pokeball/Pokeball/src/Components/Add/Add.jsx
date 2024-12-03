@@ -98,8 +98,9 @@ const Add = () => {
           fontFamily: "Arial, sans-serif",
           backgroundImage:
             'url("https://media.tenor.com/_PPfpCaVO5oAAAAM/eeveelutions-pokemon.gif")',
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
-          borderRadius: "5px",
         }}
       >
         Add a Pokémon!
@@ -139,7 +140,7 @@ const Add = () => {
             }}
             renderValue={(selected) => selected.join(", ")}
           >
-            {["Grass", "Fire", "Water", "Electric", "Rock", "Ice"].map(
+            {["grass", "fire", "water", "electric", "rock", "ice"].map(
               (type) => (
                 <MenuItem key={type} value={type}>
                   {type}
