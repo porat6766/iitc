@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: 'Outfit';
+    src: url("./assets/fonts/Outfit/Outfit-VariableFont_wght.ttf") format('ttf');
+  }
+
+  @font-face {
+    font-family: 'Overpass';
+    src: url("./assets/fonts/Overpass/Overpass-VariableFont_wght.ttf") format('ttf');
+  }
+
+  @font-face {
+    font-family: 'Red_Hat';
+    src: url("./assets/fonts/Red_Hat_Display/RedHatDisplay-VariableFont_wght.ttf") format('ttf');
+  }
+
+  @font-face {
+    font-family: 'Young_Serif';
+    src: url("./assets/fonts/Young_Serif/YoungSerif-Regular.ttf") format('ttf');
+  }
+}
+
+body,
+html {
+  height: 100vh;
+  background-color: hsl(225, 100%, 94%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+* {
+  box-sizing: border-box;
+}

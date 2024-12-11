@@ -28,7 +28,6 @@ function NavBar(props) {
   };
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-      {/* לוגו וכותרת */}
       <Box
         sx={{
           display: "flex",

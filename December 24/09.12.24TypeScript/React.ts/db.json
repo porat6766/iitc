@@ -1,0 +1,22 @@
+{
+  "cats": [
+    {
+      "id": "a7ca",
+      "name": "kjh"
+    },
+    {
+      "id": "90fa",
+      "name": "kj"
+    },
+    {
+      "id": "6898",
+      "name": "mkjh"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "omer"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+.addTaskForm {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 15px;
+    background-color: rgb(128, 127, 177);
+    border-radius: 8px;
+}
