@@ -1,0 +1,227 @@
+{
+  "Recipes": [
+    {
+      "id": "1",
+      "name": "Pancakes",
+      "description": "Fluffy homemade pancakes, perfect for breakfast.",
+      "ingredients": [
+        "1 cup flour",
+        "2 tbsp sugar",
+        "1 tsp baking powder",
+        "1/2 tsp salt",
+        "1 cup milk",
+        "1 egg",
+        "2 tbsp butter"
+      ],
+      "steps": [
+        "Mix dry ingredients.",
+        "Add milk, egg, and butter.",
+        "Cook on a hot skillet."
+      ],
+      "prepTime": 10,
+      "cookTime": 15,
+      "servings": 4,
+      "image": "https://example.com/images/pancakes.jpg",
+      "tags": [
+        "breakfast",
+        "easy",
+        "sweet"
+      ],
+      "mealTime": "Breakfast"
+    },
+    {
+      "name": "Chicken Stir Fryןק",
+      "description": "A quick and healthy dinner option with vegetables.",
+      "ingredients": [
+        "200g chicken breast",
+        " 1 cup mixed vegetables",
+        " 2 tbsp soy sauce",
+        " 1 tbsp oil",
+        " 1 clove garlic"
+      ],
+      "steps": [
+        "Cut chicken and veggies.",
+        " Stir-fry in oil.",
+        " Add soy sauce."
+      ],
+      "prepTime": 10,
+      "cookTime": 15,
+      "servings": 2,
+      "image": "https://example.com/images/stir_fry.jpg",
+      "tags": [
+        "dinner",
+        " healthy",
+        " Asian"
+      ],
+      "mealTime": "Breakfast",
+      "id": "4"
+    },
+    {
+      "id": "5",
+      "name": "Caesar Salad",
+      "description": "Classic Caesar salad with creamy dressing.",
+      "ingredients": [
+        "1 head romaine lettuce",
+        "1/2 cup croutons",
+        "1/4 cup Parmesan",
+        "Caesar dressing"
+      ],
+      "steps": [
+        "Chop lettuce.",
+        "Add croutons and cheese.",
+        "Drizzle dressing."
+      ],
+      "prepTime": 10,
+      "cookTime": 0,
+      "servings": 2,
+      "image": "https://example.com/images/caesar_salad.jpg",
+      "tags": [
+        "lunch",
+        "salad",
+        "healthy"
+      ],
+      "mealTime": "Lunch"
+    },
+    {
+      "id": "6",
+      "name": "Vegetable Soup",
+      "description": "Warm and hearty vegetable soup.",
+      "ingredients": [
+        "2 carrots",
+        "2 celery stalks",
+        "1 potato",
+        "1 cup peas",
+        "4 cups broth"
+      ],
+      "steps": [
+        "Chop vegetables.",
+        "Simmer in broth.",
+        "Serve hot."
+      ],
+      "prepTime": 15,
+      "cookTime": 30,
+      "servings": 4,
+      "image": "https://example.com/images/vegetable_soup.jpg",
+      "tags": [
+        "dinner",
+        "soup",
+        "healthy"
+      ],
+      "mealTime": "Dinner"
+    },
+    {
+      "id": "7",
+      "name": "Scrambled Eggs",
+      "description": "Quick and easy scrambled eggs.",
+      "ingredients": [
+        "2 eggs",
+        "2 tbsp milk",
+        "Salt",
+        "Pepper",
+        "1 tbsp butter"
+      ],
+      "steps": [
+        "Whisk eggs and milk.",
+        "Cook in butter.",
+        "Season to taste."
+      ],
+      "prepTime": 5,
+      "cookTime": 5,
+      "servings": 1,
+      "image": "https://example.com/images/scrambled_eggs.jpg",
+      "tags": [
+        "breakfast",
+        "quick",
+        "protein"
+      ],
+      "mealTime": "Breakfast"
+    },
+    {
+      "id": "8",
+      "name": "Beef Tacos",
+      "description": "Spicy beef tacos with fresh toppings.",
+      "ingredients": [
+        "200g ground beef",
+        "Taco shells",
+        "1 tomato",
+        "Lettuce",
+        "Cheese",
+        "Salsa"
+      ],
+      "steps": [
+        "Cook beef.",
+        "Assemble tacos.",
+        "Add toppings."
+      ],
+      "prepTime": 10,
+      "cookTime": 15,
+      "servings": 4,
+      "image": "https://example.com/images/beef_tacos.jpg",
+      "tags": [
+        "dinner",
+        "Mexican",
+        "spicy"
+      ],
+      "mealTime": "Dinner"
+    },
+    {
+      "id": "9",
+      "name": "Avocado Toast",
+      "description": "Simple avocado toast with a twist.",
+      "ingredients": [
+        "1 slice of bread",
+        "1/2 avocado",
+        "Salt",
+        "Pepper",
+        "Lemon juice"
+      ],
+      "steps": [
+        "Toast bread.",
+        "Mash avocado.",
+        "Spread on toast."
+      ],
+      "prepTime": 5,
+      "cookTime": 5,
+      "servings": 1,
+      "image": "https://example.com/images/avocado_toast.jpg",
+      "tags": [
+        "breakfast",
+        "healthy",
+        "quick"
+      ],
+      "mealTime": "Breakfast"
+    },
+    {
+      "id": "10",
+      "name": "Chocolate Chip Cookies",
+      "description": "Chewy and delicious cookies.",
+      "ingredients": [
+        "1 cup flour",
+        "1/2 cup sugar",
+        "1/2 cup butter",
+        "1 egg",
+        "1/2 cup chocolate chips"
+      ],
+      "steps": [
+        "Mix ingredients.",
+        "Scoop onto tray.",
+        "Bake at 180°C for 12 minutes."
+      ],
+      "prepTime": 10,
+      "cookTime": 12,
+      "servings": 12,
+      "image": "https://example.com/images/chocolate_chip_cookies.jpg",
+      "tags": [
+        "dessert",
+        "sweet",
+        "baking"
+      ],
+      "mealTime": "Lunch"
+    }
+  ],
+  "User": {
+    "name": "John Doe",
+    "email": "johndoe@example.com",
+    "profilePicture": "https://randomuser.me/api/portraits/men/1.jpg"
+  }
+}

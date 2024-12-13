@@ -28,7 +28,6 @@ function App() {
       <div className="gap-10 flex flex-col text-center">
         <p>HELLO TO OF THE BEST LIBRARY OF COMPONENTS UI-SHADCN</p>
         <Button>CLICK ME</Button>
-
         <Accordion type="single" collapsible>
           <AccordionItem value="item-1">
             <AccordionTrigger>Is it accessible?</AccordionTrigger>
