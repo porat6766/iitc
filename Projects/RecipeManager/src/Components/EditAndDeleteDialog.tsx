@@ -26,11 +26,6 @@ import {
 } from "@/Components/ui/select";
 
 export default function EditAndDeleteDialog({ recipe, setRecipesRender }) {
-  const { recipes } = useAuth();
-  const [filterRecipesRender, setfilterRecipesRender] = useState<Recipe[]>([]);
-  const [okToDelete, setOkToDelete] = useState(false);
-  const [filterMealTime, setFilterMealTime] = useState("");
-  const navigate = useNavigate();
   const nameRef = useRef<HTMLInputElement>(null);
   const descriptionRef = useRef<HTMLInputElement>(null);
   const ingredientsRef = useRef<HTMLTextAreaElement>(null);
@@ -43,6 +38,7 @@ export default function EditAndDeleteDialog({ recipe, setRecipesRender }) {
   const [mealTimeState, setMealTimeState] = useState<
     "Breakfast" | "Lunch" | "Dinner"
   >("Breakfast");
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleDelete = async (id: string) => {
     const res = await apiResipe.delete(`/Recipes/${id}`);
@@ -96,6 +92,7 @@ export default function EditAndDeleteDialog({ recipe, setRecipesRender }) {
             recipe.id === recipeId ? { ...recipe, ...res.data } : recipe
           )
         );
+        setIsOpen(false);
       })
       .catch((error) => {
         console.error("Failed to update recipe:", error);
@@ -128,7 +125,7 @@ export default function EditAndDeleteDialog({ recipe, setRecipesRender }) {
         </DialogContent>
       </Dialog>
 
-      <Dialog>
+      <Dialog open={isOpen} onOpenChange={setIsOpen}>
         <DialogTrigger asChild>
           <Button variant="outline" onClick={(e) => e.stopPropagation()}>
             Edit

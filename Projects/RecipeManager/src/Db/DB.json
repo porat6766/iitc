@@ -30,19 +30,19 @@
       "mealTime": "Breakfast"
     },
     {
-      "name": "Chicken Stir Fryןק",
+      "name": "חלעיד",
       "description": "A quick and healthy dinner option with vegetables.",
       "ingredients": [
         "200g chicken breast",
-        " 1 cup mixed vegetables",
-        " 2 tbsp soy sauce",
-        " 1 tbsp oil",
-        " 1 clove garlic"
+        "   1 cup mixed vegetables",
+        "   2 tbsp soy sauce",
+        "   1 tbsp oil",
+        "   1 clove garlic"
       ],
       "steps": [
         "Cut chicken and veggies.",
-        " Stir-fry in oil.",
-        " Add soy sauce."
+        "   Stir-fry in oil.",
+        "   Add soy sauce."
       ],
       "prepTime": 10,
       "cookTime": 15,
@@ -50,8 +50,8 @@
       "image": "https://example.com/images/stir_fry.jpg",
       "tags": [
         "dinner",
-        " healthy",
-        " Asian"
+        "   healthy",
+        "   Asian"
       ],
       "mealTime": "Breakfast",
       "id": "4"
