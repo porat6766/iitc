@@ -17,7 +17,8 @@ import {
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Link, useLocation } from "react-router-dom";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "@/Components/ui/avatar";
+import { url } from "inspector";
 
 const drawerWidth = 240;
 const navItems = ["Home", "Recipes", "Profile"];
@@ -146,7 +147,14 @@ function DrawerAppBar(props) {
           {drawer}
         </Drawer>
       </nav>
-      <Box component="main" sx={{ p: 3 }}>
+      <Box
+        component="main"
+        sx={{
+          p: 10,
+          background: `url("https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-1273516682.jpg?c=original") no-repeat center center`,
+          width: "100%",
+        }}
+      >
         <Toolbar />
         <Typography></Typography>
       </Box>
