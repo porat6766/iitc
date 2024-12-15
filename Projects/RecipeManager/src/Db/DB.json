@@ -219,9 +219,15 @@
       "mealTime": "Lunch"
     }
   ],
-  "User": {
-    "name": "John Doe",
-    "email": "johndoe@example.com",
-    "profilePicture": "https://via.placeholder.com/150"
-  }
+  "User": [
+    {
+      "name": "John Doe",
+      "age": "35",
+      "email": "johndoe@example.com",
+      "phone": "+1-123-456-7890",
+      "address": "1234 Elm Street, Springfield",
+      "occupation": "Shef",
+      "id": "10iugrv3f7834gt87"
+    }
+  ]
 }

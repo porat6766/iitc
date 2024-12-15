@@ -5,6 +5,8 @@ import Recipes from "./Pages/Recipes/Recipes.tsx";
 import Article from "./Pages/Article/Article.tsx";
 import { AuthProvider } from "./Components/recipes-provider/context.tsx";
 import OneRecipe from "./Pages/OneRecipe/OneRecipe.tsx";
+import { Provider } from "react-redux";
+import { store } from "./store/store.tsx";
 
 export interface Recipe {
   id: string;
@@ -24,7 +26,12 @@ function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Article />,
+      element: (
+        <Provider store={store}>
+          <Article />
+        </Provider>
+      ),
+
       children: [
         {
           path: "/",
