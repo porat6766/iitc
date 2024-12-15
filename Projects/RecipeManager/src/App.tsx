@@ -3,7 +3,7 @@ import HomePage from "./Pages/Home-page/Home-page.tsx";
 import Profile from "./Pages/Profile/Profile.tsx";
 import Recipes from "./Pages/Recipes/Recipes.tsx";
 import Article from "./Pages/Article/Article.tsx";
-import { AuthProvider } from "./Db/context.tsx";
+import { AuthProvider } from "./Components/recipes-provider/context.tsx";
 import OneRecipe from "./Pages/OneRecipe/OneRecipe.tsx";
 
 export interface Recipe {

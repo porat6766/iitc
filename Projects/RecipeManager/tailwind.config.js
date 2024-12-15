@@ -4,6 +4,9 @@ module.exports = {
   content: ["./index.html", "./src/**/*.{ts,tsx,js,jsx}"],
   theme: {
     extend: {
+      screens: {
+        sm2: "590px",
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
@@ -12,6 +15,7 @@ module.exports = {
       colors: {
         redSideBar: "#a01c0c",
         background: "hsl(var(--background))",
+        backgroundAll: "hsl(--background-all)",
         foreground: "hsl(var(--foreground))",
         card: {
           DEFAULT: "hsl(var(--card))",

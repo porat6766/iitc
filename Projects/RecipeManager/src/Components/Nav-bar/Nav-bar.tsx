@@ -18,7 +18,7 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import { Link, useLocation } from "react-router-dom";
 import { Avatar, AvatarFallback, AvatarImage } from "@/Components/ui/avatar";
-import { url } from "inspector";
+import { ModeToggle } from "../mode-toggle/mode-toggle";
 
 const drawerWidth = 240;
 const navItems = ["Home", "Recipes", "Profile"];
@@ -27,7 +27,7 @@ const logoUrl =
 
 function Logo() {
   return (
-    <div className="flex md:block m:block justify-center">
+    <div className="flex md:block m:block justify-center sm2:block">
       <img src={logoUrl} alt="logo" className="rounded-xl w-10" />
     </div>
   );
@@ -58,6 +58,7 @@ function DrawerAppBar(props) {
         backgroundColor: "#a01c0c",
         height: "100%",
         color: "white",
+        padding: 0,
       }}
     >
       <Typography variant="h6" sx={{ my: 2 }}>
@@ -96,6 +97,7 @@ function DrawerAppBar(props) {
             sx={{ mr: 2, display: { sm: "none" } }}
           >
             <MenuIcon />
+            {/* <ModeToggle /> */}
           </IconButton>
           <Typography
             variant="h6"
@@ -123,6 +125,7 @@ function DrawerAppBar(props) {
                   {item}
                 </Button>
               ))}
+              {/* <ModeToggle /> */}
             </div>
           </Box>
         </Toolbar>
@@ -150,9 +153,11 @@ function DrawerAppBar(props) {
       <Box
         component="main"
         sx={{
-          p: 10,
-          background: `url("https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-1273516682.jpg?c=original") no-repeat center center`,
-          width: "100%",
+          marginTop: "50px",
+          background: `url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3tfyAyTDYaeqjNiYJoDJwbXWRDkN6BjwCvg&s) no-repeat center center`,
+          backgroundSize: "cover",
+          width: "100vw",
+          height: "300px",
         }}
       >
         <Toolbar />

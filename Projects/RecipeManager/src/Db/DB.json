@@ -21,7 +21,7 @@
       "prepTime": 10,
       "cookTime": 15,
       "servings": 4,
-      "image": "https://example.com/images/pancakes.jpg",
+      "image": "https://via.placeholder.com/150",
       "tags": [
         "breakfast",
         "easy",
@@ -34,24 +34,24 @@
       "description": "A quick and healthy dinner option with vegetables.",
       "ingredients": [
         "200g chicken breast",
-        "   1 cup mixed vegetables",
-        "   2 tbsp soy sauce",
-        "   1 tbsp oil",
-        "   1 clove garlic"
+        "1 cup mixed vegetables",
+        "2 tbsp soy sauce",
+        "1 tbsp oil",
+        "1 clove garlic"
       ],
       "steps": [
         "Cut chicken and veggies.",
-        "   Stir-fry in oil.",
-        "   Add soy sauce."
+        "Stir-fry in oil.",
+        "Add soy sauce."
       ],
       "prepTime": 10,
       "cookTime": 15,
       "servings": 2,
-      "image": "https://example.com/images/stir_fry.jpg",
+      "image": "https://via.placeholder.com/150",
       "tags": [
         "dinner",
-        "   healthy",
-        "   Asian"
+        "healthy",
+        "Asian"
       ],
       "mealTime": "Breakfast",
       "id": "4"
@@ -74,7 +74,7 @@
       "prepTime": 10,
       "cookTime": 0,
       "servings": 2,
-      "image": "https://example.com/images/caesar_salad.jpg",
+      "image": "https://via.placeholder.com/150",
       "tags": [
         "lunch",
         "salad",
@@ -101,7 +101,7 @@
       "prepTime": 15,
       "cookTime": 30,
       "servings": 4,
-      "image": "https://example.com/images/vegetable_soup.jpg",
+      "image": "https://via.placeholder.com/150",
       "tags": [
         "dinner",
         "soup",
@@ -128,7 +128,7 @@
       "prepTime": 5,
       "cookTime": 5,
       "servings": 1,
-      "image": "https://example.com/images/scrambled_eggs.jpg",
+      "image": "https://via.placeholder.com/150",
       "tags": [
         "breakfast",
         "quick",
@@ -156,7 +156,7 @@
       "prepTime": 10,
       "cookTime": 15,
       "servings": 4,
-      "image": "https://example.com/images/beef_tacos.jpg",
+      "image": "https://via.placeholder.com/150",
       "tags": [
         "dinner",
         "Mexican",
@@ -183,7 +183,7 @@
       "prepTime": 5,
       "cookTime": 5,
       "servings": 1,
-      "image": "https://example.com/images/avocado_toast.jpg",
+      "image": "https://via.placeholder.com/150",
       "tags": [
         "breakfast",
         "healthy",
@@ -210,7 +210,7 @@
       "prepTime": 10,
       "cookTime": 12,
       "servings": 12,
-      "image": "https://example.com/images/chocolate_chip_cookies.jpg",
+      "image": "https://via.placeholder.com/150",
       "tags": [
         "dessert",
         "sweet",
@@ -222,6 +222,6 @@
   "User": {
     "name": "John Doe",
     "email": "johndoe@example.com",
-    "profilePicture": "https://randomuser.me/api/portraits/men/1.jpg"
+    "profilePicture": "https://via.placeholder.com/150"
   }
 }

@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState, useContext } from "react";
-import { apiResipe } from "../api/api.tsx";
-import { Recipe } from "../App.tsx";
+import { apiResipe } from "../../api/api.tsx";
+import { Recipe } from "../../App.tsx";
 
 interface AuthContextType {
   recipes: Recipe[];

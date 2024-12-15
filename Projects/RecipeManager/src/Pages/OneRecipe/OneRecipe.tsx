@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { useAuth } from "../../Db/context.tsx";
+import { useAuth } from "../../Components/recipes-provider/context.tsx";
 import { Button } from "@/Components/ui/button";
 
 function RecipeDetails() {

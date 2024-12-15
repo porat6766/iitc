@@ -8,16 +8,25 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/Components/ui/carousel";
-import { AuthProvider, useAuth } from "@/Db/context";
+import {
+  AuthProvider,
+  useAuth,
+} from "@/Components/recipes-provider/context.tsx";
+import { useNavigate } from "react-router";
 
 function HomePage() {
+  const navigate = useNavigate();
   const { recipes } = useAuth();
   const autoplayPlugin = React.useRef(
     Autoplay({ delay: 2000, stopOnInteraction: true })
   );
 
+  const handleNavigate = (id: string) => {
+    navigate(`/Recipes/${id}`);
+  };
+
   return (
-    <div className="flex flex-col gap-10">
+    <div className="flex flex-col gap-10 mt-10">
       <p className="text-center font-bold text-redSideBar text-2xl hover:animate-bounce hover:text-orange-500 transition duration-500 ease-in-out">
         "Welcome to a place where flavors meet! On our site, you’ll discover a
         wide variety of delicious, simple, and creative recipes that will
@@ -44,7 +53,11 @@ function HomePage() {
         >
           <CarouselContent>
             {recipes.slice(-5).map((recipe) => (
-              <CarouselItem key={recipe.id}>
+              <CarouselItem
+                key={recipe.id}
+                onClick={() => handleNavigate(recipe.id)}
+                className="cursor-pointer"
+              >
                 <div className="p-1">
                   <AuthProvider>
                     <Card>

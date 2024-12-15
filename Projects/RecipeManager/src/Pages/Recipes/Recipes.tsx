@@ -1,4 +1,4 @@
-import { useAuth } from "../../Db/context.tsx";
+import { useAuth } from "../../Components/recipes-provider/context.tsx";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Recipe } from "@/App.tsx";
@@ -13,11 +13,13 @@ import {
 } from "@/Components/ui/select";
 import EditAndDeleteDialog from "@/Components/EditAndDeleteDialog.tsx";
 import AddRecipe from "@/Components/AddRecipe.tsx";
+import { Input } from "@/Components/ui/input.tsx";
 
 function Recipes() {
   const { recipes } = useAuth();
   const [recipesRender, setRecipesRender] = useState<Recipe[]>([]);
   const [filterMealTime, setFilterMealTime] = useState("");
+  const [searchInput, setSearchInput] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -38,6 +40,24 @@ function Recipes() {
 
   const handleNavigate = (id: string) => {
     navigate(`/Recipes/${id}`);
+  };
+
+  useEffect(() => {
+    setRecipesRender(recipes);
+    handleSearch();
+  }, [searchInput]);
+
+  const handleSearch = () => {
+    if (searchInput === "") {
+      setRecipesRender(recipes);
+    }
+    setRecipesRender((prev) =>
+      prev.filter(
+        (recipe) =>
+          recipe.name.toLowerCase().includes(searchInput.toLowerCase()) ||
+          recipe.name.toLowerCase().startsWith(searchInput.toLowerCase())
+      )
+    );
   };
 
   return (
@@ -61,6 +81,11 @@ function Recipes() {
           </SelectContent>
         </Select>
         <AddRecipe setRecipesRender={setRecipesRender} />
+        <Input
+          onChange={(ev) => setSearchInput(ev.target.value)}
+          className="bg-white text-black"
+          placeholder="Search recipe..."
+        />
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
         {recipesRender.map((recipe) => (
