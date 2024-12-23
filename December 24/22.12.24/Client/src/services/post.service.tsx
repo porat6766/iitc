@@ -1,5 +1,5 @@
 import api from "@/lib/api.tsx";
-import { Post, CatWithoutId } from "../types/postType.tsx";
+import { Post,  PostWitoutId } from "../types/postType.tsx";
 
 export const getPosts = async (): Promise<Post[]> => {
   try {
@@ -42,7 +42,7 @@ export const updatePost = async (
   }
 };
 
-export const addPost = async (newPost: CatWithoutId): Promise<void> => {
+export const addPost = async (newPost: PostWitoutId): Promise<void> => {
   try {
     await api.post("/add", newPost);
   } catch (error) {

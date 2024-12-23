@@ -4,4 +4,4 @@ export type Post = {
   content: string;
 };
 
-export type CatWithoutId = Omit<Post, "_id">;
+export type PostWitoutId = Omit<Post, "_id">;
