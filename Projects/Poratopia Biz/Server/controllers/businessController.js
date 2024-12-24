@@ -123,6 +123,9 @@ export const deleteBusiness = async (req, res) => {
 ///
 ///
 ///
+
+///
+///
 ///
 
 export const subscribeToBusiness = async (req, res) => {
@@ -183,6 +186,30 @@ export const unsubscribeFromBusiness = async (req, res) => {
   }
 };
 
+export const getSubscribers = async (req, res) => {
+  try {
+    const { businessId } = req.params;
+    const business = await Business.findById(businessId).populate(
+      "subscribers",
+      "name email"
+    );
+
+    if (!business) {
+      return res.status(404).json({ message: "Business not found" });
+    }
+
+    res.status(200).json(business.subscribers);
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "Error fetching subscribers", error: error.message });
+  }
+};
+
+///
+///
+///
+
 export const addReview = async (req, res) => {
   try {
     const { id } = req.params;
@@ -201,12 +228,10 @@ export const addReview = async (req, res) => {
     });
     await business.save();
 
-    res
-      .status(200)
-      .json({
-        message: "Review added successfully",
-        reviews: business.reviews,
-      });
+    res.status(200).json({
+      message: "Review added successfully",
+      reviews: business.reviews,
+    });
   } catch (err) {
     res.status(500).json({ message: "Server error", error: err });
   }
@@ -230,21 +255,6 @@ export const getReviews = async (req, res) => {
   }
 };
 
-export const getSubscribers = async (req, res) => {
-  try {
-    const { businessId } = req.params;
-    const business = await Business.findById(businessId).populate("subscribers", "name email");
-
-    if (!business) {
-      return res.status(404).json({ message: "Business not found" });
-    }
-
-    res.status(200).json(business.subscribers);
-  } catch (error) {
-    res.status(500).json({ message: "Error fetching subscribers", error: error.message });
-  }
-};
-
 export const deleteReview = async (req, res) => {
   try {
     const { businessId, reviewId } = req.params;
@@ -255,7 +265,9 @@ export const deleteReview = async (req, res) => {
       return res.status(404).json({ message: "Business not found" });
     }
 
-    const reviewIndex = business.reviews.findIndex((review) => review._id.toString() === reviewId);
+    const reviewIndex = business.reviews.findIndex(
+      (review) => review._id.toString() === reviewId
+    );
 
     if (reviewIndex === -1) {
       return res.status(404).json({ message: "Review not found" });
@@ -266,7 +278,8 @@ export const deleteReview = async (req, res) => {
 
     res.status(200).json({ message: "Review deleted successfully" });
   } catch (error) {
-    res.status(500).json({ message: "Error deleting review", error: error.message });
+    res
+      .status(500)
+      .json({ message: "Error deleting review", error: error.message });
   }
 };
-
