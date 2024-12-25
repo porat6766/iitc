@@ -4,18 +4,28 @@ import { useMutation } from "@tanstack/react-query";
 import { UserWithoutId } from "../../types/userType.tsx";
 import { SignUpApi } from "../../services/userService.tsx";
 
-const SignUp: React.FC = ({ setIsLogIn }) => {
+interface SignUpProps {
+  isLogIn: boolean;
+  setIsLogIn: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const SignUp: React.FC<SignUpProps> = ({ isLogIn, setIsLogIn }) => {
   const [name, setUsername] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [plan, setPlan] = useState<"Standard" | "Gold" | "Platinum">(
     "Standard"
   );
+
   const navigate = useNavigate();
 
   const mutation = useMutation({
     mutationFn: (newUser: any) => SignUpApi(newUser),
   });
+
+  const handlePlanChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setPlan(event.target.value as "Standard" | "Gold" | "Platinum");
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -95,7 +105,7 @@ const SignUp: React.FC = ({ setIsLogIn }) => {
               id="plan"
               name="plan"
               value={plan}
-              onChange={(e) => setPlan(e.target.value)}
+              onChange={handlePlanChange}
               className="w-full p-2 mt-1 text-black rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
             >
               <option value="Standard">Standard</option>

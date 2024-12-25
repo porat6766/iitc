@@ -1,5 +1,8 @@
 import express from "express";
-import { authenticateUser } from "../middleWares/authMiddleware.js";
+import {
+  authenticateUser,
+  authenticateUserRefresh,
+} from "../middleWares/authMiddleware.js";
 import {
   signUp,
   logIn,
@@ -11,6 +14,7 @@ import {
 
 const router = express.Router();
 
+router.get("/authenticateUser", authenticateUserRefresh);
 router.get("/getUserByToken", authenticateUser, getUserById);
 router.post("/signup", signUp);
 router.post("/login", logIn);

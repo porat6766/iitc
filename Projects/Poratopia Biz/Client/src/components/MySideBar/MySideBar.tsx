@@ -1,3 +1,10 @@
+interface AppSidebarProps {
+  isLogIn: boolean;
+  setIsLogIn: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+import { deleteAuthTokenCookie } from "@/lib/auth";
+
 import {
   Sidebar,
   SidebarContent,
@@ -47,7 +54,7 @@ const navList = [
   },
   {
     title: "Profile",
-    url: "/profile",
+    url: "/userprofile",
     icon: User,
   },
 ];
@@ -64,16 +71,14 @@ const navUser = [
     icon: UserPlus,
   },
 ];
-
-function AppSidebar() {
+const AppSidebar: React.FC<AppSidebarProps> = ({ isLogIn, setIsLogIn }) => {
   const navigate = useNavigate();
 
   const handleSignOut = () => {
-    navigate("/login");
+    deleteAuthTokenCookie();
+    setIsLogIn(false);
+    navigate("/");
   };
-
-  // Example userLogged state (for now, always show "User Logged In" behavior)
-  const userLogged = { isLogged: false }; // Replace this with actual state
 
   return (
     <Sidebar>
@@ -110,25 +115,28 @@ function AppSidebar() {
       <SidebarFooter>
         <SidebarMenu>
           <SidebarMenuItem>
-            {userLogged.isLogged ? (
+            {isLogIn ? (
               <DropdownMenu>
                 {/* UserLogged */}
                 <DropdownMenuTrigger asChild>
-                  <SidebarMenuButton>
+                  <button className="flex items-center w-full">
                     <User2 />
                     <ChevronUp className="ml-auto" />
-                  </SidebarMenuButton>
+                  </button>
                 </DropdownMenuTrigger>
+
                 <DropdownMenuContent
                   side="top"
                   className="w-[--radix-popper-anchor-width] p-2 rounded-xl bg-[var(--dropdown-bg)]"
                 >
                   <DropdownMenuItem className="dropdown-bg-hover p-2 pl-4 rounded-xl cursor-pointer">
-                    <span onClick={() => navigate("/profile")}>Account</span>
+                    <span onClick={() => navigate("/userprofile")}>
+                      Account
+                    </span>
                   </DropdownMenuItem>
-                  <DropdownMenuItem className="dropdown-bg-hover p-2 pl-4 rounded-xl cursor-pointer">
+                  {/* <DropdownMenuItem className="dropdown-bg-hover p-2 pl-4 rounded-xl cursor-pointer">
                     <span>Billing</span>
-                  </DropdownMenuItem>
+                  </DropdownMenuItem> */}
                   <DropdownMenuItem
                     className="dropdown-bg-hover p-2 pl-4 rounded-xl cursor-pointer"
                     onClick={handleSignOut}
@@ -159,6 +167,6 @@ function AppSidebar() {
       </SidebarFooter>
     </Sidebar>
   );
-}
+};
 
 export default AppSidebar;

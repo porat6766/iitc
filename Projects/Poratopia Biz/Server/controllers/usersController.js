@@ -6,7 +6,10 @@ export const getUserById = async (req, res) => {
   try {
     const userId = req.user.id;
 
-    const user = await User.findById(userId).select("-password");
+    const user = await User.findById(userId)
+      .select("-password")
+      .populate("savedBusinesses");
+
     if (!user) {
       return res.status(404).json({ message: "User not found." });
     }
@@ -100,7 +103,7 @@ export const logIn = async (req, res) => {
 export const updateUser = async (req, res) => {
   try {
     const userId = req.params.id;
-    const { name, email, password } = req.body;
+    const { name, email, password, plan } = req.body;
 
     const user = await User.findById(userId);
     if (!user) {
@@ -114,6 +117,7 @@ export const updateUser = async (req, res) => {
 
     if (name) user.name = name;
     if (email) user.email = email;
+    if (plan) user.plan = plan;
 
     await user.save();
 

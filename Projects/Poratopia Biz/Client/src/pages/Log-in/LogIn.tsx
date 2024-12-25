@@ -3,7 +3,12 @@ import { Link, useNavigate } from "react-router-dom";
 import { useMutation } from "@tanstack/react-query";
 import { loginApi } from "../../services/userService.tsx";
 
-const Login: React.FC = ({ isLogIn, setIsLogIn }) => {
+interface LogInProps {
+  isLogIn: boolean;
+  setIsLogIn: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const Login: React.FC<LogInProps> = ({ isLogIn, setIsLogIn }) => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const navigate = useNavigate();

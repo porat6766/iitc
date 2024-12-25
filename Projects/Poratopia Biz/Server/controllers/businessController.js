@@ -1,4 +1,5 @@
 import { Business } from "../models/businessModel.js";
+import { User } from "../models/userModel.js";
 
 export const getBusinessesByToken = async (req, res) => {
   try {
@@ -59,6 +60,13 @@ export const createBusiness = async (req, res) => {
     });
 
     await newBusiness.save();
+
+    await User.findByIdAndUpdate(
+      user._id,
+      { $push: { savedBusinesses: newBusiness._id } },
+      { new: true }
+    );
+
     res.status(201).json({
       message: "Business created successfully",
       business: newBusiness,
@@ -101,9 +109,6 @@ export const deleteBusiness = async (req, res) => {
     const user = req.user;
     const { businessId } = req.params;
 
-    console.log(user);
-    console.log(businessId);
-
     const business = await Business.findOneAndDelete({
       _id: businessId,
       owner: user._id,
@@ -114,6 +119,12 @@ export const deleteBusiness = async (req, res) => {
         .status(404)
         .json({ message: "Business not found or you don't have permission." });
     }
+
+    await User.findByIdAndUpdate(
+      user._id,
+      { $pull: { savedBusinesses: business._id } },
+      { new: true }
+    );
 
     res.status(200).json({ message: "Business deleted successfully" });
   } catch (err) {

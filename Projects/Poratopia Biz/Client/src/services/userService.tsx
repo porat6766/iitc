@@ -1,3 +1,4 @@
+import { getAuthTokenFromCookie } from "@/lib/auth.tsx";
 import { User } from "../types/userType.tsx";
 import api from "./API.tsx";
 
@@ -29,5 +30,57 @@ export const loginApi = async (credentials: {
       "Error logging in: " +
         (error instanceof Error ? error.message : "Unknown error")
     );
+  }
+};
+
+export const authenticateUser = async (token: string) => {
+  try {
+    const response = await api.get("/user/authenticateUser", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    if (response.status === 200) {
+      return response.data.isAuthenticated || false;
+    }
+
+    console.error("Authentication failed with status:", response.status);
+    return false;
+  } catch (error) {
+    console.error("Authentication failed:", error);
+    return false;
+  }
+};
+
+export const getUserById = async (token: string) => {
+  try {
+    const response = await api.get("/user/getUserByToken", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    console.log(response);
+
+    return response.data.user;
+  } catch (error) {
+    console.error("Error fetching user:", error);
+    return null;
+  }
+};
+
+export const updateUserProfile = async (userData: User) => {
+  try {
+    const token = getAuthTokenFromCookie();
+    const response = await api.patch(`/user/${userData._id}`, userData, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error updating user profile:", error);
+    throw error;
   }
 };

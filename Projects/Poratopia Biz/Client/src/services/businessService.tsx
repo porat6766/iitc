@@ -1,6 +1,6 @@
 import api from "./API";
 import { Business } from "../types/business.tsx";
-import getAuthTokenFromCookie from "../lib/auth.tsx";
+import { getAuthTokenFromCookie } from "../lib/auth.tsx";
 
 export const addBusinessApi = async (business: Business) => {
   try {
