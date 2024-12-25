@@ -1,20 +1,34 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useMutation } from "@tanstack/react-query";
+import { loginApi } from "../../services/userService.tsx";
 
-interface LoginProps {
-  isLogIn: boolean;
-  setIsLogIn: React.Dispatch<React.SetStateAction<boolean>>;
-}
+const Login: React.FC = ({ isLogIn, setIsLogIn }) => {
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const navigate = useNavigate();
 
-const Login: React.FC<LoginProps> = ({ isLogIn, setIsLogIn }) => {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const mutation = useMutation({
+    mutationFn: (userCredentials: { email: string; password: string }) =>
+      loginApi(userCredentials),
+  });
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Send Login data to API");
 
-    setTimeout(() => {
-      setIsLogIn(true);
+    const userCredentials = {
+      email,
+      password,
+    };
+
+    try {
+      await mutation.mutateAsync(userCredentials);
       console.log("User logged in successfully");
-    }, 1000);
+      setIsLogIn(true);
+      navigate("/");
+    } catch (error) {
+      console.error("Error logging in", error);
+    }
   };
 
   return (
@@ -32,6 +46,8 @@ const Login: React.FC<LoginProps> = ({ isLogIn, setIsLogIn }) => {
               name="email"
               placeholder="Enter your email"
               className="w-full p-2 mt-1 text-black rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
 
@@ -45,15 +61,26 @@ const Login: React.FC<LoginProps> = ({ isLogIn, setIsLogIn }) => {
               name="password"
               placeholder="Enter your password"
               className="w-full p-2 mt-1 text-black rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
 
           <button
             type="submit"
             className="w-full py-2 text-center text-white bg-orange-500 rounded-md hover:bg-orange-600"
+            disabled={mutation.isLoading}
           >
-            Login
+            {mutation.isLoading ? "Logging In..." : "Login"}
           </button>
+
+          {mutation.isError && (
+            <div className="text-red-500 text-sm">
+              {mutation.error instanceof Error
+                ? `Error: ${mutation.error.message}`
+                : "Something went wrong!"}
+            </div>
+          )}
         </form>
 
         <p className="text-center text-sm">

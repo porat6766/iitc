@@ -31,16 +31,17 @@ export const createBusiness = async (req, res) => {
   try {
     const user = req.user;
     const { name, description, category } = req.body;
+    console.log(user);
 
     const businessCount = await Business.countDocuments({ owner: user._id });
     let businessLimit = 1;
 
-    if (user.plan === "Gold") businessLimit = 5;
+    if (user.plan === "Gold") businessLimit = 3;
     else if (user.plan === "Platinum") businessLimit = 10;
 
     if (businessCount >= businessLimit) {
       return res.status(400).json({
-        message: `You cannot create more than ${businessLimit} businesses with your current plan.`,
+        message: `You cannot create more than ${businessLimit} businesses with ${user.plan} plan.`,
       });
     }
 

@@ -1,6 +1,6 @@
 const HomePage = () => {
   return (
-    <div className="w-screen">
+    <div>
       HoדלגהמחmePageHoדלגהמחmePageHoדלגהמחmePageHoדלגהמחmePageHoדלגהמחmePageHoדלגהמחmePageHoדלגהמחmePageHoדלגהמחmePage
     </div>
   );

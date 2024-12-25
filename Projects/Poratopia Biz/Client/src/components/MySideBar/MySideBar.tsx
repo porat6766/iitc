@@ -12,6 +12,7 @@ import {
 
 // Icons
 import {
+  Plus,
   Home,
   User,
   ShieldHalf,
@@ -38,6 +39,11 @@ const navList = [
     title: "Businesses",
     url: "/businesses",
     icon: ShieldHalf,
+  },
+  {
+    title: "Add Biz",
+    url: "/addbiz",
+    icon: Plus,
   },
   {
     title: "Profile",

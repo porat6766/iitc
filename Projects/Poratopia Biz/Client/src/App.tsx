@@ -6,12 +6,14 @@ import SignUp from "./pages/Sign-up/SignUp.tsx";
 import LogIn from "./pages/Log-in/LogIn.tsx";
 import HomePage from "./pages/Home/HomePage.tsx";
 import Article from "./pages/Article/Article.tsx";
+import Businesses from "./pages/Businesses/Businesses.tsx";
 // import UserProfile from "./Pages/UserProfile/UserProfile.jsx";
 // import ErrorPage from "./Pages/ErorPage/ErorPage.jsx";
 // import ContactUs from "./Pages/ContactUs/ContactUs.jsx";
 
 import AppSidebar from "./components/MySideBar/MySideBar.tsx";
 import { SidebarTrigger } from "./components/ui/sidebar.js";
+import AddBiz from "./pages/addbiz/addbiz.tsx";
 
 function App() {
   const [isLogIn, setIsLogIn] = useState(false);
@@ -19,7 +21,7 @@ function App() {
     {
       path: "/",
       element: (
-        <div className="w-screen">
+        <div>
           <SidebarTrigger />
           <AppSidebar />
           <Article />
@@ -30,21 +32,24 @@ function App() {
           path: "/",
           element: <HomePage />,
         },
-        // {
-        //   path: "/userProfile/:id",
-        //   element: <UserProfile />,
-        // },
+        {
+          path: "/businesses",
+          element: <Businesses />,
+        },
+        {
+          path: "/addbiz",
+          element: <AddBiz isLogIn={isLogIn} />,
+        },
         {
           path: "/login",
           element: <LogIn isLogIn={isLogIn} setIsLogIn={setIsLogIn} />,
         },
         {
           path: "/signup",
-          element: <SignUp />,
+          element: <SignUp isLogIn={isLogIn} setIsLogIn={setIsLogIn} />,
         },
       ],
     },
-
     // {
     //   path: "/error",
     //   element: <ErrorPage />,

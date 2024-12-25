@@ -1,10 +1,40 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useMutation } from "@tanstack/react-query";
+import { UserWithoutId } from "../../types/userType.tsx";
+import { SignUpApi } from "../../services/userService.tsx";
 
-const SignUp: React.FC = () => {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+const SignUp: React.FC = ({ setIsLogIn }) => {
+  const [name, setUsername] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [plan, setPlan] = useState<"Standard" | "Gold" | "Platinum">(
+    "Standard"
+  );
+  const navigate = useNavigate();
+
+  const mutation = useMutation({
+    mutationFn: (newUser: any) => SignUpApi(newUser),
+  });
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Send Sign Up data to API");
+
+    const newUser: UserWithoutId = {
+      name,
+      email,
+      password,
+      plan,
+    };
+
+    try {
+      await mutation.mutateAsync(newUser);
+      console.log("User signed up successfully");
+      setIsLogIn(true);
+      navigate("/");
+    } catch (error) {
+      console.error("Error signing up", error);
+    }
   };
 
   return (
@@ -22,6 +52,8 @@ const SignUp: React.FC = () => {
               name="username"
               placeholder="Enter your username"
               className="w-full p-2 mt-1 text-black rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+              value={name}
+              onChange={(e) => setUsername(e.target.value)}
             />
           </div>
 
@@ -35,6 +67,8 @@ const SignUp: React.FC = () => {
               name="email"
               placeholder="Enter your email"
               className="w-full p-2 mt-1 text-black rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
 
@@ -48,15 +82,44 @@ const SignUp: React.FC = () => {
               name="password"
               placeholder="Enter your password"
               className="w-full p-2 mt-1 text-black rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="plan" className="block text-sm font-medium">
+              Select Plan:
+            </label>
+            <select
+              id="plan"
+              name="plan"
+              value={plan}
+              onChange={(e) => setPlan(e.target.value)}
+              className="w-full p-2 mt-1 text-black rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+            >
+              <option value="Standard">Standard</option>
+              <option value="Gold">Gold</option>
+              <option value="Platinum">Platinum</option>
+            </select>
           </div>
 
           <button
             type="submit"
             className="w-full py-2 text-center text-white bg-orange-500 rounded-md hover:bg-orange-600"
+            disabled={mutation.isLoading} // Disable button while submitting
           >
-            Sign Up
+            {mutation.isLoading ? "Signing Up..." : "Sign Up"}
           </button>
+
+          {/* Show error message if sign up failed */}
+          {mutation.isError && (
+            <div className="text-red-500 text-sm">
+              {mutation.error instanceof Error
+                ? `Error: ${mutation.error.message}`
+                : "Something went wrong!"}
+            </div>
+          )}
         </form>
 
         <p className="text-center text-sm">

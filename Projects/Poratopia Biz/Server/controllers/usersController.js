@@ -20,6 +20,7 @@ export const getUserById = async (req, res) => {
 export const signUp = async (req, res) => {
   try {
     const { name, email, password, plan } = req.body;
+    console.log(name, email, password, plan);
 
     const existingUser = await User.findOne({ email });
     if (existingUser) {
@@ -49,7 +50,7 @@ export const signUp = async (req, res) => {
     newUser.password = undefined;
 
     res.cookie("token", token, {
-      httpOnly: true,
+      httpOnly: false,
       secure: process.env.NODE_ENV === "production",
       maxAge: 3600000,
       sameSite: "Strict",
@@ -84,7 +85,7 @@ export const logIn = async (req, res) => {
     user.password = undefined;
 
     res.cookie("token", token, {
-      httpOnly: true,
+      httpOnly: false,
       secure: process.env.NODE_ENV === "production",
       maxAge: 3600000,
       sameSite: "Strict",
@@ -125,7 +126,7 @@ export const updateUser = async (req, res) => {
 export const logOut = async (req, res) => {
   try {
     res.clearCookie("token", {
-      httpOnly: true,
+      httpOnly: false,
       secure: process.env.NODE_ENV === "production",
       sameSite: "Strict",
     });
