@@ -21,7 +21,7 @@ function App() {
       path: "/",
       element: <Article isLogIn={isLogIn} setIsLogIn={setIsLogIn} />,
       children: [
-        { path: "/", element: <HomePage /> },
+        { path: "/", element: <HomePage isLogIn={isLogIn} /> },
         { path: "/businesses", element: <Businesses isLogIn={isLogIn} /> },
         { path: "/addbiz", element: <AddBiz isLogIn={isLogIn} /> },
         {

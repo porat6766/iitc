@@ -1,8 +1,16 @@
 import { useNavigate } from "react-router-dom";
 import LOGO from "../../assets/poratopia logo.png";
 
-const HomePage = () => {
+const HomePage = ({ isLogIn }) => {
   const navigate = useNavigate();
+
+  const handleNavigate = () => {
+    if (isLogIn) {
+      navigate("/businesses");
+    } else {
+      navigate("/login");
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-gray-800 via-gray-900 to-black text-white flex flex-col items-center justify-center">
@@ -31,7 +39,7 @@ const HomePage = () => {
 
       <div className="mt-12">
         <button
-          onClick={() => navigate("/login")}
+          onClick={() => handleNavigate()}
           className="px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-full shadow-lg transition-all duration-300"
         >
           Get Started
