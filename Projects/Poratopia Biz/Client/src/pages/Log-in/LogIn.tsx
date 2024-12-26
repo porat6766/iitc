@@ -80,9 +80,9 @@ const Login: React.FC<LogInProps> = ({ isLogIn, setIsLogIn }) => {
           </button>
 
           {mutation.isError && (
-            <div className="text-red-500 text-sm">
+            <div className="text-red-500 text-sm text-center  text-[16px]">
               {mutation.error instanceof Error
-                ? `Error: ${mutation.error.message}`
+                ? `Error: The Email or password is incorrect. Please try again.`
                 : "Something went wrong!"}
             </div>
           )}

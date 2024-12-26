@@ -126,7 +126,7 @@ const SignUp: React.FC<SignUpProps> = ({ isLogIn, setIsLogIn }) => {
           {mutation.isError && (
             <div className="text-red-500 text-sm">
               {mutation.error instanceof Error
-                ? `Error: ${mutation.error.message}`
+                ? `This email is probably already in use. Try a different one.`
                 : "Something went wrong!"}
             </div>
           )}
