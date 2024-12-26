@@ -15,9 +15,11 @@ export const getAllBusinesses = async (req, res) => {
   try {
     const businesses = await Business.find()
       .populate("owner", "name email")
-      .select("name description category owner createdAt updatedAt");
+      .populate("reviews.userId", "name email")
+      .populate("subscribers", "name email");
+
     res.status(200).json({
-      message: "All businesses retrieved successfully",
+      message: "כל העסקים נקלטו בהצלחה",
       businesses,
     });
   } catch (err) {
@@ -143,7 +145,8 @@ export const deleteBusiness = async (req, res) => {
 export const subscribeToBusiness = async (req, res) => {
   try {
     const { id } = req.params;
-    const userId = req.user.id;
+    const userId = req.user._id;
+    console.log(userId);
 
     const business = await Business.findById(id);
     if (!business) {
