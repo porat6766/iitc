@@ -143,11 +143,9 @@ import BusinessForm from "../../components/FormBiz/FormBiz.tsx"; // Import the B
 const AddBiz = ({ isLogIn }: { isLogIn: boolean }) => {
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (!isLogIn) {
-      navigate("/login");
-    }
-  }, [isLogIn, navigate]);
+  if (!isLogIn) {
+    navigate("/login");
+  }
 
   const mutation = useMutation({
     mutationFn: (newBusiness: {
@@ -172,8 +170,8 @@ const AddBiz = ({ isLogIn }: { isLogIn: boolean }) => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-gray-800 via-gray-900 to-black text-white">
-      <div className="w-full max-w-lg p-10 bg-gray-800 rounded-lg shadow-xl shadow-gray-800">
+    <div className="h-full bg-gradient-to-r from-gray-800 via-gray-900 to-black text-white">
+      <div className="w-full p-10 bg-gray-800 rounded-lg shadow-xl shadow-gray-800">
         <h1 className="text-4xl font-bold text-center text-orange-500 mb-6">
           Add New Business
         </h1>

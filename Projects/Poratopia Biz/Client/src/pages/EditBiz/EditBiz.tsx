@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useUserProfile } from "../../hooks/useUsere.tsx";
 import { editBusinessApi } from "../../services/businessService.tsx";
 import BusinessForm from "../../components/FormBiz/FormBiz.tsx";
@@ -8,6 +8,8 @@ import BusinessForm from "../../components/FormBiz/FormBiz.tsx";
 const EditBiz = ({ isLogIn }: { isLogIn: boolean }) => {
   const navigate = useNavigate();
   const { id } = useParams();
+  const queryClient = useQueryClient();
+
   const [businessData, setBusinessData] = useState<{
     name: string;
     description: string;
@@ -28,14 +30,16 @@ const EditBiz = ({ isLogIn }: { isLogIn: boolean }) => {
 
   useEffect(() => {
     if (userProfile && userProfile.savedBusinesses) {
-      const business = userProfile.savedBusinesses.find((biz) => biz.id === id);
+      const business = userProfile.savedBusinesses.find(
+        (biz: any) => biz._id === id
+      );
       if (business) {
         setBusinessData(business);
       } else {
-        navigate("/unauthorized"); // If the business does not belong to the user
+        return;
       }
     }
-  }, [userProfile, id, navigate]);
+  }, [userProfile, id]);
 
   const mutation = useMutation({
     mutationFn: async (updatedBusiness: {
@@ -49,6 +53,7 @@ const EditBiz = ({ isLogIn }: { isLogIn: boolean }) => {
       return await editBusinessApi(id, updatedBusiness);
     },
     onSuccess: () => {
+      queryClient.invalidateQueries(["userProfile"]);
       navigate("/businesses");
     },
     onError: (err: any) => {
@@ -78,10 +83,7 @@ const EditBiz = ({ isLogIn }: { isLogIn: boolean }) => {
         <h1 className="text-4xl font-bold text-center text-orange-500 mb-6">
           Edit Business
         </h1>
-        <BusinessForm
-          onSubmit={handleSubmit}
-          initialData={businessData} // Pass the business data as initial values
-        />
+        <BusinessForm onSubmit={handleSubmit} business={businessData} />
       </div>
     </div>
   );

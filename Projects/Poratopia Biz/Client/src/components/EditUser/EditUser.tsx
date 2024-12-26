@@ -26,6 +26,7 @@ import { User } from "../../types/userType.tsx";
 function EditUser() {
   const queryClient = useQueryClient();
   const { data: user, isLoading, error } = useUserProfile();
+  const [isOpen, setIsOpen] = useState(false);
 
   if (isLoading) return <div>Loading...</div>;
   if (error instanceof Error) return <div>Error: {error.message}</div>;
@@ -36,6 +37,7 @@ function EditUser() {
     onSuccess: () => {
       queryClient.invalidateQueries(["userProfile"]);
       alert("Profile updated successfully!");
+      setIsOpen(false);
     },
     onError: (error) => {
       alert(`Error: ${error.message}`);
@@ -44,14 +46,15 @@ function EditUser() {
 
   const handleSave = () => {
     console.log(updatedUser);
-
     mutation.mutate(updatedUser);
   };
 
   return (
-    <Dialog>
+    <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
-        <Button variant="outline">Edit Profile</Button>
+        <Button variant="outline" onClick={() => setIsOpen(true)}>
+          Edit Profile
+        </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>

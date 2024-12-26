@@ -10,7 +10,7 @@ export const useUserProfile = () => {
   }
 
   return useQuery({
-    queryKey: ["userProfile", token],
+    queryKey: ["userProfile ", token],
     queryFn: () => getUserById(token),
     enabled: !!token,
   });

@@ -1,31 +1,24 @@
+import AppSidebar from "@/components/MySideBar/MySideBar";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { deleteAuthTokenCookie, getAuthTokenFromCookie } from "@/lib/auth";
-import api from "@/services/API";
 import { authenticateUser } from "@/services/userService";
 import { useEffect } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 
 function Article({ isLogIn, setIsLogIn }: any) {
   const navigate = useNavigate();
-
   const checkAuth = async () => {
     try {
-      const token = getAuthTokenFromCookie();
+      const token = await getAuthTokenFromCookie();
 
       if (!token) {
-        return;
+        navigate("/login");
       }
-      console.log(token);
 
       if (token) {
         const isAuthenticated = await authenticateUser(token);
         console.log(isAuthenticated);
-
-        if (isAuthenticated) {
-          setIsLogIn(true);
-        }
-      } else {
-        console.log("No token found");
-        setIsLogIn(false);
+        setIsLogIn(true);
       }
     } catch (error) {
       console.error("Authentication check failed:", error);
@@ -41,8 +34,19 @@ function Article({ isLogIn, setIsLogIn }: any) {
   }, [isLogIn]);
 
   return (
-    <div className="w-screen">
-      <Outlet />
+    <div className="min-h-screen flex items-center justify-center">
+      <SidebarProvider>
+        <AppSidebar isLogIn={isLogIn} setIsLogIn={setIsLogIn} />
+        <div className="flex flex-col  flex-grow h-screen">
+          <header className="sticky top-0 bg-white z-50">
+            <SidebarTrigger />
+          </header>
+          <main className="flex-grow h-screen">
+            <Outlet />
+          </main>
+          {/* <footer>footer</footer> */}
+        </div>
+      </SidebarProvider>
     </div>
   );
 }

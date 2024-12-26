@@ -10,7 +10,6 @@ import BusinessList from "../../components/BusinessList/BusinessList.tsx";
 function BusinessGrid({ isLogIn }) {
   const [textSearch, setTextSearch] = useState<string>("");
   const queryClient = useQueryClient();
-  const navigate = useNavigate();
   const { data: businesses, error, isLoading } = usebusinesses();
 
   const debouncedSetQueryData = useCallback(
@@ -35,7 +34,6 @@ function BusinessGrid({ isLogIn }) {
     debouncedSetQueryData(textSearch);
   }, [textSearch, debouncedSetQueryData]);
 
-  // Mutation for deleting a business
   const deleteBusinessMutation = useMutation({
     mutationFn: deleteBusinessApi,
     onMutate: async (id: string) => {

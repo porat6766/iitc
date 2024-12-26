@@ -16,8 +16,6 @@ const BusinessForm = ({
   const [category, setCategory] = useState(business?.category || "");
   const [error, setError] = useState("");
 
-  console.log("kjhgf");
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -31,7 +29,10 @@ const BusinessForm = ({
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form
+      onSubmit={handleSubmit}
+      className="space-y-6 flex flex-col gap-8 p-10 "
+    >
       <div className="form-group">
         <label
           htmlFor="name"

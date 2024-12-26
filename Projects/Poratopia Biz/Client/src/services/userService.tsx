@@ -44,7 +44,6 @@ export const authenticateUser = async (token: string) => {
     if (response.status === 200) {
       return response.data.isAuthenticated || false;
     }
-
     console.error("Authentication failed with status:", response.status);
     return false;
   } catch (error) {
@@ -60,7 +59,7 @@ export const getUserById = async (token: string) => {
         Authorization: `Bearer ${token}`,
       },
     });
-    console.log(response);
+    console.log(response.data.user);
 
     return response.data.user;
   } catch (error) {

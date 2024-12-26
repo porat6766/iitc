@@ -21,7 +21,7 @@ function BusinessList({
   console.log(isProfilePage);
 
   const handleNavToEdit = (id: string) => {
-    navigate(`./editBusiness/${id}`);
+    navigate(`/editBusiness/${id}`);
   };
 
   return (
