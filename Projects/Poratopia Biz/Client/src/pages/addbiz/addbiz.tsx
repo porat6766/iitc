@@ -134,18 +134,20 @@
 
 // export default AddBiz;
 
-import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useMutation } from "@tanstack/react-query";
 import { addBusinessApi } from "../../services/businessService.tsx";
 import BusinessForm from "../../components/FormBiz/FormBiz.tsx"; // Import the BusinessForm component
+import { useEffect } from "react";
 
 const AddBiz = ({ isLogIn }: { isLogIn: boolean }) => {
   const navigate = useNavigate();
 
-  if (!isLogIn) {
-    navigate("/login");
-  }
+  useEffect(() => {
+    if (!isLogIn) {
+      navigate("/login");
+    }
+  });
 
   const mutation = useMutation({
     mutationFn: (newBusiness: {

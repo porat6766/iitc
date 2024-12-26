@@ -1,6 +1,5 @@
 export const getAuthTokenFromCookie = () => {
   const cookies = document.cookie.split("; ");
-  console.log(cookies);
 
   const tokenCookie = cookies.find((cookie) => cookie.startsWith("token"));
   return tokenCookie ? tokenCookie.split("=")[1] : null;

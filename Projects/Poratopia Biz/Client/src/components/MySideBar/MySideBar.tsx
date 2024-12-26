@@ -83,8 +83,8 @@ const AppSidebar: React.FC<AppSidebarProps> = ({ isLogIn, setIsLogIn }) => {
   return (
     <Sidebar>
       <SidebarHeader>
-        <h1 className=" text-center text-[var(--bg-header)] bg-[var(--button-bg)] rounded-xl ">
-          Buisnance
+        <h1 className="text-4xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 animate-pulse tracking-wide uppercase">
+          PORATOPIA
         </h1>
       </SidebarHeader>
 

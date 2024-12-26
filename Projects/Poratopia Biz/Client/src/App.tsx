@@ -11,6 +11,7 @@ import UserProfile from "./pages/UserProfile/UserProfile.tsx";
 import AddBiz from "./pages/addbiz/addbiz.tsx";
 import EditBiz from "./pages/EditBiz/EditBiz.tsx";
 import ErrorPage from "./pages/ErorPage/ErorPage.tsx";
+import AboutUs from "./pages/aboutus/aboutus.tsx";
 
 function App() {
   const [isLogIn, setIsLogIn] = useState<boolean>(false);
@@ -38,6 +39,10 @@ function App() {
         {
           path: "/signup",
           element: <SignUp isLogIn={isLogIn} setIsLogIn={setIsLogIn} />,
+        },
+        {
+          path: "/aboutus",
+          element: <AboutUs />,
         },
         {
           path: "/errorpage",

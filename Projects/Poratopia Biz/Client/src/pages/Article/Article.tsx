@@ -9,21 +9,17 @@ function Article({ isLogIn, setIsLogIn }: any) {
   const navigate = useNavigate();
   const checkAuth = async () => {
     try {
-      const token = await getAuthTokenFromCookie();
-
-      if (!token) {
-        navigate("/login");
-      }
+      const token = getAuthTokenFromCookie();
 
       if (token) {
         const isAuthenticated = await authenticateUser(token);
-        console.log(isAuthenticated);
-        setIsLogIn(true);
+        if (isAuthenticated) {
+          setIsLogIn(true);
+        }
       }
     } catch (error) {
       console.error("Authentication check failed:", error);
       deleteAuthTokenCookie();
-      setIsLogIn(false);
     }
   };
 
@@ -38,13 +34,12 @@ function Article({ isLogIn, setIsLogIn }: any) {
       <SidebarProvider>
         <AppSidebar isLogIn={isLogIn} setIsLogIn={setIsLogIn} />
         <div className="flex flex-col  flex-grow h-screen">
-          <header className="sticky top-0 bg-white z-50">
+          <header className="fixed top-0 bg-white z-50">
             <SidebarTrigger />
           </header>
           <main className="flex-grow h-screen">
             <Outlet />
           </main>
-          {/* <footer>footer</footer> */}
         </div>
       </SidebarProvider>
     </div>
