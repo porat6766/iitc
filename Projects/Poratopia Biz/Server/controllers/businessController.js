@@ -298,3 +298,38 @@ export const deleteReview = async (req, res) => {
       .json({ message: "Error deleting review", error: error.message });
   }
 };
+
+export const editReview = async (req, res) => {
+  try {
+    const { businessId, reviewId } = req.params;
+    const { comment } = req.body;
+
+    const business = await Business.findById(businessId);
+
+    if (!business) {
+      return res.status(404).json({ message: "Business not found" });
+    }
+
+    const review = business.reviews.find(
+      (review) => review._id.toString() === reviewId
+    );
+
+    if (!review) {
+      return res.status(404).json({ message: "Review not found" });
+    }
+
+    review.comment = comment;
+    review.updatedAt = new Date(); // Optional: Add timestamp for update
+
+    await business.save();
+
+    res.status(200).json({
+      message: "Review updated successfully",
+      review,
+    });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "Error updating review", error: error.message });
+  }
+};

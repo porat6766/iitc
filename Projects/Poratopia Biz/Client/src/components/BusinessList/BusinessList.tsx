@@ -1,6 +1,6 @@
 import { Business } from "../../types/business.tsx";
 import { useNavigate } from "react-router-dom";
-import { FaCommentDots, FaHeart, FaRegHeart } from "react-icons/fa";
+import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { useUserProfile } from "../../hooks/useUsere.tsx";
 import {
   addSubscribeApi,
@@ -8,6 +8,7 @@ import {
 } from "../../services/subscribeService.tsx";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { getAuthTokenFromCookie } from "@/lib/auth.tsx";
+import DialogComments from "../Comments/DialogComments.tsx";
 
 interface BusinessListProps {
   businesses: Business[];
@@ -32,13 +33,12 @@ function BusinessList({
 
   const handleSubscribe = async (business: Business) => {
     if (!isLogIn) {
-      // להשתמש בcomponent toast במקום
       alert("Please log in to subscribe");
       return;
     }
 
     if (!userProfile) {
-      return; // or handle loading/error state
+      return;
     }
 
     const isSubscribed = business?.subscribers?.some(
@@ -57,11 +57,9 @@ function BusinessList({
     onSuccess: () => {
       const token = getAuthTokenFromCookie();
       queryClient.invalidateQueries(["userProfile", token]);
-      // להשתמש בcomponent toast במקום
       alert(`Successfully subscribed`);
     },
     onError: (err) => {
-      // להשתמש בcomponent toast במקום
       alert(`Error: ${err.message}`);
     },
   });
@@ -71,11 +69,9 @@ function BusinessList({
     onSuccess: () => {
       const token = getAuthTokenFromCookie();
       queryClient.invalidateQueries(["userProfile", token]);
-      // להשתמש בcomponent toast במקום
       alert(`Successfully unsubscribed`);
     },
     onError: (err) => {
-      // להשתמש בcomponent toast במקום
       alert(`Error: ${err.message}`);
     },
   });
@@ -116,16 +112,11 @@ function BusinessList({
                     ? "Unsubscribe"
                     : "Subscribe"}
                 </button>
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    console.log("Adding comment for", business.name);
-                  }}
-                  className="flex items-center justify-center bg-green-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-green-400 transition duration-200"
-                >
-                  <FaCommentDots className="mr-2" />
-                  Add Comment
-                </button>
+
+                <DialogComments
+                  comments={business?.reviews}
+                  businessId={business._id}
+                />
               </div>
             )}
 
@@ -161,7 +152,7 @@ function BusinessList({
               }}
               className="bg-yellow-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-yellow-400 transition duration-200"
             >
-              ערוך עסק
+              Edit Biz
             </button>
           )}
         </div>

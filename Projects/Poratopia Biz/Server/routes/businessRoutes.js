@@ -11,6 +11,7 @@ import {
   getReviews,
   getSubscribers,
   deleteReview,
+  editReview,
 } from "../controllers/businessController.js";
 import {
   authenticateUser,
@@ -50,6 +51,7 @@ router.get("/:businessId/subscribers", authenticateUser, getSubscribers);
 
 router.post("/:id/review", authenticateUser, addReview);
 router.get("/:id/reviews", getReviews);
+router.put("/:businessId/review/:reviewId", authenticateUser, editReview);
 router.delete("/:businessId/review/:reviewId", authenticateUser, deleteReview);
 
 export default router;
