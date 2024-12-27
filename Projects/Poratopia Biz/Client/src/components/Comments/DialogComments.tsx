@@ -51,7 +51,7 @@ function DialogComments({ comments, businessId }) {
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
-        <Button variant="outline" className="bg-green-500">
+        <Button variant="outline" className="bg-green-500 ">
           <FaRegCommentDots className="mr-2" />
           Show Review
         </Button>

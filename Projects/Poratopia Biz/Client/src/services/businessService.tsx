@@ -18,10 +18,12 @@ export const addBusinessApi = async (business: Business) => {
         Authorization: `Bearer ${token}`,
       },
     });
+    console.log(response);
 
     return response.data;
   } catch (error) {
     console.error("Error adding business:", error);
+
     throw error;
   }
 };
@@ -30,10 +32,6 @@ export const fetchAllBusinesses = async () => {
   try {
     const response = await api.get("/businesses/getallbusinesses");
     console.log(response);
-
-    // if (!response.ok) {
-    //   throw new Error(`HTTP error! Status: ${response.status}`);
-    // }
 
     const data = await response.data.businesses;
 

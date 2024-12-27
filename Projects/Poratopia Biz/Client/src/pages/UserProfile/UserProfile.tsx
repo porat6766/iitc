@@ -92,7 +92,7 @@ const UserProfile = ({ isLogIn }: { isLogIn: boolean }) => {
   }
 
   return (
-    <div className="p-10 h-screen bg-gray-800">
+    <div className="p-10 min-h-screen bg-gray-800 ">
       <h1 className="text-3xl font-bold text-center text-orange-500 mb-6">
         User Profile
       </h1>

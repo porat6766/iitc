@@ -94,10 +94,10 @@ function BusinessList({
             isLogIn &&
             userProfile &&
             userProfile._id !== business.owner._id && (
-              <div className="mt-[20px] ml-[100px] bottom-4 left-1/2 transform -translate-x-1/2 flex flex-col space-y-3 z-10">
+              <div className="mt-[20px] ml-[100px] bottom-4 left-1/2 transform -translate-x-1/2 flex flex-col space-y-3 z-10 min-w-[130px]">
                 <button
                   onClick={() => handleSubscribe(business)}
-                  className="flex items-center justify-center bg-blue-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-400 transition duration-200"
+                  className=" flex items-center justify-center bg-blue-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-400 transition duration-200"
                 >
                   {business?.subscribers?.some(
                     (subscriber) => subscriber._id === userProfile._id
@@ -112,7 +112,6 @@ function BusinessList({
                     ? "Unsubscribe"
                     : "Subscribe"}
                 </button>
-
                 <DialogComments
                   comments={business?.reviews}
                   businessId={business._id}

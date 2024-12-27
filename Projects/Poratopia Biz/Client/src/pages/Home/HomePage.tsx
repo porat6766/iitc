@@ -24,7 +24,6 @@ const HomePage = ({ isLogIn }) => {
           Welcome to Poratopia
         </h1>
       </header>
-
       <section className="text-center max-w-4xl px-4 mt-8">
         <p className="text-xl leading-relaxed">
           Poratopia is the ultimate platform to connect businesses and

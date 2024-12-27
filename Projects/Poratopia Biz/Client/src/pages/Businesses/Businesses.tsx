@@ -42,7 +42,7 @@ const Businesses = ({ isLogIn }) => {
   }
 
   return (
-    <div className="bg-gradient-to-r from-gray-800 via-gray-900 to-black  p-10 text-white  h-fit">
+    <div className="bg-gradient-to-r from-gray-800 via-gray-900 to-black  p-10 text-white  min-h-screen">
       <div className="flex justify-center mb-8">
         <input
           type="text"

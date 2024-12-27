@@ -27,6 +27,7 @@ import {
   ChevronUp,
   LogIn,
   UserPlus,
+  Bell,
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -56,6 +57,11 @@ const navList = [
     title: "Profile",
     url: "/userprofile",
     icon: User,
+  },
+  {
+    title: "Notifications",
+    url: "/notifications",
+    icon: Bell,
   },
 ];
 
