@@ -20,9 +20,9 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:5173", // ודא שהכתובת הזו נכונה
-    methods: ["GET", "POST"], // הגדרת המתודות המותרות
-    credentials: true, // אם אתה משתמש בקוקיז עם אישורים
+    origin: "http://localhost:5173",
+    methods: ["GET", "POST"],
+    credentials: true,
   },
 });
 
@@ -41,11 +41,11 @@ io.on("connection", (socket) => {
   console.log("User connected");
 
   socket.on("businessUpdated", (data) => {
-    socket.emit("businessUpdated", data);
+    io.emit("businessUpdated", data);
   });
 
   socket.on("businessDeleted", () => {
-    socket.emit("businessDeleted");
+    io.emit("businessDeleted");
   });
 });
 

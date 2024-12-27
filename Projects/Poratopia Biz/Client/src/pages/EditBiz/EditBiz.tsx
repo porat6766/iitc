@@ -58,6 +58,8 @@ const EditBiz = ({ isLogIn }: { isLogIn: boolean }) => {
     onSuccess: () => {
       queryClient.invalidateQueries(["userProfile"]);
       navigate("/businesses");
+      console.log(dataToOmit);
+
       socket.emit("businessUpdated", dataToOmit);
       console.log(dataToOmit);
     },

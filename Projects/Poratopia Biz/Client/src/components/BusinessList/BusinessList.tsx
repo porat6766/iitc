@@ -37,12 +37,11 @@ function BusinessList({
 
   useEffect(() => {
     socket.on("businessUpdated", (data) => {
-      console.log("Received businessUpdated:", data);
-      notify(`biz Updated: ${data.name}`);
+      notify(`biz Updated: ${data?.name}`);
     });
 
     socket.on("businessDeleted", () => {
-      notify(`biz Delete for more info go to your FAV bIZS`);
+      notify("biz Delete for more info go to your FAV bIZS");
     });
 
     return () => {
