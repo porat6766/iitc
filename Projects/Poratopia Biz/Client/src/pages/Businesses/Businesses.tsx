@@ -8,6 +8,8 @@ const Businesses = ({ isLogIn }) => {
   const [textSearch, setTextSearch] = useState<string>("");
   const { data: businesses, error, isLoading } = usebusinesses();
   const [filteredBusinesses, setFilteredBusinesses] = useState<Business[]>([]);
+  
+
 
   const debouncedSearch = useCallback(
     debounce((searchText: string) => {

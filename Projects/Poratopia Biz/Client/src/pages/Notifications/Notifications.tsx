@@ -30,12 +30,12 @@ const NotificationsPage = ({ isLogIn }) => {
       },
     ];
 
-      (fakeNotifications);
+    setNotifications(fakeNotifications);
   }, []);
 
   return (
     <div className="min-h-screen bg-gray-900 text-white p-8">
-      <h1 className="text-4xl font-bold mb-6">התראות</h1>
+      <h1 className="text-4xl font-bold mb-6">Notifications</h1>
       <div className="space-y-4">
         {notifications.map((notification) => (
           <div

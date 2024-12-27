@@ -9,6 +9,9 @@ import {
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { getAuthTokenFromCookie } from "@/lib/auth.tsx";
 import DialogComments from "../Comments/DialogComments.tsx";
+import { useEffect, useState } from "react";
+import socket from "../../lib/socket.tsx";
+import { toast } from "react-toastify";
 
 interface BusinessListProps {
   businesses: Business[];
@@ -25,10 +28,33 @@ function BusinessList({
 }: BusinessListProps) {
   const navigate = useNavigate();
   const { data: userProfile, error, isLoading } = useUserProfile();
+  const [isSub, setIsSub] = useState<boolean>(false);
   const queryClient = useQueryClient();
 
   const handleNavToEdit = (id: string) => {
     navigate(`/editBusiness/${id}`);
+  };
+
+  useEffect(() => {
+    socket.on("businessUpdated", (data) => {
+      console.log("Received businessUpdated:", data);
+      notify(`biz Updated: ${data.name}`);
+    });
+
+    socket.on("businessDeleted", () => {
+      notify(`biz Delete for more info go to your FAV bIZS`);
+    });
+
+    return () => {
+      socket.off("businessDeleted");
+      socket.off("businessUpdated");
+    };
+  }, []);
+
+  const notify = (text: string) => {
+    console.log(text);
+
+    toast.success(text);
   };
 
   const handleSubscribe = async (business: Business) => {
@@ -134,7 +160,7 @@ function BusinessList({
               <button
                 onClick={(e) => {
                   e.stopPropagation();
-                  onDeleteBusiness(business._id);
+                  onDeleteBusiness(business._id, business.name);
                 }}
                 className="bg-red-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-red-700 transition duration-200"
               >

@@ -78,33 +78,33 @@ export const createBusiness = async (req, res) => {
   }
 };
 
-// export const updateBusiness = async (req, res) => {
-//   try {
-//     const user = req.user;
-//     const { businessId } = req.params;
-//     const { name, description } = req.body;
+export const updateBusiness = async (req, res) => {
+  try {
+    const user = req.user;
+    const { businessId } = req.params;
+    const { name, description } = req.body;
 
-//     const business = await Business.findOne({
-//       _id: businessId,
-//       owner: user._id,
-//     });
-//     if (!business) {
-//       return res
-//         .status(404)
-//         .json({ message: "Business not found or you don't have permission." });
-//     }
+    const business = await Business.findOne({
+      _id: businessId,
+      owner: user._id,
+    });
+    if (!business) {
+      return res
+        .status(404)
+        .json({ message: "Business not found or you don't have permission." });
+    }
 
-//     if (name) business.name = name;
-//     if (description) business.description = description;
+    if (name) business.name = name;
+    if (description) business.description = description;
 
-//     await business.save();
-//     res
-//       .status(200)
-//       .json({ message: "Business updated successfully", business });
-//   } catch (err) {
-//     res.status(500).json({ message: "Server error", error: err.message });
-//   }
-// };
+    await business.save();
+    res
+      .status(200)
+      .json({ message: "Business updated successfully", business });
+  } catch (err) {
+    res.status(500).json({ message: "Server error", error: err.message });
+  }
+};
 
 export const deleteBusiness = async (req, res) => {
   try {

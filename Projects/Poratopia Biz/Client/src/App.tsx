@@ -33,7 +33,6 @@ function App() {
         //   path: "/notifications",
         //   element: <Notifications isLogIn={isLogIn} />,
         // },
-
         {
           path: "/editBusiness/:id",
           element: <EditBiz isLogIn={isLogIn} />,

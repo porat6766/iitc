@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { deleteBusinessApi } from "@/services/businessService.tsx";
 import { getAuthTokenFromCookie } from "@/lib/auth.tsx";
+import socket from "@/lib/socket.tsx";
 
 const UserProfile = ({ isLogIn }: { isLogIn: boolean }) => {
   const navigate = useNavigate();
@@ -29,6 +30,7 @@ const UserProfile = ({ isLogIn }: { isLogIn: boolean }) => {
     },
     onSuccess: (deletedBusinessId: string) => {
       console.log(deletedBusinessId);
+      socket.emit("businessDeleted");
 
       const token = getAuthTokenFromCookie();
 
