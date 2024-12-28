@@ -1,6 +1,6 @@
-import { useUserProfile } from "../../hooks/useUsere.tsx";
+import { useUserBizs, useUserProfile } from "../../hooks/useUsere.tsx";
 import GridBusiness from "../../components/BusinessList/BusinessList.tsx";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import EditUser from "@/components/EditUser/EditUser.tsx";
 import { useNavigate } from "react-router-dom";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
@@ -21,6 +21,11 @@ const UserProfile = ({ isLogIn }: { isLogIn: boolean }) => {
   const [isProfilePage, setIsProfilePage] = useState(true);
   const [isDeleting, setIsDeleting] = useState(false);
   const { data, error, isLoading } = useUserProfile();
+  const {
+    data: buisnesso,
+    error: businessError,
+    isLoading: businessLoading,
+  } = useUserBizs();
   const { data: businesses } = usebusinesses();
 
   const mutation = useMutation({
@@ -87,7 +92,7 @@ const UserProfile = ({ isLogIn }: { isLogIn: boolean }) => {
     });
   };
 
-  if (isLoading) {
+  if (isLoading || businessLoading) {
     return (
       <div className="flex justify-center items-center h-screen">
         <div className="text-yellow-400 text-xl animate-spin">Loading...</div>
@@ -95,7 +100,7 @@ const UserProfile = ({ isLogIn }: { isLogIn: boolean }) => {
     );
   }
 
-  if (error) {
+  if (error || businessError) {
     return (
       <div className="text-red-600 text-xl">Error fetching user profile</div>
     );
@@ -139,7 +144,7 @@ const UserProfile = ({ isLogIn }: { isLogIn: boolean }) => {
               </div>
             )}
             <GridBusiness
-              businesses={data.savedBusinesses}
+              businesses={buisnesso}
               isProfilePage={isProfilePage}
               onDeleteBusiness={onDeleteBusiness}
             />

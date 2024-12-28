@@ -28,6 +28,7 @@ function BusinessList({
 }: BusinessListProps) {
   const navigate = useNavigate();
   const { data: userProfile, error, isLoading } = useUserProfile();
+  const [isSub, setIsSub] = useState<boolean>(false);
   const queryClient = useQueryClient();
 
   const handleNavToEdit = (id: string) => {
@@ -68,8 +69,6 @@ function BusinessList({
     const isSubscribed = business?.subscribers?.some(
       (subscriber) => subscriber._id === userProfile._id
     );
-    console.log(isSubscribed);
-    console.log(useUserProfile);
 
     if (isSubscribed) {
       removeSubMutation.mutate(business._id);
@@ -128,9 +127,9 @@ function BusinessList({
                   {business?.subscribers?.some(
                     (subscriber) => subscriber._id === userProfile._id
                   ) ? (
-                    <FaHeart className=" text-red-500 " />
+                    <FaHeart className="text-red-500 " />
                   ) : (
-                    <FaRegHeart className=" text-white" />
+                    <FaRegHeart className="mr-2 text-white" />
                   )}
                   {business?.subscribers?.some(
                     (subscriber) => subscriber._id === userProfile._id

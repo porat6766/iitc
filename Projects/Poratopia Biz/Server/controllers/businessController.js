@@ -105,6 +105,8 @@ export const deleteBusiness = async (req, res) => {
   try {
     const user = req.user;
     const { businessId } = req.params;
+    console.log(user);
+    console.log(businessId);
 
     const business = await Business.findOneAndDelete({
       _id: businessId,
@@ -116,12 +118,6 @@ export const deleteBusiness = async (req, res) => {
         .status(404)
         .json({ message: "Business not found or you don't have permission." });
     }
-
-    await User.findByIdAndUpdate(
-      user._id,
-      { $pull: { savedBusinesses: business._id } },
-      { new: true }
-    );
 
     res.status(200).json({ message: "Business deleted successfully" });
   } catch (err) {
@@ -163,6 +159,12 @@ export const subscribeToBusiness = async (req, res) => {
     business.subscribers.push(userId);
     await business.save();
 
+    const user = await User.findById(userId);
+    if (!user.savedBusinesses.includes(id)) {
+      user.savedBusinesses.push(id);
+      await user.save();
+    }
+
     res.status(200).json({ message: "Subscribed successfully" });
   } catch (err) {
     res.status(500).json({ message: "Server error", error: err });
@@ -189,6 +191,14 @@ export const unsubscribeFromBusiness = async (req, res) => {
       (sub) => sub.toString() !== userId
     );
     await business.save();
+
+    const user = await User.findById(userId);
+    if (user.savedBusinesses.includes(id)) {
+      user.savedBusinesses = user.savedBusinesses.filter(
+        (businessId) => businessId.toString() !== id
+      );
+      await user.save();
+    }
 
     res.status(200).json({ message: "Unsubscribed successfully" });
   } catch (err) {

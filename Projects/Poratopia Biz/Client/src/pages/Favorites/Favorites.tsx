@@ -1,8 +1,14 @@
 import React from "react";
 import BusinessList from "@/components/BusinessList/BusinessList";
 import { useUserProfile } from "../../hooks/useUsere";
+import { useNavigate } from "react-router-dom";
 
 const Favorites: React.FC = ({ isLogIn }) => {
+  const navigate = useNavigate();
+
+  if (!isLogIn) {
+    navigate("/login");
+  }
   const { data, error, isLoading } = useUserProfile();
   const businesses = data?.savedBusinesses || [];
 

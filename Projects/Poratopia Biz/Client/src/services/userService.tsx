@@ -59,9 +59,26 @@ export const getUserById = async (token: string) => {
         Authorization: `Bearer ${token}`,
       },
     });
-    console.log(response.data.user);
+    console.log(response.data);
 
     return response.data.user;
+  } catch (error) {
+    console.error("Error fetching user:", error);
+    return null;
+  }
+};
+
+export const getUserBussiness = async (token: string) => {
+  try {
+    const response = await api.get("/user/getUserByToken", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    console.log(response.data.user);
+    console.log(response.data);
+
+    return response.data.ownedBusinesses;
   } catch (error) {
     console.error("Error fetching user:", error);
     return null;

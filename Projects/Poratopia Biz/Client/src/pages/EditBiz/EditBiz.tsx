@@ -6,6 +6,8 @@ import { editBusinessApi } from "../../services/businessService.tsx";
 import BusinessForm from "../../components/FormBiz/FormBiz.tsx";
 import socket from "@/lib/socket.tsx";
 import { usebusinesses } from "@/hooks/useBusiness.tsx";
+import { getAuthTokenFromCookie } from "@/lib/auth.tsx";
+import { getUserBussiness } from "@/services/userService.tsx";
 
 const EditBiz = ({ isLogIn }: { isLogIn: boolean }) => {
   const [dataToOmit, setDataToOmit] = useState({});
@@ -32,18 +34,18 @@ const EditBiz = ({ isLogIn }: { isLogIn: boolean }) => {
   console.log(businesses);
 
   useEffect(() => {
-    if (userProfile && userProfile.savedBusinesses) {
-      const business = userProfile.savedBusinesses.find(
-        (biz: any) => biz._id === id
-      );
+    const token = getAuthTokenFromCookie();
+    const fetchBiz = async () => {
+      const bizs = await getUserBussiness(token);
+
+      const business = bizs.find((biz: any) => biz._id === id);
       if (business) {
         setBusinessData(business);
         setDataToOmit(business);
-      } else {
-        return;
       }
-    }
-  }, [userProfile, id]);
+    };
+    fetchBiz();
+  }, []);
 
   const mutation = useMutation({
     mutationFn: async (updatedBusiness: {
