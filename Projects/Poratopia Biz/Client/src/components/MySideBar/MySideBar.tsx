@@ -28,6 +28,7 @@ import {
   LogIn,
   UserPlus,
   Bell,
+  Star,
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -62,6 +63,11 @@ const navList = [
     title: "Notifications",
     url: "/notifications",
     icon: Bell,
+  },
+  {
+    title: "Favorite ",
+    url: "/favoritebusinesses",
+    icon: Star,
   },
 ];
 

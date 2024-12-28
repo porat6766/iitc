@@ -12,7 +12,8 @@ import AddBiz from "./pages/addbiz/addbiz.tsx";
 import EditBiz from "./pages/EditBiz/EditBiz.tsx";
 import ErrorPage from "./pages/ErorPage/ErorPage.tsx";
 import AboutUs from "./pages/aboutus/aboutus.tsx";
-// import Notifications from "./pages/Notifications/Notifications.tsx";
+import Notifications from "./pages/Notifications/Notifications.tsx";
+import Favorites from "./pages/Favorites/Favorites.tsx";
 
 function App() {
   const [isLogIn, setIsLogIn] = useState<boolean>(false);
@@ -29,13 +30,17 @@ function App() {
           path: "/userprofile",
           element: <UserProfile isLogIn={isLogIn} />,
         },
-        // {
-        //   path: "/notifications",
-        //   element: <Notifications isLogIn={isLogIn} />,
-        // },
+        {
+          path: "/notifications",
+          element: <Notifications isLogIn={isLogIn} />,
+        },
         {
           path: "/editBusiness/:id",
           element: <EditBiz isLogIn={isLogIn} />,
+        },
+        {
+          path: "/favoritebusinesses",
+          element: <Favorites isLogIn={isLogIn} />,
         },
         {
           path: "/login",

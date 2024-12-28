@@ -7,21 +7,21 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { deleteBusinessApi } from "@/services/businessService.tsx";
 import { getAuthTokenFromCookie } from "@/lib/auth.tsx";
 import socket from "@/lib/socket.tsx";
+import { usebusinesses } from "@/hooks/useBusiness.tsx";
 
 const UserProfile = ({ isLogIn }: { isLogIn: boolean }) => {
   const navigate = useNavigate();
   const queryClient = useQueryClient();
   console.log(isLogIn);
 
-  useEffect(() => {
-    if (!isLogIn) {
-      navigate("/login");
-    }
-  });
+  if (!isLogIn) {
+    navigate("/login");
+  }
 
   const [isProfilePage, setIsProfilePage] = useState(true);
   const [isDeleting, setIsDeleting] = useState(false);
   const { data, error, isLoading } = useUserProfile();
+  const { data: businesses } = usebusinesses();
 
   const mutation = useMutation({
     mutationFn: deleteBusinessApi,
@@ -30,7 +30,15 @@ const UserProfile = ({ isLogIn }: { isLogIn: boolean }) => {
     },
     onSuccess: (deletedBusinessId: string) => {
       console.log(deletedBusinessId);
-      socket.emit("businessDeleted");
+      const checkBoth = businesses.some(
+        (biz: object) =>
+          biz.subscribers?.some((sub) => sub._id === data._id) &&
+          biz.reviews?.some((review) => review.userId?._id === data._id)
+      );
+      if (checkBoth) {
+        socket.emit("businessDeleted");
+        console.log("Data sent to socket:");
+      }
 
       const token = getAuthTokenFromCookie();
 

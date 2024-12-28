@@ -27,14 +27,14 @@ router.get("/getallbusinesses", getAllBusinesses);
 router.post(
   "/create",
   authenticateUser,
-  authorizeUser(["Gold", "Platinum"]),
+  authorizeUser(["Standard", "Gold", "Platinum"]),
   createBusiness
 );
 
 router.put(
   "/update/:businessId",
   authenticateUser,
-  authorizeUser(["Gold", "Platinum"]),
+  authorizeUser(["Standard", "Gold", "Platinum"]),
   updateBusiness
 );
 

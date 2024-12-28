@@ -8,12 +8,15 @@ import { ToastContainer } from "react-toastify";
 
 function Article({ isLogIn, setIsLogIn }: any) {
   const navigate = useNavigate();
+
   const checkAuth = async () => {
     try {
       const token = getAuthTokenFromCookie();
 
       if (token) {
         const isAuthenticated = await authenticateUser(token);
+        console.log(isAuthenticated);
+
         if (isAuthenticated) {
           setIsLogIn(true);
         }
@@ -35,7 +38,7 @@ function Article({ isLogIn, setIsLogIn }: any) {
       <SidebarProvider>
         <AppSidebar isLogIn={isLogIn} setIsLogIn={setIsLogIn} />
         <div className="flex flex-col  flex-grow h-screen">
-          <header className="fixed top-0 bg-white z-50">
+          <header className="fixed top-0 bg-white z-50 rounded-br-xl">
             <SidebarTrigger />
           </header>
           <main className="flex-grow h-screen">
@@ -49,4 +52,3 @@ function Article({ isLogIn, setIsLogIn }: any) {
 }
 
 export default Article;
-

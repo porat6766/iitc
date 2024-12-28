@@ -8,11 +8,9 @@ const AddBiz = ({ isLogIn }: { isLogIn: boolean }) => {
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  useEffect(() => {
-    if (!isLogIn) {
-      navigate("/login");
-    }
-  });
+  if (!isLogIn) {
+    navigate("/login");
+  }
 
   const mutation = useMutation({
     mutationFn: (newBusiness: {

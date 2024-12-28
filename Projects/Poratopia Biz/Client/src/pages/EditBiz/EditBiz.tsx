@@ -5,12 +5,14 @@ import { useUserProfile } from "../../hooks/useUsere.tsx";
 import { editBusinessApi } from "../../services/businessService.tsx";
 import BusinessForm from "../../components/FormBiz/FormBiz.tsx";
 import socket from "@/lib/socket.tsx";
+import { usebusinesses } from "@/hooks/useBusiness.tsx";
 
 const EditBiz = ({ isLogIn }: { isLogIn: boolean }) => {
   const [dataToOmit, setDataToOmit] = useState({});
   const navigate = useNavigate();
   const { id } = useParams();
   const queryClient = useQueryClient();
+  const { data: businesses, error, isLoading } = usebusinesses();
 
   const [businessData, setBusinessData] = useState<{
     name: string;
@@ -24,11 +26,10 @@ const EditBiz = ({ isLogIn }: { isLogIn: boolean }) => {
     isError: userError,
   } = useUserProfile();
 
-  useEffect(() => {
-    if (!isLogIn) {
-      navigate("/login");
-    }
-  }, [isLogIn, navigate]);
+  if (!isLogIn) {
+    navigate("/login");
+  }
+  console.log(businesses);
 
   useEffect(() => {
     if (userProfile && userProfile.savedBusinesses) {
@@ -58,10 +59,16 @@ const EditBiz = ({ isLogIn }: { isLogIn: boolean }) => {
     onSuccess: () => {
       queryClient.invalidateQueries(["userProfile"]);
       navigate("/businesses");
-      console.log(dataToOmit);
-
-      socket.emit("businessUpdated", dataToOmit);
-      console.log(dataToOmit);
+      console.log(businesses);
+      const checkBoth = businesses.some(
+        (biz: object) =>
+          biz.subscribers?.some((sub) => sub._id === userProfile._id) &&
+          biz.reviews?.some((review) => review.userId?._id === userProfile._id)
+      );
+      if (checkBoth) {
+        socket.emit("businessUpdated", dataToOmit);
+        console.log("Data sent to socket:", dataToOmit);
+      }
     },
     onError: (err: any) => {
       alert(`Error: ${err.message}`);
@@ -75,7 +82,6 @@ const EditBiz = ({ isLogIn }: { isLogIn: boolean }) => {
   }) => {
     mutation.mutate(updatedBusiness);
   };
-
   if (userLoading || !businessData) {
     return <div>Loading...</div>;
   }

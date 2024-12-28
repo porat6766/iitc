@@ -11,7 +11,6 @@ import businessRoutes from "./routes/businessRoutes.js";
 
 dotenv.config();
 
-// חיבור למונגוDB
 mongoose.connect(process.env.URI).then(() => {
   console.log("Connected to MongoDB");
 });

@@ -37,6 +37,7 @@ export const createBusiness = async (req, res) => {
     console.log(user);
 
     const businessCount = await Business.countDocuments({ owner: user._id });
+
     let businessLimit = 1;
 
     if (user.plan === "Gold") businessLimit = 3;
@@ -62,12 +63,6 @@ export const createBusiness = async (req, res) => {
     });
 
     await newBusiness.save();
-
-    await User.findByIdAndUpdate(
-      user._id,
-      { $push: { savedBusinesses: newBusiness._id } },
-      { new: true }
-    );
 
     res.status(201).json({
       message: "Business created successfully",
