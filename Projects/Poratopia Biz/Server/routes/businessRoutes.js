@@ -41,7 +41,7 @@ router.put(
 router.delete(
   "/delete/:businessId",
   authenticateUser,
-  authorizeUser(["Gold", "Platinum"]),
+  authorizeUser(["Standard", "Gold", "Platinum"]),
   deleteBusiness
 );
 
