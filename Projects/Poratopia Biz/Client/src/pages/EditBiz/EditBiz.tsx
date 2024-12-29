@@ -28,10 +28,13 @@ const EditBiz = ({ isLogIn }: { isLogIn: boolean }) => {
     isError: userError,
   } = useUserProfile();
 
-  if (!isLogIn) {
-    navigate("/login");
-  }
-  console.log(businesses);
+  useEffect(() => {
+    setTimeout(() => {
+      if (!isLogIn) {
+        navigate("/login");
+      }
+    }, 3000);
+  }, []);
 
   useEffect(() => {
     const token = getAuthTokenFromCookie();

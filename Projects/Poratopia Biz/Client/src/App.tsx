@@ -1,5 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 //import components
 import SignUp from "./pages/Sign-up/SignUp.tsx";
@@ -15,9 +15,35 @@ import AboutUs from "./pages/aboutus/aboutus.tsx";
 import Notifications from "./pages/Notifications/Notifications.tsx";
 import Favorites from "./pages/Favorites/Favorites.tsx";
 import BuisnessDetails from "./pages/BuisnessDetails/BuisnessDetails.tsx";
+import { deleteAuthTokenCookie, getAuthTokenFromCookie } from "./lib/auth.tsx";
+import { authenticateUser } from "./services/userService.tsx";
 
 function App() {
   const [isLogIn, setIsLogIn] = useState<boolean>(false);
+  const checkAuth = async () => {
+    try {
+      const token = getAuthTokenFromCookie();
+
+      if (token) {
+        const isAuthenticated = await authenticateUser(token);
+        console.log(isAuthenticated);
+
+        if (isAuthenticated) {
+          setIsLogIn(true);
+        }
+      }
+    } catch (error) {
+      console.error("Authentication check failed:", error);
+      deleteAuthTokenCookie();
+    }
+  };
+
+  useEffect(() => {
+    if (!isLogIn) {
+      checkAuth();
+    }
+  }, [isLogIn]);
+
   const router = createBrowserRouter([
     {
       path: "/",

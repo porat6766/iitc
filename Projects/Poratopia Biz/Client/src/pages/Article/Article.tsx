@@ -9,29 +9,29 @@ import { ToastContainer } from "react-toastify";
 function Article({ isLogIn, setIsLogIn }: any) {
   const navigate = useNavigate();
 
-  const checkAuth = async () => {
-    try {
-      const token = getAuthTokenFromCookie();
+  // const checkAuth = async () => {
+  //   try {
+  //     const token = getAuthTokenFromCookie();
 
-      if (token) {
-        const isAuthenticated = await authenticateUser(token);
-        console.log(isAuthenticated);
+  //     if (token) {
+  //       const isAuthenticated = await authenticateUser(token);
+  //       console.log(isAuthenticated);
 
-        if (isAuthenticated) {
-          setIsLogIn(true);
-        }
-      }
-    } catch (error) {
-      console.error("Authentication check failed:", error);
-      deleteAuthTokenCookie();
-    }
-  };
+  //       if (isAuthenticated) {
+  //         setIsLogIn(true);
+  //       }
+  //     }
+  //   } catch (error) {
+  //     console.error("Authentication check failed:", error);
+  //     deleteAuthTokenCookie();
+  //   }
+  // };
 
-  useEffect(() => {
-    if (!isLogIn) {
-      checkAuth();
-    }
-  }, [isLogIn]);
+  // useEffect(() => {
+  //   if (!isLogIn) {
+  //     checkAuth();
+  //   }
+  // }, [isLogIn]);
 
   return (
     <div className=" flex items-center justify-center">

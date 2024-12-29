@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import BusinessList from "@/components/BusinessList/BusinessList";
 import { useUserProfile } from "../../hooks/useUsere";
 import { useNavigate } from "react-router-dom";
@@ -6,9 +6,14 @@ import { useNavigate } from "react-router-dom";
 const Favorites: React.FC = ({ isLogIn }) => {
   const navigate = useNavigate();
 
-  if (!isLogIn) {
-    navigate("/login");
-  }
+  useEffect(() => {
+    setTimeout(() => {
+      if (!isLogIn) {
+        navigate("/login");
+      }
+    }, 3000);
+  }, []);
+
   const { data, error, isLoading } = useUserProfile();
   const businesses = data?.savedBusinesses || [];
 

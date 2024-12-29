@@ -1,6 +1,6 @@
 import { useUserBizs, useUserProfile } from "../../hooks/useUsere.tsx";
 import GridBusiness from "../../components/BusinessList/BusinessList.tsx";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import EditUser from "@/components/EditUser/EditUser.tsx";
 import { useNavigate } from "react-router-dom";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
@@ -12,11 +12,14 @@ import { usebusinesses } from "@/hooks/useBusiness.tsx";
 const UserProfile = ({ isLogIn }: { isLogIn: boolean }) => {
   const navigate = useNavigate();
   const queryClient = useQueryClient();
-  console.log(isLogIn);
 
-  if (!isLogIn) {
-    navigate("/login");
-  }
+  useEffect(() => {
+    setTimeout(() => {
+      if (!isLogIn) {
+        navigate("/login");
+      }
+    }, 3000);
+  }, []);
 
   const [isProfilePage, setIsProfilePage] = useState(true);
   const [isDeleting, setIsDeleting] = useState(false);
