@@ -12,6 +12,7 @@ import {
   getSubscribers,
   deleteReview,
   editReview,
+  getBusinesseById,
 } from "../controllers/businessController.js";
 import {
   authenticateUser,
@@ -21,6 +22,8 @@ import {
 const router = express.Router();
 
 router.get("/my-businesses", authenticateUser, getBusinessesByToken);
+
+router.get("/getbiz/:id", getBusinesseById);
 
 router.get("/getallbusinesses", getAllBusinesses);
 

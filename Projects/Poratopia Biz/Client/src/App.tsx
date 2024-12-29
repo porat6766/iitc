@@ -14,10 +14,10 @@ import ErrorPage from "./pages/ErorPage/ErorPage.tsx";
 import AboutUs from "./pages/aboutus/aboutus.tsx";
 import Notifications from "./pages/Notifications/Notifications.tsx";
 import Favorites from "./pages/Favorites/Favorites.tsx";
+import BuisnessDetails from "./pages/BuisnessDetails/BuisnessDetails.tsx";
 
 function App() {
   const [isLogIn, setIsLogIn] = useState<boolean>(false);
-
   const router = createBrowserRouter([
     {
       path: "/",
@@ -33,6 +33,10 @@ function App() {
         {
           path: "/notifications",
           element: <Notifications isLogIn={isLogIn} />,
+        },
+        {
+          path: "/buisnessdetails/:id",
+          element: <BuisnessDetails />,
         },
         {
           path: "/editBusiness/:id",

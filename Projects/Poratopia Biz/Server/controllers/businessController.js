@@ -19,12 +19,32 @@ export const getAllBusinesses = async (req, res) => {
       .populate("subscribers", "name email");
 
     res.status(200).json({
-      message: "כל העסקים נקלטו בהצלחה",
+      message: "all buisnesses get sucessfully",
       businesses,
     });
   } catch (err) {
     res.status(500).json({
       message: "Failed to retrieve all businesses",
+      error: err.message,
+    });
+  }
+};
+
+export const getBusinesseById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const businesse = await Business.findById({ _id: id }).populate("owner");
+
+    businesse.owner.password = undefined;
+    businesse.owner.plan = undefined;
+
+    res.status(200).json({
+      message: "buisnesse get sucessfully",
+      businesse,
+    });
+  } catch (err) {
+    res.status(500).json({
+      message: "Failed to retrieve all businesse",
       error: err.message,
     });
   }

@@ -17,6 +17,7 @@ interface BusinessListProps {
   businesses: Business[];
   isProfilePage: boolean;
   isLogIn: boolean;
+  isFav: boolean;
   onDeleteBusiness: (businessId: string) => void;
 }
 
@@ -25,11 +26,13 @@ function BusinessList({
   isLogIn,
   isProfilePage,
   onDeleteBusiness,
+  isFav,
 }: BusinessListProps) {
   const navigate = useNavigate();
   const { data: userProfile, error, isLoading } = useUserProfile();
   const [isSub, setIsSub] = useState<boolean>(false);
   const queryClient = useQueryClient();
+  console.log(businesses);
 
   const handleNavToEdit = (id: string) => {
     navigate(`/editBusiness/${id}`);
@@ -56,6 +59,8 @@ function BusinessList({
   };
 
   const handleSubscribe = async (business: Business) => {
+    console.log(business);
+
     if (!isLogIn) {
       alert("Please log in to subscribe");
       return;
@@ -66,7 +71,8 @@ function BusinessList({
     }
 
     const isSubscribed = business?.subscribers?.some(
-      (subscriber) => subscriber._id === userProfile._id
+      (subscriber) =>
+        subscriber._id === userProfile._id || subscriber === userProfile._id
     );
 
     if (isSubscribed) {
@@ -100,6 +106,10 @@ function BusinessList({
     },
   });
 
+  const handleBuisnessDetail = (id: string) => {
+    navigate(`/buisnessdetails/${id}`);
+  };
+
   const backgroundImages = [
     "https://img.freepik.com/free-photo/corporate-business-handshake-business-partners_53876-104764.jpg?semt=ais_hybrid",
   ];
@@ -112,6 +122,9 @@ function BusinessList({
 
         return (
           <div
+            onClick={() => {
+              handleBuisnessDetail(business._id);
+            }}
             key={business._id}
             className="w-full h-full relative p-6 rounded-2xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 cursor-pointer overflow-hidden flex flex-col space-y-6 hover:bg-gradient-to-r from-gray-50 via-white to-gray-100"
             style={{
@@ -148,34 +161,46 @@ function BusinessList({
               )}
             </div>
 
-            {!isProfilePage &&
+            {((!isProfilePage &&
               isLogIn &&
               userProfile &&
-              userProfile._id !== business.owner._id && (
-                <div className="mt-4 flex flex-col items-center space-y-3 z-10 min-w-[130px]">
-                  <button
-                    onClick={() => handleSubscribe(business)}
-                    className="flex items-center justify-center bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-4 py-2 rounded-lg shadow-md hover:bg-gradient-to-l transition-all duration-200 transform hover:scale-110 group"
-                  >
-                    {business.subscribers.some(
-                      (subscriber) => subscriber._id === userProfile._id
-                    ) ? (
-                      <FaHeart className="text-red-500 transition-all duration-200 transform group-hover:scale-125" />
-                    ) : (
-                      <FaRegHeart className="mr-2 text-white transition-all duration-200 transform group-hover:scale-125" />
-                    )}
-                    {business.subscribers.some(
-                      (subscriber) => subscriber._id === userProfile._id
-                    )
-                      ? "Unsubscribe"
-                      : "Subscribe"}
-                  </button>
-                  <DialogComments
-                    comments={business.reviews}
-                    businessId={business._id}
-                  />
-                </div>
-              )}
+              userProfile._id !== business.owner._id) ||
+              isFav) && (
+              <div
+                onClick={(e) => {
+                  e.stopPropagation();
+                }}
+                className="mt-4 flex flex-col items-center space-y-3 z-10 min-w-[130px]"
+              >
+                <button
+                  onClick={() => {
+                    handleSubscribe(business);
+                  }}
+                  className="flex items-center justify-center bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-4 py-2 rounded-lg shadow-md hover:bg-gradient-to-l transition-all duration-200 transform hover:scale-110 group"
+                >
+                  {business.subscribers.some(
+                    (subscriber) =>
+                      subscriber._id === userProfile._id ||
+                      subscriber === userProfile._id
+                  ) ? (
+                    <FaHeart className="text-red-500 transition-all duration-200 transform group-hover:scale-125" />
+                  ) : (
+                    <FaRegHeart className="mr-2 text-white transition-all duration-200 transform group-hover:scale-125" />
+                  )}
+                  {business.subscribers.some(
+                    (subscriber) =>
+                      subscriber._id === userProfile._id ||
+                      subscriber === userProfile._id
+                  )
+                    ? "Unsubscribe"
+                    : "Subscribe"}
+                </button>
+                <DialogComments
+                  comments={business.reviews}
+                  businessId={business._id}
+                />
+              </div>
+            )}
 
             {isProfilePage && (
               <div className="absolute bottom-4 right-4 flex space-x-4 z-10">

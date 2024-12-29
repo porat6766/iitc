@@ -9,8 +9,6 @@ const Businesses = ({ isLogIn }) => {
   const { data: businesses, error, isLoading } = usebusinesses();
   const [filteredBusinesses, setFilteredBusinesses] = useState<Business[]>([]);
   
-
-
   const debouncedSearch = useCallback(
     debounce((searchText: string) => {
       if (!businesses) return;

@@ -34,7 +34,7 @@ const Favorites: React.FC = ({ isLogIn }) => {
     <div className="flex flex-col items-center min-h-screen bg-gray-900 text-white py-8">
       <h1 className="text-3xl font-bold mb-6 text-orange-500">My Favorites</h1>
       {businesses.length > 0 ? (
-        <BusinessList businesses={businesses} />
+        <BusinessList businesses={businesses} isFav={true} isLogIn={isLogIn} />
       ) : (
         <p className="text-lg text-gray-400">No favorite businesses yet.</p>
       )}
