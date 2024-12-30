@@ -1,15 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { checkAuth } from "../../App.tsx";
 
-const NotificationsPage = ({ isLogIn }) => {
+const NotificationsPage = ({ isLogIn, setIsLogIn }) => {
   const [notifications, setNotifications] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!isLogIn) {
-      navigate("/login");
-    }
-  }, [isLogIn, navigate]);
+    const funCheck = async () => {
+      const check = await checkAuth(setIsLogIn);
+      console.log(check);
+
+      if (!check) {
+        navigate("/login");
+      }
+    };
+    funCheck();
+  }, []);
 
   useEffect(() => {
     const fakeNotifications = [

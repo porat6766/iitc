@@ -8,16 +8,23 @@ import { deleteBusinessApi } from "@/services/businessService.tsx";
 import { getAuthTokenFromCookie } from "@/lib/auth.tsx";
 import socket from "@/lib/socket.tsx";
 import { usebusinesses } from "@/hooks/useBusiness.tsx";
+import { checkAuth } from "@/App.tsx";
 
-const UserProfile = ({ isLogIn }: { isLogIn: boolean }) => {
+const UserProfile = ({ isLogIn, setIsLogIn }: { isLogIn: boolean }) => {
   const navigate = useNavigate();
   const queryClient = useQueryClient();
 
   useEffect(() => {
-    if (!isLogIn) {
-      navigate("/login");
-    }
-  }, [isLogIn, navigate]);
+    const funCheck = async () => {
+      const check = await checkAuth(setIsLogIn);
+      console.log(check);
+
+      if (!check) {
+        navigate("/login");
+      }
+    };
+    funCheck();
+  }, []);
 
   const [isProfilePage, setIsProfilePage] = useState(true);
   const [isDeleting, setIsDeleting] = useState(false);
@@ -36,15 +43,15 @@ const UserProfile = ({ isLogIn }: { isLogIn: boolean }) => {
     },
     onSuccess: (deletedBusinessId: string) => {
       console.log(deletedBusinessId);
-      const checkBoth = businesses.some(
-        (biz: object) =>
-          biz.subscribers?.some((sub) => sub._id === data._id) &&
-          biz.reviews?.some((review) => review.userId?._id === data._id)
-      );
-      if (checkBoth) {
-        socket.emit("businessDeleted");
-        console.log("Data sent to socket:");
-      }
+      // const checkBoth = businesses.some(
+      //   (biz: object) =>
+      //     biz.subscribers?.some((sub) => sub._id === data._id) &&
+      //     biz.reviews?.some((review) => review.userId?._id === data._id)
+      // );
+      // if (checkBoth) {
+      socket.emit("businessDeleted");
+      console.log("Data sent to socket:");
+      // }
 
       const token = getAuthTokenFromCookie();
 

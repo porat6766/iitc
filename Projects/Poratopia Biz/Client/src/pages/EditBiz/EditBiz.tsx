@@ -8,6 +8,7 @@ import socket from "@/lib/socket.tsx";
 import { usebusinesses } from "@/hooks/useBusiness.tsx";
 import { getAuthTokenFromCookie } from "@/lib/auth.tsx";
 import { getUserBussiness } from "@/services/userService.tsx";
+import { checkAuth } from "@/App.tsx";
 
 const EditBiz = ({ isLogIn }: { isLogIn: boolean }) => {
   const [dataToOmit, setDataToOmit] = useState({});
@@ -27,14 +28,6 @@ const EditBiz = ({ isLogIn }: { isLogIn: boolean }) => {
     isLoading: userLoading,
     isError: userError,
   } = useUserProfile();
-
-  useEffect(() => {
-    setTimeout(() => {
-      if (!isLogIn) {
-        navigate("/login");
-      }
-    }, 3000);
-  }, []);
 
   useEffect(() => {
     const token = getAuthTokenFromCookie();
@@ -65,15 +58,15 @@ const EditBiz = ({ isLogIn }: { isLogIn: boolean }) => {
       queryClient.invalidateQueries(["userProfile"]);
       navigate("/businesses");
       console.log(businesses);
-      const checkBoth = businesses.some(
-        (biz: object) =>
-          biz.subscribers?.some((sub) => sub._id === userProfile._id) &&
-          biz.reviews?.some((review) => review.userId?._id === userProfile._id)
-      );
-      if (checkBoth) {
-        socket.emit("businessUpdated", dataToOmit);
-        console.log("Data sent to socket:", dataToOmit);
-      }
+      // const checkBoth = businesses.some(
+      //   (biz: object) =>
+      //     biz.subscribers?.some((sub) => sub._id === userProfile._id) &&
+      //     biz.reviews?.some((review) => review.userId?._id === userProfile._id)
+      // );
+      // if (checkBoth) {
+      socket.emit("businessUpdated", dataToOmit);
+      console.log("Data sent to socket:", dataToOmit);
+      // }
     },
     onError: (err: any) => {
       alert(`Error: ${err.message}`);

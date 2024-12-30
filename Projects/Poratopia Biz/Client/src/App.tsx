@@ -18,31 +18,34 @@ import BuisnessDetails from "./pages/BuisnessDetails/BuisnessDetails.tsx";
 import { deleteAuthTokenCookie, getAuthTokenFromCookie } from "./lib/auth.tsx";
 import { authenticateUser } from "./services/userService.tsx";
 
+export const checkAuth = async (setIsLogIn: any) => {
+  try {
+    const token = getAuthTokenFromCookie();
+
+    if (token) {
+      const isAuthenticated = await authenticateUser(token);
+      console.log(isAuthenticated);
+
+      if (isAuthenticated) {
+        setIsLogIn(true);
+        return true;
+      } else {
+        return false;
+      }
+    }
+  } catch (error) {
+    console.error("Authentication check failed:", error);
+    deleteAuthTokenCookie();
+    return false;
+  }
+};
+
 function App() {
   const [isLogIn, setIsLogIn] = useState<boolean>(false);
-  const checkAuth = async () => {
-    try {
-      const token = getAuthTokenFromCookie();
-
-      if (token) {
-        const isAuthenticated = await authenticateUser(token);
-        console.log(isAuthenticated);
-
-        if (isAuthenticated) {
-          setIsLogIn(true);
-        }
-      }
-    } catch (error) {
-      console.error("Authentication check failed:", error);
-      deleteAuthTokenCookie();
-    }
-  };
 
   useEffect(() => {
-    if (!isLogIn) {
-      checkAuth();
-    }
-  }, [isLogIn]);
+    checkAuth(setIsLogIn);
+  }, []);
 
   const router = createBrowserRouter([
     {
@@ -51,14 +54,17 @@ function App() {
       children: [
         { path: "/", element: <HomePage isLogIn={isLogIn} /> },
         { path: "/businesses", element: <Businesses isLogIn={isLogIn} /> },
-        { path: "/addbiz", element: <AddBiz isLogIn={isLogIn} /> },
+        {
+          path: "/addbiz",
+          element: <AddBiz setIsLogIn={setIsLogIn} isLogIn={isLogIn} />,
+        },
         {
           path: "/userprofile",
-          element: <UserProfile isLogIn={isLogIn} />,
+          element: <UserProfile isLogIn={isLogIn} setIsLogIn={setIsLogIn} />,
         },
         {
           path: "/notifications",
-          element: <Notifications isLogIn={isLogIn} />,
+          element: <Notifications isLogIn={isLogIn} setIsLogIn={setIsLogIn} />,
         },
         {
           path: "/buisnessdetails/:id",

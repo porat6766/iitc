@@ -3,16 +3,23 @@ import { useMutation } from "@tanstack/react-query";
 import { addBusinessApi } from "../../services/businessService.tsx";
 import BusinessForm from "../../components/FormBiz/FormBiz.tsx";
 import { useEffect, useState } from "react";
+import { checkAuth } from "@/App.tsx";
 
-const AddBiz = ({ isLogIn }: { isLogIn: boolean }) => {
+const AddBiz = ({ isLogIn, setIsLogIn }: { isLogIn: boolean }) => {
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   useEffect(() => {
-    if (!isLogIn) {
-      navigate("/login");
-    }
-  }, [isLogIn, navigate]);
+    const funCheck = async () => {
+      const check = await checkAuth(setIsLogIn);
+      console.log(check);
+
+      if (!check) {
+        navigate("/login");
+      }
+    };
+    funCheck();
+  }, []);
 
   const mutation = useMutation({
     mutationFn: (newBusiness: {
