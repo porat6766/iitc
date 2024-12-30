@@ -7,12 +7,10 @@ const Favorites: React.FC = ({ isLogIn }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    setTimeout(() => {
-      if (!isLogIn) {
-        navigate("/login");
-      }
-    }, 3000);
-  }, []);
+    if (!isLogIn) {
+      navigate("/login");
+    }
+  }, [isLogIn, navigate]);
 
   const { data, error, isLoading } = useUserProfile();
   const businesses = data?.savedBusinesses || [];

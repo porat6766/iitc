@@ -14,12 +14,10 @@ const UserProfile = ({ isLogIn }: { isLogIn: boolean }) => {
   const queryClient = useQueryClient();
 
   useEffect(() => {
-    setTimeout(() => {
-      if (!isLogIn) {
-        navigate("/login");
-      }
-    }, 3000);
-  }, []);
+    if (!isLogIn) {
+      navigate("/login");
+    }
+  }, [isLogIn, navigate]);
 
   const [isProfilePage, setIsProfilePage] = useState(true);
   const [isDeleting, setIsDeleting] = useState(false);
