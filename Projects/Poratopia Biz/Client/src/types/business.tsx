@@ -3,6 +3,7 @@ export interface Business {
   name: string;
   description: string;
   category: string;
+  subscribers: [];
 }
 
 export type BusinessWithoutId = Omit<Business, "_id">;
