@@ -5,13 +5,7 @@ import BusinessForm from "../../components/FormBiz/FormBiz.tsx";
 import { useEffect, useState } from "react";
 import { checkAuth } from "@/App.tsx";
 
-const AddBiz = ({
-  isLogIn,
-  setIsLogIn,
-}: {
-  isLogIn: boolean;
-  setIsLogIn: any;
-}) => {
+const AddBiz = ({ setIsLogIn }: { setIsLogIn: any }) => {
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 

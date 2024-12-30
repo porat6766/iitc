@@ -32,14 +32,12 @@ const Comments = ({ commentsData, businessId }: CommentsProps) => {
   const [isDeleting, setIsDeleting] = useState<boolean>(false);
   const [isEditing, setIsEditing] = useState<boolean>(false);
 
-  const {
-    data: userProfile,
-    error,
-    isLoading: userProfileLoading,
-  } = useUserProfile();
+  const { data: userProfile } = useUserProfile();
   const queryClient = useQueryClient();
 
   const handleSaveEditComment = (commentId: string, newComment: string) => {
+    console.log(isLoading);
+
     setIsEditing(true);
     setIsLoading(true);
     editCommentMutation.mutate({

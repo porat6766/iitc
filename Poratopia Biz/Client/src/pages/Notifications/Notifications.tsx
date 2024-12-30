@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { checkAuth } from "../../App.tsx";
 
-const NotificationsPage = ({ isLogIn, setIsLogIn }: any) => {
+const NotificationsPage = ({ setIsLogIn }: any) => {
   const [notifications, setNotifications] = useState([]);
   const navigate = useNavigate();
 

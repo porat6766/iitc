@@ -1,10 +1,9 @@
 import AppSidebar from "@/components/MySideBar/MySideBar";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 
 function Article({ isLogIn, setIsLogIn }: any) {
-
   return (
     <div className=" flex items-center justify-center">
       <SidebarProvider>

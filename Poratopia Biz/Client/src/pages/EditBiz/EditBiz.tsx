@@ -1,29 +1,25 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { useUserProfile } from "../../hooks/useUsere.tsx";
 import { editBusinessApi } from "../../services/businessService.tsx";
 import BusinessForm from "../../components/FormBiz/FormBiz.tsx";
 import socket from "@/lib/socket.tsx";
 import { usebusinesses } from "@/hooks/useBusiness.tsx";
 import { getAuthTokenFromCookie } from "@/lib/auth.tsx";
 import { getUserBussiness } from "@/services/userService.tsx";
-import { checkAuth } from "@/App.tsx";
 
-const EditBiz = ({ isLogIn }: { isLogIn: boolean }) => {
+const EditBiz = () => {
   const [dataToOmit, setDataToOmit] = useState({});
   const navigate = useNavigate();
   const { id } = useParams();
   const queryClient = useQueryClient();
-  const { data: businesses, error, isLoading } = usebusinesses();
+  const { data: businesses } = usebusinesses();
 
   const [businessData, setBusinessData] = useState<{
     name: string;
     description: string;
     category: string;
   } | null>(null);
-
-  const { data: userProfile, isLoading: userLoading } = useUserProfile();
 
   useEffect(() => {
     const token = getAuthTokenFromCookie();
@@ -76,7 +72,7 @@ const EditBiz = ({ isLogIn }: { isLogIn: boolean }) => {
   }) => {
     mutation.mutate(updatedBusiness);
   };
-  if (userLoading || !businessData) {
+  if (!businessData) {
     return <div>Loading...</div>;
   }
 

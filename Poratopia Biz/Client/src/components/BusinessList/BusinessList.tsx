@@ -9,17 +9,9 @@ import {
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { getAuthTokenFromCookie } from "@/lib/auth.tsx";
 import DialogComments from "../Comments/DialogComments.tsx";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import socket from "../../lib/socket.tsx";
 import { toast } from "react-toastify";
-
-interface BusinessListProps {
-  businesses: Business[];
-  isProfilePage: boolean;
-  isLogIn: boolean;
-  isFav: boolean;
-  onDeleteBusiness: (businessId: string) => void;
-}
 
 function BusinessList({
   businesses,
@@ -29,8 +21,7 @@ function BusinessList({
   isFav,
 }: any) {
   const navigate = useNavigate();
-  const { data: userProfile, error, isLoading } = useUserProfile();
-  const [isSub, setIsSub] = useState<boolean>(false);
+  const { data: userProfile } = useUserProfile();
   const queryClient = useQueryClient();
   console.log(businesses);
 

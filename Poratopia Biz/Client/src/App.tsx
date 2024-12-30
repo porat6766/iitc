@@ -18,11 +18,6 @@ import BuisnessDetails from "./pages/BuisnessDetails/BuisnessDetails.tsx";
 import { deleteAuthTokenCookie, getAuthTokenFromCookie } from "./lib/auth.tsx";
 import { authenticateUser } from "./services/userService.tsx";
 
-interface MyComponentProps {
-  isLogIn: boolean;
-  setIsLogIn: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
 export const checkAuth = async (
   setIsLogIn: React.Dispatch<React.SetStateAction<boolean>>
 ) => {
@@ -60,7 +55,7 @@ const App = () => {
         { path: "/businesses", element: <Businesses isLogIn={isLogIn} /> },
         {
           path: "/addbiz",
-          element: <AddBiz isLogIn={isLogIn} setIsLogIn={setIsLogIn} />,
+          element: <AddBiz setIsLogIn={setIsLogIn} />,
         },
         {
           path: "/userprofile",
@@ -71,7 +66,7 @@ const App = () => {
           element: <Notifications isLogIn={isLogIn} setIsLogIn={setIsLogIn} />,
         },
         { path: "/buisnessdetails/:id", element: <BuisnessDetails /> },
-        { path: "/editBusiness/:id", element: <EditBiz isLogIn={isLogIn} /> },
+        { path: "/editBusiness/:id", element: <EditBiz /> },
         {
           path: "/favoritebusinesses",
           element: <Favorites isLogIn={isLogIn} />,

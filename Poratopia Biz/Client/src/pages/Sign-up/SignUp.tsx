@@ -9,7 +9,7 @@ interface SignUpProps {
   setIsLogIn: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const SignUp: React.FC<SignUpProps> = ({ isLogIn, setIsLogIn }) => {
+const SignUp: React.FC<SignUpProps> = ({ setIsLogIn }) => {
   const [name, setUsername] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");

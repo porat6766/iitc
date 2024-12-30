@@ -7,16 +7,9 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { deleteBusinessApi } from "@/services/businessService.tsx";
 import { getAuthTokenFromCookie } from "@/lib/auth.tsx";
 import socket from "@/lib/socket.tsx";
-import { usebusinesses } from "@/hooks/useBusiness.tsx";
 import { checkAuth } from "@/App.tsx";
 
-const UserProfile = ({
-  isLogIn,
-  setIsLogIn,
-}: {
-  isLogIn: boolean;
-  setIsLogIn: any;
-}) => {
+const UserProfile = ({ setIsLogIn }: { isLogIn: boolean; setIsLogIn: any }) => {
   const navigate = useNavigate();
   const queryClient = useQueryClient();
 
@@ -38,7 +31,7 @@ const UserProfile = ({
     error: businessError,
     isLoading: businessLoading,
   } = useUserBizs();
-  const { data: businesses } = usebusinesses();
+  console.log(setIsProfilePage);
 
   const mutation = useMutation({
     mutationFn: deleteBusinessApi,

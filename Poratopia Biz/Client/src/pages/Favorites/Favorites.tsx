@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import BusinessList from "@/components/BusinessList/BusinessList";
 import { useUserProfile } from "../../hooks/useUsere";
 import { useNavigate } from "react-router-dom";
