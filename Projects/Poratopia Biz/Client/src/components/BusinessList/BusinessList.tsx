@@ -100,6 +100,7 @@ function BusinessList({
       const token = getAuthTokenFromCookie();
       queryClient.invalidateQueries(["userProfile", token]);
       alert(`Successfully unsubscribed`);
+      
     },
     onError: (err) => {
       alert(`Error: ${err.message}`);

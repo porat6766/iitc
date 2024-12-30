@@ -4,7 +4,6 @@ import { Outlet, useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 
 function Article({ isLogIn, setIsLogIn }: any) {
-  const navigate = useNavigate();
 
   return (
     <div className=" flex items-center justify-center">
