@@ -18,3 +18,4 @@ const businessSchema = new Schema({
 });
 
 export const Business = model("Business", businessSchema);
+
