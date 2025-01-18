@@ -34,12 +34,12 @@ app.get("/", (req: Request, res: Response): void => {
   res.status(200).send({ message: "Server is alive !" });
 });
 
+app.use("/api/users", userRoutes);
+app.use("/api/sites", siteRoutes);
+
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
-
-app.use("/api/users", userRoutes);
-app.use("/api/sites", siteRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
