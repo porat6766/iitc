@@ -1,0 +1,13 @@
+<div class="home-page">
+  <div class="container">
+    <h1 class="title">{{ title }}</h1>
+
+    <!-- הצגת כל המידע שהתקבל -->
+    <h2>{{ blog.name }}</h2>
+    <p><strong>ID:</strong> {{ blog.id }}</p>
+    <p><strong>Description:</strong> {{ blog.description }}</p>
+    <p><strong>Published:</strong> {{ blog.published }}</p>
+    <p><strong>Updated:</strong> {{ blog.updated }}</p>
+    <a [href]="blog.url" target="_blank">Visit Blog</a>
+  </div>
+</div>
