@@ -1,14 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  Validators,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common'; // הוספת CommonModule
 
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.css'],
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, CommonModule], // הוספת CommonModule כאן
   providers: [UserService],
 })
 export class SignUpComponent implements OnInit {
@@ -34,31 +40,33 @@ export class SignUpComponent implements OnInit {
           Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/),
         ],
       ],
-      plan: ['', Validators.required],
+      plan: ['Standard', Validators.required],
     });
   }
 
-  onSubmit(event: Event): void {
-    event.preventDefault();
-    if (this.signupForm.invalid) {
-      return;
+  onSubmit(): void {
+    if (this.signupForm.valid) {
+      
+      console.log(this.signupForm.value);
+      
+      this.submitting = true;
+      this.errorMessage = '';
+      
+      this.userService.signup(this.signupForm.value).subscribe({
+        next: (response) => {
+          console.log(response);
+          this.router.navigate(['/']);
+        },
+        error: (error) => {
+          this.submitting = false;
+          this.errorMessage =
+          error.error?.message || 'Sign up failed, please try again'; // הצגת הודעת שגיאה
+        },
+      });
     }
-
-    this.submitting = true;
-    this.errorMessage = '';
-
-    this.userService.signup(this.signupForm.value).subscribe({
-      next: (response) => {
-        this.router.navigate(['/dashboard']);
-      },
-      error: (error) => {
-        this.submitting = false;
-        this.errorMessage = error.error?.message || 'הרשמה נכשלה. אנא נסה שוב.';
-      },
-    });
-  }
-
-  get name() {
+    }
+    
+    get name() {
     return this.signupForm.get('name');
   }
   get email() {

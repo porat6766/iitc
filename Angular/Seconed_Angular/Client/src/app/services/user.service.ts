@@ -13,27 +13,23 @@ export class UserService {
   constructor(private http: HttpClient) {}
 
   signup(user: Partial<User>): Observable<User> {
-    console.log('lkjhgf');
+    console.log(user);
 
     return this.http
-      .post<User>(`${this.apiUrl}/signup`, user)
+      .post<User>(`http://localhost:3000/api/user/signup`, user)
       .pipe(catchError(this.handleError));
   }
 
-  login(
-    email: string,
-    password: string
-  ): Observable<{ user: User; token: string }> {
+  login(email: string, password: string) {
     return this.http
-      .post<{ user: User; token: string }>(`${this.apiUrl}/login`, {
-        email,
-        password,
-      })
+      .post<{ user: User; token: string }>(
+        'http://localhost:3000/api/user/login',
+        { email, password },
+        { withCredentials: true }
+      )
       .pipe(
         catchError(this.handleError),
         map((response) => {
-          // Store token in localStorage or secure storage
-          localStorage.setItem('authToken', response.token);
           return response;
         })
       );

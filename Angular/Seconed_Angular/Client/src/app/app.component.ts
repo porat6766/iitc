@@ -10,4 +10,5 @@ import { HeaderComponent } from './components/header/header.component';
   styleUrls: ['./app.component.css'],
   encapsulation: ViewEncapsulation.Emulated,
 })
+
 export class AppComponent {}
