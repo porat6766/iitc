@@ -2,8 +2,29 @@
 
 <main>
   <ul id="users">
-    <li>
-      <app-user />
+    <!-- @for (user of users; track user.id){ -->
+    <li *ngFor="let user of users">
+      <app-user
+        [selected]="user.id === selectedUserId"
+        [user]="user"
+        (select)="onSelectUser($event)"
+      />
     </li>
+    <!-- } -->
   </ul>
+
+  <!-- @if (selectedUser) { -->
+  <div *ngIf="selectedUser; else fallback" style="color: rgb(167, 236, 236)">
+    <app-tasks
+      [userId]="selectedUser.id"
+      [name]="selectedUser ? selectedUser.name : ''"
+    />
+  </div>
+  <!-- }@else { -->
+
+  <ng-template #fallback>
+    <h3 style="color: rgb(167, 236, 236)">Select a user to see their tasks!</h3>
+  </ng-template>
+
+  <!-- } -->
 </main>
