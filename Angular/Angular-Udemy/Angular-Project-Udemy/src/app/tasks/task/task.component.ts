@@ -1,8 +1,10 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { ITask } from '../../../models/TaskModel';
+import { ITask } from '../../../models/TaskMmodel';
+import { DatePipe } from '@angular/common';
+
 @Component({
   selector: 'app-task',
-  imports: [],
+  imports: [DatePipe],
   templateUrl: './task.component.html',
   styleUrl: './task.component.css',
 })

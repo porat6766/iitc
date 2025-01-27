@@ -1,24 +1,39 @@
 import { Component, Input } from '@angular/core';
 import { TaskComponent } from './task/task.component';
-import { dummy_Tasks } from '../dummy-tasks';
-
+import { NewTaskComponent } from './new-task/new-task.component';
+import { TaskServices } from './tasks.service';
 @Component({
   selector: 'app-tasks',
-  imports: [TaskComponent],
+  imports: [TaskComponent, NewTaskComponent],
   templateUrl: './tasks.component.html',
   styleUrl: './tasks.component.css',
 })
 export class TasksComponent {
-  @Input() name?: string;
-  @Input() userId?: string;
+  @Input() name!: string;
+  @Input() userId!: string;
+  isAddingTask: boolean = false;
 
-  tasks = dummy_Tasks;
+  constructor(private taskService:TaskServices){}
 
   getTasksOfSelectedUser() {
-    return this.tasks.filter((task) => task.userId === this.userId);
+    return this.taskService.getUserTasks(this.userId)
   }
 
   onCompleteTask(id: string) {
-    this.tasks = this.tasks.filter((task) => task.id !== id);
+    return this.taskService.onCompleteTask(id)
+  }
+
+  addTask() {
+    this.isAddingTask = true;
+  }
+
+  onCancleAddTask() {
+    this.isAddingTask = false;
+  }
+
+  onAddTask(newTask: any) {
+    this.taskService.addTask(this.userId,{
+      ...newTask,
+    });
   }
 }
