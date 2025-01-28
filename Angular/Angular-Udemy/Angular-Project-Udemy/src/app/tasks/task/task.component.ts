@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { ITask } from '../../../models/TaskMmodel';
 import { DatePipe } from '@angular/common';
 import { TaskServices } from '../tasks.service';
@@ -12,14 +12,9 @@ import { TaskServices } from '../tasks.service';
 export class TaskComponent {
   @Input({ required: true }) task!: ITask;
   @Output() complete = new EventEmitter<string>();
-
-constructor(private taskService:TaskServices){}
+private taskService = inject(TaskServices)
 
   onCompleteTask() {
-    this.complete.emit(this.task.id);
-  }
-
- taskService.addTask(newTask){
-
+    this.taskService.onCompleteTask(this.task.id);
   }
 }
