@@ -10,7 +10,7 @@ import { InvestmentService } from '../investment.service';
   styleUrl: './user-input.component.css'
 })
 export class UserInputComponent {
-  enteredInitialInvestment = signal("0");
+  enteredInitialInvestment = signal("0")
   enteredAnnualInvestment = signal("0")
   enteredExpectedReturn = signal("5")
   enteredDuration = signal("10")
@@ -27,6 +27,6 @@ export class UserInputComponent {
     this.enteredInitialInvestment.set("0"),
       this.enteredAnnualInvestment.set("0"),
       this.enteredExpectedReturn.set("0"),
-      this.enteredDuration.set("0"),
+      this.enteredDuration.set("0")
   }
 }
