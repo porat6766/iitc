@@ -1,5 +1,6 @@
-import { Component, output, signal } from '@angular/core';
+import { Component, inject, output, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { MessagesService } from '../message.service';
 
 @Component({
   selector: 'app-new-message',
@@ -9,8 +10,8 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './new-message.component.css',
 })
 export class NewMessageComponent {
-  add = output<string>();
-  enteredText = signal('');
+  private messageService = inject(MessagesService)
+  enteredText = '';
 
   get debugOutput() {
     console.log('[NewMessage] "debugOutput" binding re-evaluated.');
@@ -18,7 +19,7 @@ export class NewMessageComponent {
   }
 
   onSubmit() {
-    this.add.emit(this.enteredText());
-    this.enteredText.set('');
+    this.messageService.addMessage(this.enteredText);
+    this.enteredText = '';
   }
 }
