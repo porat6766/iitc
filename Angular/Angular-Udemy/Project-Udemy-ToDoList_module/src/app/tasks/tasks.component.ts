@@ -4,14 +4,14 @@ import { TaskServices } from './tasks.service';
   selector: 'app-tasks',
   templateUrl: './tasks.component.html',
   styleUrl: './tasks.component.css',
-standalone:false
+  standalone: false
 })
 export class TasksComponent {
   @Input() name!: string;
   @Input() userId!: string;
   isAddingTask: boolean = false;
 
-  constructor(private taskService:TaskServices){}
+  constructor(private taskService: TaskServices) { }
 
   getTasksOfSelectedUser() {
     return this.taskService.getUserTasks(this.userId)
