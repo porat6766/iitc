@@ -1,0 +1,37 @@
+2025-02-04 23:27:49,822 - INFO - Starting Automation Test... \u2705
+2025-02-04 23:27:49,823 - INFO - ====== WebDriver manager ======
+2025-02-04 23:27:50,662 - INFO - Get LATEST chromedriver version for google-chrome
+2025-02-04 23:27:51,033 - INFO - Get LATEST chromedriver version for google-chrome
+2025-02-04 23:27:51,302 - INFO - Get LATEST chromedriver version for google-chrome
+2025-02-04 23:27:51,955 - INFO - WebDriver version 132.0.6834.159 selected
+2025-02-04 23:27:51,958 - INFO - Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/132.0.6834.159/win32/chromedriver-win32.zip
+2025-02-04 23:27:51,968 - INFO - About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/132.0.6834.159/win32/chromedriver-win32.zip
+2025-02-04 23:27:52,177 - INFO - Driver downloading response is 200
+2025-02-04 23:27:53,266 - INFO - Get LATEST chromedriver version for google-chrome
+2025-02-04 23:27:54,076 - INFO - Driver has been saved in cache [C:\Users\porat\.wdm\drivers\chromedriver\win64\132.0.6834.159]
+2025-02-04 23:27:55,265 - INFO - Navigating to the URL... \u2705
+2025-02-04 23:28:01,795 - ERROR - An unexpected error occurred: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=132.0.6834.160)
+Stacktrace:
+	GetHandleVerifier [0x00C774A3+25091]
+	(No symbol) [0x00BFDC04]
+	(No symbol) [0x00ADB373]
+	(No symbol) [0x00ABCEDB]
+	(No symbol) [0x00B47FAF]
+	(No symbol) [0x00B5ADC9]
+	(No symbol) [0x00B41CA6]
+	(No symbol) [0x00B131D5]
+	(No symbol) [0x00B1435D]
+	GetHandleVerifier [0x00F707C3+3142947]
+	GetHandleVerifier [0x00F81A2B+3213195]
+	GetHandleVerifier [0x00F7C412+3191154]
+	GetHandleVerifier [0x00D18720+685184]
+	(No symbol) [0x00C06E1D]
+	(No symbol) [0x00C03E18]
+	(No symbol) [0x00C03FB6]
+	(No symbol) [0x00BF66F0]
+	BaseThreadInitThunk [0x76107BA9+25]
+	RtlInitializeExceptionChain [0x776AC0CB+107]
+	RtlClearBits [0x776AC04F+191]
+
