@@ -35,3 +35,27 @@ Stacktrace:
 	BaseThreadInitThunk [0x00007FFC327D259D+29]
 	RtlUserThreadStart [0x00007FFC33C6AF38+40]
 
+2025-02-04 11:24:56,427 - ERROR - TimeoutException occurred: Message: 
+Stacktrace:
+	GetHandleVerifier [0x00007FF7A7B402F5+28725]
+	(No symbol) [0x00007FF7A7AA2AE0]
+	(No symbol) [0x00007FF7A793510A]
+	(No symbol) [0x00007FF7A79893D2]
+	(No symbol) [0x00007FF7A79895FC]
+	(No symbol) [0x00007FF7A79D3407]
+	(No symbol) [0x00007FF7A79AFFEF]
+	(No symbol) [0x00007FF7A79D0181]
+	(No symbol) [0x00007FF7A79AFD53]
+	(No symbol) [0x00007FF7A797A0E3]
+	(No symbol) [0x00007FF7A797B471]
+	GetHandleVerifier [0x00007FF7A7E6F30D+3366989]
+	GetHandleVerifier [0x00007FF7A7E812F0+3440688]
+	GetHandleVerifier [0x00007FF7A7E778FD+3401277]
+	GetHandleVerifier [0x00007FF7A7C0AAAB+858091]
+	(No symbol) [0x00007FF7A7AAE74F]
+	(No symbol) [0x00007FF7A7AAA304]
+	(No symbol) [0x00007FF7A7AAA49D]
+	(No symbol) [0x00007FF7A7A98B69]
+	BaseThreadInitThunk [0x00007FFC327D259D+29]
+	RtlUserThreadStart [0x00007FFC33C6AF38+40]
+
