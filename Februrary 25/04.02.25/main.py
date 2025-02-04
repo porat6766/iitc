@@ -93,5 +93,3 @@ except NoSuchElementException as e:
     logging.error(f"NoSuchElementException occurred: {e}")
 except Exception as e:
     logging.error(f"An unexpected error occurred: {e}")
-finally:
-    driver.quit()
