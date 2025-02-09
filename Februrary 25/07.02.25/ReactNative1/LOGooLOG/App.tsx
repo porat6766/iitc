@@ -27,9 +27,9 @@ export default function App() {
   };
 
   return (
-    <UserProvider>
-      <NavigationContainer linking={linking}>
-        <View style={tw`w-full`}>
+    <NavigationContainer linking={linking}>
+      <View style={tw`w-full`}>
+        <UserProvider>
           <Header />
           <Stack.Navigator initialRouteName="Home" screenOptions={{ headerShown: false }}>
             <Stack.Screen name="Home">
@@ -39,8 +39,8 @@ export default function App() {
             <Stack.Screen name="Signup" component={Signup} />
             <Stack.Screen name="Recepies" component={Recepies} />
           </Stack.Navigator>
-        </View>
-      </NavigationContainer>
-    </UserProvider >
+        </UserProvider >
+      </View>
+    </NavigationContainer>
   );
 }
