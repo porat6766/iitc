@@ -1,5 +1,5 @@
 {
-  "name": "logoolog",
+  "name": "my-app",
   "version": "1.0.0",
   "main": "index.ts",
   "scripts": {
@@ -15,14 +15,13 @@
     "expo": "~52.0.31",
     "expo-status-bar": "~2.0.1",
     "react": "18.3.1",
-    "react-dom": "^18.3.1",
+    "react-dom": "^18.2.0",
     "react-native": "0.76.7",
     "react-native-web": "^0.19.13",
     "twrnc": "^4.6.1"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
-    "@types/jquery": "^3.5.32",
     "@types/react": "~18.3.12",
     "@types/react-native": "^0.72.8",
     "typescript": "^5.3.3"
