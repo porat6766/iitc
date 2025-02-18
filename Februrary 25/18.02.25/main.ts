@@ -79,3 +79,7 @@ Array.prototype.myFilter_2 = function <T>(this: T[], callback: (item: T) => bool
 const data_5 = data_3.myFilter_2((item) => item > 3);
 
 console.log(data_5);
+
+
+
+
