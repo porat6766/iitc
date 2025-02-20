@@ -19,15 +19,15 @@ const Header = () => {
                 </button>
                 <button
                     className="bg-blue-500 text-white py-2 px-6 mx-2 rounded-md text-lg hover:bg-blue-400 transition-colors"
-                    onClick={() => router.push('/about')}
+                    onClick={() => router.push('/addMission')}
                 >
-                    About
+                    Add
                 </button>
                 <button
                     className="bg-blue-500 text-white py-2 px-6 mx-2 rounded-md text-lg hover:bg-blue-400 transition-colors"
-                    onClick={() => router.push('/contact')}
+                    onClick={() => router.push('/list')}
                 >
-                    Contact
+                    List
                 </button>
             </div>
         </div>
