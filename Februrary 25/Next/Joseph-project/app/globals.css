@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@keyframes wave-animation {
+  0% {
+    background-color: #48BB78;
+  }
+
+  /* Light Green */
+  25% {
+    background-color: #38A169;
+  }
+
+  /* Medium Green */
+  50% {
+    background-color: #2F855A;
+  }
+
+  /* Dark Green */
+  75% {
+    background-color: #48BB78;
+  }
+
+  /* Light Green */
+  100% {
+    background-color: #38A169;
+  }
+
+  /* Medium Green */
+}
+
+.animate-wave {
+  animation: wave-animation 2s ease-in-out infinite;
+}
