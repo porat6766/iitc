@@ -2,6 +2,7 @@ import React from 'react'
 import JosephPhot from "../assets/c7a020be-f777-4b65-bfa0-bea31fe2f37c.png";
 import whatsApp from "../assets/whatsapp.png";
 import backGroundSecuirityPhoto from "../assets/Building-security-systems-1030x687.jpg"; // Your background image path
+import Image from 'next/image';
 
 const PageOneComp = () => {
     return (
@@ -19,7 +20,8 @@ const PageOneComp = () => {
             </header>
 
             <div className="relative w-[300px] h-[300px] rounded-full overflow-hidden border-4 border-green-500 mb-6">
-                <img
+                <Image
+
                     src={JosephPhot.src}
                     alt="יוסף מזרחי"
                     className="w-full h-full object-cover"
@@ -45,7 +47,8 @@ const PageOneComp = () => {
                 rel="noopener noreferrer"
                 className="z-10 fixed bottom-4 left-4 p-6 rounded-full bg-transparent hover:bg-green-700 text-black shadow-lg transition-all flex items-center justify-center"
             >
-                <img
+                <Image
+
                     src={whatsApp.src}
                     alt="WhatsApp"
                     className="w-10 h-10"

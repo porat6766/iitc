@@ -1,8 +1,14 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import securityIcon from "../assets/encrypted.png";
+import Image from 'next/image';
 
 const PageTwo = () => {
-    const [hoveredService, setHoveredService]: any = useState(null);
+    const [hoveredService, setHoveredService] = useState<number | null>(null);
+
+    useEffect(() => {
+        console.log(hoveredService);
+
+    }, [])
 
     const services = [
         {
@@ -115,7 +121,7 @@ const PageTwo = () => {
                         {services.map((service) => (
                             <button
                                 key={service.id}
-                                className="group w-full bg-white hover:bg-blue-100 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex items-center text-center justify-center gap-6 text-right relative overflow-hidden"
+                                className="group w-full bg-white hover:bg-blue-100 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center gap-6 text-right relative overflow-hidden"
                                 onMouseEnter={() => setHoveredService(service.id)}
                                 onMouseLeave={() => setHoveredService(null)}
                             >
@@ -142,7 +148,7 @@ const PageTwo = () => {
                     {/* Icon Section */}
                     <div className="w-full lg:w-1/3 flex justify-center items-center relative">
                         <div className="absolute inset-0 bg-blue-100 rounded-full blur-3xl opacity-20 animate-pulse" />
-                        <img
+                        <Image
                             src={securityIcon.src}
                             alt="Security Icon"
                             className="w-72 h-72 transform transition-transform duration-500 hover:scale-110"
@@ -155,7 +161,7 @@ const PageTwo = () => {
                         {leftServices.map((service) => (
                             <button
                                 key={service.id}
-                                className="group text-center justify-center w-full bg-white hover:bg-blue-100 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex items-center gap-6 text-right relative overflow-hidden"
+                                className="group  justify-center w-full bg-white hover:bg-blue-100 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex items-center gap-6 text-right relative overflow-hidden"
                                 onMouseEnter={() => setHoveredService(service.id)}
                                 onMouseLeave={() => setHoveredService(null)}
                             >
